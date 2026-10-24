@@ -1,0 +1,398 @@
+<title>Threshold Pitch Deck</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400;1,600&family=Public+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one paper sheet per slide, vertical scroll-snap; left-aligned serif headings, big
+   sans numerals set like the app's headline metric. Single theme by choice: it matches the
+   Threshold app ("Paper & Petrol"), which is light-only, so the deck and the demo look alike. */
+:root {
+  --page: #e8e4db;
+  --slide: #f7f5f0;
+  --surface: #ffffff;
+  --ink: #1b1a17;
+  --ink-soft: #4a463f;
+  --ink-faint: #6b665c;
+  --line: #dcd7cc;
+  --line-strong: #8e887c;
+  --track: #e9e5dc;
+  --accent: #1f5c6b;
+  --accent-tint: #e2edef;
+  --alert: #a23a22;
+  --alert-tint: #f6e6e0;
+
+  --serif: "Source Serif 4", "Iowan Old Style", Georgia, serif;
+  --sans: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --step-0: clamp(0.95rem, 0.9rem + 0.3vw, 1.15rem);
+  --step-1: clamp(1.1rem, 0.98rem + 0.55vw, 1.4rem);
+  --step-2: clamp(1.5rem, 1.15rem + 1.5vw, 2.4rem);
+  --step-3: clamp(2rem, 1.4rem + 2.8vw, 3.8rem);
+  --step-4: clamp(3.2rem, 2rem + 5.6vw, 7rem);
+}
+
+html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background: var(--page);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: var(--step-0);
+  line-height: 1.55;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+::selection { background: var(--accent-tint); }
+
+.deck { display: grid; gap: 24px; padding-block: 24px 96px; max-width: 1280px; margin-inline: auto; }
+
+.slide {
+  scroll-snap-align: center;
+  background: var(--slide);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  min-height: min(720px, calc(100dvh - 48px));
+  padding: clamp(24px, 4vw, 64px);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: clamp(20px, 3vw, 40px);
+}
+.slide-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
+.eyebrow {
+  font-family: var(--sans); font-weight: 600; font-size: 0.78rem; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--accent);
+}
+.count { font-family: var(--mono); font-size: 0.78rem; color: var(--ink-faint); font-variant-numeric: tabular-nums; }
+.source { font-family: var(--mono); font-size: 0.74rem; color: var(--ink-faint); border-top: 1px solid var(--line); padding-top: 12px; }
+
+h1, h2 { font-family: var(--serif); font-weight: 600; line-height: 1.04; text-wrap: balance; margin: 0; letter-spacing: -0.015em; color: var(--ink); }
+h1 { font-size: var(--step-4); line-height: 0.98; }
+h2 { font-size: var(--step-3); }
+h1 em, h2 em { font-style: italic; font-weight: 400; color: var(--accent); }
+p { margin: 0; max-width: 62ch; }
+b { font-weight: 600; }
+.lede { font-size: var(--step-1); color: var(--ink-soft); }
+.stack { display: grid; gap: 20px; align-content: center; }
+
+/* 1 · title */
+.title .stack { gap: 28px; }
+.wordmark { display: flex; align-items: center; gap: 14px; }
+.wordmark svg { width: 44px; height: 44px; flex: none; }
+.wordmark span { font-family: var(--serif); font-weight: 600; font-size: var(--step-2); letter-spacing: -0.01em; }
+
+/* 2 · story */
+.story { display: grid; gap: 22px; align-content: center; }
+.story p { font-size: var(--step-1); color: var(--ink-soft); }
+.turned { display: flex; flex-wrap: wrap; gap: 10px; }
+.chip {
+  font-family: var(--sans); font-weight: 600; font-size: 0.85rem; padding: 5px 10px; border-radius: 3px;
+  background: var(--alert-tint); color: var(--alert); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--alert) 22%, transparent);
+}
+.kicker { font-family: var(--serif); font-size: var(--step-3); font-style: italic; line-height: 1.05; color: var(--ink); }
+
+/* big numerals, set like the app's headline metric */
+.big {
+  font-family: var(--sans); font-weight: 600; font-size: var(--step-4); line-height: 0.9;
+  letter-spacing: -0.045em; color: var(--ink); font-variant-numeric: tabular-nums;
+}
+.lead-num { color: var(--accent); }
+
+/* 3 · findings */
+.findings { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(20px, 3vw, 44px); align-content: center; }
+.finding { display: grid; gap: 10px; align-content: start; border-top: 2px solid var(--ink); padding-top: 16px; }
+.finding p { font-size: 1rem; color: var(--ink-soft); }
+.finding .fine { font-family: var(--mono); font-size: 0.78rem; color: var(--ink-faint); }
+.reach { display: flex; flex-wrap: wrap; gap: 8px 28px; font-family: var(--mono); font-size: 0.85rem; color: var(--ink-faint); }
+.reach b { color: var(--ink); font-weight: 500; }
+
+/* 4 · demo */
+.demo { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(20px, 4vw, 56px); align-items: center; }
+.demo ol { margin: 0; padding-left: 1.2em; display: grid; gap: 10px; color: var(--ink-soft); }
+.demo ol::marker, .demo li::marker { color: var(--accent); font-weight: 600; }
+.criteria {
+  font-family: var(--mono); font-size: 0.82rem; line-height: 1.7; white-space: pre-wrap; color: var(--ink);
+  background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 20px; margin: 0; overflow-x: auto;
+}
+.criteria mark { background: var(--alert-tint); color: var(--alert); padding: 0 3px; border-radius: 2px; }
+
+/* 5 · trust headline */
+.trust { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(20px, 4vw, 64px); align-content: center; }
+.metric { display: grid; gap: 12px; align-content: start; }
+.metric .big { font-size: clamp(4.5rem, 2rem + 9vw, 10rem); }
+.metric .label { font-family: var(--sans); font-weight: 600; font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-faint); }
+.metric p { font-size: var(--step-1); color: var(--ink-soft); }
+.trust-note { grid-column: 1 / -1; color: var(--ink-faint); border-top: 1px solid var(--line); padding-top: 16px; }
+
+/* 6 · recall chart */
+.chart-wrap { display: grid; gap: 14px; align-content: center; }
+.chart { display: grid; gap: 7px; }
+.row { display: grid; grid-template-columns: 11rem minmax(0, 1fr) 5.5rem; gap: 14px; align-items: center; }
+.row .name { font-size: 0.92rem; text-align: right; color: var(--ink); }
+.bar { position: relative; height: 18px; background: var(--track); border-radius: 2px; }
+.bar i { position: absolute; inset: 0 auto 0 0; background: var(--accent); border-radius: 2px; }
+.row.low .bar i { background: var(--alert); }
+.row.thin .bar i { background: var(--line-strong); opacity: 0.45; }
+.row.thin .name, .row.thin .val { color: var(--ink-faint); }
+.val { font-family: var(--mono); font-size: 0.82rem; font-variant-numeric: tabular-nums; color: var(--ink); }
+.axis { display: grid; grid-template-columns: 11rem minmax(0, 1fr) 5.5rem; gap: 14px; }
+.ticks { position: relative; height: 1.2em; font-family: var(--mono); font-size: 0.72rem; color: var(--ink-faint); }
+.ticks span { position: absolute; transform: translateX(-50%); }
+.ticks span:first-child { transform: none; }
+.ticks span:last-child { transform: translateX(-100%); }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 0.85rem; color: var(--ink-faint); }
+.legend span { display: inline-flex; align-items: center; gap: 8px; }
+.legend i { width: 12px; height: 12px; border-radius: 2px; display: inline-block; }
+.sw-accent { background: var(--accent); }
+.sw-alert { background: var(--alert); }
+.sw-thin { background: var(--line-strong); opacity: 0.45; }
+
+/* 7 · how */
+.how { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px clamp(24px, 4vw, 56px); align-content: center; }
+.how > div { display: grid; gap: 8px; align-content: start; border-top: 1px solid var(--line); padding-top: 14px; }
+.how h3 { font-family: var(--serif); font-weight: 600; font-size: var(--step-1); margin: 0; color: var(--ink); }
+.how p { color: var(--ink-soft); }
+.how .stat { font-family: var(--mono); font-size: 0.82rem; color: var(--accent); }
+
+/* 8 · limits */
+.limits { display: grid; align-content: center; }
+.limits div { display: grid; grid-template-columns: 15rem minmax(0, 1fr); gap: 24px; padding-block: 16px; border-top: 1px solid var(--line); }
+.limits div:last-child { border-bottom: 1px solid var(--line); }
+.limits b { font-family: var(--serif); font-weight: 600; font-size: 1.05rem; color: var(--ink); }
+.limits p { color: var(--ink-soft); }
+
+/* 9 · close */
+.close .stack { gap: 28px; }
+
+/* nav */
+.nav {
+  position: fixed; right: max(16px, env(safe-area-inset-right, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  display: flex; gap: 8px;
+}
+.nav button {
+  font: 500 0.85rem var(--mono); color: var(--ink); background: var(--surface);
+  border: 1px solid var(--line); border-radius: 4px; padding: 8px 14px; cursor: pointer;
+  box-shadow: 0 1px 2px rgb(27 26 23 / 0.06);
+}
+.nav button:hover { border-color: var(--accent); color: var(--accent); }
+.nav button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+@media (max-width: 760px) {
+  .findings, .trust, .how, .demo { grid-template-columns: 1fr; }
+  .row, .axis { grid-template-columns: 6.5rem minmax(0, 1fr) 4.2rem; gap: 8px; }
+  .row .name { font-size: 0.8rem; }
+  .limits div { grid-template-columns: 1fr; gap: 6px; }
+  .slide { min-height: 0; }
+  html { scroll-snap-type: none; }
+}
+</style>
+
+<main class="deck" id="deck">
+
+  <section class="slide title" aria-label="Title">
+    <div class="slide-head"><span class="eyebrow">Hackachusetts 2026 · Healthcare &amp; biotech</span><span class="count">01 / 09</span></div>
+    <div class="stack">
+      <div class="wordmark">
+        <svg viewBox="0 0 28 28" aria-hidden="true">
+          <rect x="4" y="3" width="20" height="22" rx="1.5" fill="none" stroke="#1b1a17" stroke-width="2"></rect>
+          <rect x="1" y="15" width="26" height="3" rx="1" fill="#1f5c6b"></rect>
+        </svg>
+        <span>Threshold</span>
+      </div>
+      <h1>Who gets left out of a <em>cancer trial</em>, and why.</h1>
+      <p class="lede">An eligibility linter for the people who write trial protocols. It reads every recruiting Massachusetts cancer trial, flags restrictive criteria, and shows who they rule out.</p>
+    </div>
+    <div class="source">ClinicalTrials.gov · CDC PLACES 2023 · MassGIS Environmental Justice 2020</div>
+  </section>
+
+  <section class="slide" aria-label="Problem">
+    <div class="slide-head"><span class="eyebrow">The problem</span><span class="count">02 / 09</span></div>
+    <div class="story">
+      <h2>Finding a trial is hard. Being allowed into one can be harder.</h2>
+      <p>A 58-year-old in Boston has metastatic cancer. Her HIV has been undetectable on treatment for years, and she speaks Spanish at home. Her oncologist finds a promising drug trial, then a study on managing treatment fatigue.</p>
+      <div class="turned"><span class="chip">Drug trial: known HIV infection excluded</span><span class="chip">Fatigue study: must read and speak English</span></div>
+      <p class="kicker">Neither rule is about her cancer.</p>
+    </div>
+    <div class="source">Illustrative patient.</div>
+  </section>
+
+  <section class="slide" aria-label="What we found">
+    <div class="slide-head"><span class="eyebrow">What we found in 1,011 recruiting MA cancer trials</span><span class="count">03 / 09</span></div>
+    <div class="stack" style="gap:32px">
+      <div class="findings">
+        <div class="finding">
+          <div class="big lead-num">1 in 5</div>
+          <p>phase 1–3 drug trials still exclude people with HIV outright, even when it’s well controlled. FDA guidance since 2020 says they should generally be eligible.</p>
+          <span class="fine">22% · 166 of 748 · half of all HIV rules already set FDA-style conditions</span>
+        </div>
+        <div class="finding">
+          <div class="big">3 in 10</div>
+          <p>supportive-care, behavioral and quality-of-life studies require a specific language, usually English.</p>
+          <span class="fine">82 of 263 non-drug studies · drug trials 3.6%</span>
+        </div>
+        <div class="finding">
+          <div class="big">1 in 7</div>
+          <p>households in Suffolk County’s environmental-justice neighborhoods have limited English.</p>
+          <span class="fine">14.4% · EJ block groups only</span>
+        </div>
+      </div>
+      <div class="reach"><span>Trials recruiting by county:</span><span><b>945</b> Suffolk</span><span><b>24</b> Hampden</span><span><b>1</b> Berkshire</span></div>
+    </div>
+    <div class="source">ClinicalTrials.gov API v2, recruiting, ≥1 MA site · MassGIS EJ 2020 (LIMENGHHPCT, population-weighted) · FDA 2020, Cancer Clinical Trial Eligibility Criteria: HIV, HBV, HCV</div>
+  </section>
+
+  <section class="slide" aria-label="Live demo">
+    <div class="slide-head"><span class="eyebrow">Live demo · the Linter</span><span class="count">04 / 09</span></div>
+    <div class="demo">
+      <div class="stack">
+        <h2>Our user writes the protocol.</h2>
+        <ol>
+          <li>Paste draft criteria.</li>
+          <li>Each flag quotes the exact sentence it came from.</li>
+          <li>Each flag carries a suggested rewording and the guidance behind it.</li>
+          <li>The Map shows where the rule bites, county by county.</li>
+        </ol>
+        <p class="lede">The tool suggests. The protocol team decides.</p>
+      </div>
+<pre class="criteria">Inclusion Criteria:
+* Age 18 to 75 years
+* ECOG performance status 0-1
+* Creatinine clearance &gt;= 60 mL/min
+* <mark>Must be able to read and speak English</mark>
+
+Exclusion Criteria:
+* <mark>Known HIV infection</mark>
+* <mark>Brain metastases, treated or untreated</mark>
+* <mark>Any prior malignancy within 5 years</mark>
+* Pregnant or breastfeeding</pre>
+    </div>
+    <div class="source">Demo criteria written for this demo, not taken from a real trial.</div>
+  </section>
+
+  <section class="slide" aria-label="Can you trust it">
+    <div class="slide-head"><span class="eyebrow">Can you trust it? · 10 trials the AI never saw</span><span class="count">05 / 09</span></div>
+    <div class="trust">
+      <div class="metric">
+        <span class="label">Recall</span>
+        <div class="big lead-num">92%</div>
+        <p>It caught <b>46 of the 50</b> restrictions our human labeler found.</p>
+      </div>
+      <div class="metric">
+        <span class="label">Precision</span>
+        <div class="big">98%</div>
+        <p><b>46 of its 47</b> flags were right.</p>
+      </div>
+      <p class="trust-note">We tuned the prompt on 32 labeled trials, then drew 10 new ones at random and labeled them blind. These numbers come only from those 10. On the tuning set: 91% recall, 96% precision.</p>
+    </div>
+    <div class="source">eval/results.md · human gold labels vs. LLM extraction, scored per (trial, category)</div>
+  </section>
+
+  <section class="slide" aria-label="Recall by category">
+    <div class="slide-head"><span class="eyebrow">Recall by category · all 42 labeled trials</span><span class="count">06 / 09</span></div>
+    <div class="chart-wrap">
+      <h2 style="font-size:var(--step-2)">Strong where it matters. We show where it isn’t.</h2>
+      <div class="chart" role="img" aria-label="Recall by category, bar chart">
+        <div class="row"><span class="name">Performance status</span><span class="bar"><i style="width:100%"></i></span><span class="val">26/26 100%</span></div>
+        <div class="row"><span class="name">Pregnancy</span><span class="bar"><i style="width:100%"></i></span><span class="val">19/19 100%</span></div>
+        <div class="row"><span class="name">Cardiac</span><span class="bar"><i style="width:100%"></i></span><span class="val">18/18 100%</span></div>
+        <div class="row low"><span class="name">Prior malignancy</span><span class="bar"><i style="width:72%"></i></span><span class="val">13/18 72%</span></div>
+        <div class="row"><span class="name">Brain metastases</span><span class="bar"><i style="width:94%"></i></span><span class="val">15/16 94%</span></div>
+        <div class="row"><span class="name">Renal</span><span class="bar"><i style="width:87%"></i></span><span class="val">13/15 87%</span></div>
+        <div class="row"><span class="name">Hepatic</span><span class="bar"><i style="width:80%"></i></span><span class="val">12/15 80%</span></div>
+        <div class="row"><span class="name">HIV</span><span class="bar"><i style="width:82%"></i></span><span class="val">9/11 82%</span></div>
+        <div class="row thin"><span class="name">Age</span><span class="bar"><i style="width:100%"></i></span><span class="val">4/4</span></div>
+        <div class="row thin"><span class="name">Language</span><span class="bar"><i style="width:100%"></i></span><span class="val">4/4</span></div>
+        <div class="row thin"><span class="name">Diabetes</span><span class="bar"><i style="width:100%"></i></span><span class="val">2/2</span></div>
+        <div class="row thin"><span class="name">BMI</span><span class="bar"><i style="width:100%"></i></span><span class="val">2/2</span></div>
+        <div class="row thin"><span class="name">Smoking</span><span class="bar"><i style="width:100%"></i></span><span class="val">2/2</span></div>
+        <div class="axis" aria-hidden="true"><span></span><div class="ticks"><span style="left:0">0%</span><span style="left:50%">50%</span><span style="left:100%">100%</span></div><span></span></div>
+      </div>
+      <div class="legend">
+        <span><i class="sw-accent"></i>Recall, caught / labeled</span>
+        <span><i class="sw-alert"></i>Weakest: misses some “no history of …” phrasings</span>
+        <span><i class="sw-thin"></i>Under 5 examples: too few to score</span>
+      </div>
+    </div>
+    <div class="source">Overall 139 of 152 caught (91%). Sorted by number of labeled examples.</div>
+  </section>
+
+  <section class="slide" aria-label="How we earn trust">
+    <div class="slide-head"><span class="eyebrow">How we earn trust</span><span class="count">07 / 09</span></div>
+    <div class="how">
+      <div>
+        <h3>Every flag shows its receipt</h3>
+        <p>Each flag quotes the protocol sentence it came from, so a reviewer can check it in seconds.</p>
+        <span class="stat">3,801 of 3,839 flags match the protocol word for word (99%)</span>
+      </div>
+      <div>
+        <h3>Humans wrote the answer key</h3>
+        <p>Trials were drawn at random with a fixed seed and quotas by phase, sponsor and cancer type. A person labeled every one; the AI never wrote a label.</p>
+        <span class="stat">42 trials · 157 labels · seed 2026</span>
+      </div>
+      <div>
+        <h3>We tested on trials it never saw</h3>
+        <p>After tuning, we drew 10 fresh trials and scored only those for our headline accuracy.</p>
+        <span class="stat">held-out recall 92% · precision 98%</span>
+      </div>
+      <div>
+        <h3>It suggests. People decide.</h3>
+        <p>Rewordings cite FDA or ASCO–Friends guidance. Where no guidance exists, the tool says so instead of inventing a source.</p>
+        <span class="stat">no source claimed for diabetes, BMI, smoking, language, pregnancy</span>
+      </div>
+    </div>
+    <div class="source">eval/pick_gold.py · eval/gold_labels.csv · eval/run_eval.py · docs/sources.md</div>
+  </section>
+
+  <section class="slide" aria-label="What the numbers don't say">
+    <div class="slide-head"><span class="eyebrow">What our numbers don’t say</span><span class="count">08 / 09</span></div>
+    <div class="limits">
+      <div><b>County, not person</b><p>CDC PLACES and MassGIS figures are county or neighborhood estimates. We never add or multiply them across criteria.</p></div>
+      <div><b>Sites, not catchments</b><p>We place a trial in the county of its site. Patients travel, so this is a simplification.</p></div>
+      <div><b>EJ areas only</b><p>Limited-English figures cover environmental-justice block groups, not the whole county.</p></div>
+      <div><b>Small categories</b><p>Diabetes, BMI and smoking have two labeled examples each. We report them, but we don’t score them.</p></div>
+    </div>
+    <div class="source">Guardrails from our project plan, applied on every screen.</div>
+  </section>
+
+  <section class="slide close" aria-label="Why it matters">
+    <div class="slide-head"><span class="eyebrow">Why it matters</span><span class="count">09 / 09</span></div>
+    <div class="stack">
+      <h2>Narrow criteria slow enrollment and decide who gets in. <em>Fixing one rule helps both.</em></h2>
+      <p class="lede">Massachusetts is great at discovery. We fix the step where discovery becomes a trial.</p>
+    </div>
+    <div class="source">Public data: ClinicalTrials.gov, CDC PLACES, MassGIS. Suggestions are for protocol teams to review.</div>
+  </section>
+
+</main>
+
+<nav class="nav" aria-label="Slides">
+  <button type="button" id="prev" aria-label="Previous slide">↑ Prev</button>
+  <button type="button" id="next" aria-label="Next slide">Next ↓</button>
+</nav>
+
+<script>
+(function () {
+  const slides = Array.from(document.querySelectorAll(".slide"));
+  function current() {
+    const mid = window.innerHeight / 2;
+    let best = 0, dist = Infinity;
+    slides.forEach((s, i) => {
+      const r = s.getBoundingClientRect();
+      const d = Math.abs(r.top + r.height / 2 - mid);
+      if (d < dist) { dist = d; best = i; }
+    });
+    return best;
+  }
+  function go(delta) {
+    const i = Math.min(slides.length - 1, Math.max(0, current() + delta));
+    slides[i].scrollIntoView({ block: "center" });
+  }
+  document.getElementById("prev").addEventListener("click", () => go(-1));
+  document.getElementById("next").addEventListener("click", () => go(1));
+  document.addEventListener("keydown", (e) => {
+    if (["ArrowRight", "ArrowDown", "PageDown", " "].includes(e.key)) { e.preventDefault(); go(1); }
+    if (["ArrowLeft", "ArrowUp", "PageUp"].includes(e.key)) { e.preventDefault(); go(-1); }
+  });
+})();
+</script>

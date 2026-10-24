@@ -49,14 +49,19 @@ def main():
     ]
 
     head = next(c for c in categories if c["category"] == HEADLINE_CATEGORY)
+    # Only outright exclusions go against FDA guidance; most conditional HIV rules
+    # ("eligible if on ART with an undetectable viral load") are what FDA recommends.
+    # The headline starts with pctExcluded because the Landscape page shows it as the
+    # big number and strips it from the sentence.
+    conditional = round(head["pctExcluded"] - head["pctAbsolute"], 1)
     stats = {
         "totalTrials": total,
         "defaultCategory": HEADLINE_CATEGORY,
-        "headline": f"{head['pctExcluded']}% of recruiting MA cancer trials restrict "
-                    f"people with HIV, despite FDA guidance to include them",
-        "headlineNote": f"{head['pctAbsolute']}% exclude outright; the rest set conditions "
-                        f"(e.g. CD4 count, viral load). Sources: ClinicalTrials.gov; "
-                        f"FDA 2020 guidance on HIV, HBV and HCV in cancer trials.",
+        "headline": f"{head['pctExcluded']}% of recruiting MA cancer trials set rules for people "
+                    f"with HIV. {head['pctAbsolute']}% still exclude them outright, against FDA guidance.",
+        "headlineNote": f"The other {conditional}% set conditions, most often an undetectable viral "
+                        f"load on treatment, which FDA's 2020 guidance recommends. Sources: "
+                        f"ClinicalTrials.gov; FDA 2020 guidance on HIV, HBV and HCV in cancer trials.",
         "categories": categories,
     }
     out = PROCESSED / "stats.json"
