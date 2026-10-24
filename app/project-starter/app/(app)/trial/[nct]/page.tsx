@@ -44,6 +44,8 @@ export default async function TrialPage({ params }: Params) {
     if (hit) {
       if (!hit.categories.includes(e.category)) hit.categories.push(e.category);
       hit.absolute ||= e.absolute;
+      hit.start = Math.min(hit.start, span.start);
+      hit.end = Math.max(hit.end, span.end);
       return hit.anchor;
     }
     const anchor = `q${marks.length + 1}`;
@@ -114,7 +116,7 @@ export default async function TrialPage({ params }: Params) {
           <div className="mt-4 whitespace-pre-wrap break-words text-sm leading-relaxed text-ink">{parts}</div>
         </LiquidGlassPanel>
 
-        <div className="flex flex-col gap-6 lg:sticky lg:top-[calc(var(--header-offset)+0.5rem)]">
+        <div className="flex flex-col gap-6 lg:sticky lg:top-[calc(var(--header-offset)+0.5rem)] lg:max-h-[calc(100dvh-var(--header-offset)-1rem)] lg:overflow-y-auto">
           <LiquidGlassPanel className="p-5">
             <h2 className="text-base font-semibold text-ink">
               Restrictions found <span className="text-ink-faint">({trial.exclusions.length})</span>

@@ -153,7 +153,7 @@ export function LinterPanel({ context }: { context: LintContext }) {
               This draft restricts <span className="font-semibold">{flagCount} of 13</span> categories (
               {result.flags.filter((f) => f.absolute).length} outright). That&apos;s more than{" "}
               <span className="font-serif text-base font-semibold tabular-nums">
-                {Math.round((100 * fewer) / trialsScored)}%
+                {Math.floor((100 * fewer) / trialsScored)}%
               </span>{" "}
               of {trialsScored.toLocaleString()} recruiting Massachusetts cancer trials (median: {median}), using the
               same keyword rules on each trial&apos;s criteria.

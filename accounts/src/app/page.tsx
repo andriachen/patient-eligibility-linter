@@ -5,7 +5,7 @@ import { button, card } from "@/components/styles";
 import { getCurrentUser } from "@/lib/auth";
 
 const AUDIENCES = [
-  { icon: UserRound, title: "Patients", text: "Share your health basics once, ready for trial matching when it launches." },
+  { icon: UserRound, title: "Patients", text: "Share your health basics once and keep them saved for trial matching." },
   { icon: HandHeart, title: "Caregivers", text: "Answer for the person you're helping, and keep it saved for later." },
   { icon: FlaskConical, title: "Trial teams", text: "Tell us what you run, so we can show who your criteria leave out." },
 ];
@@ -17,7 +17,7 @@ export default async function Home() {
       <section className={card}>
         <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">Save your trial profile</h1>
         <p className="mt-3 max-w-xl text-muted">
-          Answer a few questions, one at a time, and keep them in your account for future trial matching. It
+          Answer a few questions, one at a time, and keep them in your account for trial matching. It
           takes about 2 minutes, and you can stop and pick up where you left off.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">

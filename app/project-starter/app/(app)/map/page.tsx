@@ -14,7 +14,7 @@ export default function MapPage() {
       <PageHeader
         label="Map"
         title="County map"
-        description="Compare how often trials exclude a category with county health and environmental-justice data across Massachusetts."
+        description="Compare how often trials restrict a category with county health and environmental-justice data across Massachusetts."
       />
       <CountyMapPanel counties={data.counties} dataSource={data.source} defaultCategory={defaultCategory} />
       {/* Below the map, so pitch step 4 (pick language, hover Suffolk) still starts at the top. */}

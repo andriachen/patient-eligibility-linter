@@ -1,4 +1,4 @@
-# Language spot-check: 10 of 85 non-drug studies flagged `language`
+# Language spot-check: 10 of 85 non-drug studies flagged `language` (82 after the full rerun; all 10 still flagged)
 
 Random sample (seed 2026) from `exclusions.csv`. For each, decide: does the quoted text **restrict who can enroll** by language?
 Mark **Y** (real restriction), **N** (false positive), or **P** (partial, e.g. only for one questionnaire).
@@ -17,4 +17,4 @@ Mark **Y** (real restriction), **N** (false positive), or **P** (partial, e.g. o
 | 10 | [NCT07227623](https://clinicaltrials.gov/study/NCT07227623) A Digital Health Intervention to Improve Physical Function and Wellnes | NA | Ability to use a digital health intervention that includes verbal and written information in English | |
 
 Result (Andria, 13:35): **9 of 10 real restrictions.** #7 ("in a language understood by the subject") names no language, so it's a false positive under the labeling guide.
-Adjusted estimate: about 29% of non-drug studies (≈77 of 263), so the slide says "nearly 1 in 3". Phase 1–3 drug trials: 2.8% (21 of 748), not spot-checked.
+Adjusted estimate after the rerun: 82 of 263 non-drug studies flagged; at 9/10 real that is about 74 of 263 (28%), so the slide says "nearly 1 in 3". Phase 1–3 drug trials: 3.6% (27 of 748), not spot-checked.
