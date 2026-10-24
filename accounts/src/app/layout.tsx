@@ -21,8 +21,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: { default: "StageShare account", template: "%s · StageShare" },
-  description: "Create a StageShare account and save your trial profile.",
+  title: { default: "Threshold account", template: "%s · Threshold" },
+  description: "Create a Threshold account and save your trial profile.",
 };
 
 export default async function RootLayout({ children }: LayoutProps<"/">) {
@@ -34,7 +34,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
           <div className="mx-auto flex max-w-3xl items-center justify-between gap-4 px-4 py-3">
             <a href={webHref()} className="flex items-center gap-2 font-semibold">
               <HeartPulse aria-hidden className="size-5 text-brand" />
-              StageShare
+              Threshold
             </a>
             {user ? (
               <div className="flex min-w-0 items-center gap-3">

@@ -16,9 +16,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "StageShare | Trial eligibility",
+  title: "Threshold | Trial eligibility",
   description:
-    "StageShare — Massachusetts trial exclusion landscape, map, and criteria linter",
+    "Threshold — who Massachusetts cancer trials leave out: landscape, county map, and criteria linter",
 };
 
 export default function RootLayout({

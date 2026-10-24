@@ -1,4 +1,4 @@
-# Hackachusetts Trial Linter
+# Threshold
 
 Surfaces and lints restrictive clinical-trial eligibility criteria for Massachusetts
 oncology trials, with county-level health and environmental-justice context.

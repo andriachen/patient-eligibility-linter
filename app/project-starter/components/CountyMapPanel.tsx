@@ -22,8 +22,8 @@ type MetricMode = "trial_pct" | "places" | "ej";
 
 const MODES: GlassTab<MetricMode>[] = [
   { id: "trial_pct", label: "Exclusions" },
-  { id: "places", label: "Community health" },
-  { id: "ej", label: "EJ areas" },
+  { id: "places", label: "Health" },
+  { id: "ej", label: "Environmental justice areas" },
 ];
 
 const PLACES_LABELS: Record<string, string> = {
@@ -33,6 +33,13 @@ const PLACES_LABELS: Record<string, string> = {
   mental_distress: "Mental distress",
   checkup: "Annual checkup",
 };
+
+/** MassGIS environmental-justice (EJ) block-group measures, rolled up to the county. */
+const EJ_LABELS = {
+  ej_minority_pct: "Minority residents",
+  ej_limited_english_pct: "Limited-English households",
+} as const;
+type EjMeasure = keyof typeof EJ_LABELS;
 
 /** Light ice → cobalt → deep navy-blue. */
 const SCALE: [number, number, number][] = [
@@ -87,6 +94,7 @@ export function CountyMapPanel({ counties, dataSource, defaultCategory = "hiv" }
     CATEGORY_KEYS.includes(defaultCategory) ? defaultCategory : CATEGORY_KEYS[0],
   );
   const [placesMeasure, setPlacesMeasure] = useState("diabetes");
+  const [ejMeasure, setEjMeasure] = useState<EjMeasure>("ej_minority_pct");
   const [metricMode, setMetricMode] = useState<MetricMode>("trial_pct");
   const [hovered, setHovered] = useState<CountyRecord | null>(null);
 
@@ -98,7 +106,7 @@ export function CountyMapPanel({ counties, dataSource, defaultCategory = "hiv" }
     if (metricMode === "places") {
       return c.places[placesMeasure as keyof typeof c.places] ?? 0;
     }
-    return c.ej.ej_minority_pct;
+    return c.ej[ejMeasure];
   };
 
   const values = counties.map(valueFor);
@@ -117,7 +125,7 @@ export function CountyMapPanel({ counties, dataSource, defaultCategory = "hiv" }
       ? `Trials restricting ${inSentence(category)} (%)`
       : metricMode === "places"
         ? `PLACES: ${PLACES_LABELS[placesMeasure].toLowerCase()} (%)`
-        : "EJ: minority % (EJ areas)";
+        : `Environmental justice areas: ${EJ_LABELS[ejMeasure].replace(/^\w/, (c) => c.toLowerCase())} (%)`;
 
   return (
     <div className="flex flex-col gap-6">
@@ -152,6 +160,17 @@ export function CountyMapPanel({ counties, dataSource, defaultCategory = "hiv" }
             <GlassField label="CDC PLACES measure">
               <GlassSelect value={placesMeasure} onChange={(e) => setPlacesMeasure(e.target.value)}>
                 {Object.entries(PLACES_LABELS).map(([key, label]) => (
+                  <option key={key} value={key}>
+                    {label}
+                  </option>
+                ))}
+              </GlassSelect>
+            </GlassField>
+          ) : null}
+          {metricMode === "ej" ? (
+            <GlassField label="Environmental justice measure">
+              <GlassSelect value={ejMeasure} onChange={(e) => setEjMeasure(e.target.value as EjMeasure)}>
+                {Object.entries(EJ_LABELS).map(([key, label]) => (
                   <option key={key} value={key}>
                     {label}
                   </option>
@@ -233,6 +252,11 @@ export function CountyMapPanel({ counties, dataSource, defaultCategory = "hiv" }
               percentage.
             </p>
           ) : null}
+          <p className="mt-3 text-xs leading-relaxed text-ink-faint">
+            Trials: ClinicalTrials.gov (recruiting, MA sites). Health: CDC PLACES 2023, county crude
+            prevalence. EJ: MassGIS 2020, environmental-justice block groups only. A trial counts in each
+            county where it has a recruiting site; patients travel, so this is a simplification.
+          </p>
         </LiquidGlassPanel>
 
         <LiquidGlassPanel
@@ -264,7 +288,11 @@ export function CountyMapPanel({ counties, dataSource, defaultCategory = "hiv" }
                   }
                 />
                 <DetailRow label="PLACES diabetes" value={`${displayCounty.places.diabetes}%`} />
-                <DetailRow label="EJ minority %" value={`${displayCounty.ej.ej_minority_pct}%`} />
+                <DetailRow label="EJ minority residents" value={`${displayCounty.ej.ej_minority_pct}%`} />
+                <DetailRow
+                  label="EJ limited-English households"
+                  value={`${displayCounty.ej.ej_limited_english_pct}%`}
+                />
               </dl>
             ) : null}
             <p className="mt-4 text-xs leading-relaxed text-ink-faint">
