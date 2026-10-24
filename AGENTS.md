@@ -202,6 +202,18 @@ python -m pipeline.ingest.build_county       # -> county_metrics.csv, county_ej.
   No re-fetch needed (raw pages unchanged); rebuilt trials.csv only. Matters for the
   P2 `age` category.
 
+## 8b. Vercel data deployment (important)
+
+Vercel deploys only the service root `app/project-starter` (per `vercel.json`), so the
+pipeline's `data/processed/` at the REPO ROOT is NOT in the bundle at runtime. Fix:
+`app/project-starter/scripts/copy-data.mjs` runs as `prebuild` (and `predev`) and
+copies the needed files (trials_enriched.json, stats.json, trials/exclusions/
+trial_sites/county_metrics/county_ej .csv) into `app/project-starter/data/processed/`
+(gitignored; regenerated every build). Loaders prefer the in-app copy, falling back to
+`../../data/processed` for local dev. This is also why Landscape/Map now show REAL data
+on Vercel instead of silently falling back to `lib/mock/`. If you add a new processed
+file the app reads, add it to the FILES list in copy-data.mjs.
+
 ## 9. Open questions / blockers
 
 - **DEMO-CRITICAL — Linter tab is still mock.** `app/project-starter` Landscape + Map
