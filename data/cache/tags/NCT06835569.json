@@ -1,0 +1,14 @@
+{
+  "nct_id": "NCT06835569",
+  "prompt_version": "tags-v1-2026-10-24",
+  "tag": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "pancreatic",
+      "lung",
+      "colorectal"
+    ],
+    "age_min": 18,
+    "age_max": null
+  }
+}

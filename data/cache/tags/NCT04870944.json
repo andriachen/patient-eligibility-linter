@@ -1,0 +1,13 @@
+{
+  "nct_id": "NCT04870944",
+  "prompt_version": "tags-v1-2026-10-24",
+  "tag": {
+    "cancer_types": [
+      "brain",
+      "blood",
+      "solid_tumor_basket"
+    ],
+    "age_min": 1,
+    "age_max": 21
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "nct_id": "NCT07358260",
+  "prompt_version": "tags-v1-2026-10-24",
+  "tag": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "other"
+    ],
+    "age_min": 1,
+    "age_max": 30
+  }
+}

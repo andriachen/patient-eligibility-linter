@@ -1,0 +1,11 @@
+{
+  "nct_id": "NCT07027748",
+  "prompt_version": "tags-v1-2026-10-24",
+  "tag": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 1,
+    "age_max": 30
+  }
+}

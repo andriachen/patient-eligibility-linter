@@ -1,0 +1,13 @@
+{
+  "nct_id": "NCT04665206",
+  "prompt_version": "tags-v1-2026-10-24",
+  "tag": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "lung",
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  }
+}

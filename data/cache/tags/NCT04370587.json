@@ -1,0 +1,15 @@
+{
+  "nct_id": "NCT04370587",
+  "prompt_version": "tags-v1-2026-10-24",
+  "tag": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "skin",
+      "head_neck",
+      "other",
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  }
+}

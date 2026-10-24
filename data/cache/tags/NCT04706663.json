@@ -1,0 +1,11 @@
+{
+  "nct_id": "NCT04706663",
+  "prompt_version": "tags-v1-2026-10-24",
+  "tag": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 18,
+    "age_max": 120
+  }
+}
