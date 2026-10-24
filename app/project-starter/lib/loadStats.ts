@@ -13,6 +13,9 @@ export type CategoryStat = {
 export type LandscapeStats = {
   totalTrials: number;
   defaultCategory: string;
+  /** Full headline sentence and source line from eval/build_stats.py (optional). */
+  headline?: string;
+  headlineNote?: string;
   categories: CategoryStat[];
   source: "mock" | "processed";
 };

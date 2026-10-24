@@ -19,14 +19,23 @@ export default function LandscapePage() {
           Landscape
         </p>
         <h1 className="mt-2 text-3xl font-semibold tracking-tight text-[var(--brand-primary)]">
-          <span className="text-[var(--brand-accent)]">{focus.pctExcluded}%</span> of
-          trials exclude {focus.label.toLowerCase()}
+          {stats.headline ? (
+            stats.headline
+          ) : (
+            <>
+              <span className="text-[var(--brand-accent)]">{focus.pctExcluded}%</span> of
+              trials exclude {focus.label.toLowerCase()}
+            </>
+          )}
           {suffix}
         </h1>
         <p className="mt-2 text-sm text-[var(--text-muted)]">
           Based on {stats.totalTrials} Massachusetts-linked trials
           {stats.source === "mock" ? " — mock data" : ""}.
         </p>
+        {stats.headlineNote ? (
+          <p className="mt-1 text-xs text-[var(--text-muted)]">{stats.headlineNote}</p>
+        ) : null}
 
         <CategoryBarChart
           categories={stats.categories}

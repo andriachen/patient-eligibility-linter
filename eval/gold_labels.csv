@@ -105,3 +105,54 @@ NCT06691217,prior_malignancy,,history of blood malignancy or current solid-tumor
 NCT06691217,renal,eGFR ≥ 45,estimated glomerular filtration rate (eGFR) \< 45 ml/min/1.73 m2
 NCT06691217,hepatic,AST/ALT ≤ 3x ULN; bilirubin ≤ 2x ULN,known active or recurrent hepatic disease (including cirrhosis or ALT/AST levels \>3 times the upper limit oof or total bilirubin \>2 times the upper limits of normal)
 NCT06925737,cardiac,,Has uncontrolled or significant cardiovascular disease
+NCT02610426,none,,
+NCT03394365,performance_status,ECOG ≤ 3; Lansky ≥ 20,Eastern Cooperative Oncology Group performance status ≤ 3 for participants aged ≥ 16 years; Lansky score ≥ 20 for participants \< 16 years.
+NCT03394365,hepatic,AST/ALT/bilirubin < 5x ULN,and total bilirubin each \< 5 × the upper limit of normal
+NCT03394365,brain_mets,,Untreated CNS PTLD or CNS PTLD for which the participant is actively receiving CNS-directed chemotherapy (systemic or intrathecal) or radiotherapy at enrollment.
+NCT03394365,prior_malignancy,requiring systemic therapy,other malignancies requiring systemic therapy
+NCT03394365,pregnancy,,Female who is breastfeeding or pregnant
+NCT06040541,performance_status,ECOG 0-1,ECOG performance status 0 or 1
+NCT06040541,brain_mets,,Known or suspected leptomeningeal or active brain metastases or spinal cord compression
+NCT06424327,prior_malignancy,within 3 years,History of other malignancies within the past 3 years
+NCT06589804,performance_status,ECOG ≤ 2,Eastern Cooperative Oncology Group (ECOG) performance status ≤ 2.
+NCT06589804,renal,creatinine ≤ 1.5x ULN or CrCl ≥ 30,Creatinine ≤ 1.5 x upper limit of normal (ULN) OR calculated (calc.) creatinine clearance ≥ 30 mL/min using the Cockcroft-Gault formula for participant with creatinine levels \> 1.5 x institutional ULN.
+NCT06589804,hepatic,bilirubin ≤ 1.5x ULN; AST/ALT ≤ 3x ULN,Total bilirubin ≤ 1.5 x ULN OR direct bilirubin \< ULN for participant with total bilirubin \> 1.5 x institutional ULN.
+NCT06589804,cardiac,NYHA ≤ 2B; no active myocarditis,"To be eligible for this trial, patients should be class 2B or better."
+NCT06589804,hiv,undetectable viral load on ART,HIV-infected patients on effective anti-retroviral therapy with undetectable viral load within 6 months prior to registration are eligible for this trial.
+NCT06589804,brain_mets,,Patients with new or progressive brain metastases (active brain metastases) or leptomeningeal disease are eligible if the treating physician determines that immediate CNS specific treatment is not required and is unlikely to be required during the first cycle of therapy.
+NCT06589804,prior_malignancy,,Patients with a prior or concurrent malignancy whose natural history or treatment does not have the potential to interfere with the safety or efficacy assessment of the investigational regimen should be included.
+NCT06589804,pregnancy,,Not pregnant and not nursing
+NCT06580314,brain_mets,treated and stable off steroids,Patients with treated brain metastases are eligible if follow up brain imaging after central nervous system (CNS) directed therapy shows no evidence of progression and patients are neurologically stable off steroid therapy
+NCT06580314,performance_status,ECOG ≤ 2,Eastern Cooperative Oncology Group (ECOG) performance status of ≤ 2
+NCT06580314,pregnancy,,Not pregnant and not nursing
+NCT06580314,renal,CrCl > 30,Creatinine clearance (CrCL) of \> 30 mL/min by the Cockcroft-Gault formula
+NCT06580314,hepatic,bilirubin ≤ 1.5x ULN; AST/ALT ≤ 3x ULN,Aspartate aminotransferase (AST) and alanine aminotransferase (ALT) ≤ 3 x institutional ULN
+NCT06580314,cardiac,NYHA ≤ 2B,"To be eligible for this trial, patients should be class 2B or better"
+NCT06580314,prior_malignancy,MDS/AML,No history of myelodysplastic syndrome and/or acute myeloid leukemia
+NCT06422806,pregnancy,,Patient must not be pregnant or breast-feeding
+NCT06422806,cardiac,LVEF > 50%; NYHA ≤ 2B,Patient must have a left ventricular ejection fraction (LVEF) \> 50% by either MUGA scan or echocardiogram obtained within 28 days prior to randomization
+NCT06422806,hepatic,bilirubin < 1.2 mg/dL; AST/ALT ≤ 3x ULN,Total bilirubin \< 1.2 mg/dL (must be obtained ≤ 7 days prior to protocol randomization)
+NCT06422806,renal,CrCl ≥ 30,Creatinine clearance ≥ 30 mL/min according to the Cockcroft-Gault formula (must be obtained ≤ 7 days prior to protocol randomization)
+NCT06422806,hiv,undetectable viral load on ART,Human immunodeficiency virus (HIV)-infected patients on effective anti-retroviral therapy with undetectable viral load within 6 months of randomization are eligible for this trial
+NCT06422806,brain_mets,,Patients with new or progressive brain metastases (active brain metastases) or leptomeningeal disease are eligible if the treating physician determines that immediate CNS specific treatment is not required and is unlikely to be required during the first cycle of therapy
+NCT06422806,prior_malignancy,,Patients with a prior or concurrent malignancy whose natural history or treatment does not have the potential to interfere with the safety or efficacy assessment of the investigational regimen are eligible for this trial
+NCT06422806,performance_status,ECOG 0-1,Patient must have an Eastern Cooperative Oncology Group (ECOG) performance status 0-1
+NCT04024761,performance_status,ECOG ≤ 2,ECOG performance status ≤2.
+NCT04024761,hepatic,bilirubin ≤ 1.5x ULN; AST/ALT ≤ 3x ULN,Total bilirubin: ≤1.5 x institutional upper limit of normal (ULN)
+NCT04024761,renal,creatinine ≤ 2.0 mg/dL,Serum creatinine ≤2.0mg/dL
+NCT04024761,cardiac,LVEF > 40%,LVEF \>40%.
+NCT04024761,pregnancy,,Pregnant women are excluded from this study because of the unknown teratogenic risk of CIML NK cells and IL-2
+NCT04024761,hiv,,HIV-positive participants are ineligible because of the potential for pharmacokinetic interactions with anti-retroviral agents used in this study.
+NCT04024761,brain_mets,,"Extramedullary relapse involving immuno-privileged sites (e.g. CNS, testes, eyes)."
+NCT04024761,prior_malignancy,unless remission ≥ 2 years,Individuals with a history of a different malignancy are ineligible except for the following circumstances
+NCT06986174,performance_status,ECOG ≤ 2,ECOG performance status ≤2
+NCT06986174,hepatic,bilirubin ≤ 1.5x ULN; AST/ALT ≤ 2.5x ULN; no Child-Pugh B/C,total bilirubin ≤1.5 times the upper limit of normal
+NCT06986174,renal,CrCl ≥ 30,Creatinine clearance ≥30 ml/min using Cockcroft/Gault equation
+NCT06986174,hiv,uncontrolled,Current history of uncontrolled HIV
+NCT06986174,pregnancy,,Participants who are pregnant
+NCT06986174,brain_mets,,Current CNS involvement by WM
+NCT06986174,prior_malignancy,,History of another malignancy
+NCT06986174,cardiac,QTc ≤ 480; LVEF > 45%; no NYHA 3-4; no MI within 6 months,Prolonged QT Interval with baseline QTc \>480 msec using the Bazette formula
+NCT06712355,performance_status,ECOG 0-1,Eastern Cooperative Oncology Group (ECOG) performance status of 0 or 1.
+NCT06712355,brain_mets,untreated symptomatic or > 2 cm,Participants with untreated brain metastases that are symptomatic or large
+NCT06712355,diabetes,poorly controlled,Have uncontrolled hypertension or poorly controlled diabetes prior to study treatment.
