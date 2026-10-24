@@ -3,7 +3,7 @@
 Surfaces and lints restrictive clinical-trial eligibility criteria for Massachusetts
 oncology trials, with county-level health and environmental-justice context.
 
-Live: https://patient-eligibility-linter.vercel.app (web app at `/`, accounts at `/account`).
+Live: https://patient-eligibility-linter.vercel.app
 
 ## Phases & ownership
 
@@ -13,7 +13,6 @@ Live: https://patient-eligibility-linter.vercel.app (web app at `/`, accounts at
 | P2 LLM | `p2-extract` | `pipeline/extract/`, `data/cache/`, `data/processed/exclusions.csv` |
 | P3 Frontend | `p3-app` | `app/project-starter/` (Next.js; the old Streamlit `app/main.py` is unused) |
 | P4 PM | `p4-eval` | root files, `eval/`, `docs/` |
-| Accounts | `namik` | `accounts/` (Next.js login + profile questions, served at `/account`) |
 
 Each folder has its own `requirements.txt`.
 
@@ -100,7 +99,6 @@ python3.11 -m venv .venv && source .venv/bin/activate
 pip install -r pipeline/ingest/requirements.txt
 pip install -r pipeline/extract/requirements.txt
 cd app/project-starter && npm install && cd ../..   # web app
-cd accounts && npm install && cd ..                 # accounts app (see accounts/README.md)
 ```
 
 ## Running
@@ -118,9 +116,6 @@ python -m pipeline.extract.extract --input data/processed/trials.csv
 
 # Web app: http://localhost:3010 (live Linter: put ANTHROPIC_API_KEY in app/project-starter/.env.local)
 cd app/project-starter && npm run dev
-
-# Accounts app: http://localhost:3000/account
-cd accounts && npm run dev
 
 # P4: eval
 python eval/run_eval.py

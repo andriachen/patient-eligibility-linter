@@ -1,7 +1,7 @@
 // Rules the two patient tools share (the Map's "Who gets turned away" funnel and Find
 // trials), so the same person gets the same answer from both. Pure functions.
 
-/** ECOG score for each Find trials activity answer (same wording as the accounts wizard). */
+/** ECOG score for each Find trials activity answer (plain-English wording). */
 export const ECOG_LEVEL: Record<string, number> = {
   fully_active: 0,
   restricted_but_mobile: 1,
