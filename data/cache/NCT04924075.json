@@ -1,13 +1,14 @@
 {
   "nct_id": "NCT04924075",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
       "absolute": true,
       "section": "inclusion",
-      "source_text": "Cohort B1: VHL Disease-associated tumors:\n\n  * Have a diagnosis of VHL disease as determined by a germline test locally and/or clinical diagnosis\n  * Must be \u226518 years of age",
-      "threshold": "age >= 18"
+      "source_text": "Male and female participants at least 12 years of age (at least 18 years of age for Cohort B1)",
+      "threshold": null
     },
     {
       "category": "prior_malignancy",
@@ -21,7 +22,7 @@
       "absolute": false,
       "section": "exclusion",
       "source_text": "Clinically significant cardiac disease, including unstable angina, acute myocardial infarction, or arterial bypass (CABG) or Percutaneous transluminal coronary angioplasty (PTCA) \u22646 months from study entry, or New York Heart Association Class III or IV congestive heart failure",
-      "threshold": "CABG/PTCA <= 6 months; NYHA Class III or IV"
+      "threshold": "CABG/PTCA \u22646 months; NYHA Class III or IV"
     }
   ]
 }

@@ -20,13 +20,14 @@ from pathlib import Path
 
 from . import llm
 from .logic import dedupe, drop_noise, is_valid, validate_records
+from .prompts import PROMPT_VERSION
 
 ROOT = Path(__file__).resolve().parents[2]
 CACHE_DIR = ROOT / "data" / "cache"
 EXCLUSIONS_OUT = ROOT / "data" / "processed" / "exclusions.csv"
 
 EXCLUSIONS_FIELDS = ["nct_id", "category", "threshold", "absolute", "section", "source_text"]
-MAX_WORKERS = 5
+MAX_WORKERS = 12
 
 
 # --------------------------------------------------------------------------- #
@@ -62,7 +63,9 @@ def _cache_path(nct_id: str) -> Path:
 def extract_one(trial: dict) -> dict:
     """Return the cache record for one trial, calling the model only on a miss.
 
-    Cache record (lossless): {nct_id, model, exclusions:[...raw records...]}.
+    Cache record (lossless): {nct_id, model, prompt_version, exclusions:[...raw...]}.
+    A cache file whose prompt_version != the current PROMPT_VERSION is treated as
+    a MISS and re-extracted, so a prompt change never silently serves stale data.
     Returns a small status dict for the run summary.
     """
     nct_id = trial["nct_id"]
@@ -71,14 +74,21 @@ def extract_one(trial: dict) -> dict:
 
     if path.exists():
         cached = json.loads(path.read_text())
-        records = cached.get("exclusions", [])
-        return {"nct_id": nct_id, "cached": True, "records": records, "text": text}
+        if cached.get("prompt_version") == PROMPT_VERSION:
+            records = cached.get("exclusions", [])
+            return {"nct_id": nct_id, "cached": True, "records": records, "text": text}
+        # else: stale prompt version -> fall through and re-extract
 
     records = llm.extract_raw(text)
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
     path.write_text(
         json.dumps(
-            {"nct_id": nct_id, "model": llm.model_name(), "exclusions": records},
+            {
+                "nct_id": nct_id,
+                "model": llm.model_name(),
+                "prompt_version": PROMPT_VERSION,
+                "exclusions": records,
+            },
             indent=2,
         )
     )

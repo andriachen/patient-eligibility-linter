@@ -1,13 +1,21 @@
 {
   "nct_id": "NCT04251052",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Individuals 35-50 years of age, inclusive",
-      "threshold": "age 35-50 years"
+      "threshold": "age 35-50"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Individuals with a history of any prior cancer who have received cytotoxic chemotherapy within the past 30 days or radiotherapy to abdomen or pelvis at any prior time.",
+      "threshold": "cytotoxic chemotherapy within past 30 days or pelvic/abdominal radiotherapy"
     },
     {
       "category": "pregnancy",
@@ -15,13 +23,6 @@
       "section": "inclusion",
       "source_text": "Individuals who are currently pregnant or plan to become pregnant in the future through assisted reproductive technologies and who have received proper counseling are eligible.",
       "threshold": null
-    },
-    {
-      "category": "prior_malignancy",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Individuals with a history of any prior cancer who have received cytotoxic chemotherapy within the past 30 days or radiotherapy to abdomen or pelvis at any prior time.",
-      "threshold": "cytotoxic chemotherapy within 30 days or pelvic/abdominal radiotherapy at any time"
     }
   ]
 }

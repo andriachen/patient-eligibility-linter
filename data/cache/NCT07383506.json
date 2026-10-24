@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT07383506",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -11,7 +12,7 @@
     },
     {
       "category": "cardiac",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "Have an ejection fraction \u226550%",
       "threshold": "LVEF \u226550%"
@@ -28,7 +29,7 @@
       "absolute": false,
       "section": "exclusion",
       "source_text": "Diagnosis of diabetes mellitus type 1 or uncontrolled diabetes mellitus type 2 (defined as fasting glucose \u2265140 mg/dL and HbA1c \u22657.0%; antihyperglycemic medical management permitted with the exception of insulin)",
-      "threshold": "HbA1c \u22657.0%; fasting glucose \u2265140 mg/dL"
+      "threshold": "fasting glucose \u2265140 mg/dL and HbA1c \u22657.0%"
     }
   ]
 }

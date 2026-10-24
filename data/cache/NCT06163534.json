@@ -1,10 +1,11 @@
 {
   "nct_id": "NCT06163534",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "\u226518 years of age",
       "threshold": null

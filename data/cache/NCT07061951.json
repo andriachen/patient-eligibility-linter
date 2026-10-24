@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT07061951",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -10,11 +11,11 @@
       "threshold": "ECOG \u2264 2"
     },
     {
-      "category": "renal",
+      "category": "hepatic",
       "absolute": true,
       "section": "inclusion",
-      "source_text": "Glomerular filtration rate (GFR) 50 ml/min estimated using the Chronic Kidney Disease Epidemiology Collaboration (CKD-EPI) (Levey et al., 2009)",
-      "threshold": "GFR 50 ml/min"
+      "source_text": "Total bilirubin \u2264 1.5 x institutional upper limit of normal (ULN) unless bilirubin rise is due to Gilbert's syndrome, autoimmune hemolytic anemia,(AIHA), or of non-hepatic origin",
+      "threshold": "bilirubin \u2264 1.5 x ULN"
     },
     {
       "category": "hepatic",
@@ -24,38 +25,17 @@
       "threshold": "AST/ALT \u2264 3 x ULN"
     },
     {
-      "category": "hepatic",
-      "absolute": false,
+      "category": "renal",
+      "absolute": true,
       "section": "inclusion",
-      "source_text": "Total bilirubin \u2264 1.5 x institutional upper limit of normal (ULN) unless bilirubin rise is due to Gilbert's syndrome, autoimmune hemolytic anemia,(AIHA), or of non-hepatic origin",
-      "threshold": "Total bilirubin \u2264 1.5 x ULN"
-    },
-    {
-      "category": "hiv",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Human immunodeficiency virus (HIV)-infected patients on effective anti-retroviral therapy with undetectable viral load within 6 months are eligible for this trial",
-      "threshold": null
-    },
-    {
-      "category": "brain_mets",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Patients with new or progressive brain metastases (active brain metastases) or leptomeningeal disease are eligible if the treating physician determines that immediate CNS specific treatment is not required and is unlikely to be required during the first cycle of therapy",
-      "threshold": null
-    },
-    {
-      "category": "prior_malignancy",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Patients with a prior or concurrent malignancy whose natural history or treatment does not have the potential to interfere with the safety or efficacy assessment of the investigational regimen are eligible for this trial",
-      "threshold": null
+      "source_text": "Glomerular filtration rate (GFR) 50 ml/min estimated using the Chronic Kidney Disease Epidemiology Collaboration (CKD-EPI) (Levey et al., 2009)",
+      "threshold": "GFR 50 ml/min"
     },
     {
       "category": "cardiac",
       "absolute": false,
       "section": "inclusion",
-      "source_text": "To be eligible for this trial, patients should be class II or better",
+      "source_text": "Patients with known history or current symptoms of cardiac disease, or history of treatment with cardiotoxic agents, should have a clinical risk assessment of cardiac function using the New York Heart Association Functional Classification. To be eligible for this trial, patients should be class II or better",
       "threshold": "NYHA class II or better"
     },
     {
@@ -66,6 +46,13 @@
       "threshold": null
     },
     {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "breastfeeding should be discontinued if the mother is treated with mirdametinib",
+      "threshold": null
+    },
+    {
       "category": "cardiac",
       "absolute": true,
       "section": "exclusion",
@@ -73,10 +60,10 @@
       "threshold": "QTc > 470 ms"
     },
     {
-      "category": "age",
+      "category": "smoking",
       "absolute": true,
-      "section": "inclusion",
-      "source_text": "Age \u2265 18 years. Because CLL is extremely rare in persons \\< 18 years of age, children are excluded from this study",
+      "section": "exclusion",
+      "source_text": "Patients with uncontrolled intercurrent illness or any other significant condition(s) that would make participation in this protocol unreasonably hazardous",
       "threshold": null
     }
   ]

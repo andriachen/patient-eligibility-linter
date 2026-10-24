@@ -1,12 +1,48 @@
 {
   "nct_id": "NCT06431594",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
-      "category": "age",
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Evidence of brain metastasis unless asymptomatic;",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
       "absolute": true,
-      "section": "inclusion",
-      "source_text": "Males or females aged 18 years or older (\u226518 years).",
+      "section": "exclusion",
+      "source_text": "Mean Fridericia-corrected QT interval (QTcF) QTcF \\>450 msec or QTcF \\>480 msec for participants with bundle branch blocK;",
+      "threshold": "QTcF > 450 msec (or > 480 msec with bundle branch block)"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Evidence of current clinically significant arrhythmias or ECG abnormalities",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Left ventricular ejection fraction (LVEF) \\< 50%.",
+      "threshold": "LVEF < 50%"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Have severe, uncontrolled or active cardiovascular disorders, serious or poorly controlled hypertension, clinically significant bleeding symptoms or serious arteriovenous thromboembolic events",
+      "threshold": null
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Has current active pneumonitis/ILD or any history of ILD",
       "threshold": null
     }
   ]

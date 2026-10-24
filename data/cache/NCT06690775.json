@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06690775",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -39,14 +40,7 @@
     },
     {
       "category": "pregnancy",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Participants must agree not to donate eggs from the first study drug treatment through 7 months after the last study drug treatment.",
-      "threshold": null
-    },
-    {
-      "category": "pregnancy",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "Participants must agree to not breastfeed from the first dose of study treatment through 90 days after the last dose of study treatment.",
       "threshold": null
@@ -55,28 +49,21 @@
       "category": "brain_mets",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "Progressive or symptomatic brain metastases.",
+      "source_text": "Progressive or symptomatic brain metastases. Brain metastases that have been radiated, are asymptomatic, and on a stable or decreasing dose of steroids are allowed. Leptomeningeal disease is excluded.",
       "threshold": null
     },
     {
-      "category": "brain_mets",
+      "category": "performance_status",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Leptomeningeal disease is excluded.",
+      "source_text": "Grade 2 or greater peripheral neuropathy.",
       "threshold": null
-    },
-    {
-      "category": "renal",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Measured or calculated creatinine clearance with a validated formula",
-      "threshold": "CrCl \u226530 mL/min"
     },
     {
       "category": "cardiac",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "Congestive heart failure >New York Heart Association class 2 within last year",
+      "source_text": "Congestive heart failure \\>New York Heart Association class 2 within last year",
       "threshold": "NYHA >2 within last year"
     },
     {
@@ -88,7 +75,7 @@
     },
     {
       "category": "prior_malignancy",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "History of another cancer within 3 years before Day 1 of study treatment, with the exception of basal or squamous cell carcinoma of the skin that has been definitively treated.",
       "threshold": "within 3 years"

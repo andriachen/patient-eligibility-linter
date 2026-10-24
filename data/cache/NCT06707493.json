@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06707493",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
@@ -52,18 +53,18 @@
       "threshold": null
     },
     {
-      "category": "hiv",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Known diagnosis of active hepatitis B or hepatitis C",
-      "threshold": null
-    },
-    {
       "category": "prior_malignancy",
       "absolute": false,
       "section": "exclusion",
       "source_text": "History of other malignancy(ies) unless",
       "threshold": "disease-free for at least 5 years"
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Known diagnosis of active hepatitis B or hepatitis C",
+      "threshold": null
     },
     {
       "category": "cardiac",
@@ -84,7 +85,7 @@
       "absolute": true,
       "section": "exclusion",
       "source_text": "QTc interval (i.e., Friderica's correction \\[QTcF\\]) \u2265 450 ms or other factors that increase the risk of QT prolongation or arrhythmic events (e.g., heart failure, hypokalemia, family history of long QT interval syndrome) at screening",
-      "threshold": "QTcF >= 450 ms"
+      "threshold": "QTcF \u2265 450 ms"
     },
     {
       "category": "cardiac",

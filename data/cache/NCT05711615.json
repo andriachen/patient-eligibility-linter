@@ -1,20 +1,21 @@
 {
   "nct_id": "NCT05711615",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Age \\>= 18 years. Because no dosing or adverse event data are currently available on the use of peposertib (M3814) in combination with liposomal doxorubicin in patients \\< 18 years of age, children are excluded from this study",
-      "threshold": "age >= 18"
+      "threshold": null
     },
     {
       "category": "performance_status",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status =\\< 2 (Karnofsky \\>= 60%)",
-      "threshold": "ECOG <= 2"
+      "threshold": "ECOG <= 2 (Karnofsky >= 60%)"
     },
     {
       "category": "renal",
@@ -53,14 +54,28 @@
     },
     {
       "category": "pregnancy",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "Female patients of childbearing potential must have a negative urine or serum pregnancy test within 72 hours prior to receiving the first dose of study medication.",
       "threshold": null
     },
     {
-      "category": "cardiac",
+      "category": "hepatic",
       "absolute": true,
+      "section": "inclusion",
+      "source_text": "Total bilirubin =\\< 1.5 x institutional upper limit of normal (ULN)",
+      "threshold": "bilirubin <= 1.5 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Aspartate aminotransferase (AST) (serum glutamic-oxaloacetic transaminase \\[SGOT\\])/alanine aminotransferase (ALT) (serum glutamate pyruvate transaminase \\[SGPT\\]) =\\< 3 x institutional ULN",
+      "threshold": "AST/ALT <= 3 x ULN"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
       "section": "exclusion",
       "source_text": "Patients with left ventricular ejection fraction (LVEF) measurement below the institutional lower limit of normal (LLN) are excluded",
       "threshold": "LVEF below institutional LLN"
@@ -76,7 +91,7 @@
       "category": "pregnancy",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Pregnant women are excluded from this study because peposertib (M3814) is an adenosine triphosphate (ATP)-competitive inhibitor of DNA-protein kinase catalytic subunit (PKcs) with the potential for teratogenic or abortifacient effects.",
+      "source_text": "Pregnant women are excluded from this study",
       "threshold": null
     }
   ]

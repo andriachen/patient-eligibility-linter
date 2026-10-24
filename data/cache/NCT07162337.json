@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT07162337",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
@@ -32,17 +33,10 @@
     },
     {
       "category": "prior_malignancy",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "or any diagnosis of other cancers (with the exception of nonmelanoma skin) in which there has been any active treatment within the last three years.",
-      "threshold": "active treatment within last 3 years"
-    },
-    {
-      "category": "pregnancy",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Pregnant or breastfeeding.",
-      "threshold": null
+      "source_text": "Any prior diagnosis of gastrointestinal cancer (including esophageal, small intestine, colon, pancreatic), or any diagnosis of other cancers (with the exception of nonmelanoma skin) in which there has been any active treatment within the last three years.",
+      "threshold": "active treatment within last 3 years"
     },
     {
       "category": "hiv",
@@ -52,10 +46,24 @@
       "threshold": null
     },
     {
-      "category": "smoking",
+      "category": "pregnancy",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Regular use of aspirin.",
+      "source_text": "Pregnant or breastfeeding.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Uncontrolled intercurrent illness including, but not limited to, ongoing or active infection, symptomatic congestive heart failure, unstable angina pectoris, cardiac arrhythmia, or psychiatric illness/social situations that would limit compliance with study requirements.",
+      "threshold": null
+    },
+    {
+      "category": "smoking",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Strict dietary patterns (e.g., vegan, carnivore, kosher, low-carb etc.).",
       "threshold": null
     }
   ]

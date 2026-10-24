@@ -1,17 +1,18 @@
 {
   "nct_id": "NCT06138275",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
-      "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status \u2264 1.",
+      "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status \u2264 1",
       "threshold": "ECOG \u2264 1"
     },
     {
       "category": "cardiac",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
       "source_text": "left ventricular ejection fraction (LVEF) \u226540% as determined by a multiple gated acquisition scan (MUGA) scan or echocardiogram (ECHO).",
       "threshold": "LVEF \u226540%"
@@ -28,7 +29,7 @@
       "absolute": true,
       "section": "inclusion",
       "source_text": "Serum total bilirubin \\<2 mg/dL; and",
-      "threshold": "total bilirubin <2 mg/dL"
+      "threshold": "bilirubin <2 mg/dL"
     },
     {
       "category": "hepatic",
@@ -36,6 +37,13 @@
       "section": "inclusion",
       "source_text": "Serum aspartate transaminase (ALT) and/or aspartate transaminase (AST) values \\< 2.5 \u00d7 the upper limit of normal (ULN) of the institutional laboratory reference range.",
       "threshold": "AST/ALT < 2.5 \u00d7 ULN"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Any other active malignancy within 3 years prior to enrollment, except for adequately treated basal cell or squamous cell skin cancer, or carcinoma in situ.",
+      "threshold": "within 3 years"
     },
     {
       "category": "hiv",
@@ -46,30 +54,30 @@
     },
     {
       "category": "cardiac",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Impaired cardiovascular function or clinically significant cardiovascular diseases, defined as any of the following within 6 months prior to enrollment:",
-      "threshold": null
-    },
-    {
-      "category": "cardiac",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "Prolonged QT syndrome (or triplicate average QTcF \\>470 msec at screening).",
       "threshold": "QTcF > 470 msec"
-    },
-    {
-      "category": "prior_malignancy",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Any other active malignancy within 3 years prior to enrollment, except for adequately treated basal cell or squamous cell skin cancer, or carcinoma in situ.",
-      "threshold": "within 3 years"
     },
     {
       "category": "pregnancy",
       "absolute": true,
       "section": "exclusion",
       "source_text": "Pregnant women are excluded from this study because elranatamab is an anti-BCMA bispecific antibody agent with the potential for teratogenic or abortifacient effects.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "breastfeeding should be discontinued if the mother is treated with elranatamab.",
+      "threshold": null
+    },
+    {
+      "category": "language",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Ability to understand and the willingness to sign a written informed consent document. (Providing consents in as many languages as possible is encouraged)",
       "threshold": null
     }
   ]

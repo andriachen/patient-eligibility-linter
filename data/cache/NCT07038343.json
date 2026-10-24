@@ -1,12 +1,13 @@
 {
   "nct_id": "NCT07038343",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
       "absolute": true,
       "section": "inclusion",
-      "source_text": "Eastern Cooperative Oncology Group (ECOG) Performance Status of \u2264 1",
+      "source_text": "with an Eastern Cooperative Oncology Group (ECOG) Performance Status of \u2264 1",
       "threshold": "ECOG \u2264 1"
     },
     {
@@ -28,13 +29,6 @@
       "absolute": true,
       "section": "exclusion",
       "source_text": "Patients with suspected or confirmed leptomeningeal disease are not eligible, even if treated.",
-      "threshold": null
-    },
-    {
-      "category": "cardiac",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "History of any serious cardiovascular condition.",
       "threshold": null
     }
   ]

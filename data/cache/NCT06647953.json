@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06647953",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
@@ -13,33 +14,33 @@
       "category": "renal",
       "absolute": false,
       "section": "inclusion",
-      "source_text": "A glomerular filtration rate (GFR) \u2265 60 mL/min/1.73 m\\^2. GFR must be performed using direct measurement with a nuclear blood sampling method OR direct small molecule clearance method (iothalamate or other molecule per institutional standard)",
+      "source_text": "A glomerular filtration rate (GFR) \u2265 60 mL/min/1.73 m\\^2",
       "threshold": "GFR >= 60 mL/min/1.73 m^2"
     },
     {
       "category": "renal",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
       "source_text": "Maximum Serum Creatinine (mg/dL): 0.4 (Male), 0.4 (Female)",
-      "threshold": "creatinine age-/sex-based maximum (0.4 to 1.7 mg/dL)"
+      "threshold": "creatinine age-based maximum (e.g. 0.4 mg/dL at 1 month to <6 months)"
     },
     {
       "category": "hepatic",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
       "source_text": "Total bilirubin \u2264 1.5 x upper limit of normal (ULN) for age",
       "threshold": "bilirubin <= 1.5 x ULN"
     },
     {
       "category": "hepatic",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
       "source_text": "Serum glutamate pyruvate transaminase (SGPT) (alanine aminotransferase \\[ALT\\]) \u2264 135 U/L",
       "threshold": "ALT <= 135 U/L"
     },
     {
       "category": "cardiac",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
       "source_text": "Shortening fraction of \u2265 27% by echocardiogram, or ejection fraction of \u2265 50% by radionuclide angiogram",
       "threshold": "SF >= 27% or EF >= 50%"

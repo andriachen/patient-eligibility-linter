@@ -1,14 +1,8 @@
 {
   "nct_id": "NCT06106945",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
-    {
-      "category": "age",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Participants must be at least 18 years of age or the legal age of consent in the jurisdiction",
-      "threshold": null
-    },
     {
       "category": "performance_status",
       "absolute": true,
@@ -24,18 +18,18 @@
       "threshold": null
     },
     {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participants who have severe cardiovascular disease which is not adequately controlled;",
+      "threshold": null
+    },
+    {
       "category": "prior_malignancy",
       "absolute": true,
       "section": "exclusion",
       "source_text": "Participants with a history of prior malignancy other than MM within 3 years prior to first dose of study intervention;",
       "threshold": "within 3 years"
-    },
-    {
-      "category": "hiv",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Participants who have a history of immunodeficiency disease;",
-      "threshold": null
     }
   ]
 }

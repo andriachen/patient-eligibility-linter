@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06849713",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -14,28 +15,7 @@
       "absolute": false,
       "section": "inclusion",
       "source_text": "CrCl or GFR \u226530 mL/min as estimated by the Cockcroft-Gault equation, the CKD-EPI equation, or as measured by 24-hour urine collection",
-      "threshold": "CrCl or GFR >= 30 mL/min"
-    },
-    {
-      "category": "hepatic",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "total bilirubin \u22642 x institutional upper limit of normal (ULN), or \u22643 x institutional ULN if due to Gilbert's syndrome, or with PI approval if clearly due to disease under study",
-      "threshold": "total bilirubin <= 2 x ULN"
-    },
-    {
-      "category": "hepatic",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "AST(SGOT)/ALT(SGPT) \u22642.5 x \u00d7 institutional ULN",
-      "threshold": "AST/ALT <= 2.5 x ULN"
-    },
-    {
-      "category": "pregnancy",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "For females of childbearing potential, a serum pregnancy test must be negative within screening period.",
-      "threshold": null
+      "threshold": "CrCl or GFR \u226530 mL/min"
     },
     {
       "category": "cardiac",
@@ -59,15 +39,8 @@
       "threshold": "QTcF > 480 ms"
     },
     {
-      "category": "hiv",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "History of HIV infection or active hepatitis B (chronic or acute) or hepatitis C infection.",
-      "threshold": null
-    },
-    {
       "category": "brain_mets",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "Known central nervous system involvement with CLL or SLL.",
       "threshold": null
@@ -80,10 +53,24 @@
       "threshold": "within 2 years"
     },
     {
-      "category": "smoking",
+      "category": "hiv",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "Known psychiatric illness or social situation that would interfere with study adherence.",
+      "source_text": "History of HIV infection or active hepatitis B (chronic or acute) or hepatitis C infection.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant women are excluded from this study given potential for teratogenic or abortifacient effects.",
+      "threshold": null
+    },
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age \u226518 years.",
       "threshold": null
     }
   ]

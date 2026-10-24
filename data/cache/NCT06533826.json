@@ -1,12 +1,13 @@
 {
   "nct_id": "NCT06533826",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
-      "category": "age",
-      "absolute": true,
+      "category": "brain_mets",
+      "absolute": false,
       "section": "inclusion",
-      "source_text": "The subject is \u2265 18 years old.",
+      "source_text": "Patients with new or progressive brain metastases (active brain metastases) or leptomeningeal disease are eligible if the treating physician determines that immediate CNS specific treatment is not required and is unlikely to be required during the first cycle of therapy, there is no requirement for corticosteroids, and the patient is asymptomatic.",
       "threshold": null
     },
     {
@@ -28,14 +29,14 @@
       "absolute": false,
       "section": "inclusion",
       "source_text": "Total bilirubin \u2264 1.5 \u00d7 institutional upper limit of normal (ULN) (or \u2264 3.0 x ULN in patients with documented Gilbert's Syndrome)",
-      "threshold": "bilirubin > 1.5 x ULN (> 3.0 x ULN if Gilbert's)"
+      "threshold": "bilirubin > 1.5 x ULN"
     },
     {
       "category": "hepatic",
       "absolute": false,
       "section": "inclusion",
       "source_text": "AST(SGOT)/ALT(SGPT) \u2264 2.5 \u00d7 institutional ULN or \u2264 5.0 \u00d7 institutional ULN for participants with documented liver metastases",
-      "threshold": "AST/ALT > 2.5 x ULN (> 5.0 x ULN with liver metastases)"
+      "threshold": "AST/ALT > 2.5 x ULN (or > 5.0 x ULN with liver metastases)"
     },
     {
       "category": "cardiac",
@@ -46,9 +47,9 @@
     },
     {
       "category": "pregnancy",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Women who are pregnant or breastfeeding or planning to become pregnant.",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Female subjects of childbearing potential must have a negative serum or urine pregnancy test within 2 weeks prior to study treatment initiation.",
       "threshold": null
     },
     {
@@ -56,21 +57,21 @@
       "absolute": true,
       "section": "exclusion",
       "source_text": "Corrected QT interval (QTcF) prolongation to \\> 470 msec (females) or \\>450 msec (males).",
-      "threshold": "QTcF > 470 msec (female), > 450 msec (male)"
+      "threshold": "QTcF > 470 msec (female) or > 450 msec (male)"
     },
     {
       "category": "cardiac",
       "absolute": true,
       "section": "exclusion",
       "source_text": "Any of the following procedures or conditions in 6 months prior to enrollment: coronary artery bypass graft, angioplasty, vascular stent, myocardial infarction, angina pectoris, congestive heart failure (New York Heart Association Functional Classification Grade \u22652), and stroke.",
-      "threshold": "within 6 months; NYHA Grade >= 2"
+      "threshold": "within 6 months; NYHA grade >= 2"
     },
     {
       "category": "prior_malignancy",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "Individuals with a history of other malignancies are eligible if they have been disease-free for at least 3 years or are deemed by the investigator to be at low risk for recurrence of that malignancy.",
-      "threshold": "disease-free less than 3 years"
+      "source_text": "Individuals with a history of a second malignancy are ineligible except for the following circumstances:",
+      "threshold": "disease-free for at least 3 years"
     },
     {
       "category": "hiv",
@@ -80,10 +81,10 @@
       "threshold": null
     },
     {
-      "category": "brain_mets",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Patients with new or progressive brain metastases (active brain metastases) or leptomeningeal disease are eligible if the treating physician determines that immediate CNS specific treatment is not required and is unlikely to be required during the first cycle of therapy, there is no requirement for corticosteroids, and the patient is asymptomatic.",
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Women who are pregnant or breastfeeding or planning to become pregnant.",
       "threshold": null
     }
   ]

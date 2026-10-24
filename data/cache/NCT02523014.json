@@ -1,20 +1,14 @@
 {
   "nct_id": "NCT02523014",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
-    {
-      "category": "pregnancy",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Not pregnant and not nursing:",
-      "threshold": null
-    },
     {
       "category": "age",
       "absolute": true,
       "section": "inclusion",
       "source_text": "For patients with NF2/CDKN2A/AKT1/PIK3CA/PTEN mutation, CKDN2A copy number loss, or CDK4/CDK6/CCND1/CCND2/CCND3/CCNE1 copy number gain: Age \\>= 18 years",
-      "threshold": "age >= 18 years"
+      "threshold": null
     },
     {
       "category": "age",
@@ -46,31 +40,31 @@
     },
     {
       "category": "cardiac",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "Experience any of the following procedures or conditions in the preceding 6 months: coronary artery bypass graft, angioplasty, vascular stent, myocardial infarction, angina pectoris, congestive heart failure New York Heart Association (NYHA) class \\>= II",
       "threshold": "NYHA class >= II"
     },
     {
-      "category": "diabetes",
+      "category": "cardiac",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "No uncontrolled diabetes defined as a known diabetic with HBA1C \\> 7.5 OR fasting glucose \\> 140 mg/dL.",
-      "threshold": "HbA1c > 7.5 or fasting glucose > 140 mg/dL"
+      "source_text": "Cardiac ejection fraction outside institutional range of normal or \\< 50% (whichever is higher) as measured by echocardiogram",
+      "threshold": "EF < 50%"
     },
     {
       "category": "diabetes",
       "absolute": true,
-      "section": "inclusion",
+      "section": "exclusion",
+      "source_text": "No uncontrolled diabetes defined as a known diabetic with HBA1C \\> 7.5 OR fasting glucose \\> 140 mg/dL.",
+      "threshold": "HbA1c > 7.5% or fasting glucose > 140 mg/dL"
+    },
+    {
+      "category": "diabetes",
+      "absolute": true,
+      "section": "exclusion",
       "source_text": "Glycosylated hemoglobin (HbA1C) \\< 8.0% (63.9 mmol/mol)",
       "threshold": "HbA1c < 8.0%"
-    },
-    {
-      "category": "diabetes",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "No type 1 diabetes mellitus",
-      "threshold": null
     },
     {
       "category": "renal",
@@ -94,11 +88,11 @@
       "threshold": "AST/ALT <= 2.5 x ULN"
     },
     {
-      "category": "cardiac",
+      "category": "pregnancy",
       "absolute": true,
       "section": "inclusion",
-      "source_text": "QTcF \\< 450 msec (QT calculated using Fridericia formula)",
-      "threshold": "QTcF < 450 msec"
+      "source_text": "Not pregnant and not nursing:",
+      "threshold": null
     },
     {
       "category": "hiv",
@@ -108,11 +102,18 @@
       "threshold": null
     },
     {
-      "category": "pregnancy",
+      "category": "cardiac",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Not pregnant and not nursing:",
+      "source_text": "No personal history of any of the following conditions: syncope of cardiovascular etiology, ventricular arrhythmia of pathological origin (including, but not limited to, ventricular tachycardia and ventricular fibrillation), or sudden cardiac arrest",
       "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "QTcF \\< 450 msec (QT calculated using Fridericia formula)",
+      "threshold": "QTcF < 450 msec"
     }
   ]
 }

@@ -1,12 +1,20 @@
 {
   "nct_id": "NCT04181060",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "prior_malignancy",
       "absolute": false,
       "section": "inclusion",
       "source_text": "Patients with a prior or concurrent malignancy whose natural history or treatment does not have the potential to interfere with the safety or efficacy assessment of the investigational regimen are eligible for this trial",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Patients with untreated brain metastases or leptomeningeal disease are eligible if the treating physician determines that immediate CNS specific treatment is not required provided the metastatic lesions are non-hemorrhagic and are neurologically stable without glucocorticoid therapy",
       "threshold": null
     },
     {
@@ -17,24 +25,10 @@
       "threshold": "ECOG 0 to 2"
     },
     {
-      "category": "pregnancy",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Patient must not be pregnant or breast-feeding due to the potential harm to an unborn fetus and possible risk for adverse events in nursing infants with the treatment regimens being used",
-      "threshold": null
-    },
-    {
       "category": "hiv",
       "absolute": false,
       "section": "inclusion",
       "source_text": "Human immunodeficiency virus (HIV)-infected patients on effective anti-retroviral therapy with undetectable viral load within 6 months are eligible for this trial",
-      "threshold": null
-    },
-    {
-      "category": "brain_mets",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Patients with untreated brain metastases or leptomeningeal disease are eligible if the treating physician determines that immediate CNS specific treatment is not required provided the metastatic lesions are non-hemorrhagic and are neurologically stable without glucocorticoid therapy",
       "threshold": null
     },
     {
@@ -46,38 +40,45 @@
     },
     {
       "category": "cardiac",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
       "source_text": "Patient must not have mean resting corrected QT interval (QTc) \\> 470 msec obtained from 3 electrocardiograms (ECGs), using the screening clinic ECG machine derived QTc value (using Bazett's correction)",
       "threshold": "QTc > 470 msec"
     },
     {
-      "category": "hepatic",
-      "absolute": true,
+      "category": "pregnancy",
+      "absolute": false,
       "section": "inclusion",
-      "source_text": "Aspartate aminotransferase (AST) (serum glutamic-oxaloacetic transaminase \\[SGOT\\])/alanine aminotransferase (ALT) (serum glutamate pyruvate transaminase \\[SGPT\\]) =\\< 2.5 x institutional ULN (obtained =\\< 14 days prior to randomization)",
-      "threshold": "AST/ALT <= 2.5 x ULN"
+      "source_text": "Patient must not be pregnant or breast-feeding due to the potential harm to an unborn fetus and possible risk for adverse events in nursing infants with the treatment regimens being used",
+      "threshold": null
     },
     {
       "category": "renal",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
       "source_text": "Total bilirubin and creatinine =\\< 1.5 x institutional upper limit of normal (ULN) (obtained =\\< 14 days prior to randomization)",
       "threshold": "creatinine <= 1.5 x ULN"
     },
     {
       "category": "hepatic",
-      "absolute": true,
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Aspartate aminotransferase (AST) (serum glutamic-oxaloacetic transaminase \\[SGOT\\])/alanine aminotransferase (ALT) (serum glutamate pyruvate transaminase \\[SGPT\\]) =\\< 2.5 x institutional ULN (obtained =\\< 14 days prior to randomization)",
+      "threshold": "AST/ALT <= 2.5 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
       "section": "inclusion",
       "source_text": "Total bilirubin and creatinine =\\< 1.5 x institutional upper limit of normal (ULN) (obtained =\\< 14 days prior to randomization)",
       "threshold": "bilirubin <= 1.5 x ULN"
     },
     {
-      "category": "renal",
-      "absolute": false,
+      "category": "smoking",
+      "absolute": true,
       "section": "inclusion",
-      "source_text": "significant proteinuria (screening urinalysis \\> 300 mg/dl)",
-      "threshold": "urinalysis > 300 mg/dl"
+      "source_text": "Patient must not have any risk factors for anti-VEGF administration, specifically, hemoptysis, active cardiovascular disease, uncontrolled hypertension, significant proteinuria (screening urinalysis \\> 300 mg/dl) and tumor invading major blood vessels",
+      "threshold": null
     }
   ]
 }

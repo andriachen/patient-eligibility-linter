@@ -1,17 +1,18 @@
 {
   "nct_id": "NCT06995677",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
       "source_text": "Participants age \u226518 at time of informed consent",
       "threshold": null
     },
     {
       "category": "performance_status",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
       "source_text": "Eastern Cooperative Oncology Group Performance Status (ECOG PS) 0-1",
       "threshold": "ECOG PS 0-1"
@@ -20,15 +21,8 @@
       "category": "renal",
       "absolute": true,
       "section": "inclusion",
-      "source_text": "i. estimated glomerular filtration rate \\>30 mL/min calculated using the modification of diet in renal disease equation or CKD-EPI formula",
+      "source_text": "estimated glomerular filtration rate \\>30 mL/min calculated using the modification of diet in renal disease equation or CKD-EPI formula",
       "threshold": "eGFR > 30 mL/min"
-    },
-    {
-      "category": "hepatic",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "i. Total bilirubin \\< or = ULN ii. Alanine aminotransferase (ALT) \\< or = ULN iii. Aspartate aminotransferase (AST) \\< or = ULN",
-      "threshold": "Total bilirubin, ALT, AST <= ULN"
     },
     {
       "category": "hiv",
@@ -38,15 +32,8 @@
       "threshold": null
     },
     {
-      "category": "prior_malignancy",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Other malignancy within 3 years of signing ICF, except for skin cancer",
-      "threshold": "within 3 years"
-    },
-    {
       "category": "pregnancy",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "Females who are pregnant, breastfeeding or planning to become pregnant within 6 months after the last dose of TYRA-300",
       "threshold": null
@@ -59,8 +46,15 @@
       "threshold": null
     },
     {
-      "category": "cardiac",
+      "category": "prior_malignancy",
       "absolute": false,
+      "section": "exclusion",
+      "source_text": "Other malignancy within 3 years of signing ICF, except for skin cancer",
+      "threshold": "within 3 years"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
       "section": "exclusion",
       "source_text": "History of prolonged QT syndrome or baseline heart rate-corrected QT interval using Fridericia formula (QTcF) interval \\>470 ms",
       "threshold": "QTcF > 470 ms"
@@ -73,11 +67,32 @@
       "threshold": null
     },
     {
-      "category": "renal",
+      "category": "hepatic",
       "absolute": true,
+      "section": "inclusion",
+      "source_text": "Total bilirubin \\< or = ULN",
+      "threshold": "total bilirubin <= ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Alanine aminotransferase (ALT) \\< or = ULN",
+      "threshold": "ALT <= ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Aspartate aminotransferase (AST) \\< or = ULN",
+      "threshold": "AST <= ULN"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
       "section": "exclusion",
       "source_text": "Serum phosphate levels above the upper limit of normal during screening",
-      "threshold": "phosphate > ULN"
+      "threshold": null
     }
   ]
 }

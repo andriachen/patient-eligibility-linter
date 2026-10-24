@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06805617",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -10,38 +11,10 @@
       "threshold": "ECOG 0-1"
     },
     {
-      "category": "renal",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Creatinine Within normal limits, or Creatinine clearance (CrCl) \u226550 mL/min using the Cockcroft-Gault formula or estimated glomerular filtration rate (eGFR) value \u226550 mL/min using the Chronic Kidney Disease Epidemiology Collaboration (CKD-EPI) equation (adjustment by BSA is not required for eGFR)",
-      "threshold": "CrCl \u226550 mL/min or eGFR \u226550 mL/min"
-    },
-    {
-      "category": "hepatic",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Serum total bilirubin (T-bili) \u22641.5\u00d7 upper limit of normal (ULN); for patients with liver metastases or confirmed/suspected Gilbert syndrome, T-bili \u22643\u00d7 ULN",
-      "threshold": "T-bili \u22641.5\u00d7 ULN (\u22643\u00d7 ULN with liver metastases or Gilbert)"
-    },
-    {
-      "category": "hepatic",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Aspartate aminotransferase (AST) and alanine aminotransferase (ALT) \u22642.5\u00d7 ULN; for patients with liver metastases, AST and ALT \u22645\u00d7 ULN",
-      "threshold": "AST/ALT \u22642.5\u00d7 ULN (\u22645\u00d7 ULN with liver metastases)"
-    },
-    {
       "category": "brain_mets",
       "absolute": false,
       "section": "exclusion",
       "source_text": "Participant has known active central nervous system (CNS) metastases and/or carcinomatous meningitis.",
-      "threshold": null
-    },
-    {
-      "category": "cardiac",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Uncontrolled intercurrent illness including but not limited to ongoing or active infection, symptomatic congestive heart failure, unstable angina pectoris, or cardiac arrhythmia.",
       "threshold": null
     },
     {
@@ -62,15 +35,15 @@
       "category": "cardiac",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "congestive heart failure (New York Heart Association \\[NYHA\\] classification \u2265 grade 2) or vascular disease (eg, aortic aneurysm at risk of rupture) that required hospitalization within 12 months prior to randomization",
-      "threshold": "NYHA \u2265 grade 2 within 12 months"
+      "source_text": "Uncontrolled intercurrent illness including but not limited to ongoing or active infection, symptomatic congestive heart failure, unstable angina pectoris, or cardiac arrhythmia.",
+      "threshold": null
     },
     {
-      "category": "smoking",
+      "category": "cardiac",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "Current hypertension with systolic blood pressure \u2265150 mmHg or diastolic blood pressure \u2265100 mmHg after oral antihypertensive therapy.",
-      "threshold": null
+      "source_text": "congestive heart failure (New York Heart Association \\[NYHA\\] classification \u2265 grade 2)",
+      "threshold": "NYHA \u2265 grade 2"
     }
   ]
 }

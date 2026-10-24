@@ -1,14 +1,8 @@
 {
   "nct_id": "NCT06324357",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
-    {
-      "category": "performance_status",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Eastern Cooperative Oncology Group (ECOG) score of 0 or 1",
-      "threshold": "ECOG 0 or 1"
-    },
     {
       "category": "brain_mets",
       "absolute": false,
@@ -35,7 +29,14 @@
       "absolute": true,
       "section": "exclusion",
       "source_text": "Ejection fraction \\<50% or the lower limit of normal of the institutional standard within 28 days prior to randomization",
-      "threshold": "EF < 50% or LLN within 28 days"
+      "threshold": "LVEF < 50%"
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group (ECOG) score of 0 or 1",
+      "threshold": "ECOG 0 or 1"
     }
   ]
 }

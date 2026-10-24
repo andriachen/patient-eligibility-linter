@@ -1,14 +1,8 @@
 {
   "nct_id": "NCT06983743",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
-    {
-      "category": "age",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Age \u2265 18 years",
-      "threshold": null
-    },
     {
       "category": "performance_status",
       "absolute": true,
@@ -17,17 +11,17 @@
       "threshold": "ECOG PS 0 or 1"
     },
     {
-      "category": "pregnancy",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Are pregnant or breastfeeding or expecting to conceive or father children within the projected duration of the trial",
-      "threshold": null
-    },
-    {
       "category": "brain_mets",
       "absolute": true,
       "section": "exclusion",
       "source_text": "Have primary central nervous system (CNS) tumors",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Are pregnant or breastfeeding or expecting to conceive or father children within the projected duration of the trial",
       "threshold": null
     }
   ]

@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT01521741",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "pregnancy",
@@ -13,14 +14,14 @@
       "category": "renal",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "Medical conditions that cause fluid retention or swelling (e.g. axillary cancer recurrence, renal insufficiency, congestive heart failure).",
+      "source_text": "renal insufficiency",
       "threshold": null
     },
     {
       "category": "cardiac",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "Medical conditions that cause fluid retention or swelling (e.g. axillary cancer recurrence, renal insufficiency, congestive heart failure).",
+      "source_text": "congestive heart failure",
       "threshold": null
     }
   ]

@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT07548476",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "pregnancy",
@@ -10,10 +11,10 @@
       "threshold": null
     },
     {
-      "category": "cardiac",
+      "category": "performance_status",
       "absolute": false,
-      "section": "exclusion",
-      "source_text": "Patients with uncontrolled medical conditions that would preclude them from participating in moderate-to-vigorous intensity exercise in a virtual setting.",
+      "section": "inclusion",
+      "source_text": "Self-reported ability to walk for 6 minutes and/or 2 blocks",
       "threshold": null
     }
   ]

@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT07123649",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
@@ -13,7 +14,7 @@
       "category": "prior_malignancy",
       "absolute": false,
       "section": "inclusion",
-      "source_text": "No history of a recurrent breast cancer (i.e., a breast cancer that is deemed metastatic or a locoregional recurrence of a prior cancer per clinician judgement rather than a new primary breast cancer).",
+      "source_text": "History of stage 0-III breast cancer (Of note: ductal carcinoma in situ \\[DCIS\\], pleomorphic lobular carcinoma in situ \\[because it is typically treated like DCIS\\], or invasive breast cancer of any subtype are all eligible)",
       "threshold": null
     },
     {
@@ -24,11 +25,11 @@
       "threshold": null
     },
     {
-      "category": "brain_mets",
-      "absolute": false,
+      "category": "age",
+      "absolute": true,
       "section": "exclusion",
-      "source_text": "Those with metastatic breast cancer",
-      "threshold": null
+      "source_text": "Pregnant women, young patients, and those in prison will not be eligible for enrollment given the study design and aims supporting study in a different population focused on older adults",
+      "threshold": "young patients excluded (age floor above 18 not specified)"
     }
   ]
 }

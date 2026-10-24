@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT05475925",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
@@ -35,11 +36,11 @@
       "absolute": false,
       "section": "exclusion",
       "source_text": "History of clinically significant cardiac disease or congestive heart failure greater than New York Heart Association (NYHA) Class II.",
-      "threshold": "NYHA > Class II"
+      "threshold": "NYHA Class > II"
     },
     {
       "category": "pregnancy",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
       "source_text": "Female subjects of childbearing potential (postmenarcheal, has an intact uterus and at least one ovary, and is \\<1 year postmenopausal) must agree to use a highly effective method of contraception from enrollment through at least 12 months after last dose of DR-01.",
       "threshold": null

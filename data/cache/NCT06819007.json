@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06819007",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
@@ -18,7 +19,7 @@
     },
     {
       "category": "cardiac",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "Has a medical history of myocardial infarction within 6 months before randomization, symptomatic congestive heart failure (New York Heart Association Class II to IV).",
       "threshold": "MI within 6 months; NYHA Class II to IV"
@@ -27,15 +28,8 @@
       "category": "cardiac",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Has a corrected QT interval prolongation to \\>480 msec based on average of the Screening triplicate 12-lead ECG.",
+      "source_text": "Has a corrected QT interval prolongation to \u0003>480 msec based on average of the Screening triplicate 12-lead ECG.",
       "threshold": "QTc > 480 msec"
-    },
-    {
-      "category": "cardiac",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Participants with troponin levels above the upper limit of normal at Screening (as defined by the manufacturer), and without any myocardial infarction related symptoms should have a cardiologic consultation during the Screening Period to rule out myocardial infarction.",
-      "threshold": "troponin above ULN"
     }
   ]
 }

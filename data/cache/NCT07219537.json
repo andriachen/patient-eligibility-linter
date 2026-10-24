@@ -1,19 +1,27 @@
 {
   "nct_id": "NCT07219537",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
       "absolute": true,
       "section": "exclusion",
       "source_text": "Who are over 75 years of age or older",
-      "threshold": "age >= 75"
+      "threshold": "age > 75"
     },
     {
       "category": "pregnancy",
       "absolute": true,
       "section": "exclusion",
       "source_text": "Who are pregnant",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "With a history or current diagnosis of colorectal cancer",
       "threshold": null
     }
   ]

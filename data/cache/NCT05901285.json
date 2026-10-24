@@ -1,48 +1,14 @@
 {
   "nct_id": "NCT05901285",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
-      "category": "performance_status",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "ECOG Performance Status of 0, 1, or 2",
-      "threshold": "ECOG 0-2"
-    },
-    {
-      "category": "renal",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Serum creatinine \u2264 1.5 x ULN or estimated GFR \u2265 60 mL/min/1.73 m2 (per MDRD GFR formula)",
-      "threshold": "creatinine \u2264 1.5 x ULN or eGFR \u2265 60"
-    },
-    {
-      "category": "hepatic",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Total bilirubin \u2264 1.5 x ULN",
-      "threshold": "bilirubin \u2264 1.5 x ULN"
-    },
-    {
-      "category": "hepatic",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Aspartate transaminase (AST) and alanine transaminase (ALT) \u2264 2.5 x ULN",
-      "threshold": "AST/ALT \u2264 2.5 x ULN"
-    },
-    {
       "category": "brain_mets",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "Known CNS metastases or leptomeningeal carcinomatosis, unless adequately treated and clinically stable off steroids for \u2265 14 days from the first injection of VAX014",
       "threshold": null
-    },
-    {
-      "category": "prior_malignancy",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Any other malignancy likely to require treatment in the next 2 years (exceptions include cancer such as basal or squamous cell skin cancers, noninvasive cancer of the cervix, and local prostate cancer)",
-      "threshold": "within next 2 years"
     },
     {
       "category": "hiv",
@@ -59,6 +25,13 @@
       "threshold": null
     },
     {
+      "category": "performance_status",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "ECOG Performance Status of 0, 1, or 2",
+      "threshold": "ECOG 0-2"
+    },
+    {
       "category": "cardiac",
       "absolute": true,
       "section": "exclusion",
@@ -69,15 +42,43 @@
       "category": "cardiac",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "\u2264 6 months from NYHA classification >=3 CHF",
-      "threshold": "within 6 months of NYHA >=3 CHF"
+      "source_text": "\u2264 6 months from NYHA classification \u22653 CHF",
+      "threshold": "within 6 months of NYHA class >=3 CHF"
     },
     {
       "category": "cardiac",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Electrocardiogram (ECG) with QTcF > 450 msec (males) and QTcF > 470 msec (females) based on an average of triplicate ECGs",
+      "source_text": "Electrocardiogram (ECG) with QTcF &gt; 450 msec (males) and QTcF &gt; 470 msec (females) based on an average of triplicate ECGs",
       "threshold": "QTcF > 450 msec (male), > 470 msec (female)"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Any other malignancy likely to require treatment in the next 2 years",
+      "threshold": "within 2 years"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Total bilirubin \u2264 1.5 x ULN",
+      "threshold": "bilirubin <= 1.5 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Aspartate transaminase (AST) and alanine transaminase (ALT) \u2264 2.5 x ULN",
+      "threshold": "AST/ALT <= 2.5 x ULN"
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Serum creatinine \u2264 1.5 x ULN or estimated GFR \u2265 60 mL/min/1.73 m2 (per MDRD GFR formula)",
+      "threshold": "creatinine <= 1.5 x ULN or eGFR >= 60"
     }
   ]
 }

@@ -1,13 +1,35 @@
 {
   "nct_id": "NCT07231952",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
       "source_text": "ECOG performance status \u22642",
       "threshold": "ECOG \u2264 2"
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Creatinine within normal institutional limits OR Creatinine clearance \\>40 mL/min for patients with creatinine levels above institutional normal (by Cockcroft-Gault estimate or 12-24h creatinine clearance measurements)",
+      "threshold": "CrCl > 40 mL/min"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Total bilirubin \\< 1.5 x upper normal institutional limits. In patients with Gilbert's disease total bilirubin up to 3x ULN will be allowed",
+      "threshold": "total bilirubin < 1.5 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "AST(SGOT)/ALT(SGPT) \\< 3 x institutional upper limit of normal unless elevation is caused by liver involvement with WM in which case AST and ALT may be \u2264 5 x ULN.",
+      "threshold": "AST/ALT < 3 x ULN"
     },
     {
       "category": "cardiac",
@@ -32,7 +54,7 @@
     },
     {
       "category": "cardiac",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "\u2265 Grade 3 NYHA functional classification system of heart failure",
       "threshold": "NYHA \u2265 grade 3"
@@ -55,7 +77,7 @@
       "category": "hiv",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Patients who have tested positive for Human Immunodeficiency Virus (HIV) are excluded due to risk of opportunistic infections with both HIV and BTK- inhibitors.",
+      "source_text": "Patients who have tested positive for Human Immunodeficiency Virus (HIV) are excluded",
       "threshold": null
     },
     {
@@ -77,28 +99,14 @@
       "absolute": false,
       "section": "exclusion",
       "source_text": "Active second malignancy unless in remission and with life expectancy \\> 2 years.",
-      "threshold": "active second malignancy"
+      "threshold": "life expectancy > 2 years"
     },
     {
-      "category": "hepatic",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Total bilirubin \\< 1.5 x upper normal institutional limits. In patients with Gilbert's disease total bilirubin up to 3x ULN will be allowed",
-      "threshold": "total bilirubin < 1.5 x ULN"
-    },
-    {
-      "category": "hepatic",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "AST(SGOT)/ALT(SGPT) \\< 3 x institutional upper limit of normal unless elevation is caused by liver involvement with WM in which case AST and ALT may be \u2264 5 x ULN.",
-      "threshold": "AST/ALT < 3 x ULN"
-    },
-    {
-      "category": "renal",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Creatinine within normal institutional limits OR Creatinine clearance \\>40 mL/min for patients with creatinine levels above institutional normal",
-      "threshold": "CrCl > 40 mL/min"
+      "category": "brain_mets",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "History of stroke or intracranial hemorrhage within 6 months of start of treatment",
+      "threshold": "within 6 months"
     }
   ]
 }

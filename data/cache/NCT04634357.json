@@ -1,13 +1,14 @@
 {
   "nct_id": "NCT04634357",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Age \u2265 1 year and \u2264 21 years.",
-      "threshold": "age <= 21"
+      "threshold": "age <= 21 years"
     },
     {
       "category": "performance_status",
@@ -17,17 +18,17 @@
       "threshold": "Karnofsky < 70"
     },
     {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Child-Pugh score of A6 or better.",
+      "threshold": "Child-Pugh A6 or better"
+    },
+    {
       "category": "hiv",
       "absolute": false,
       "section": "exclusion",
       "source_text": "Subjects with Human Immunodeficiency Virus (HIV), hepatitis B, or hepatitis C are eligible provided their infection is being treated and the viral load is controlled.",
-      "threshold": null
-    },
-    {
-      "category": "pregnancy",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Pregnant or lactating women.",
       "threshold": null
     },
     {
@@ -38,11 +39,11 @@
       "threshold": null
     },
     {
-      "category": "hepatic",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Child-Pugh score of A6 or better.",
-      "threshold": "Child-Pugh A6 or better"
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant or lactating women.",
+      "threshold": null
     }
   ]
 }

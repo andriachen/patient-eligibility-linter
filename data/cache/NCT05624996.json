@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT05624996",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
@@ -24,15 +25,8 @@
       "threshold": "CrCl >= 25 mL/min"
     },
     {
-      "category": "prior_malignancy",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Patients with a prior or concurrent malignancy whose natural history or treatment does not have the potential to interfere with the safety or efficacy assessment of the investigational regimen",
-      "threshold": null
-    },
-    {
       "category": "pregnancy",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "Participants who are pregnant or unwilling to discontinue nursing",
       "threshold": null
@@ -41,7 +35,21 @@
       "category": "pregnancy",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "Participants of childbearing potential (participants who may become pregnant or who may impregnate a partner) unwilling to use highly effective contraceptives during therapy and for the Food and Drug Administration (FDA)-labeled contraception timeframe required after the final dose of the selected systemic therapy regimen, because the treatment in this study may be significantly teratogenic",
+      "source_text": "Participants of childbearing potential (participants who may become pregnant or who may impregnate a partner) unwilling to use highly effective contraceptives during therapy",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Patients with a prior or concurrent malignancy whose natural history or treatment does not have the potential to interfere with the safety or efficacy assessment of the investigational regimen",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Centrally located primary tumor \\< 2 cm from involved nodal disease",
       "threshold": null
     }
   ]

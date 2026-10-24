@@ -1,14 +1,8 @@
 {
   "nct_id": "NCT06422806",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
-    {
-      "category": "age",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Patient must be \\>= 18 years of age",
-      "threshold": null
-    },
     {
       "category": "pregnancy",
       "absolute": true,
@@ -18,7 +12,7 @@
     },
     {
       "category": "cardiac",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
       "source_text": "Patient must have a left ventricular ejection fraction (LVEF) \\> 50% by either MUGA scan or echocardiogram obtained within 28 days prior to randomization",
       "threshold": "LVEF > 50%"
@@ -28,21 +22,28 @@
       "absolute": true,
       "section": "inclusion",
       "source_text": "Total bilirubin \\< 1.2 mg/dL (must be obtained \u2264 7 days prior to protocol randomization)",
-      "threshold": "Total bilirubin < 1.2 mg/dL"
+      "threshold": "bilirubin < 1.2 mg/dL"
     },
     {
       "category": "hepatic",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Aspartate aminotransferase (AST) (serum glutamic oxaloacetic transaminase \\[SGOT\\]) and alanine aminotransferase (ALT) (serum glutamic pyruvic transaminase \\[SGPT\\]) \u2264 3.0 \u00d7 institutional upper limit of normal (ULN) (must be obtained \u2264 7 days prior to protocol randomization)",
-      "threshold": "AST/ALT \u2264 3.0 \u00d7 ULN"
+      "threshold": "AST/ALT <= 3.0 x ULN"
     },
     {
       "category": "renal",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Creatinine clearance \u2265 30 mL/min according to the Cockcroft-Gault formula (must be obtained \u2264 7 days prior to protocol randomization)",
-      "threshold": "CrCl \u2265 30 mL/min"
+      "threshold": "CrCl >= 30 mL/min"
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Human immunodeficiency virus (HIV)-infected patients on effective anti-retroviral therapy with undetectable viral load within 6 months of randomization are eligible for this trial",
+      "threshold": null
     },
     {
       "category": "brain_mets",
@@ -73,17 +74,17 @@
       "threshold": "ECOG 0-1"
     },
     {
-      "category": "hiv",
+      "category": "pregnancy",
       "absolute": false,
       "section": "inclusion",
-      "source_text": "Human immunodeficiency virus (HIV)-infected patients on effective anti-retroviral therapy with undetectable viral load within 6 months of randomization are eligible for this trial",
+      "source_text": "Patient must not expect to conceive or father children by using an accepted and effective method(s) of contraception or by abstaining from sexual intercourse for the duration of their participation in the study.",
       "threshold": null
     },
     {
-      "category": "pregnancy",
+      "category": "prior_malignancy",
       "absolute": true,
       "section": "inclusion",
-      "source_text": "Contraception measures must continue for 6 months after the last dose of doxorubicin for patients of child bearing potential",
+      "source_text": "Patient must not have received prior therapy with an anti-PD-1, anti-PD-L1, anti-PD-L2 or anti-CTLA4 agent",
       "threshold": null
     }
   ]

@@ -1,10 +1,18 @@
 {
   "nct_id": "NCT06770582",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
+      "category": "age",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Age \u2265 18",
+      "threshold": null
+    },
+    {
       "category": "performance_status",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
       "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status of 0-2",
       "threshold": "ECOG 0-2"
@@ -20,43 +28,29 @@
       "category": "renal",
       "absolute": false,
       "section": "inclusion",
-      "source_text": "Adequate renal function defined as creatinine clearance (CrCL) of \u2265 30 mL/min by the Cockcroft-Gault formula, \u2264 1.5 \u00d7 upper limit of normal (ULN) or creatinine levels \\> 1.5 \u00d7 institutional ULN",
+      "source_text": "Adequate renal function defined as creatinine clearance (CrCL) of \u2265 30 mL/min by the Cockcroft-Gault formula",
       "threshold": "CrCl \u2265 30 mL/min"
     },
     {
       "category": "hepatic",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
       "source_text": "Total bilirubin \u2264 institutional upper limit of normal (ULN) (Not applicable to patients with known Gilbert's syndrome)",
       "threshold": "bilirubin \u2264 institutional ULN"
     },
     {
       "category": "hepatic",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
       "source_text": "Aspartate aminotransferase (AST) (serum glutamic oxaloacetic transaminase \\[SGOT\\]) and alanine aminotransferase (ALT) (serum glutamic pyruvic transaminase \\[SGPT\\]) \u2264 3 x institutional ULN",
       "threshold": "AST/ALT \u2264 3 x ULN"
     },
     {
       "category": "cardiac",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
       "source_text": "New York Heart Association Functional Classification II or better (New York Heart Association \\[NYHA\\] Functional Classification III/IV are not eligible)",
-      "threshold": "NYHA class II or better"
-    },
-    {
-      "category": "cardiac",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Patients must have recovered from acute cardiac illness",
-      "threshold": null
-    },
-    {
-      "category": "prior_malignancy",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "No history of upper tract urothelial carcinoma within 24 months of registration",
-      "threshold": "within 24 months"
+      "threshold": "NYHA class III/IV excluded"
     },
     {
       "category": "prior_malignancy",
@@ -66,17 +60,17 @@
       "threshold": null
     },
     {
-      "category": "pregnancy",
+      "category": "hepatic",
       "absolute": false,
       "section": "inclusion",
-      "source_text": "Childbearing potential is defined as any person who has experienced menarche",
-      "threshold": null
+      "source_text": "No history of upper tract urothelial carcinoma within 24 months of registration",
+      "threshold": "within 24 months"
     },
     {
-      "category": "hiv",
+      "category": "pregnancy",
       "absolute": true,
       "section": "inclusion",
-      "source_text": "No active tuberculosis",
+      "source_text": "No history of upper tract urothelial carcinoma within 24 months of registration",
       "threshold": null
     }
   ]

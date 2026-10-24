@@ -1,26 +1,20 @@
 {
   "nct_id": "NCT05939414",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
-    {
-      "category": "cardiac",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Concomitant clinically significant cardiac arrhythmias, e.g. sustained ventricular tachycardia, and clinically significant second or third degree Atrioventricular (AV) block without a pacemaker",
-      "threshold": null
-    },
     {
       "category": "prior_malignancy",
       "absolute": false,
       "section": "exclusion",
       "source_text": "Diagnosed at screening with other malignancies that are expected to alter life expectancy or may interfere with disease assessment.",
-      "threshold": "disease/treatment free for more than 3 years are eligible"
+      "threshold": null
     },
     {
-      "category": "hiv",
+      "category": "pregnancy",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Participants in immediate need of ADT or other systemic therapy as assessed by the investigator.",
+      "source_text": "",
       "threshold": null
     }
   ]

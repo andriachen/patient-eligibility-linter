@@ -1,34 +1,21 @@
 {
   "nct_id": "NCT06581406",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "Patients who are 18 years of age or older at the time of signed informed consent.",
       "threshold": null
     },
     {
       "category": "performance_status",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status (PS) 0 or 1.",
-      "threshold": "ECOG PS 0 or 1"
-    },
-    {
-      "category": "hepatic",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Has adequate hematologic, hepatic and renal function",
-      "threshold": null
-    },
-    {
-      "category": "renal",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Has adequate hematologic, hepatic and renal function",
-      "threshold": null
+      "threshold": "ECOG 0 or 1"
     },
     {
       "category": "hiv",
@@ -42,13 +29,6 @@
       "absolute": true,
       "section": "exclusion",
       "source_text": "Any central nervous system (CNS) involvement of melanoma, including carcinomatous meningitis.",
-      "threshold": null
-    },
-    {
-      "category": "pregnancy",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Any exposure to immune checkpoint inhibitor (ICIs) since the time of first being diagnosed with uveal melanoma.",
       "threshold": null
     }
   ]

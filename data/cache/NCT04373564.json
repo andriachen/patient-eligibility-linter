@@ -1,20 +1,28 @@
 {
   "nct_id": "NCT04373564",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
-      "category": "renal",
+      "category": "prior_malignancy",
       "absolute": false,
+      "section": "exclusion",
+      "source_text": "Malignant disease other than listed in indications",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Prior, planned, or ongoing chemotherapy or brain irradiation",
+      "threshold": null
+    },
+    {
+      "category": "renal",
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Renal disease, defined as estimated glomerular filtration rate (eGFR) \\< 60 mL/min/1.73 m2",
       "threshold": "eGFR < 60 mL/min/1.73 m2"
-    },
-    {
-      "category": "pregnancy",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Pregnant or nursing (lactating) women",
-      "threshold": null
     },
     {
       "category": "hepatic",
@@ -24,10 +32,10 @@
       "threshold": null
     },
     {
-      "category": "prior_malignancy",
+      "category": "pregnancy",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Malignant disease other than listed in indications",
+      "source_text": "Pregnant or nursing (lactating) women",
       "threshold": null
     }
   ]

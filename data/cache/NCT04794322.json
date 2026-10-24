@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT04794322",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
@@ -29,6 +30,13 @@
       "section": "exclusion",
       "source_text": "Treatment less than 1 year (excluding hormonal therapy) for cancer that spread beyond its origin",
       "threshold": "treatment within 1 year"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Current tissue or cytology diagnostic procedure positive for ovary cancer or any cancer",
+      "threshold": null
     }
   ]
 }

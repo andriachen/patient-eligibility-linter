@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT05104983",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
@@ -10,24 +11,10 @@
       "threshold": "age < 7 months"
     },
     {
-      "category": "renal",
-      "absolute": false,
+      "category": "pregnancy",
+      "absolute": true,
       "section": "exclusion",
-      "source_text": "Abnormal laboratory values at baseline (i.e., renal function, liver function, or bone marrow production) that are in the opinion of the investigator clinically significant and may jeopardize the safety of the study subject.",
-      "threshold": null
-    },
-    {
-      "category": "hepatic",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Abnormal laboratory values at baseline (i.e., renal function, liver function, or bone marrow production) that are in the opinion of the investigator clinically significant and may jeopardize the safety of the study subject.",
-      "threshold": null
-    },
-    {
-      "category": "cardiac",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Has a TSC-associated condition for which mTOR treatment is clinically indicated (i.e. SEGA or AML).",
+      "source_text": "Has a history of significant prematurity, defined as gestational age \\<30 weeks at the time of delivery",
       "threshold": null
     }
   ]

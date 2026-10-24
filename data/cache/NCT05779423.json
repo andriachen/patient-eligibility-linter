@@ -1,10 +1,11 @@
 {
   "nct_id": "NCT05779423",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "Adult patients (age \\> 18) with unresectable melanoma",
       "threshold": null
@@ -17,29 +18,22 @@
       "threshold": "ECOG PS \u22642"
     },
     {
-      "category": "performance_status",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "ECOG performance status \u22642 (Karnofsky \u226560%, see Appendix A)",
-      "threshold": "ECOG \u22642; Karnofsky \u226560%"
-    },
-    {
       "category": "renal",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "CrCL \\> 30 ml/min",
-      "threshold": "CrCL > 30 ml/min"
+      "threshold": "CrCl > 30 ml/min"
     },
     {
       "category": "hepatic",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "Total bilirubin \u22643 institutional upper limit of normal (ULN)",
       "threshold": "bilirubin \u22643 x ULN"
     },
     {
       "category": "hepatic",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "AST(SGOT)/ALT(SGPT) \u22645 \u00d7 institutional ULN",
       "threshold": "AST/ALT \u22645 x ULN"
@@ -64,6 +58,13 @@
       "section": "inclusion",
       "source_text": "Participants with a prior or concurrent malignancy whose natural history or treatment does not have the potential to interfere with the safety or efficacy assessment of the investigational regimen are eligible for this trial.",
       "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Participants on \\> 10mg of oral prednisone or its equivalent",
+      "threshold": "prednisone > 10 mg"
     },
     {
       "category": "brain_mets",

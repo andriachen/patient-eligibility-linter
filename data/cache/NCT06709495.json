@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06709495",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
@@ -28,7 +29,7 @@
       "absolute": true,
       "section": "inclusion",
       "source_text": "Adequate Renal Function: Creatinine clearance or radioisotope GFR \u226570ml/min/1.73 m2 or A serum creatinine based on age/sex as follows:",
-      "threshold": "CrCl or GFR >= 70 mL/min/1.73 m2"
+      "threshold": "CrCl or GFR >= 70 ml/min/1.73 m2"
     },
     {
       "category": "hepatic",
@@ -55,14 +56,14 @@
       "category": "brain_mets",
       "absolute": false,
       "section": "inclusion",
-      "source_text": "For patients with metastatic disease to the CNS enrolling to the phase 1 portion of the trial or the \"other sarcoma\" cohort, any baseline neurologic deficits (including seizure) must be stable for at least one week prior to study enrollment.",
+      "source_text": "Patients with CNS metastatic disease will not be eligible for the phase 2 EWS and DSRCT cohorts.",
       "threshold": null
     },
     {
-      "category": "brain_mets",
-      "absolute": true,
+      "category": "pregnancy",
+      "absolute": false,
       "section": "inclusion",
-      "source_text": "Patients with CNS metastatic disease will not be eligible for the phase 2 EWS and DSRCT cohorts.",
+      "source_text": "women of child-bearing potential and men must agree to use adequate contraception (hormonal or barrier method of birth control; abstinence) prior to study entry and for the duration of study participation.",
       "threshold": null
     },
     {
@@ -77,6 +78,20 @@
       "absolute": true,
       "section": "exclusion",
       "source_text": "Breastfeeding mothers, because there is an unknown risk for adverse events in nursing infants secondary to treatment of the mother with PEEL-224.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Participants with a prior or concurrent malignancy whose natural history or treatment does not have the potential to interfere with the safety or efficacy assessment of the investigational regimen are eligible for this trial.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "symptomatic congestive heart failure, unstable angina pectoris, cardiac arrhythmia",
       "threshold": null
     }
   ]

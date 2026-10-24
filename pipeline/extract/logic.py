@@ -54,16 +54,33 @@ _AGE_UPPER_HINT = re.compile(
 )
 
 
-def is_bare_adult_floor(source_text: str) -> bool:
-    """True if an age quote is just a standard adult minimum (>=18, no cap).
+# Boilerplate the model mis-reads as an upper age cap. These sentences explain
+# why CHILDREN are excluded ("no data in patients < 18"); they are NOT a real age
+# restriction on the adult cohort, so they must be dropped like a bare floor.
+_AGE_CHILD_BOILERPLATE = re.compile(
+    r"(because|since).{0,80}(not|no).{0,40}(available|data).{0,80}(patients?|children)"
+    r".{0,40}(<|less than|under)\s*18",
+    re.I,
+)
+_AGE_CHILD_EXCLUDED = re.compile(
+    r"(children|pediatric|patients?\s*(<|less than|under)\s*18).{0,60}(excluded|not eligible)",
+    re.I,
+)
 
-    Haiku keeps emitting "Age >= 18 years" as an age restriction even though a
-    plain 18 floor is not one. We drop those deterministically. We DO keep quotes
-    that carry an upper bound (<55, 40-80, <=75) or a minimum strictly above 18.
+
+def is_bare_adult_floor(source_text: str) -> bool:
+    """True if an age quote is really just "adults only" (>=18 floor or child-exclusion
+    boilerplate), not a genuine age restriction on the enrolled cohort.
+
+    Keeps real caps/ranges (<55, 40-80, <=75) and minimums strictly above 18.
     """
     text = normalize(source_text)
     if not text:
         return False
+    # Child-exclusion boilerplate: "because no data in patients < 18 ... children
+    # are excluded". The "< 18" looks like an upper cap but isn't a cohort limit.
+    if _AGE_CHILD_BOILERPLATE.search(text) or _AGE_CHILD_EXCLUDED.search(text):
+        return True
     # If the quote signals any upper/range bound, it is a real restriction — keep.
     if _AGE_UPPER_HINT.search(text):
         return False
@@ -75,14 +92,64 @@ def is_bare_adult_floor(source_text: str) -> bool:
     return max(age_nums) <= 18
 
 
+# Each category's quote must contain at least one of these (normalized, casefolded)
+# keywords, mirroring the prompt's per-category triggers. A quote that lacks them
+# is about something else and the model mis-filed it. Conservative on purpose.
+_CATEGORY_KEYWORDS: dict[str, tuple[str, ...]] = {
+    "diabetes": ("diabet", "hba1c", "a1c", "glycemic", "glycaemic", "glucose", "insulin"),
+    "bmi": ("bmi", "body mass", "kg/m", "body weight", "weight >", "weight <", "lbs", "kg)"),
+    "smoking": ("smok", "tobacco", "nicotine", "cigarette", "vap"),
+    "renal": ("kidney", "renal", "creatinine", "crcl", "egfr", "gfr", "dialysis", "nephr"),
+    "hepatic": ("liver", "hepat", "bilirubin", "ast", "alt", "sgot", "sgpt", "inr",
+                "cirrhosis", "child-pugh", "transaminase"),
+    "cardiac": ("cardiac", "heart", "nyha", "myocardial", "mi ", "lvef", "ef ",
+                "ejection fraction", "qtc", "qt interval", "arrhythmi", "chf",
+                "congestive", "cardiovascular", "angina", "stroke"),
+    "hiv": ("hiv", "human immunodeficiency", "aids", "cd4", "antiretroviral",
+            "anti-retroviral"),
+    "brain_mets": ("cns", "central nervous", "brain", "leptomening", "metasta",
+                   "intracranial", "cerebral"),
+    "prior_malignancy": ("malignan", "cancer", "carcinoma", "tumor", "tumour",
+                         "neoplasm"),
+    "performance_status": ("ecog", "karnofsky", "lansky", "performance status",
+                           "performance score"),
+    "language": ("english", "spanish", "language", "speak", "read", "fluent",
+                 "interpreter", "literacy"),
+    "pregnancy": ("pregnan", "breastfeed", "breast-feed", "lactat", "nursing"),
+    # age uses the numeric logic above, not a keyword list
+}
+
+
+def quote_matches_category(category: str, source_text: str) -> bool:
+    """True if the quote contains a keyword consistent with its category.
+
+    Age is exempt (handled numerically). HIV additionally requires that it isn't
+    only about hepatitis B/C — but since hepatitis quotes lack an hiv keyword,
+    the keyword check already rejects them.
+    """
+    if category == "age":
+        return True  # numeric logic handles age
+    keys = _CATEGORY_KEYWORDS.get(category)
+    if not keys:
+        return True  # unknown category handled elsewhere
+    text = normalize(source_text)
+    return any(k in text for k in keys)
+
+
 def drop_noise(records: list[dict]) -> list[dict]:
     """Remove records the model should not have emitted (deterministic guards).
 
-    Currently: `age` records that are just a standard adult floor (>=18, no cap).
+    1. `age` records that are really "adults only" (>=18 floor or child boilerplate).
+    2. Any record whose quote lacks its category's required keyword (mis-filed —
+       e.g. an `hiv` row quoting only hepatitis B/C, a `smoking` row quoting warfarin).
     """
     out = []
     for r in records:
-        if r.get("category") == "age" and is_bare_adult_floor(r.get("source_text", "")):
+        cat = r.get("category")
+        quote = r.get("source_text", "")
+        if cat == "age" and is_bare_adult_floor(quote):
+            continue
+        if not quote_matches_category(cat, quote):
             continue
         out.append(r)
     return out

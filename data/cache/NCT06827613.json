@@ -1,14 +1,8 @@
 {
   "nct_id": "NCT06827613",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
-    {
-      "category": "brain_mets",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Symptomatic central nervous system (CNS) metastases must have been treated, be asymptomatic for \u2265 14 days, and meet the following at the time of enrollment:",
-      "threshold": null
-    },
     {
       "category": "brain_mets",
       "absolute": false,
@@ -17,10 +11,17 @@
       "threshold": null
     },
     {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Second primary invasive malignancy not in remission for \u2265 1 year.",
+      "threshold": "not in remission for \u2265 1 year"
+    },
+    {
       "category": "pregnancy",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Pregnant, likely to become pregnant, or lactating women (where pregnancy is defined as the state of a female after conception and until the termination of gestation)",
+      "source_text": "Pregnant, likely to become pregnant, or lactating women",
       "threshold": null
     },
     {
@@ -29,13 +30,6 @@
       "section": "exclusion",
       "source_text": "Participants who are known to be human immunodeficiency virus positive or hepatitis B or C positive and have uncontrolled disease.",
       "threshold": null
-    },
-    {
-      "category": "prior_malignancy",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Second primary invasive malignancy not in remission for \u2265 1 year.",
-      "threshold": "not in remission for < 1 year"
     }
   ]
 }

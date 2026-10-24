@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06380751",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -25,21 +26,21 @@
     },
     {
       "category": "hiv",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "Evidence of active and uncontrolled HIV infection",
       "threshold": null
     },
     {
       "category": "cardiac",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "Cardiac criteria, including history of arrythmia and cardiovascular disease",
       "threshold": null
     },
     {
       "category": "pregnancy",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "Concurrent exogenous reproductive hormone therapy or non-topical hormonal therapy for non-cancer-related conditions",
       "threshold": null

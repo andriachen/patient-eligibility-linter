@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT03526835",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -34,7 +35,7 @@
       "category": "cardiac",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "Uncontrolled hypertension (systolic blood pressure [BP] > 150 mmHg and/or diastolic BP > 100 mmHg) with appropriate treatment or unstable angina.",
+      "source_text": "Uncontrolled hypertension (systolic blood pressure \\[BP\\] \\> 150 mmHg and/or diastolic BP \\> 100 mmHg) with appropriate treatment or unstable angina.",
       "threshold": "SBP > 150 mmHg and/or DBP > 100 mmHg"
     },
     {
@@ -46,7 +47,7 @@
     },
     {
       "category": "cardiac",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "History of myocardial infarction within 6 months of study entry.",
       "threshold": "within 6 months"

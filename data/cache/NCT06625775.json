@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06625775",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -8,6 +9,13 @@
       "section": "inclusion",
       "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status (PS) 0-1",
       "threshold": "ECOG PS 0-1"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Stable brain metastases",
+      "threshold": null
     },
     {
       "category": "brain_mets",

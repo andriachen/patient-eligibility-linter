@@ -1,20 +1,21 @@
 {
   "nct_id": "NCT06138561",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
       "absolute": false,
       "section": "inclusion",
       "source_text": "Age \u226565-years-old (study will limit total enrollment of patients between ages 65-70 to 20% of the total study population)",
-      "threshold": "age >= 65 (enrollment capped at 20% for ages 65-70)"
+      "threshold": "age >= 65"
     },
     {
       "category": "language",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
-      "source_text": "complete patient reported outcomes that will be in English or Spanish either alone or with assistance of study researcher or family",
-      "threshold": null
+      "source_text": "patient reported outcomes that will be in English or Spanish either alone or with assistance of study researcher or family",
+      "threshold": "English or Spanish"
     }
   ]
 }

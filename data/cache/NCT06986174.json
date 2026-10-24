@@ -1,38 +1,53 @@
 {
   "nct_id": "NCT06986174",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
       "absolute": true,
       "section": "inclusion",
       "source_text": "ECOG performance status \u22642",
-      "threshold": "ECOG \u2264 2"
+      "threshold": "ECOG \u22642"
+    },
+    {
+      "category": "bmi",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "",
+      "threshold": null
     },
     {
       "category": "renal",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Creatinine clearance \u226530 ml/min using Cockcroft/Gault equation",
-      "threshold": "CrCl \u2265 30 ml/min"
+      "threshold": "CrCl \u226530 ml/min"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "total bilirubin \u22641.5 times the upper limit of normal or \u22643 times the upper limit of normal with documented liver involvement, hemolysis or Gilbert's disease",
+      "threshold": "bilirubin \u22641.5x ULN (\u22643x ULN with liver involvement)"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "AST (SGOT) and ALT (SGPT) \u22642.5 times the upper limit of normal or \u22645 times the upper limit of normal with documented liver involvement",
+      "threshold": "AST/ALT \u22642.5x ULN (\u22645x ULN with liver involvement)"
     },
     {
       "category": "hiv",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Current history of uncontrolled HIV",
       "threshold": null
     },
     {
-      "category": "hiv",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Patients with a known history of HIV must have a viral load assessed for eligibility and must be on a stable antiretroviral regimen that can be administered concurrent with pacritinib.",
-      "threshold": null
-    },
-    {
       "category": "hepatic",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Participants with chronic liver disease and hepatic impairment meeting Child-Pugh class B or C (Appendix B)",
       "threshold": "Child-Pugh B or C"
@@ -70,7 +85,7 @@
       "absolute": true,
       "section": "exclusion",
       "source_text": "Previously documented left ventricular ejection fraction (LVEF) by any method of \u2264 45% in the 12 months prior to planned start",
-      "threshold": "LVEF \u2264 45%"
+      "threshold": "LVEF \u226445% within 12 months"
     },
     {
       "category": "cardiac",
@@ -91,7 +106,7 @@
       "absolute": true,
       "section": "exclusion",
       "source_text": "Prolonged QT Interval with baseline QTc \\>480 msec using the Bazette formula",
-      "threshold": "QTc > 480 msec"
+      "threshold": "QTc >480 msec"
     }
   ]
 }

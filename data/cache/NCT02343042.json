@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT02343042",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
@@ -21,21 +22,14 @@
       "absolute": false,
       "section": "inclusion",
       "source_text": "Total bilirubin \\< 2\\* upper limit of normal (ULN) (except patients with Gilbert's syndrome \\[hereditary indirect hyperbilirubinemia\\] who must have a total bilirubin of \u2264 3\\* ULN) and both aspartate aminotransferase (AST) and alanine aminotransferase (ALT) \\< 2.5\\* ULN",
-      "threshold": "Total bilirubin < 2x ULN; AST and ALT < 2.5x ULN"
+      "threshold": "bilirubin < 2x ULN; AST/ALT < 2.5x ULN"
     },
     {
       "category": "renal",
       "absolute": false,
       "section": "inclusion",
-      "source_text": "estimated creatinine clearance (CrCl) calculated using the formula of Cockroft and Gault (1976).",
+      "source_text": "Adequate renal function within 28 days prior to C1D1. For Arms 1-11, estimated creatinine clearance (CrCl) calculated using the formula of Cockroft and Gault (1976).",
       "threshold": "CrCl \u2265 20 to > 60 mL/min depending on arm"
-    },
-    {
-      "category": "cardiac",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Symptomatic ischemia, or",
-      "threshold": null
     },
     {
       "category": "cardiac",
@@ -80,10 +74,10 @@
       "threshold": "within 3 years"
     },
     {
-      "category": "hepatic",
+      "category": "pregnancy",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "History of chronic hepatitis B with detectable viral load.",
+      "source_text": "Subject is unable or unwilling to receive protocol-required dual antiemetic prophylaxis",
       "threshold": null
     }
   ]

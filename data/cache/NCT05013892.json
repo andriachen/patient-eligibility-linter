@@ -1,26 +1,20 @@
 {
   "nct_id": "NCT05013892",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Karnofsky Performance Status \u2265 70",
-      "threshold": "KPS >= 70"
+      "threshold": "KPS \u2265 70"
     },
     {
       "category": "language",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Fluency in English, able to complete questionnaires and neurocognitive testing",
-      "threshold": null
-    },
-    {
-      "category": "pregnancy",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Negative pregnancy test for premenopausal women",
       "threshold": null
     },
     {
@@ -32,7 +26,7 @@
     },
     {
       "category": "pregnancy",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "Pregnant or unwilling to use appropriate contraception to prevent pregnancy during the time of radiation therapy",
       "threshold": null

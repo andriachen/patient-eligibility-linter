@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT04657068",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -18,16 +19,9 @@
     },
     {
       "category": "hiv",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "one or more opportunistic HIV/AIDs-related infections within the past 12 months",
-      "threshold": "within 12 months"
-    },
-    {
-      "category": "brain_mets",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Symptomatic or uncontrolled brain metastases, spinal cord compression, or leptomeningeal disease requiring concurrent treatment",
       "threshold": null
     },
     {
@@ -45,11 +39,18 @@
       "threshold": null
     },
     {
-      "category": "performance_status",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Performance status of 0-1 on the ECOG scale",
-      "threshold": "ECOG 0-1"
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Symptomatic or uncontrolled brain metastases, spinal cord compression, or leptomeningeal disease requiring concurrent treatment",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "malignancy prior to the one currently being treated that is not in remission",
+      "threshold": null
     },
     {
       "category": "performance_status",
@@ -59,11 +60,11 @@
       "threshold": "ECOG 0-1"
     },
     {
-      "category": "prior_malignancy",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "malignancy prior to the one currently being treated that is not in remission",
-      "threshold": null
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Performance Status of 0-1 on the ECOG scale",
+      "threshold": "ECOG 0-1"
     },
     {
       "category": "hepatic",
@@ -80,10 +81,10 @@
       "threshold": null
     },
     {
-      "category": "smoking",
-      "absolute": true,
+      "category": "hepatic",
+      "absolute": false,
       "section": "exclusion",
-      "source_text": "Parts B5 and B6: Weight loss \\>10% in the previous 8 weeks.",
+      "source_text": "Patients receiving strong inhibitors of UGT1A1 within 2 weeks before the first dose of study treatment",
       "threshold": null
     }
   ]

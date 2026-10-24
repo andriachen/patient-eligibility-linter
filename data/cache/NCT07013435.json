@@ -1,10 +1,11 @@
 {
   "nct_id": "NCT07013435",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "language",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
       "source_text": "English or Spanish speaking adults (18+ at time of enrollment)",
       "threshold": null

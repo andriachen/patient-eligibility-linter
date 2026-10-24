@@ -1,26 +1,27 @@
 {
   "nct_id": "NCT07718854",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
       "absolute": true,
       "section": "inclusion",
       "source_text": "ECOG performance status 0-1",
-      "threshold": "ECOG > 1"
-    },
-    {
-      "category": "pregnancy",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Participant is not pregnant or breastfeeding, and at least one of the following conditions applies:",
-      "threshold": null
+      "threshold": "ECOG 0-1"
     },
     {
       "category": "brain_mets",
       "absolute": true,
       "section": "inclusion",
-      "source_text": "Participants with known brain metastases are excluded from this clinical trial because of their poor prognosis",
+      "source_text": "Participants with known brain metastases are excluded from this clinical trial",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Participant is not pregnant or breastfeeding, and at least one of the following conditions applies:",
       "threshold": null
     },
     {
@@ -32,10 +33,10 @@
     },
     {
       "category": "cardiac",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
-      "source_text": "Has uncontrolled, significant cardiovascular disease or cerebrovascular disease, including New York Heart Association Class III or IV congestive heart failure, unstable angina, myocardial infarction, uncontrolled symptomatic arrhythmia, prolongation of QTcF interval to >480 ms",
-      "threshold": "QTcF > 480 ms; NYHA Class III or IV"
+      "source_text": "New York Heart Association Class III or IV congestive heart failure, unstable angina, myocardial infarction, uncontrolled symptomatic arrhythmia, prolongation of QTcF interval to >480 ms",
+      "threshold": "NYHA III/IV; QTcF > 480 ms"
     },
     {
       "category": "prior_malignancy",
@@ -49,6 +50,13 @@
       "absolute": true,
       "section": "exclusion",
       "source_text": "Has CNS metastases and/or carcinomatous meningitis.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Is receiving chronic systemic steroid therapy",
       "threshold": null
     }
   ]

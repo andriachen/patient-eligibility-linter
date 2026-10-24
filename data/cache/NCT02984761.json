@@ -1,13 +1,14 @@
 {
   "nct_id": "NCT02984761",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Karnofsky performance status greater than or equal to 70",
-      "threshold": "Karnofsky >= 70"
+      "threshold": "KPS >= 70"
     },
     {
       "category": "prior_malignancy",
@@ -24,11 +25,18 @@
       "threshold": null
     },
     {
-      "category": "pregnancy",
+      "category": "prior_malignancy",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Positive Pregnancy test (for women <61 years of age or without prior hysterectomy)",
+      "source_text": "Prior history of lung cancer, not including current lesion",
       "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Positive Pregnancy test (for women <61 years of age or without prior hysterectomy)",
+      "threshold": "women < 61 years of age or without prior hysterectomy"
     }
   ]
 }

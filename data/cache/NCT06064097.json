@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06064097",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
@@ -10,46 +11,11 @@
       "threshold": "age <= 21"
     },
     {
-      "category": "hiv",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Human immunodeficiency virus (HIV)-infected patients on effective anti-retroviral therapy with undetectable viral load within 6 months and T-cell count above the lower limit of normal are eligible for this trial",
-      "threshold": null
-    },
-    {
-      "category": "pregnancy",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Lactating females are not eligible unless they have agreed not to breastfeed their infants starting with the first dose of study therapy through 5 months after the last dose of nivolumab",
-      "threshold": null
-    },
-    {
-      "category": "hiv",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Patients with detectable viral load of human immunodeficiency virus (HIV), hepatitis B or hepatitis C, or active tuberculosis",
-      "threshold": null
-    },
-    {
-      "category": "prior_malignancy",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Patients who received prior chemotherapy or radiation for the treatment of any cancer in the last 3 years. These patients must also be in remission",
-      "threshold": "within 3 years"
-    },
-    {
-      "category": "pregnancy",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Due to risks of fetal and teratogenic adverse events as seen in animal studies, a negative pregnancy test must be obtained in females of childbearing potential, defined as females who are post-menarchal.",
-      "threshold": null
-    },
-    {
       "category": "performance_status",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Patients must have a Lansky (for patients \u2264 16 years of age) or Karnofsky (for patients \\> 16 years of age) performance status score of \u2265 60%",
-      "threshold": "Karnofsky >= 60%"
+      "threshold": "Karnofsky/Lansky >= 60%"
     },
     {
       "category": "renal",
@@ -78,6 +44,27 @@
       "section": "inclusion",
       "source_text": "Ejection fraction of \u2265 50% by radionuclide angiogram",
       "threshold": "LVEF >= 50%"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Patients who received prior chemotherapy or radiation for the treatment of any cancer in the last 3 years. These patients must also be in remission",
+      "threshold": "within 3 years"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Lactating females are not eligible unless they have agreed not to breastfeed their infants starting with the first dose of study therapy through 5 months after the last dose of nivolumab",
+      "threshold": null
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Patients with detectable viral load of human immunodeficiency virus (HIV), hepatitis B or hepatitis C, or active tuberculosis",
+      "threshold": "detectable HIV viral load"
     }
   ]
 }

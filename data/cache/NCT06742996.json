@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06742996",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -11,7 +12,7 @@
     },
     {
       "category": "brain_mets",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Known central nervous system involvement by lymphoma",
       "threshold": null

@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT02977780",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -10,46 +11,18 @@
       "threshold": "KPS \u226560"
     },
     {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "AST(SGOT)/ALT(SGPT) \u2264 2.5 \u00d7 institutional upper limit of normal",
+      "threshold": "\u2264 2.5 \u00d7 ULN"
+    },
+    {
       "category": "renal",
       "absolute": false,
       "section": "inclusion",
-      "source_text": "Creatinine \u2264 institutional upper limit of normal OR",
-      "threshold": "creatinine \u2264 institutional ULN unless CrCl \u2265 60 mL/min/1.73 m2"
-    },
-    {
-      "category": "hepatic",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Total bilirubin within normal institutional limits (except for participant's with Gilbert's disease)",
-      "threshold": "total bilirubin within institutional ULN"
-    },
-    {
-      "category": "hepatic",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "AST(SGOT)/ALT(SGPT) \u2264 2.5 \u00d7 institutional upper limit of normal",
-      "threshold": "AST/ALT \u2264 2.5 \u00d7 ULN"
-    },
-    {
-      "category": "age",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Age \u2265 18 years.",
-      "threshold": "age \u2265 18"
-    },
-    {
-      "category": "brain_mets",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Tumors primarily localized in the infratentorial compartment will be excluded.",
-      "threshold": null
-    },
-    {
-      "category": "prior_malignancy",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "History of a different malignancy, unless (a) have been disease-free for at least 2 years and are deemed by the investigator to be at low risk for recurrence of that malignancy, and/or (b) malignancy was cervical cancer in situ, superficial bladder cancer or basal cell or squamous cell carcinoma of the skin, and malignancy has been treated.",
-      "threshold": "disease-free for at least 2 years unless exceptions"
+      "source_text": "Creatinine clearance \u2265 60 mL/min/1.73 m2 for participants with creatinine levels above institutional normal.",
+      "threshold": "CrCl \u2265 60 mL/min/1.73 m2"
     },
     {
       "category": "cardiac",
@@ -60,21 +33,14 @@
     },
     {
       "category": "cardiac",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
-      "source_text": "--QTc interval \\> 450 ms for men or \\> 470 ms for women.",
+      "source_text": "QTc interval \\> 450 ms for men or \\> 470 ms for women.",
       "threshold": "QTc > 450 ms men; > 470 ms women"
     },
     {
       "category": "cardiac",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Persistent or history of clinically meaningful ventricular arrhythmias or atrial fibrillation.",
-      "threshold": null
-    },
-    {
-      "category": "cardiac",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "Unstable pectoris or myocardial infarction \u2264 3 months prior to starting study treatment.",
       "threshold": "MI within 3 months"
@@ -94,11 +60,25 @@
       "threshold": "HbA1c \u2265 8%"
     },
     {
-      "category": "hiv",
-      "absolute": true,
+      "category": "hepatic",
+      "absolute": false,
       "section": "exclusion",
-      "source_text": "Known active Hepatitis B (e.g., HBsAg reactive) or Hepatitis C (e.g., HCV RNS \\[qualitative\\] is detected).",
+      "source_text": "chronic liver disease (e.g., cirrhosis, hepatitis)",
       "threshold": null
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "chronic renal disease",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "History of a different malignancy, unless (a) have been disease-free for at least 2 years and are deemed by the investigator to be at low risk for recurrence of that malignancy",
+      "threshold": "disease-free for at least 2 years"
     },
     {
       "category": "pregnancy",
@@ -108,10 +88,17 @@
       "threshold": null
     },
     {
-      "category": "smoking",
+      "category": "hepatic",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Current use of warfarin sodium or any other coumadin-derivative anticoagulant.",
+      "source_text": "Known active Hepatitis B (e.g., HBsAg reactive) or Hepatitis C (e.g., HCV RNS \\[qualitative\\] is detected).",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participants who have had any prior cranial radiotherapy.",
       "threshold": null
     }
   ]

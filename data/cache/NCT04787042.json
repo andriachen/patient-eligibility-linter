@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT04787042",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -21,7 +22,7 @@
       "absolute": false,
       "section": "exclusion",
       "source_text": "Known symptomatic brain metastases requiring >10 mg/day of prednisolone or equivalent",
-      "threshold": ">10 mg/day prednisolone or equivalent"
+      "threshold": "prednisolone > 10 mg/day"
     },
     {
       "category": "brain_mets",
@@ -34,7 +35,7 @@
       "category": "pregnancy",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "Subjects with adrenal insufficiency",
+      "source_text": "Has received a live vaccine within 30 days",
       "threshold": null
     }
   ]

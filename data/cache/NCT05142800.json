@@ -1,10 +1,11 @@
 {
   "nct_id": "NCT05142800",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
       "source_text": "Females between 18 and 80 years of age",
       "threshold": "age <= 80"

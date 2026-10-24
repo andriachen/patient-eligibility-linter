@@ -1,34 +1,42 @@
 {
   "nct_id": "NCT04079179",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Participant must be at least 6 months of age and less than 21 years of age at the time of enrollment",
+      "threshold": "age < 21 years"
+    },
     {
       "category": "performance_status",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Karnofsky \u2265 50% for patients \\> 16 years of age and Lansky \u2265 50% for patients \u2264 16 years of age.",
-      "threshold": "Karnofsky/Lansky \u2265 50%"
+      "threshold": "Karnofsky \u2265 50%"
     },
     {
       "category": "renal",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Calculated creatinine clearance (or radioisotope GFR) \u2265 70 mL/min/1.73m\\^2 or serum creatinine based on age/gender as follows:",
-      "threshold": "CrCl or GFR \u2265 70 mL/min/1.73m^2; serum creatinine age/sex-based maximum"
+      "threshold": "CrCl \u2265 70 mL/min/1.73m^2"
     },
     {
       "category": "hepatic",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Bilirubin (sum of conjugated + unconjugated) \u2264 1.5 x upper limit of normal (ULN) for age",
-      "threshold": "Bilirubin \u2264 1.5 x ULN"
+      "threshold": "bilirubin \u2264 1.5 x ULN"
     },
     {
       "category": "hepatic",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "AST and ALT \u2264 3x ULN (\u2264 5 x ULN for participants with liver involvement)",
-      "threshold": "AST/ALT \u2264 3x ULN (\u2264 5x ULN with liver involvement)"
+      "threshold": "AST/ALT \u2264 3x ULN"
     },
     {
       "category": "cardiac",
@@ -41,28 +49,35 @@
       "category": "pregnancy",
       "absolute": false,
       "section": "inclusion",
-      "source_text": "Female patients of childbearing potential require a negative urine or serum pregnancy test for eligibility",
+      "source_text": "Female patients of childbearing potential require a negative urine or serum pregnancy test for eligibility and again at database registration, if more than 2 weeks has elapsed.",
       "threshold": null
-    },
-    {
-      "category": "age",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "For Group 1: Participant must be at least 6 months of age and less than 21 years of age at the time of enrollment",
-      "threshold": "age < 21 years"
-    },
-    {
-      "category": "age",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "For Group 4: Participant must be 21 years of age or older at the time of enrollment",
-      "threshold": "age >= 21 years"
     },
     {
       "category": "prior_malignancy",
       "absolute": true,
       "section": "exclusion",
       "source_text": "Other active malignancy or history of secondary malignancy.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Symptomatic congestive heart failure, defined as New York Heart Association Class II or higher",
+      "threshold": "NYHA Class II or higher"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Myocardial infarction within 3 months prior to initiation of study treatment",
+      "threshold": "within 3 months"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Clinically significant cardiac arrhythmias including brady-arrhythmias and/or patients who require anti-arrhythmic therapy (with the exception of beta blockers or digoxin).",
       "threshold": null
     },
     {
@@ -73,38 +88,10 @@
       "threshold": null
     },
     {
-      "category": "cardiac",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Clinically significant cardiac arrhythmias including brady-arrhythmias and/or patients who require anti-arrhythmic therapy",
-      "threshold": null
-    },
-    {
-      "category": "cardiac",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Symptomatic congestive heart failure, defined as New York Heart Association Class II or higher",
-      "threshold": "NYHA Class II or higher"
-    },
-    {
-      "category": "cardiac",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Myocardial infarction within 3 months prior to initiation of study treatment",
-      "threshold": "within 3 months"
-    },
-    {
       "category": "pregnancy",
       "absolute": true,
       "section": "exclusion",
       "source_text": "Female patients who are pregnant or lactating.",
-      "threshold": null
-    },
-    {
-      "category": "smoking",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Patients taking anticoagulants",
       "threshold": null
     }
   ]

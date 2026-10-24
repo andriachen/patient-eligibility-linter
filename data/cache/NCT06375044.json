@@ -1,10 +1,11 @@
 {
   "nct_id": "NCT06375044",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "\u226518 years of age.",
       "threshold": null
@@ -15,6 +16,27 @@
       "section": "inclusion",
       "source_text": "Eastern Cooperative Oncology Group (ECOG) score of 0 or 1.",
       "threshold": "ECOG 0 or 1"
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Adequate hematologic, hepatic, and renal function.",
+      "threshold": "adequate"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Adequate hematologic, hepatic, and renal function.",
+      "threshold": "adequate"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Active hepatitis B (HBsAg positive and HBV DNA \u2265 1\u00d7104 copies/mL or \u2265 2,000 international unit \\[IU\\]/mL) or hepatitis C (HCV antibody positive and HCV RNA \u2265 ULN) infection",
+      "threshold": null
     },
     {
       "category": "hiv",
@@ -32,14 +54,14 @@
     },
     {
       "category": "prior_malignancy",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Current or previous other malignancy within 3 years of study entry, except basal or squamous cell skin cancer, superficial bladder cancer, or carcinoma in situ of the prostate, cervix or breast.",
       "threshold": "within 3 years"
     },
     {
       "category": "brain_mets",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "Known active central nervous system (CNS) involvement or exhibits clinical signs of meningeal involvement of multiple myeloma.",
       "threshold": null

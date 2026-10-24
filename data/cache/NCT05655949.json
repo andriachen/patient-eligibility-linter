@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT05655949",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -18,10 +19,10 @@
     },
     {
       "category": "renal",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "Serum creatinine \u2264 1.5 mg/dL OR",
-      "threshold": "serum creatinine \u2264 1.5 mg/dL"
+      "threshold": "creatinine \u2264 1.5 mg/dL"
     },
     {
       "category": "hepatic",
@@ -32,14 +33,14 @@
     },
     {
       "category": "hepatic",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "ALT \u2264 2.5 x ULN unless liver metastases are present, in which case it must be \u22645x ULN",
       "threshold": "ALT \u22642.5x ULN (\u22645x ULN with liver metastases)"
     },
     {
       "category": "hepatic",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "AST \u2264 2.5 x ULN unless liver metastases are present, in which case it must be \u22645x ULN",
       "threshold": "AST \u22642.5x ULN (\u22645x ULN with liver metastases)"
@@ -48,14 +49,7 @@
       "category": "hiv",
       "absolute": false,
       "section": "inclusion",
-      "source_text": "Participants with known human immunodeficiency virus (HIV) on effective highly-active antiretroviral therapy (HAART) with undetectable viral load within 6 months are eligible for this trial, so long as the following criteria are met:",
-      "threshold": null
-    },
-    {
-      "category": "age",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Male and female participants at least 18 years of age at the time of signing the ICF",
+      "source_text": "Participants with known human immunodeficiency virus (HIV) on effective highly-active antiretroviral therapy (HAART) with undetectable viral load within 6 months are eligible for this trial",
       "threshold": null
     },
     {
@@ -63,21 +57,21 @@
       "absolute": true,
       "section": "exclusion",
       "source_text": "New York Heart Association (NYHA) Class III or IV heart failure",
-      "threshold": "NYHA class III or IV within 6 months"
+      "threshold": "NYHA class III or IV"
     },
     {
       "category": "cardiac",
       "absolute": true,
       "section": "exclusion",
       "source_text": "Myocardial infarction, unstable angina pectoris, or symptomatic coronary artery disease",
-      "threshold": "within 6 months of screening"
+      "threshold": null
     },
     {
       "category": "cardiac",
       "absolute": true,
       "section": "exclusion",
       "source_text": "Unstable arrhythmia",
-      "threshold": "within 6 months of screening"
+      "threshold": null
     },
     {
       "category": "prior_malignancy",
@@ -94,10 +88,10 @@
       "threshold": null
     },
     {
-      "category": "smoking",
-      "absolute": false,
+      "category": "pregnancy",
+      "absolute": true,
       "section": "exclusion",
-      "source_text": "Severe chronic obstructive or other pulmonary disease with chronic baseline hypoxemia due to potential for gemcitabine-induced bronchospasm and/or durvalumab-induced pneumonitis",
+      "source_text": "Female patients who are pregnant or breastfeeding or male or female patients of reproductive potential who are not willing to employ effective birth control from screening to 90 days after the last dose of durvalumab monotherapy.",
       "threshold": null
     },
     {
@@ -108,24 +102,10 @@
       "threshold": null
     },
     {
-      "category": "pregnancy",
+      "category": "age",
       "absolute": true,
-      "section": "exclusion",
-      "source_text": "Female patients who are pregnant or breastfeeding or male or female patients of reproductive potential who are not willing to employ effective birth control from screening to 90 days after the last dose of durvalumab monotherapy.",
-      "threshold": null
-    },
-    {
-      "category": "prior_malignancy",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Histologically or cytologically confirmed diagnosis of primary hepatocellular carcinoma or mixed adenocarcinoma/hepatocellular carcinoma",
-      "threshold": null
-    },
-    {
-      "category": "brain_mets",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Histologically or cytologically confirmed diagnosis of primary hepatocellular carcinoma or mixed adenocarcinoma/hepatocellular carcinoma",
+      "section": "inclusion",
+      "source_text": "Male and female participants at least 18 years of age at the time of signing the ICF",
       "threshold": null
     }
   ]

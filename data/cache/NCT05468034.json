@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT05468034",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -11,23 +12,30 @@
     },
     {
       "category": "cardiac",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "NYHA class III or IV congestive heart failure",
       "threshold": "NYHA class III or IV"
     },
     {
       "category": "cardiac",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Myocardial infarction in the prior 12 months",
-      "threshold": "within 12 months"
+      "threshold": "MI within 12 months"
     },
     {
       "category": "brain_mets",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Active, untreated brain metastases",
+      "threshold": null
+    },
+    {
+      "category": "smoking",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "",
       "threshold": null
     }
   ]

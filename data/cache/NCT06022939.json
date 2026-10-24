@@ -1,41 +1,49 @@
 {
   "nct_id": "NCT06022939",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Participant must be \\>= 18 years old",
+      "threshold": null
+    },
     {
       "category": "performance_status",
       "absolute": false,
       "section": "inclusion",
       "source_text": "Participant must have Eastern Cooperative Oncology Group (ECOG) performance score (PS) of 0, 1, or 2 (PS = 3 may be allowed if secondary to neuropathy)",
-      "threshold": "ECOG PS > 2 (PS = 3 allowed if secondary to neuropathy)"
-    },
-    {
-      "category": "cardiac",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Cardiac ejection fraction (EF) \\>= 40%",
-      "threshold": "EF < 40%"
-    },
-    {
-      "category": "cardiac",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "New York Heart Association (NYHA) I or II",
-      "threshold": "NYHA class > II"
-    },
-    {
-      "category": "hepatic",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Direct bilirubin =\\< 2.0 mg/dL (within 28 days prior to registration)",
-      "threshold": "direct bilirubin > 2.0 mg/dL"
+      "threshold": "ECOG 0-2 (PS 3 allowed if secondary to neuropathy)"
     },
     {
       "category": "renal",
       "absolute": false,
       "section": "inclusion",
       "source_text": "Participants must have a serum creatinine =\\< the institutional (I)ULN OR measured OR calculated creatinine clearance \\>= 30 mL/min using the following Cockcroft-Gault formula.",
-      "threshold": "creatinine > IULN and CrCl < 30 mL/min"
+      "threshold": "CrCl >= 30 mL/min"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Direct bilirubin =\\< 2.0 mg/dL (within 28 days prior to registration)",
+      "threshold": "direct bilirubin <= 2.0 mg/dL"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Aspartate aminotransferase (AST)/ alanine aminotransferase (ALT) =\\< 3x upper limit of normal (ULN) (except if secondary to hepatic involvement) (within 28 days prior to registration)",
+      "threshold": "AST/ALT <= 3x ULN"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Participants must have adequate cardiac function. Participants with known history or current symptoms of cardiac disease, or history of treatment with cardiotoxic agents, must have a clinical risk assessment of cardiac function using the New York Heart Association Functional Classification. To be eligible for this trial, participants must be class 2 or better",
+      "threshold": "NYHA class 2 or better"
     },
     {
       "category": "hiv",
@@ -62,12 +70,12 @@
       "category": "pregnancy",
       "absolute": true,
       "section": "inclusion",
-      "source_text": "Participants must not be pregnant or nursing (nursing includes breast milk fed to an infant by any means, including from the breast, milk expressed by hand, or pumped).",
+      "source_text": "Participants must not be pregnant or nursing (nursing includes breast milk fed to an infant by any means, including from the breast, milk expressed by hand, or pumped)",
       "threshold": null
     },
     {
       "category": "language",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "Participants who can complete PRO, QOL, PRO-CTCAE questionnaires, etc. forms in English, Spanish and French must participate in the patient-reported outcomes and quality of life",
       "threshold": null
@@ -76,35 +84,28 @@
       "category": "performance_status",
       "absolute": false,
       "section": "inclusion",
-      "source_text": "STEP 2: Participants must have ECOG performance score (PS) of 0, 1, or 2 (PS = 3 may be allowed if secondary to neuropathy)",
-      "threshold": "ECOG PS > 2 (PS = 3 allowed if secondary to neuropathy)"
+      "source_text": "Participants must have ECOG performance score (PS) of 0, 1, or 2 (PS = 3 may be allowed if secondary to neuropathy)",
+      "threshold": "ECOG 0-2 (PS 3 allowed if secondary to neuropathy)"
     },
     {
       "category": "hepatic",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Direct bilirubin =\\< 2.0 mg/dL (except if secondary to hepatic involvement) (within 28 days prior to registration)",
-      "threshold": "direct bilirubin > 2.0 mg/dL"
+      "threshold": "direct bilirubin <= 2.0 mg/dL"
     },
     {
-      "category": "performance_status",
+      "category": "renal",
       "absolute": false,
       "section": "inclusion",
-      "source_text": "STEP 3: Participants must have ECOG performance score (PS) of 0, 1, or 2 (PS = 3 is allowed if secondary to neuropathy)",
-      "threshold": "ECOG PS > 2 (PS = 3 allowed if secondary to neuropathy)"
+      "source_text": "Participants must have a serum creatinine =\\< the IULN OR calculated creatinine clearance \u2265 30 mL/min using the following Cockcroft-Gault Formula.",
+      "threshold": "CrCl >= 30 mL/min"
     },
     {
-      "category": "hiv",
+      "category": "diabetes",
       "absolute": false,
       "section": "inclusion",
-      "source_text": "Participants with known human immunodeficiency virus (HIV)-infection must be on effective anti-retroviral therapy at registration",
-      "threshold": null
-    },
-    {
-      "category": "age",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Participant must be \\>= 18 years old",
+      "source_text": "Participants must not have uncontrolled diabetes within 28 days prior to registration",
       "threshold": null
     }
   ]

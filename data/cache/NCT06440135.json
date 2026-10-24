@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06440135",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "prior_malignancy",
@@ -35,7 +36,7 @@
       "absolute": true,
       "section": "exclusion",
       "source_text": "QTc interval (i.e., Friderica's correction \\[QTcF\\]) \u2265 480 ms or other factors that increase the risk of QT prolongation or arrhythmic events (e.g., heart failure, hypokalemia, family history of long QT interval syndrome) at screening",
-      "threshold": "QTcF \u2265 480 ms"
+      "threshold": "QTcF >= 480 ms"
     },
     {
       "category": "pregnancy",
@@ -43,6 +44,41 @@
       "section": "exclusion",
       "source_text": "Persons who are pregnant or lactating.",
       "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status 0-2.",
+      "threshold": "ECOG 0-2"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "AST (SGOT), ALT (SGPT) and Alkaline phosphatase \\< 3x institutional upper limit of normal (ULN)",
+      "threshold": "AST/ALT/ALP < 3x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Total bilirubin \\< 1.5 x institutional ULN (with the exception of subjects with a history of Gilbert's syndrome, for which the total bilirubin must be \\< 5 x ULN)",
+      "threshold": "total bilirubin < 1.5x ULN"
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Calculated creatinine clearance \u2265 30 mL/min (Cockcroft-Gault formula)",
+      "threshold": "CrCl >= 30 mL/min"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "LVEF must be \u226550%, as measured by MUGA scan or echocardiogram.",
+      "threshold": "LVEF >= 50%"
     }
   ]
 }

@@ -1,5 +1,70 @@
 {
   "nct_id": "NCT06994676",
   "model": "claude-haiku-5-5",
-  "exclusions": []
+  "prompt_version": "v2-2026-10-24",
+  "exclusions": [
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Estimated glomerular filtration rate \u2265 45 mL/min/1.73 m2 based on local institutional practice for age-appropriate determination",
+      "threshold": "eGFR \u2265 45 mL/min/1.73 m2"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Alanine aminotransferase (ALT) and aspartate aminotransferase (AST) \\<3 \u00d7 ULN (unless attributed to leukemic involvement with discussion with the Study Responsible Physician).",
+      "threshold": "ALT/AST < 3 \u00d7 ULN"
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ECOG PS score 0-1 (if aged \u226518 years)",
+      "threshold": "ECOG PS 0-1"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Any of the following within the 6 months prior to study entry: myocardial infarction, uncontrolled/unstable angina, congestive heart failure (New York Heart Association Classification Class \\>II), life-threatening, uncontrolled arrhythmia, cerebrovascular accident, or transient ischemic attack.",
+      "threshold": "within 6 months; NYHA > II"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "QTc using Fridericia's correction (QTcF) \\>480 msec",
+      "threshold": "QTcF > 480 msec"
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Known HIV infection.",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Active central nervous system (CNS) disease.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Concurrent malignancy in the previous 2 years with the exception of basal cell carcinoma of the skin, squamous cell carcinoma of the skin, or carcinoma in situ (eg, breast carcinoma, cervical cancer in situ, melanoma in situ) treated with potentially curative therapy.",
+      "threshold": "within 2 years"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant or nursing women",
+      "threshold": null
+    }
+  ]
 }

@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT07024615",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "cardiac",
@@ -10,25 +11,18 @@
       "threshold": "NYHA class 2B or better"
     },
     {
-      "category": "pregnancy",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Female participant is not pregnant and at least 1 of the following conditions apply:",
-      "threshold": null
-    },
-    {
       "category": "performance_status",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "Participant has an Eastern Cooperative Oncology Group (ECOG) performance status of 0 or 1.",
-      "threshold": "ECOG > 1"
+      "threshold": "ECOG 0 or 1"
     },
     {
       "category": "cardiac",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "Participant has a corrected QT interval by Fridericia (QTcF) \u2264 470 msec.",
-      "threshold": "QTcF > 470 msec"
+      "threshold": "QTcF <= 470 msec"
     },
     {
       "category": "cardiac",
@@ -36,13 +30,6 @@
       "section": "exclusion",
       "source_text": "Participant has had within 6 months prior to first dose of study intervention any of the following: unstable angina, myocardial infarction, ventricular arrhythmia requiring intervention or hospitalization for heart failure.",
       "threshold": "within 6 months"
-    },
-    {
-      "category": "pregnancy",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Female participant must not be breastfeeding or lactating starting at screening and throughout the investigational period and for 5 half-lives (6 months) after final ASP2138 intervention administration (or follow the contraception requirements per the adjuvant chemotherapy PI/prescribing information, whichever is longer).",
-      "threshold": null
     },
     {
       "category": "hiv",
@@ -53,16 +40,16 @@
     },
     {
       "category": "prior_malignancy",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Participant has another malignancy for which treatment is required.",
       "threshold": null
     },
     {
-      "category": "hepatic",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Participant is known to have active hepatitis B (positive hepatitis B surface antigen \\[hBsAg\\]) or hepatitis C infection.",
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Female participant must not be breastfeeding or lactating starting at screening and throughout the investigational period and for 5 half-lives (6 months) after final ASP2138 intervention administration",
       "threshold": null
     }
   ]

@@ -1,14 +1,8 @@
 {
   "nct_id": "NCT05652686",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
-    {
-      "category": "age",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "18 years or older and able to sign informed consent and comply with the protocol.",
-      "threshold": null
-    },
     {
       "category": "performance_status",
       "absolute": true,

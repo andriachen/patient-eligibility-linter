@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06357533",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -34,7 +35,7 @@
       "category": "hiv",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "Active infection with TB, HBV, HCV, Hepatitis A, or known HIV infection that is not well controlled",
+      "source_text": "known HIV infection that is not well controlled",
       "threshold": null
     }
   ]

@@ -1,48 +1,6 @@
 {
   "nct_id": "NCT06876714",
   "model": "claude-haiku-5-5",
-  "exclusions": [
-    {
-      "category": "age",
-      "absolute": true,
-      "section": "inclusion",
-      "threshold": "minimum age 18",
-      "source_text": "Age \u2265 18 years"
-    },
-    {
-      "category": "performance_status",
-      "absolute": false,
-      "section": "inclusion",
-      "threshold": "ECOG 0-2",
-      "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status 0-2"
-    },
-    {
-      "category": "pregnancy",
-      "absolute": true,
-      "section": "inclusion",
-      "threshold": null,
-      "source_text": "Not pregnant and not nursing, because this study involves agents with known teratogenic potential."
-    },
-    {
-      "category": "prior_malignancy",
-      "absolute": true,
-      "section": "inclusion",
-      "threshold": null,
-      "source_text": "No history of any prior (ipsilateral \\[ipsi-\\] or contralateral) invasive breast cancer. Prior DCIS is allowed"
-    },
-    {
-      "category": "hiv",
-      "absolute": false,
-      "section": "inclusion",
-      "threshold": null,
-      "source_text": "Patients living with HIV who are healthy and deemed by their medical team to have a low risk of AIDS-related illnesses are included in this trial."
-    },
-    {
-      "category": "cardiac",
-      "absolute": true,
-      "section": "inclusion",
-      "threshold": "LVEF < 50%",
-      "source_text": "Patients with inadequate cardiac function on most recent assessment of left ventricular ejection fraction (LVEF) are not eligible for this trial. Inadequate cardiac function is defined as LVEF \\< 50% on echocardiogram (echo) or multiple-gated acquisition (MUGA)"
-    }
-  ]
+  "prompt_version": "v2-2026-10-24",
+  "exclusions": []
 }

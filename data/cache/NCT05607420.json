@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT05607420",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -18,10 +19,17 @@
     },
     {
       "category": "prior_malignancy",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "Evidence of another uncontrolled malignancy within 2 years prior to Screening (except in situ nonmelanoma skin cell cancers and/or carcinoma in-situ of the cervix)",
       "threshold": "within 2 years"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Any known uncontrolled cardiovascular disease within 3 months of enrollment",
+      "threshold": "within 3 months"
     }
   ]
 }

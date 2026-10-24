@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT05410977",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "prior_malignancy",
@@ -10,11 +11,11 @@
       "threshold": "within 5 years"
     },
     {
-      "category": "age",
+      "category": "prior_malignancy",
       "absolute": true,
-      "section": "inclusion",
-      "source_text": "early onset CRC (\\<55 years old)",
-      "threshold": "age < 55"
+      "section": "exclusion",
+      "source_text": "Patient has received chemotherapy class drugs for the treatment of cancer in the 5 years prior to current sample collection",
+      "threshold": "within 5 years"
     }
   ]
 }

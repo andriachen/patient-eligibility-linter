@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT05216432",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -20,21 +21,14 @@
       "category": "cardiac",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Mean resting corrected QT interval (QTc) \u0003>460 msec",
+      "source_text": "Mean resting corrected QT interval (QTc) \\>460 msec",
       "threshold": "QTc >460 msec"
     },
     {
-      "category": "cardiac",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "For triple combination arm with ribociclib: Mean QTcF \u2265450 msec",
-      "threshold": "QTcF \u2265450 msec"
-    },
-    {
-      "category": "brain_mets",
+      "category": "pregnancy",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "CNS metastases or primary CNS tumor that is associated with progressive neurologic symptoms",
+      "source_text": "Premenopausal or perimenopausal females must have a histologically or cytologically confirmed diagnosis",
       "threshold": null
     }
   ]

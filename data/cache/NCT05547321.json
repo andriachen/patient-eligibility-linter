@@ -1,14 +1,8 @@
 {
   "nct_id": "NCT05547321",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
-    {
-      "category": "age",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Male and female patients aged 18 years and older.",
-      "threshold": null
-    },
     {
       "category": "performance_status",
       "absolute": true,
@@ -20,15 +14,15 @@
       "category": "renal",
       "absolute": true,
       "section": "inclusion",
-      "source_text": "For Part 1 only: estimated creatinine clearance (CrCL) using the Cockcroft-Gault formula \u226560 mL/minute.",
-      "threshold": "CrCL \u226560 mL/min"
+      "source_text": "For Part 2 only:, CrCL should be \u226530 mL/min.",
+      "threshold": "CrCL \u226530 mL/min"
     },
     {
       "category": "renal",
       "absolute": true,
       "section": "inclusion",
-      "source_text": "For Part 2 only:, CrCL should be \u226530 mL/min.",
-      "threshold": "CrCL \u226530 mL/min"
+      "source_text": "For Part 1 only: estimated creatinine clearance (CrCL) using the Cockcroft-Gault formula \u226560 mL/minute. Patients with calculated CrCL \\<60 mL/min can be enrolled if measured CrCL is \u226560 mL/min.",
+      "threshold": "CrCL \u226560 mL/min"
     },
     {
       "category": "hepatic",
@@ -45,39 +39,18 @@
       "threshold": "AST/ALT \u22643 x ULN (\u22645 x ULN with liver metastases)"
     },
     {
-      "category": "pregnancy",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Women who are pregnant or breastfeeding or trying to become pregnant.",
-      "threshold": null
-    },
-    {
       "category": "hiv",
       "absolute": false,
       "section": "exclusion",
       "source_text": "Patients positive for human immunodeficiency virus (HIV) are NOT excluded from this study, but HIV-positive patients must meet the following criteria:",
-      "threshold": "CD4+ \u2265350 cells/\u03bcL; viral load <400 copies/mL; no opportunistic infection in 12 months"
-    },
-    {
-      "category": "brain_mets",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "History of uncontrolled brain metastasis.",
-      "threshold": null
-    },
-    {
-      "category": "prior_malignancy",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Clinical evidence of an active second invasive malignancy with the exception of stable prostate cancer on watchful waiting, in situ cervical cancer, breast ductal carcinoma in situ or localized non-melanoma skin cancers.",
-      "threshold": null
+      "threshold": "CD4 \u2265350 cells/\u03bcL, viral load <400 copies/mL, among other conditions"
     },
     {
       "category": "cardiac",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Uncontrolled or significant cardiovascular disease defined by the New York Hearth Association (NYHA) classification III or IV.",
-      "threshold": "NYHA III or IV"
+      "threshold": "NYHA class III or IV"
     },
     {
       "category": "cardiac",
@@ -92,6 +65,34 @@
       "section": "exclusion",
       "source_text": "Baseline QTc (using the Fridericia correction calculation) \\> 470 msec (unless pacemaker in place, only for patients in Part 2).",
       "threshold": "QTc > 470 msec"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Clinical evidence of an active second invasive malignancy with the exception of stable prostate cancer on watchful waiting, in situ cervical cancer, breast ductal carcinoma in situ or localized non-melanoma skin cancers.",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "History of uncontrolled brain metastasis.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Women who are pregnant or breastfeeding or trying to become pregnant.",
+      "threshold": null
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Known hepatitis B virus surface antigen seropositive or detectable hepatitis C infection viral load.",
+      "threshold": null
     }
   ]
 }

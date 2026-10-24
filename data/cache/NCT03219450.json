@@ -1,24 +1,25 @@
 {
   "nct_id": "NCT03219450",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
       "source_text": "ECOG performance status 0 or 1",
       "threshold": "ECOG 0 or 1"
     },
     {
       "category": "hepatic",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
       "source_text": "total bilirubin within normal institutional limits",
-      "threshold": "total bilirubin within normal institutional limits"
+      "threshold": "bilirubin within normal institutional limits"
     },
     {
       "category": "hepatic",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
       "source_text": "AST(SGOT)/ALT(SGPT) \u22642.5 \u00d7 institutional upper limit of normal",
       "threshold": "AST/ALT \u22642.5 \u00d7 ULN"
@@ -48,8 +49,8 @@
       "category": "prior_malignancy",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "Individuals with history of an invasive malignancy are ineligible except for the following circumstances",
-      "threshold": null
+      "source_text": "Individuals with history of an invasive malignancy are ineligible except for the following circumstances: a) individuals with a history of invasive malignancy are eligible if they have been disease -free for at least 3 years",
+      "threshold": "disease-free for at least 3 years"
     },
     {
       "category": "brain_mets",
@@ -67,23 +68,16 @@
     },
     {
       "category": "hiv",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "HIV-positive participants on combination antiretroviral therapy are ineligible",
       "threshold": null
     },
     {
-      "category": "age",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Age \u2265 18 years.",
-      "threshold": "age >= 18"
-    },
-    {
-      "category": "cardiac",
+      "category": "smoking",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "Uncontrolled intercurrent illness including, but not limited to ongoing or active infection, symptomatic congestive heart failure, unstable angina pectoris, cardiac arrhythmia.",
+      "source_text": "Use of corticosteroids after initial registration is acceptable if tapered at least one week before NeoVax administration.",
       "threshold": null
     }
   ]
