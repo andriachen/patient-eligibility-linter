@@ -37,6 +37,7 @@ EligibilityCriteria text ─> pipeline/extract (Anthropic tool-use) ┘
 | P2 LLM | `p2-extract` | `pipeline/extract/`, `data/cache/`, `exclusions.csv` |
 | P3 Frontend | `p3-app` | `app/` |
 | P4 PM | `p4-eval` | root files, `eval/`, `docs/` |
+| Accounts (Namik) | `namik` | `accounts/` (login + profile questions, Supabase) |
 
 ## 4. Data contracts
 
@@ -88,6 +89,7 @@ MA county FIPS 25001–25027 (odd only), 14 counties — see README.
 | exclusions.csv (full run) | done | 4304 rows, 926/1011 trials, 0 contract violations |
 | P3 app | todo | other owner |
 | P4 eval/docs | todo | other owner |
+| accounts/ | done (needs Supabase project) | optional email login + branching profile wizard; see accounts/README.md |
 
 ### P1 numbers (actual, after per-site RECRUITING filter)
 - trials: **1011** (each has >=1 actively recruiting MA site; Option A scoping)
@@ -168,4 +170,7 @@ python -m pipeline.ingest.build_county       # -> county_metrics.csv, county_ej.
 - **P1: none.** All six CSVs are populated. (EJ no longer needs a manual download.)
 - **PLACES URL:** using the default CDC SODA endpoint for `swc5-untb`. If the team's
   kit provides a different URL, pass `--places-url`.
+- **Accounts hook (P3):** add `accounts.render_sidebar()` and a "My profile" tab calling
+  `accounts.render_profile()` to `app/main.py` (snippet in `accounts/README.md`). Needs
+  `SUPABASE_URL` / `SUPABASE_ANON_KEY` in `.env` and `accounts/schema.sql` run once.
 - Field paths for the trials API were confirmed live via `fetch_trials --probe`.
