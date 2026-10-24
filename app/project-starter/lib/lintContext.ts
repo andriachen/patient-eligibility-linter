@@ -12,6 +12,8 @@ export type LintContext = {
   population: Record<string, { measure: string; source: string; counties: { county: string; pct: number }[] }>;
   /** flagHistogram[n] = how many trials the same keyword rules flag in n categories. */
   flagHistogram: number[];
+  /** How many trials the same keyword rules flag as conditional (inclusive wording), per category. */
+  peerConditionalCount: Record<string, number>;
   source: "mock" | "processed";
 };
 
@@ -49,14 +51,20 @@ export function loadLintContext(): LintContext {
   }
   // Run the Linter's own rules over every trial so a draft is compared like for like.
   const flagHistogram: number[] = [];
+  const peerConditionalCount: Record<string, number> = {};
   for (const text of allEligibilityTexts()) {
-    const n = mockLintCriteria(text).flags.length;
-    flagHistogram[n] = (flagHistogram[n] ?? 0) + 1;
+    const { flags } = mockLintCriteria(text);
+    flagHistogram[flags.length] = (flagHistogram[flags.length] ?? 0) + 1;
+    // Each trial counts at most once per category.
+    for (const category of new Set(flags.filter((f) => !f.absolute).map((f) => f.category))) {
+      peerConditionalCount[category] = (peerConditionalCount[category] ?? 0) + 1;
+    }
   }
 
   return {
     totalTrials: stats.totalTrials,
     flagHistogram: Array.from(flagHistogram, (v) => v ?? 0),
+    peerConditionalCount,
     trialPctByCategory: Object.fromEntries(stats.categories.map((c) => [c.category, c.pctExcluded])),
     population,
     source: stats.source === "processed" && source === "processed" ? "processed" : "mock",

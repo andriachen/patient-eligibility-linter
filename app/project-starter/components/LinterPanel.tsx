@@ -9,11 +9,38 @@ import { GlassTabs, tabPanelProps, type GlassTab } from "@/components/ui/GlassTa
 import { LiquidGlassPanel } from "@/components/ui/LiquidGlassPanel";
 import { categoryLabel } from "@/lib/categories";
 import type { LintContext } from "@/lib/lintContext";
-import { mockLintCriteria, type LintResult } from "@/lib/mockLint";
+import { mockLintCriteria, type LintFlag, type LintResult } from "@/lib/mockLint";
 
 const delay = (ms: number) => ({ "--delay": `${ms}ms` }) as CSSProperties;
 
 type ResultTab = "flags" | "impact";
+
+/** What to fix first: 1 = blanket rule guidance says to loosen, 2 = drug-dependent, 3 = team's call. */
+type Tier = 1 | 2 | 3;
+const TIERS: Tier[] = [1, 2, 3];
+const TIER1_CATEGORIES = new Set(["hiv", "brain_mets", "prior_malignancy", "age"]);
+const TIER2_CATEGORIES = new Set(["renal", "hepatic", "cardiac", "performance_status"]);
+
+function tierOf(flag: LintFlag): Tier {
+  // A conditional rule in a Tier 1 category already uses inclusive wording.
+  if (TIER1_CATEGORIES.has(flag.category)) return flag.absolute ? 1 : 2;
+  if (TIER2_CATEGORIES.has(flag.category)) return 2;
+  return 3;
+}
+
+const TIER_HEADINGS: Record<Tier, string> = {
+  1: "Fix first: blanket rules that FDA or ASCO–Friends guidance says to loosen",
+  2: "Worth a look: the right cutoff depends on the drug",
+  3: "Team's call: weaker or draft guidance only",
+};
+
+const TEAM_CALL_NOTES: Record<string, string> = {
+  pregnancy: "Often required when the drug may harm a fetus. ICH E21 (draft) encourages informed inclusion where it is safe.",
+  language: "Affects limited-English communities. FDA recommends translated materials and interpreters.",
+  diabetes: "Check whether this is needed for this drug's safety.",
+  bmi: "Check whether this is needed for this drug's safety.",
+  smoking: "Check whether this is needed for this drug's safety.",
+};
 
 // The demo criteria from docs/pitch.md (written for the demo, not from a real trial).
 const SAMPLE = `Inclusion Criteria:
@@ -34,7 +61,18 @@ export function LinterPanel({ context }: { context: LintContext }) {
   const [lastRunText, setLastRunText] = useState("");
   const [error, setError] = useState("");
   const [tab, setTab] = useState<ResultTab>("flags");
+  const [copyStatus, setCopyStatus] = useState<{ category: string; ok: boolean } | null>(null);
   const errorId = useId();
+
+  async function copyReplacement(category: string, replacement: string) {
+    try {
+      await navigator.clipboard.writeText(replacement);
+      setCopyStatus({ category, ok: true });
+    } catch {
+      setCopyStatus({ category, ok: false });
+    }
+    window.setTimeout(() => setCopyStatus((s) => (s?.category === category ? null : s)), 2000);
+  }
 
   function runLint() {
     if (!text.trim()) {
@@ -62,6 +100,12 @@ export function LinterPanel({ context }: { context: LintContext }) {
       break;
     }
   }
+  // Flags sorted by tier, keeping text order within a tier. A copy: result.flags is untouched.
+  const tiered = (result?.flags ?? [])
+    .map((flag, i) => ({ flag, i, tier: tierOf(flag) }))
+    .sort((a, b) => a.tier - b.tier || a.i - b.i);
+  const fixFirst = tiered.filter((t) => t.tier === 1).length;
+
   const tabs: GlassTab<ResultTab>[] = [
     { id: "flags", label: `Flags${result ? ` (${result.flags.length})` : ""}` },
     { id: "impact", label: "Impact" },
@@ -124,8 +168,8 @@ export function LinterPanel({ context }: { context: LintContext }) {
           ) : null}
 
           <p className="mt-4 text-xs leading-relaxed text-ink-faint">
-            Flags come from keyword rules for the 13 categories, checked line by line. Suggestions and
-            sources follow FDA guidance (2020, 2024) and the ASCO–Friends recommendations; they are for
+            Flags come from keyword rules for 13 categories, checked line by line. Suggestions follow FDA
+            eligibility guidance (2020–2026), ICH E21 (draft), and ASCO–Friends recommendations. They are for
             protocol teams to review, not decisions.
           </p>
         </section>
@@ -156,7 +200,8 @@ export function LinterPanel({ context }: { context: LintContext }) {
                 {Math.floor((100 * fewer) / trialsScored)}%
               </span>{" "}
               of {trialsScored.toLocaleString()} recruiting Massachusetts cancer trials (median: {median}), using the
-              same keyword rules on each trial&apos;s criteria.
+              same keyword rules on each trial&apos;s criteria.{" "}
+              <span className="font-semibold">{fixFirst} to fix first.</span>
             </div>
           ) : null}
 
@@ -186,29 +231,71 @@ export function LinterPanel({ context }: { context: LintContext }) {
               </div>
             </div>
           ) : tab === "flags" ? (
-            <ul {...tabPanelProps("lint-results", "flags")} className="mt-4 space-y-3 focus:outline-none">
-              {result.flags.map((flag, i) => (
-                <li key={`${flag.category}-${i}`} className="glass-inset p-4">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <GlassBadge tone="cobalt">{categoryLabel(flag.category)}</GlassBadge>
-                    <GlassBadge tone={flag.absolute ? "rose" : "neutral"}>
-                      {flag.absolute ? "Absolute" : "Conditional"}
-                    </GlassBadge>
-                    {flag.threshold ? <GlassBadge tone="neutral">{flag.threshold}</GlassBadge> : null}
-                    <span className="text-xs font-medium capitalize text-ink-faint">{flag.section}</span>
-                  </div>
-                  <blockquote className="mt-3 border-l-2 border-periwinkle pl-3 text-sm leading-relaxed text-ink-soft">
-                    {flag.source_text}
-                  </blockquote>
-                  <p className="mt-3 text-sm leading-relaxed text-ink">
-                    <span className="font-semibold">Suggestion:</span> {flag.suggestion}
-                  </p>
-                  <p className="mt-1.5 text-xs text-ink-faint">
-                    Source: {flag.suggestion_source || "no FDA or ASCO–Friends guidance covers this category"}
-                  </p>
-                </li>
-              ))}
-            </ul>
+            <div {...tabPanelProps("lint-results", "flags")} className="mt-4 space-y-5 focus:outline-none">
+              {TIERS.map((tier) => {
+                const group = tiered.filter((t) => t.tier === tier);
+                if (group.length === 0) return null;
+                return (
+                  <section key={tier} aria-labelledby={`lint-tier-${tier}`}>
+                    <h3 id={`lint-tier-${tier}`} className="text-sm font-semibold text-ink">
+                      {TIER_HEADINGS[tier]}
+                    </h3>
+                    <ul className="mt-2 space-y-3">
+                      {group.map(({ flag, i }) => {
+                        const replacement = flag.replacement;
+                        const peers = context.peerConditionalCount[flag.category] ?? 0;
+                        const copied = copyStatus?.category === flag.category ? copyStatus : null;
+                        const note = tier === 3 ? TEAM_CALL_NOTES[flag.category] : undefined;
+                        return (
+                          <li key={`${flag.category}-${i}`} className="glass-inset p-4">
+                            <div className="flex flex-wrap items-center gap-2">
+                              <GlassBadge tone="cobalt">{categoryLabel(flag.category)}</GlassBadge>
+                              <GlassBadge tone={flag.absolute ? "rose" : "neutral"}>
+                                {flag.absolute ? "Absolute" : "Conditional"}
+                              </GlassBadge>
+                              {flag.threshold ? <GlassBadge tone="neutral">{flag.threshold}</GlassBadge> : null}
+                              <span className="text-xs font-medium capitalize text-ink-faint">{flag.section}</span>
+                            </div>
+                            <blockquote className="mt-3 border-l-2 border-periwinkle pl-3 text-sm leading-relaxed text-ink-soft">
+                              {flag.source_text}
+                            </blockquote>
+                            <p className="mt-3 text-sm leading-relaxed text-ink">
+                              <span className="font-semibold">Suggestion:</span> {flag.suggestion}
+                            </p>
+                            <p className="mt-1.5 text-xs text-ink-faint">
+                              Source: {flag.suggestion_source || "no FDA or ASCO–Friends guidance covers this category"}
+                            </p>
+                            {replacement ? (
+                              <div className="mt-3">
+                                <div className="flex flex-wrap items-center justify-between gap-2">
+                                  <p className="text-xs font-medium text-ink-faint">
+                                    {peers > 0
+                                      ? `Wording already used by ${peers.toLocaleString()} Massachusetts ${peers === 1 ? "trial" : "trials"}:`
+                                      : "Standard NCI wording:"}
+                                  </p>
+                                  <GlassButton
+                                    variant="ghost"
+                                    size="sm"
+                                    aria-live="polite"
+                                    onClick={() => copyReplacement(flag.category, replacement)}
+                                  >
+                                    {copied ? (copied.ok ? "Copied" : "Couldn't copy") : "Copy"}
+                                  </GlassButton>
+                                </div>
+                                <blockquote className="mt-1.5 border-l-2 border-periwinkle pl-3 text-sm leading-relaxed text-ink-soft">
+                                  {replacement}
+                                </blockquote>
+                              </div>
+                            ) : null}
+                            {note ? <p className="mt-2 text-xs leading-relaxed text-ink-soft">{note}</p> : null}
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </section>
+                );
+              })}
+            </div>
           ) : (
             <div {...tabPanelProps("lint-results", "impact")} className="mt-4 focus:outline-none">
               <div className="flex items-start justify-between gap-3">

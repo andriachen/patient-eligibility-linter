@@ -250,14 +250,18 @@ def test_suggest_covers_all_13_categories():
         assert sugg and isinstance(sugg, str)  # every category has a suggestion
 
 
-def test_suggest_gap_categories_have_no_fabricated_source():
+def test_suggest_weak_sources_say_how_strong_they_are():
     from pipeline.extract.suggest import suggest_for_category
 
-    # These have NO formal FDA/ASCO guidance (per docs/sources.md) -> empty source
-    for cat in ("diabetes", "bmi", "smoking", "language", "pregnancy"):
-        sugg, src = suggest_for_category(cat)
-        assert src == "", f"{cat} must not cite a source"
-        assert "no specific" in sugg.lower()
+    # No category-specific FDA/ASCO guidance (per docs/sources.md): the citation must
+    # say it is general guidance or a draft, so it can't be read as a specific rule.
+    for cat in ("diabetes", "bmi", "smoking"):
+        _, src = suggest_for_category(cat)
+        assert src.endswith("general guidance only"), f"{cat} must say its source is general"
+    _, src = suggest_for_category("pregnancy")
+    assert "draft" in src, "pregnancy cites ICH E21, which is a draft"
+    _, src = suggest_for_category("language")
+    assert "Enhancing the Diversity" in src, "language cites the FDA 2020 diversity guidance"
 
 
 def test_suggest_guided_categories_cite_a_source():
