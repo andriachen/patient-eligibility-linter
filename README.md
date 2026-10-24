@@ -4,7 +4,7 @@ Threshold reads the eligibility criteria of every recruiting cancer trial in Mas
 flags the rules that keep people out, and shows protocol teams what each rule costs, where,
 and how other trials already word it more inclusively.
 
-**Live:** https://patient-eligibility-linter.vercel.app
+**Live:** [https://patient-eligibility-linter.vercel.app](https://patient-eligibility-linter.vercel.app?_vercel_share=wMmVOSq03cYcve3kSn3nu5h47uOwBPS3)
 **Built for:** Hackachusetts 2026, Healthcare & biotech track (clinical research access)
 
 Trial protocols are written once and copied forward. Exclusions such as "known HIV infection" or
