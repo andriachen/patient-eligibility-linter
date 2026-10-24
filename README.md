@@ -1,107 +1,52 @@
-# Hackachusetts Trial Linter
+## Data contracts 
+data/processed/trials.csv
+  nct_id, title, phase, conditions (";"-separated), lead_sponsor,
+  eligibility_text, min_age, max_age, reference_pmids (";"-separated)
 
-A pipeline + app for surfacing and linting clinical trial eligibility criteria, with a Massachusetts-focused trial landscape and county-level context.
+data/processed/trial_sites.csv          # one row per MA site
+  nct_id, facility, city, zip, county, county_fips
 
-## Overview
+data/processed/ma_town_county.csv
+  town, county, county_fips
 
-The project is split into four phases:
+data/processed/county_metrics.csv       # CDC PLACES, long format
+  county, county_fips, measure_key, pct, low, high, population
+  measure_key ∈ {diabetes, obesity, smoking, mental_distress, checkup}
 
-- **P1 — Ingest** (`pipeline/ingest/`): fetch raw trial data (ClinicalTrials.gov), CDC PLACES, and EJ data, then build processed CSVs.
-- **P2 — Extract** (`pipeline/extract/`): run an LLM extraction + lint pass over eligibility criteria, with a committed cache so nobody re-runs the LLM.
-- **P3 — App** (`app/`): a Streamlit app that visualizes the trial landscape, a map view, and the linter.
-- **P4 — Eval & Docs** (`eval/`, `docs/`): gold labels, precision/recall evaluation, and pitch/submission docs.
+data/processed/county_ej.csv            # EJ block groups rolled up to county
+  county, county_fips, ej_block_groups, ej_population,
+  ej_limited_english_pct, ej_minority_pct      # population-weighted, EJ areas only
 
-## Data Contracts
+data/processed/exclusions.csv
+  nct_id, category, threshold, absolute (true/false),
+  section (inclusion/exclusion), source_text
 
-### `data/processed/trials.csv` (P1)
-One row per trial.
+eval/gold_labels.csv
+  nct_id, category, threshold, source_text     # one row per category PRESENT
 
-| column | type | description |
-|--------|------|-------------|
-| nct_id | str | ClinicalTrials.gov identifier |
-| title | str | brief title |
-| status | str | recruitment status |
-| conditions | str | pipe-delimited conditions |
-| phase | str | trial phase |
+## Linter function (P2 implements, P3 calls)
+pipeline/extract/lint.py
+  lint_criteria(text: str) -> list[dict]
+  # each dict = exclusions.csv fields (minus nct_id) + "suggestion" + "suggestion_source"
 
-### `data/processed/trial_sites.csv` (P1)
-One row per (trial, site) location.
+## Categories (fixed — extract ONLY these)
+Any criterion, in the inclusion OR exclusion section, that restricts who can enroll:
+- diabetes: diabetes excluded, uncontrolled diabetes, HbA1c cap
+- bmi: BMI or body weight cap
+- smoking: current smoking / tobacco / nicotine use excluded
+- age: maximum age cap, or minimum age above 18
+- renal: creatinine, CrCl, or eGFR threshold; kidney disease
+- hepatic: bilirubin, AST/ALT threshold; liver disease
+- cardiac: NYHA class, recent MI, LVEF or QTc threshold
+- hiv: HIV-positive excluded (HBV/HCV do NOT count)
+- brain_mets: CNS/brain metastases excluded
+- prior_malignancy: another cancer within X years excluded
+- performance_status: ECOG or Karnofsky threshold
+- language: must speak/read English (or a specific language)
+- pregnancy: pregnant or breastfeeding excluded
+absolute = false if conditional ("uncontrolled", "unless stable for 4 weeks")
 
-| column | type | description |
-|--------|------|-------------|
-| nct_id | str | ClinicalTrials.gov identifier |
-| facility | str | site/facility name |
-| city | str | site city |
-| state | str | site state |
-| county | str | resolved county |
-| lat | float | latitude |
-| lon | float | longitude |
-
-### `data/processed/ma_town_county.csv` (P1)
-Crosswalk from MA town to county.
-
-| column | type | description |
-|--------|------|-------------|
-| town | str | MA town name |
-| county | str | MA county name |
-
-### `data/processed/county_metrics.csv` (P1)
-CDC PLACES health metrics per county.
-
-| column | type | description |
-|--------|------|-------------|
-| county | str | MA county name |
-| metric | str | health measure |
-| value | float | metric value |
-
-### `data/processed/county_ej.csv` (P1)
-Environmental justice indicators per county.
-
-| column | type | description |
-|--------|------|-------------|
-| county | str | MA county name |
-| indicator | str | EJ indicator |
-| value | float | indicator value |
-
-### `data/processed/exclusions.csv` (P2)
-Lint output: flagged exclusion criteria.
-
-| column | type | description |
-|--------|------|-------------|
-| nct_id | str | ClinicalTrials.gov identifier |
-| category | str | lint category |
-| text | str | matched criterion text |
-| suggestion | str | optional reworded suggestion |
-
-### `data/cache/{nct_id}.json` (P2)
-Raw LLM extraction output per trial, committed so the LLM is not re-run.
-
-## Setup
-
-```bash
-cp .env.example .env   # add your ANTHROPIC_API_KEY
-python -m venv .venv && source .venv/bin/activate
-pip install -r pipeline/ingest/requirements.txt
-pip install -r pipeline/extract/requirements.txt
-pip install -r app/requirements.txt
-```
-
-## Running
-
-```bash
-# P1: ingest
-python -m pipeline.ingest.fetch_trials
-python -m pipeline.ingest.build_crosswalk
-python -m pipeline.ingest.build_trials
-python -m pipeline.ingest.build_county
-
-# P2: extract + lint
-python -m pipeline.extract.fetch_sample
-python -m pipeline.extract.extract
-
-# P3: app
-streamlit run app/main.py
-
-# P4: eval
-python eval/run_eval.py
-```
+## County FIPS
+Barnstable 25001, Berkshire 25003, Bristol 25005, Dukes 25007, Essex 25009,
+Franklin 25011, Hampden 25013, Hampshire 25015, Middlesex 25017,
+Nantucket 25019, Norfolk 25021, Plymouth 25023, Suffolk 25025, Worcester 25027
