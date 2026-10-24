@@ -19,7 +19,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 from . import llm
-from .logic import dedupe, drop_noise, is_valid, validate_records
+from .logic import dedupe, drop_noise, invalid_records, is_valid
 from .prompts import PROMPT_VERSION
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -122,7 +122,7 @@ def report(results: list[dict]) -> int:
     raw_total = sum(len(r["records"]) for r in results)
     failures = 0
     for r in results:
-        bad = validate_records(r["records"], r["text"])
+        bad = invalid_records(r["records"], r["text"])
         for b in bad:
             failures += 1
             print(

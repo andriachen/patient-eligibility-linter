@@ -94,7 +94,7 @@ MA county FIPS 25001–25027 (odd only), 14 counties — see README.
 | ma_town_county.csv | done | 351 municipalities, 14 counties |
 | county_metrics.csv | done | 70 rows = 14 counties x 5 measures (crude prevalence, 2023) |
 | county_ej.csv | done | 14 counties, 2604 EJ block groups, pop-weighted limEng/minority |
-| P2 prompts/llm/logic | done | Anthropic tool-use, claude-haiku-5-5, 36 unit tests green |
+| P2 prompts/llm/logic | done | Anthropic tool-use, claude-haiku-5-5, 37 unit tests green (`pip install -r requirements-dev.txt && python -m pytest`) |
 | P2 extract.py | done | cached batch + CLI; sample run clean |
 | P2 lint.py | done | lint_criteria reuses engine; mock fallback w/o key |
 | P2 sample (10 trials) | done | 0 substring failures; hand-check clean after prompt tighten |
@@ -139,6 +139,19 @@ python -m pipeline.ingest.build_trials       # -> trials.csv, trial_sites.csv
 python -m pipeline.ingest.build_county       # -> county_metrics.csv, county_ej.csv
 ```
 
+## 7b. How to run the tests
+
+```bash
+pip install -r requirements-dev.txt          # pytest + hypothesis
+# P1 tests read data/raw/ctgov/page_*.json and the processed CSVs; P2 tests are pure.
+python -m pytest                              # 37 tests
+```
+
+The suggestions table is duplicated in Python (`pipeline/extract/suggest.py`) and
+TypeScript (`app/project-starter/lib/mockLint.ts`); `tests/test_suggest_parity.py`
+parses the TS object and fails if the two drift. The web app has no JS test runner,
+so that parity check lives in the Python suite.
+
 ## 8. Contract/definition change log
 
 - 2026-10-24: README data contracts replaced the Phase-0 placeholder contracts
@@ -165,13 +178,18 @@ python -m pipeline.ingest.build_county       # -> county_metrics.csv, county_ej.
   precision > recall") removed false positives (smoking=IBD/hypertension, fabricated
   age). Cache is prompt-version-sensitive — **clear data/cache/ if prompts.py changes.**
 - 2026-10-24: **P2 full run complete.** All 1011 trials extracted (cached).
-  exclusions.csv = 4304 rows across 926/1011 trials; 0 invalid categories, 0 empty
+  exclusions.csv = 4304 rows across 926/1011 trials _(historical; superseded — current
+  exclusions.csv = 3839 rows after the v2 re-extraction + keyword/age guards below)_;
+  0 invalid categories, 0 empty
   quotes, 0 dup (nct,category) pairs. Two run-time fixes: (a) model sometimes returns
   `exclusions` as a JSON *string* — `_parse` now json.loads it (was erroring 9 trials);
   (b) records whose source_text can't be verified are DROPPED when writing
   exclusions.csv (26 unverifiable raw records excluded — empties + encoding junk +
   rare paraphrase), so every CSV row has an auditable quote. `normalize` also decodes
-  HTML entities (&lt;/&gt;). Top categories: performance_status 59.5%, pregnancy
+  HTML entities (&lt;/&gt;). Top categories _(historical, from this 4304-row run;
+  current shares in stats.json: performance_status 58.9%, pregnancy 48.3%,
+  prior_malignancy 48.2%, cardiac 43.0%, brain_mets 42.5%; language 10.8%)_:
+  performance_status 59.5%, pregnancy
   53.3%, prior_malignancy 51.5%, brain_mets 45.9%, cardiac 45.5%; language 10.5%
   (the EJ equity angle).
 - 2026-10-24: **P2/eval hardening (fixes a train/eval mismatch).** Prior eval
@@ -184,7 +202,8 @@ python -m pipeline.ingest.build_county       # -> county_metrics.csv, county_ej.
   `run_eval.py` rewrites only the table block between markers, preserving the
   narrative; (6) bootstrap 95% CI on F1. Result: exclusions.csv 4098→3792 rows,
   uniform v2; **eval now describes the shipped data: micro F1 0.93 (P 0.96 / R 0.91),
-  CI [0.90, 0.97].** Model `claude-haiku-5-5`; MAX_WORKERS 5→12.
+  CI [0.90, 0.97].** _(row count and F1 both superseded below: final exclusions.csv
+  = 3839 rows, all-42 F1 0.94.)_ Model `claude-haiku-5-5`; MAX_WORKERS 5→12.
 - 2026-10-24: **Audit round 2+3.** Merged P4's expanded 42-trial gold set + subset
   eval (held-out vs tuned). Fixed: real bootstrap CI (was claimed, not computed) +
   deterministic (sorted trials); thin long-trial retry (empty result on >=3000 chars
@@ -211,7 +230,12 @@ python -m pipeline.ingest.build_county       # -> county_metrics.csv, county_ej.
   Map: tabs "Exclusions / Health / Environmental justice areas" (wrap on phones), EJ measure
   switch (minority / limited-English), county detail row "EJ limited-English households"
   (Suffolk 14.44%), source caption. New "Paper & Petrol" palette in both apps (no glass,
-  blobs or gradients; 5-class single-hue map scale; Public Sans + Source Serif 4). Earlier
+  blobs or gradients; 5-class single-hue map scale; Public Sans + Source Serif 4).
+  _Naming note: the palette was restyled but the UI-kit files in
+  `app/project-starter/components/ui/` are still named `Glass*`/`Liquid*`
+  (GlassBadge, LiquidGlassPanel, GlassButton, GlassTabs, …). The names are legacy; the
+  rendered look is Paper & Petrol, not glass. Renaming the files is a cosmetic TODO._
+  Earlier
   the same day: real per-county Map shares (`loadCounties.ts`) and the 13-category keyword
   Linter (`mockLint.ts`) replaced the 0% map and the 8-category mock.
 - 2026-10-24: **Paper & Petrol reverted.** Both apps are back on the original glass look
@@ -220,6 +244,21 @@ python -m pipeline.ingest.build_county       # -> county_metrics.csv, county_ej.
   treatment" and "Brain metastases, treated and stable" traits now drop only trials that
   exclude them outright (Hampden pitch patient 24 → 20 → 20 → 16). Find trials marks an
   outright HIV rule as "hard" for controlled HIV (58, any county: 602 / 166 / 243).
+
+- 2026-10-24: **Audit cleanup pass.** Documentation + maintainability fixes, no data
+  or contract changes. (1) Added `tests/test_suggest_parity.py` — parses the TS
+  `SUGGESTIONS` in `mockLint.ts` and asserts it equals `suggest.py` `_SUGGESTIONS`
+  (13 cats, text + citation), so the hand-copied table can't silently drift.
+  (2) `requirements-dev.txt` (pytest + hypothesis) + a §7b run-the-tests section;
+  suite now 37 tests, all green on the repo venv. (3) Renamed misleading
+  `logic.validate_records` → `invalid_records` (it returns the records that FAIL the
+  substring check, i.e. the ones to drop); updated both callers + its test.
+  (4) `loadTrialsIndex` now `console.warn`s when `trials_enriched.json` is missing
+  instead of silently returning zero trials (looked like "nothing matched").
+  (5) Marked stale change-log figures as superseded (exclusions.csv 4304/4098→3792 →
+  final 3839; micro F1 0.93 → all-42 0.94; language 10.5% → 10.8%; top-category shares
+  refreshed from stats.json) and added a naming note for the legacy `Glass*`/`Liquid*`
+  UI files under the Paper & Petrol palette. `npm run build` still green (1020 pages).
 
 ## 8b. Vercel data deployment (important)
 

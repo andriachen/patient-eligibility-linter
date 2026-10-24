@@ -40,8 +40,9 @@ def is_valid(source_text: str, eligibility_text: str) -> bool:
     return needle in normalize(eligibility_text)
 
 
-def validate_records(records: list[dict], eligibility_text: str) -> list[dict]:
-    """Return the records whose source_text fails the substring check."""
+def invalid_records(records: list[dict], eligibility_text: str) -> list[dict]:
+    """Return the records whose source_text FAILS the substring check (i.e. the
+    unverifiable ones to drop), not the valid ones."""
     return [r for r in records if not is_valid(r.get("source_text", ""), eligibility_text)]
 
 
