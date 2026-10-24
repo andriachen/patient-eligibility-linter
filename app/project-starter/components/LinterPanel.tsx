@@ -48,6 +48,20 @@ export function LinterPanel({ context }: { context: LintContext }) {
   }
 
   const stale = result !== null && text !== lastRunText;
+
+  // How this draft compares: the same keyword rules, run on every recruiting MA trial.
+  const histogram = context.flagHistogram;
+  const trialsScored = histogram.reduce((a, b) => a + b, 0);
+  const flagCount = result?.flags.length ?? 0;
+  const fewer = histogram.slice(0, flagCount).reduce((a, b) => a + b, 0);
+  let median = 0;
+  for (let n = 0, seen = 0; n < histogram.length; n++) {
+    seen += histogram[n];
+    if (seen >= trialsScored / 2) {
+      median = n;
+      break;
+    }
+  }
   const tabs: GlassTab<ResultTab>[] = [
     { id: "flags", label: `Flags${result ? ` (${result.flags.length})` : ""}` },
     { id: "impact", label: "Impact" },
@@ -133,6 +147,18 @@ export function LinterPanel({ context }: { context: LintContext }) {
               />
             ) : null}
           </div>
+
+          {result && flagCount > 0 && trialsScored > 0 ? (
+            <div className="mt-4 border-l-2 border-accent bg-accent-tint/60 px-4 py-3 text-sm leading-relaxed text-ink">
+              This draft restricts <span className="font-semibold">{flagCount} of 13</span> categories (
+              {result.flags.filter((f) => f.absolute).length} outright). That&apos;s more than{" "}
+              <span className="font-serif text-base font-semibold tabular-nums">
+                {Math.round((100 * fewer) / trialsScored)}%
+              </span>{" "}
+              of {trialsScored.toLocaleString()} recruiting Massachusetts cancer trials (median: {median}), using the
+              same keyword rules on each trial&apos;s criteria.
+            </div>
+          ) : null}
 
           {stale ? (
             <p className="mt-3 text-sm text-ink-soft">

@@ -1,4 +1,6 @@
 import { type CountyRecord, loadCounties } from "./loadCounties";
+import { allEligibilityTexts } from "./loadTrialDetails";
+import { mockLintCriteria } from "./mockLint";
 import { loadLandscapeStats } from "./loadStats";
 
 /** Real data the Linter's Impact tab shows next to each flag. Built on the server. */
@@ -8,6 +10,8 @@ export type LintContext = {
   trialPctByCategory: Record<string, number>;
   /** County population measures for the categories that have one, highest first. */
   population: Record<string, { measure: string; source: string; counties: { county: string; pct: number }[] }>;
+  /** flagHistogram[n] = how many trials the same keyword rules flag in n categories. */
+  flagHistogram: number[];
   source: "mock" | "processed";
 };
 
@@ -43,8 +47,16 @@ export function loadLintContext(): LintContext {
         .slice(0, 5),
     };
   }
+  // Run the Linter's own rules over every trial so a draft is compared like for like.
+  const flagHistogram: number[] = [];
+  for (const text of allEligibilityTexts()) {
+    const n = mockLintCriteria(text).flags.length;
+    flagHistogram[n] = (flagHistogram[n] ?? 0) + 1;
+  }
+
   return {
     totalTrials: stats.totalTrials,
+    flagHistogram: Array.from(flagHistogram, (v) => v ?? 0),
     trialPctByCategory: Object.fromEntries(stats.categories.map((c) => [c.category, c.pctExcluded])),
     population,
     source: stats.source === "processed" && source === "processed" ? "processed" : "mock",

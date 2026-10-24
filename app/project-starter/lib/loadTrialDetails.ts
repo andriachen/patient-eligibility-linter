@@ -16,6 +16,11 @@ function eligibilityTexts(): Map<string, string> {
   return eligibilityById;
 }
 
+/** Raw eligibility text for every trial, as published on ClinicalTrials.gov. */
+export function allEligibilityTexts(): string[] {
+  return [...eligibilityTexts().values()];
+}
+
 export function trialIds(): string[] {
   return loadTrialsIndex().trials.map((t) => t.nct_id);
 }
