@@ -1,18 +1,13 @@
 import type { Metadata } from "next";
-import { Geist_Mono, Instrument_Serif, Manrope } from "next/font/google";
+import { Geist_Mono, Manrope } from "next/font/google";
+
+import { AppShell } from "@/components/ui/AppShell";
 
 import "./globals.css";
 
 const manrope = Manrope({
   variable: "--font-manrope",
   subsets: ["latin"],
-});
-
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-instrument-serif",
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
 });
 
 const geistMono = Geist_Mono({
@@ -34,9 +29,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${manrope.variable} ${instrumentSerif.variable} ${geistMono.variable} min-h-screen antialiased`}
+        className={`${manrope.variable} ${geistMono.variable} min-h-screen antialiased`}
       >
-        {children}
+        <AppShell>{children}</AppShell>
       </body>
     </html>
   );

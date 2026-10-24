@@ -1,7 +1,12 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, type CSSProperties } from "react";
 
+import { controlTransition, focusRing } from "@/components/styles";
+import { DemoDataBadge } from "@/components/ui/GlassBadge";
+import { GlassField, GlassSelect } from "@/components/ui/GlassField";
+import { GlassTabs, tabPanelProps, type GlassTab } from "@/components/ui/GlassTabs";
+import { LiquidGlassPanel } from "@/components/ui/LiquidGlassPanel";
 import { CATEGORY_KEYS, categoryLabel } from "@/lib/categories";
 import type { CountyRecord } from "@/lib/loadCounties";
 
@@ -10,27 +15,54 @@ type Props = {
   dataSource: "mock" | "processed";
 };
 
+const delay = (ms: number) => ({ "--delay": `${ms}ms` }) as CSSProperties;
+
 type MetricMode = "trial_pct" | "places" | "ej";
 
+const MODES: GlassTab<MetricMode>[] = [
+  { id: "trial_pct", label: "Exclusions" },
+  { id: "places", label: "Community health" },
+  { id: "ej", label: "EJ areas" },
+];
+
 const PLACES_LABELS: Record<string, string> = {
-  diabetes: "PLACES: diabetes prevalence",
-  obesity: "PLACES: obesity",
-  smoking: "PLACES: smoking",
-  mental_distress: "PLACES: mental distress",
-  checkup: "PLACES: annual checkup",
+  diabetes: "Diabetes prevalence",
+  obesity: "Obesity",
+  smoking: "Smoking",
+  mental_distress: "Mental distress",
+  checkup: "Annual checkup",
 };
 
-function colorForValue(value: number, max: number): string {
-  if (max <= 0) return "#e2e8f0";
-  const t = Math.min(1, value / max);
-  const r = Math.round(219 - t * 90);
-  const g = Math.round(234 - t * 120);
-  const b = Math.round(254 - t * 30);
-  const r2 = Math.round(r + t * 40);
-  const g2 = Math.round(g - t * 80);
-  const b2 = Math.round(b - t * 20);
-  return `rgb(${r2} ${g2} ${b2})`;
+/** Light ice → cobalt → deep navy-blue. */
+const SCALE: [number, number, number][] = [
+  [238, 243, 255],
+  [159, 180, 248],
+  [53, 101, 245],
+  [35, 55, 158],
+];
+
+/** Position of value between the lowest and highest county, mapped onto SCALE. */
+function colorForValue(value: number, min: number, max: number): [number, number, number] {
+  const t = max > min ? Math.min(1, Math.max(0, (value - min) / (max - min))) : 0;
+  const scaled = t * (SCALE.length - 1);
+  const i = Math.min(SCALE.length - 2, Math.floor(scaled));
+  const f = scaled - i;
+  return [0, 1, 2].map((c) => Math.round(SCALE[i][c] + (SCALE[i + 1][c] - SCALE[i][c]) * f)) as [
+    number,
+    number,
+    number,
+  ];
 }
+
+function isDark([r, g, b]: [number, number, number]) {
+  const lin = (v: number) => {
+    const s = v / 255;
+    return s <= 0.03928 ? s / 12.92 : ((s + 0.055) / 1.055) ** 2.4;
+  };
+  return 0.2126 * lin(r) + 0.7152 * lin(g) + 0.0722 * lin(b) < 0.28;
+}
+
+const rgb = (c: [number, number, number]) => `rgb(${c[0]} ${c[1]} ${c[2]})`;
 
 export function CountyMapPanel({ counties, dataSource }: Props) {
   const [category, setCategory] = useState("diabetes");
@@ -50,7 +82,8 @@ export function CountyMapPanel({ counties, dataSource }: Props) {
     });
   }, [counties, category, metricMode, placesMeasure]);
 
-  const maxVal = Math.max(...values, 1);
+  const maxVal = values.length ? Math.max(...values) : 0;
+  const minVal = values.length ? Math.min(...values) : 0;
 
   const displayCounty = hovered ?? counties[0];
 
@@ -62,119 +95,165 @@ export function CountyMapPanel({ counties, dataSource }: Props) {
         : displayCounty.ej.ej_minority_pct
     : 0;
 
+  const metricLabel =
+    metricMode === "trial_pct"
+      ? `Trials excluding ${categoryLabel(category).toLowerCase()} (%)`
+      : metricMode === "places"
+        ? `PLACES: ${PLACES_LABELS[placesMeasure].toLowerCase()} (%)`
+        : "EJ: minority % (EJ areas)";
+
   return (
-    <div className="space-y-6">
-      <p className="text-sm text-neutral-600">
-        Massachusetts counties — darker blue = higher value.{" "}
-        {dataSource === "mock" ? "(mock data)" : ""}
-      </p>
-
-      <div className="flex flex-wrap gap-3">
-        <label className="text-xs font-medium text-neutral-600">
-          Exclusion category (trial %)
-          <select
-            className="mt-1 block rounded-md border border-neutral-300 px-2 py-2 text-sm"
-            value={category}
-            onChange={(e) => {
-              setCategory(e.target.value);
-              setMetricMode("trial_pct");
-            }}
-          >
-            {CATEGORY_KEYS.map((key) => (
-              <option key={key} value={key}>
-                {categoryLabel(key)}
-              </option>
-            ))}
-          </select>
-        </label>
-
-        <label className="text-xs font-medium text-neutral-600">
-          Overlay metric
-          <select
-            className="mt-1 block rounded-md border border-neutral-300 px-2 py-2 text-sm"
-            value={
-              metricMode === "trial_pct"
-                ? "trial_pct"
-                : metricMode === "ej"
-                  ? "ej"
-                  : `places:${placesMeasure}`
-            }
-            onChange={(e) => {
-              const v = e.target.value;
-              if (v === "trial_pct") setMetricMode("trial_pct");
-              else if (v === "ej") setMetricMode("ej");
-              else {
-                setMetricMode("places");
-                setPlacesMeasure(v.replace("places:", ""));
-              }
-            }}
-          >
-            <option value="trial_pct">Trials excluding category (%)</option>
-            {Object.entries(PLACES_LABELS).map(([key, label]) => (
-              <option key={key} value={`places:${key}`}>
-                {label}
-              </option>
-            ))}
-            <option value="ej">EJ: minority % (EJ areas)</option>
-          </select>
-        </label>
-      </div>
-
-      <div className="grid gap-6 lg:grid-cols-[1fr_16rem]">
-        <div
-          className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4"
-          role="img"
-          aria-label="County choropleth grid"
-        >
-          {counties.map((c, idx) => {
-            const value = values[idx];
-            return (
-              <button
-                key={c.county_fips}
-                type="button"
-                className="rounded-md border border-[var(--border)] px-2 py-3 text-left text-xs font-medium shadow-sm transition hover:ring-2 hover:ring-[var(--brand-secondary)]"
-                style={{ backgroundColor: colorForValue(value, maxVal) }}
-                onMouseEnter={() => setHovered(c)}
-                onFocus={() => setHovered(c)}
-              >
-                {c.county}
-              </button>
-            );
-          })}
+    <div className="flex flex-col gap-6">
+      <LiquidGlassPanel className="enter-up flex flex-col gap-5 p-5 sm:p-6" style={delay(140)}>
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <GlassTabs
+            idBase="county-metric"
+            label="Map metric"
+            tabs={MODES}
+            value={metricMode}
+            onChange={setMetricMode}
+          />
+          {dataSource === "mock" ? <DemoDataBadge label="Mock data" /> : null}
         </div>
-
-        <aside className="rounded-lg border border-neutral-200 bg-neutral-50 p-4 text-sm">
-          <h2 className="font-semibold">
-            {displayCounty?.county ?? "Hover a county"}
-          </h2>
-          {displayCounty ? (
-            <ul className="mt-3 space-y-2 text-neutral-700">
-              <li>
-                <span className="text-neutral-500">Selected metric:</span>{" "}
-                {hoverValue}%
-              </li>
-              <li>
-                <span className="text-neutral-500">Trial sites:</span>{" "}
-                {displayCounty.trialSites}
-              </li>
-              <li>
-                <span className="text-neutral-500">
-                  Trials excluding {categoryLabel(category)}:
-                </span>{" "}
-                {displayCounty.trialsWithCategoryPct[category]}%
-              </li>
-              <li>
-                <span className="text-neutral-500">PLACES diabetes:</span>{" "}
-                {displayCounty.places.diabetes}%
-              </li>
-              <li>
-                <span className="text-neutral-500">EJ minority %:</span>{" "}
-                {displayCounty.ej.ej_minority_pct}%
-              </li>
-            </ul>
+        <div className="grid gap-3 sm:grid-cols-2 lg:max-w-2xl">
+          <GlassField label="Exclusion category">
+            <GlassSelect
+              value={category}
+              onChange={(e) => {
+                setCategory(e.target.value);
+                setMetricMode("trial_pct");
+              }}
+            >
+              {CATEGORY_KEYS.map((key) => (
+                <option key={key} value={key}>
+                  {categoryLabel(key)}
+                </option>
+              ))}
+            </GlassSelect>
+          </GlassField>
+          {metricMode === "places" ? (
+            <GlassField label="CDC PLACES measure">
+              <GlassSelect value={placesMeasure} onChange={(e) => setPlacesMeasure(e.target.value)}>
+                {Object.entries(PLACES_LABELS).map(([key, label]) => (
+                  <option key={key} value={key}>
+                    {label}
+                  </option>
+                ))}
+              </GlassSelect>
+            </GlassField>
           ) : null}
-        </aside>
+        </div>
+      </LiquidGlassPanel>
+
+      <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_19rem]">
+        <LiquidGlassPanel
+          {...tabPanelProps("county-metric", metricMode)}
+          className={`enter-up p-5 sm:p-6 ${focusRing}`}
+          style={delay(200)}
+        >
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <h2 className="text-lg font-semibold text-ink">Massachusetts counties</h2>
+              <p className="mt-1 text-sm text-ink-soft">{metricLabel}</p>
+            </div>
+            <div className="w-full max-w-56">
+              <p className="sr-only">
+                Color scale from {minVal}% (lightest) to {maxVal}% (darkest).
+              </p>
+              <div
+                className="h-2.5 rounded-full shadow-[inset_0_0_0_1px_rgb(23_36_71/0.08)]"
+                style={{
+                  background: `linear-gradient(90deg, ${SCALE.map((c) => rgb(c)).join(", ")})`,
+                }}
+              />
+              <div className="mt-1.5 flex justify-between text-xs font-medium tabular-nums text-ink-soft">
+                <span>{minVal}%</span>
+                <span>{maxVal}%</span>
+              </div>
+            </div>
+          </div>
+
+          <div
+            className="mt-5 grid grid-cols-2 gap-2.5 sm:grid-cols-3 md:grid-cols-4"
+            role="group"
+            aria-label="Counties, colored by the selected metric"
+          >
+            {counties.map((c, idx) => {
+              const value = values[idx];
+              const color = colorForValue(value, minVal, maxVal);
+              const dark = isDark(color);
+              const selected = displayCounty?.county_fips === c.county_fips;
+              return (
+                <button
+                  key={c.county_fips}
+                  type="button"
+                  aria-pressed={selected}
+                  className={`flex min-h-16 flex-col justify-between rounded-xl px-3 py-2.5 text-left shadow-[inset_0_1px_0_rgb(255_255_255/0.45),0_6px_16px_-12px_rgb(23_36_71/0.5)] ${focusRing} ${controlTransition} ${
+                    selected ? "ring-2 ring-rose ring-offset-2 ring-offset-white/60" : "ring-1 ring-ink/[0.06] hover:ring-2 hover:ring-cobalt/50"
+                  } ${dark ? "text-white" : "text-ink"}`}
+                  style={{ backgroundColor: rgb(color) }}
+                  onMouseEnter={() => setHovered(c)}
+                  onFocus={() => setHovered(c)}
+                  onClick={() => setHovered(c)}
+                >
+                  <span className="text-sm font-semibold">{c.county}</span>
+                  <span className={`text-xs tabular-nums ${dark ? "text-white/85" : "text-ink-soft"}`}>
+                    {value}%
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </LiquidGlassPanel>
+
+        <LiquidGlassPanel
+          className="enter-up self-start p-5 sm:p-6 lg:sticky lg:top-[calc(var(--header-offset)+0.5rem)]"
+          style={delay(260)}
+        >
+          <aside aria-live="polite">
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-ink-faint">
+              County detail
+            </p>
+            <h2 className="mt-1.5 text-2xl font-semibold tracking-[-0.02em] text-ink">
+              {displayCounty?.county ?? "Select a county"}
+            </h2>
+            {displayCounty ? (
+              <dl className="mt-4 divide-y divide-line text-sm">
+                <DetailRow label="Selected metric" value={`${hoverValue}%`} strong />
+                <DetailRow label="Trial sites" value={displayCounty.trialSites} />
+                <DetailRow
+                  label={`Trials excluding ${categoryLabel(category).toLowerCase()}`}
+                  value={`${displayCounty.trialsWithCategoryPct[category]}%`}
+                />
+                <DetailRow label="PLACES diabetes" value={`${displayCounty.places.diabetes}%`} />
+                <DetailRow label="EJ minority %" value={`${displayCounty.ej.ej_minority_pct}%`} />
+              </dl>
+            ) : null}
+            <p className="mt-4 text-xs leading-relaxed text-ink-faint">
+              Hover, focus, or tap a county to see its numbers.
+            </p>
+          </aside>
+        </LiquidGlassPanel>
       </div>
+    </div>
+  );
+}
+
+function DetailRow({
+  label,
+  value,
+  strong = false,
+}: {
+  label: string;
+  value: string | number;
+  strong?: boolean;
+}) {
+  return (
+    <div className="flex items-baseline justify-between gap-4 py-2.5">
+      <dt className="text-ink-soft">{label}</dt>
+      <dd className={`tabular-nums ${strong ? "text-base font-semibold text-ink" : "font-medium text-ink"}`}>
+        {value}
+      </dd>
     </div>
   );
 }

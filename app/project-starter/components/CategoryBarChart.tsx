@@ -1,52 +1,79 @@
 import type { CategoryStat } from "@/lib/loadStats";
 
+import { DemoDataBadge } from "@/components/ui/GlassBadge";
+import { focusRing } from "@/components/styles";
+
 type Props = {
   categories: CategoryStat[];
+  totalTrials: number;
   highlightCategory?: string;
+  isMock?: boolean;
 };
 
-export function CategoryBarChart({ categories, highlightCategory }: Props) {
-  const sorted = [...categories].sort(
-    (a, b) => b.pctExcluded - a.pctExcluded,
-  );
+export function CategoryBarChart({ categories, totalTrials, highlightCategory, isMock }: Props) {
+  const sorted = [...categories].sort((a, b) => b.pctExcluded - a.pctExcluded);
   const maxPct = sorted[0]?.pctExcluded ?? 100;
 
   return (
-    <section className="mt-10" aria-label="Exclusions by category">
-      <h2 className="text-lg font-medium text-[var(--brand-primary)]">
-        Trials excluding each category
-      </h2>
-      <ul className="mt-4 space-y-3">
+    <section aria-labelledby="category-chart-title">
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div>
+          <h2 id="category-chart-title" className="text-lg font-semibold text-ink">
+            Trials excluding each category
+          </h2>
+          <p className="mt-1 text-sm text-ink-soft">
+            Share of {totalTrials} trials. Bars are scaled to the largest category.
+          </p>
+        </div>
+        {isMock ? <DemoDataBadge label="Mock data" /> : null}
+      </div>
+
+      <ul className="mt-6 space-y-2.5">
         {sorted.map((row) => {
           const widthPct = maxPct > 0 ? (row.pctExcluded / maxPct) * 100 : 0;
           const highlighted = row.category === highlightCategory;
+          const detail = `${row.label}: ${row.pctExcluded}% of trials (${row.trialCount} of ${totalTrials})`;
 
           return (
-            <li key={row.category} className="grid grid-cols-[9rem_1fr_3rem] items-center gap-3 text-sm">
-              <span
-                className={
-                  highlighted
-                    ? "font-semibold text-[var(--brand-primary)]"
-                    : "text-[var(--text-muted)]"
-                }
+            <li key={row.category}>
+              <div
+                tabIndex={0}
+                aria-label={detail}
+                className={`group relative grid grid-cols-[minmax(0,1fr)_auto] items-center gap-x-3 gap-y-1.5 rounded-lg py-0.5 text-sm sm:grid-cols-[minmax(6.5rem,9.5rem)_minmax(0,1fr)_2.75rem] ${focusRing}`}
               >
-                {row.label}
-              </span>
-              <div className="h-3 rounded-full bg-[var(--border)]">
+                <span
+                  className={`col-start-1 row-start-1 truncate ${highlighted ? "font-semibold text-ink" : "font-medium text-ink"}`}
+                >
+                  {row.label}
+                </span>
                 <div
-                  className="h-3 rounded-full"
-                  style={{
-                    width: `${widthPct}%`,
-                    backgroundColor: highlighted
-                      ? "var(--chart-bar-highlight)"
-                      : "var(--chart-bar)",
-                  }}
-                  role="presentation"
-                />
+                  className="glass-inset col-span-2 row-start-2 h-3 overflow-hidden rounded-full sm:col-span-1 sm:col-start-2 sm:row-start-1"
+                  aria-hidden
+                >
+                  <div
+                    className="h-full rounded-full"
+                    style={{
+                      width: `${widthPct}%`,
+                      background: highlighted
+                        ? "linear-gradient(90deg, #ef8fb5, var(--chart-bar-highlight))"
+                        : "linear-gradient(90deg, var(--chart-bar-soft), var(--chart-bar))",
+                    }}
+                  />
+                </div>
+                <span
+                  className={`col-start-2 row-start-1 text-right tabular-nums sm:col-start-3 ${highlighted ? "font-semibold text-rose-deep" : "text-ink-soft"}`}
+                  aria-hidden
+                >
+                  {row.pctExcluded}%
+                </span>
+
+                <span
+                  aria-hidden
+                  className="glass-float pointer-events-none absolute bottom-full left-[9.5rem] z-20 mb-1.5 hidden whitespace-nowrap rounded-xl bg-white/80 px-3 py-1.5 text-xs font-medium text-ink group-hover:block group-focus-visible:block max-sm:left-0"
+                >
+                  {row.trialCount} of {totalTrials} trials
+                </span>
               </div>
-              <span className="text-right tabular-nums text-[var(--text-muted)]">
-                {row.pctExcluded}%
-              </span>
             </li>
           );
         })}

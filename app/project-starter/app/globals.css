@@ -1,53 +1,375 @@
 @import "tailwindcss";
 
+/* ============================================================
+   StageShare design tokens
+   ============================================================ */
 :root {
-  --background: #eef2ff;
-  --foreground: #1e293b;
-  --card: #ffffff;
-  --muted: #64748b;
-  --border: #dbeafe;
+  /* Color */
+  --page: #f7f9ff;
+  --ink: #172447;
+  --ink-soft: #4a5675;
+  --ink-faint: #67718c;
+  --cobalt: #3565f5;
+  --cobalt-deep: #284fd8;
+  --periwinkle: #8ea6f7;
+  --ice: #dcebff;
+  --lavender: #e8e1fa;
+  --blush: #f8e5ef;
+  --rose: #d6457f;
+  --rose-deep: #b8306a;
+  --line: rgb(23 36 71 / 0.1);
 
-  --brand: #2563eb;
-  --brand-foreground: #ffffff;
-  --brand-soft: #dbeafe;
-  --brand-primary-dark: #1e40af;
+  /* Glass material */
+  --glass-float-fill: rgb(255 255 255 / 0.38);
+  --glass-panel-fill: rgb(255 255 255 / 0.62);
+  --glass-inset-fill: rgb(255 255 255 / 0.55);
+  --glass-edge: rgb(255 255 255 / 0.85);
+  --glass-edge-soft: rgb(255 255 255 / 0.5);
+  --glass-tint: rgb(232 225 250 / 0.28);
+  --glass-shadow-color: 53 101 245;
+  --glass-blur-float: 14px;
+  --glass-blur-panel: 20px;
 
-  --brand-secondary: #db2777;
-  --brand-accent: #f472b6;
-  --brand-accent-soft: #fce7f3;
+  /* Layout */
+  --header-height: 3.5rem;
+  --header-top: 1rem;
+  --header-offset: 6.25rem;
+  --page-gutter: 1.25rem;
 
-  --hero-gradient-from: #eff6ff;
-  --hero-gradient-to: #fdf2f8;
+  /* Motion */
+  --duration-control: 200ms;
+  --duration-reveal: 500ms;
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
 
-  --chart-bar: #60a5fa;
-  --chart-bar-highlight: #db2777;
+  /* Chart */
+  --chart-bar: var(--cobalt);
+  --chart-bar-soft: var(--periwinkle);
+  --chart-bar-highlight: var(--rose);
+}
 
-  --glass-highlight: rgba(255, 255, 255, 0.45);
-  --glass-shadow: rgba(37, 99, 235, 0.18);
+@media (min-width: 640px) {
+  :root {
+    --page-gutter: 2rem;
+  }
+}
 
-  /* aliases used across P3 components */
-  --brand-primary: var(--brand);
-  --brand-primary-dark: #1e40af;
-  --text-muted: var(--muted);
-  --surface: var(--card);
+@media (min-width: 1024px) {
+  :root {
+    --page-gutter: clamp(2rem, 4vw, 4rem);
+    --header-offset: 6.75rem;
+  }
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-muted: var(--muted);
-  --color-border: var(--border);
-  --color-brand: var(--brand);
-  --color-brand-foreground: var(--brand-foreground);
-  --color-brand-soft: var(--brand-soft);
+  --color-page: var(--page);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-faint: var(--ink-faint);
+  --color-cobalt: var(--cobalt);
+  --color-cobalt-deep: var(--cobalt-deep);
+  --color-periwinkle: var(--periwinkle);
+  --color-ice: var(--ice);
+  --color-lavender: var(--lavender);
+  --color-blush: var(--blush);
+  --color-rose: var(--rose);
+  --color-rose-deep: var(--rose-deep);
+  --color-line: var(--line);
+
+  --radius-control: 0.875rem;
+  --radius-panel: 1.75rem;
+  --radius-inset: 1.125rem;
+
+  --text-display: clamp(2.6rem, 9.6vw, 3.75rem);
+  --text-display--line-height: 0.98;
+  --text-display--letter-spacing: -0.04em;
+  --text-title: clamp(2rem, 1.4rem + 2.4vw, 3rem);
+  --text-title--line-height: 1.05;
+  --text-title--letter-spacing: -0.032em;
+  --text-lead: clamp(1.0625rem, 0.95rem + 0.45vw, 1.3125rem);
+  --text-lead--line-height: 1.55;
+
   --font-sans: var(--font-manrope);
-  --font-display: var(--font-instrument-serif);
   --font-mono: var(--font-geist-mono);
+
+  --ease-soft: var(--ease-out-soft);
+}
+
+html {
+  scroll-padding-top: var(--header-offset);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--page);
+  color: var(--ink);
   font-family: var(--font-manrope), system-ui, sans-serif;
+}
+
+::selection {
+  background: rgb(53 101 245 / 0.18);
+}
+
+@layer components {
+  /* ============================================================
+     Liquid glass. Three material levels share one structure:
+       .glass-float  navigation + small floating controls
+       .glass-panel  main content surfaces
+       .glass-inset  inputs + nested surfaces (no backdrop blur)
+     ============================================================ */
+  .glass-float,
+  .glass-panel {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .glass-float {
+    border-radius: 9999px;
+    background:
+      radial-gradient(120% 80% at 20% -20%, rgb(255 255 255 / 0.55), transparent 60%),
+      linear-gradient(165deg, var(--glass-float-fill), rgb(255 255 255 / 0.12) 55%, var(--glass-tint));
+    -webkit-backdrop-filter: blur(var(--glass-blur-float)) saturate(1.4);
+    backdrop-filter: blur(var(--glass-blur-float)) saturate(1.4);
+    box-shadow:
+      inset 0 1px 0.5px var(--glass-edge),
+      inset 0 -1px 0.5px rgb(23 36 71 / 0.08),
+      inset 0 10px 18px -14px rgb(255 255 255 / 0.95),
+      0 1px 2px rgb(23 36 71 / 0.05),
+      0 14px 36px -20px rgb(var(--glass-shadow-color) / 0.32);
+  }
+
+  .glass-panel {
+    border-radius: var(--radius-panel);
+    background:
+      radial-gradient(110% 60% at 15% -10%, rgb(255 255 255 / 0.6), transparent 55%),
+      linear-gradient(170deg, var(--glass-panel-fill), rgb(255 255 255 / 0.46) 60%, var(--glass-tint));
+    -webkit-backdrop-filter: blur(var(--glass-blur-panel)) saturate(1.25);
+    backdrop-filter: blur(var(--glass-blur-panel)) saturate(1.25);
+    box-shadow:
+      inset 0 1px 0.5px var(--glass-edge),
+      inset 0 -1px 0.5px rgb(23 36 71 / 0.06),
+      inset 0 14px 24px -20px rgb(255 255 255 / 0.9),
+      0 1px 2px rgb(23 36 71 / 0.04),
+      0 22px 54px -30px rgb(var(--glass-shadow-color) / 0.3),
+      0 34px 80px -50px rgb(23 36 71 / 0.22);
+  }
+
+  /* Uneven reflective rim: bright upper-left, cool lower edges. */
+  .glass-float::before,
+  .glass-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: conic-gradient(
+      from 215deg at 30% 20%,
+      var(--glass-edge),
+      rgb(255 255 255 / 0.28) 16%,
+      rgb(196 181 253 / 0.45) 32%,
+      rgb(255 255 255 / 0.08) 50%,
+      rgb(147 197 253 / 0.42) 68%,
+      var(--glass-edge-soft) 84%,
+      var(--glass-edge)
+    );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .glass-panel::before {
+    opacity: 0.75;
+  }
+
+  /* Pointer-following reflection; opt-in via data-reflect. */
+  .glass-float::after,
+  .glass-panel::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+      14rem circle at var(--glass-x, 30%) var(--glass-y, 0%),
+      rgb(255 255 255 / 0.38),
+      transparent 70%
+    );
+    opacity: 0;
+    transition: opacity var(--duration-reveal) var(--ease-out-soft);
+    pointer-events: none;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .glass-float[data-reflect]:hover::after,
+    .glass-panel[data-reflect]:hover::after {
+      opacity: 1;
+    }
+  }
+
+  .glass-float > *,
+  .glass-panel > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .glass-inset {
+    border-radius: var(--radius-inset);
+    background: var(--glass-inset-fill);
+    box-shadow:
+      inset 0 1px 2px rgb(23 36 71 / 0.07),
+      inset 0 0 0 1px rgb(23 36 71 / 0.07),
+      0 1px 0 rgb(255 255 255 / 0.85);
+  }
+
+  /* ---------- Ambient background ---------- */
+  .ambient-layer {
+    position: absolute;
+    inset: -8%;
+    transform: translate3d(
+      calc(var(--px, 0) * var(--depth, 4) * 1px),
+      calc(var(--py, 0) * var(--depth, 4) * 1px),
+      0
+    );
+    transition: transform 1.4s var(--ease-out-soft);
+  }
+
+  .ambient-blob {
+    position: absolute;
+    border-radius: 9999px;
+    will-change: transform;
+  }
+
+  .ambient-blob--ice {
+    left: -14vmax;
+    top: -20vmax;
+    width: 64vmax;
+    height: 64vmax;
+    background: radial-gradient(closest-side, rgb(220 235 255 / 0.95), rgb(220 235 255 / 0));
+    animation: ambient-drift-a 60s ease-in-out infinite alternate;
+  }
+
+  .ambient-blob--lavender {
+    right: -16vmax;
+    top: 2vmax;
+    width: 58vmax;
+    height: 58vmax;
+    background: radial-gradient(closest-side, rgb(232 225 250 / 0.95), rgb(232 225 250 / 0));
+    animation: ambient-drift-b 72s ease-in-out infinite alternate;
+  }
+
+  .ambient-blob--blush {
+    left: 16vmax;
+    bottom: -28vmax;
+    width: 64vmax;
+    height: 50vmax;
+    background: radial-gradient(closest-side, rgb(248 229 239 / 0.95), rgb(248 229 239 / 0));
+    animation: ambient-drift-c 84s ease-in-out infinite alternate;
+  }
+
+  /* ---------- Entrance + reveal ---------- */
+  .enter-bg {
+    animation: enter-fade 0.8s ease-out both;
+  }
+
+  .enter-nav {
+    animation: enter-down 0.5s var(--ease-out-soft) 0.1s both;
+  }
+
+  .enter-model {
+    animation: enter-rise 0.6s var(--ease-out-soft) 0.2s both;
+  }
+
+  .enter-up {
+    animation: enter-up var(--duration-reveal) var(--ease-out-soft) var(--delay, 0.25s) both;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity var(--duration-reveal) var(--ease-out-soft),
+      transform var(--duration-reveal) var(--ease-out-soft);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  .reveal[data-visible="true"] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes enter-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes enter-down {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes enter-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+@keyframes enter-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+
+@keyframes ambient-drift-a {
+  to {
+    transform: translate3d(6vmax, 4vmax, 0) scale(1.06);
+  }
+}
+
+@keyframes ambient-drift-b {
+  to {
+    transform: translate3d(-5vmax, 6vmax, 0) scale(0.95);
+  }
+}
+
+@keyframes ambient-drift-c {
+  to {
+    transform: translate3d(-7vmax, -4vmax, 0) scale(1.05);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .enter-bg,
+  .enter-nav,
+  .enter-model,
+  .enter-up,
+  .ambient-blob {
+    animation: none;
+  }
+
+  .ambient-layer {
+    transform: none;
+    transition: none;
+  }
+
+  .glass-float::after,
+  .glass-panel::after {
+    display: none;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

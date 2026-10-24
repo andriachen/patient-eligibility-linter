@@ -1,43 +1,72 @@
+import type { CSSProperties } from "react";
+
 import { CategoryBarChart } from "@/components/CategoryBarChart";
 import { ExclusionTable } from "@/components/ExclusionTable";
-import { PageCard } from "@/components/PageCard";
+import { DemoDataBadge, GlassBadge } from "@/components/ui/GlassBadge";
+import { LiquidGlassPanel } from "@/components/ui/LiquidGlassPanel";
+import { PageHeader } from "@/components/ui/PageHeader";
 import { loadExclusionRows } from "@/lib/loadExclusionRows";
 import { getCategoryStat, loadLandscapeStats } from "@/lib/loadStats";
+
+const delay = (ms: number) => ({ "--delay": `${ms}ms` }) as CSSProperties;
 
 export default function LandscapePage() {
   const stats = loadLandscapeStats();
   const table = loadExclusionRows();
   const focus =
     getCategoryStat(stats, stats.defaultCategory) ?? stats.categories[0];
-
-  const suffix = stats.source === "mock" ? " (mock)" : "";
+  const statsAreMock = stats.source === "mock";
 
   return (
-    <main className="mx-auto max-w-5xl px-6 py-8">
-      <PageCard>
-        <p className="text-xs font-semibold uppercase tracking-wider text-[var(--brand-secondary)]">
-          Landscape
-        </p>
-        <h1 className="mt-2 text-3xl font-semibold tracking-tight text-[var(--brand-primary)]">
-          <span className="text-[var(--brand-accent)]">{focus.pctExcluded}%</span> of
-          trials exclude {focus.label.toLowerCase()}
-          {suffix}
-        </h1>
-        <p className="mt-2 text-sm text-[var(--text-muted)]">
-          Based on {stats.totalTrials} Massachusetts-linked trials
-          {stats.source === "mock" ? " — mock data" : ""}.
-        </p>
+    <div className="flex flex-col gap-8">
+      <PageHeader
+        label="Landscape"
+        title="Who trial criteria leave out"
+        description="How often each exclusion category appears in the eligibility criteria of recruiting Massachusetts cancer trials."
+        aside={
+          <GlassBadge tone="neutral">
+            {stats.totalTrials} trials{statsAreMock ? " (mock)" : ""}
+          </GlassBadge>
+        }
+      />
 
+      <LiquidGlassPanel
+        reflect
+        className="enter-up grid items-center gap-x-8 gap-y-4 p-6 sm:grid-cols-[auto_minmax(0,1fr)_auto] sm:p-7"
+        style={delay(140)}
+      >
+        <h2 className="sr-only">Headline metric</h2>
+        <p className="text-[clamp(4rem,3rem+4vw,6rem)] font-semibold leading-none tracking-[-0.045em] text-ink tabular-nums">
+          {focus.pctExcluded}%
+        </p>
+        <div className="sm:border-l sm:border-line sm:pl-8">
+          <p className="text-[clamp(1.25rem,1rem+0.8vw,1.625rem)] font-semibold leading-snug tracking-[-0.015em] text-ink">
+            of trials exclude <span className="text-rose-deep">{focus.label.toLowerCase()}</span>
+          </p>
+          <p className="mt-1.5 text-sm leading-relaxed text-ink-soft">
+            {focus.trialCount} of {stats.totalTrials} Massachusetts-linked trials
+            {statsAreMock ? " in the mock dataset" : ""}.
+          </p>
+        </div>
+        {statsAreMock ? (
+          <div className="sm:self-start">
+            <DemoDataBadge label="Mock data" />
+          </div>
+        ) : null}
+      </LiquidGlassPanel>
+
+      <LiquidGlassPanel className="enter-up p-6 sm:p-7" style={delay(200)}>
         <CategoryBarChart
           categories={stats.categories}
-          highlightCategory={stats.defaultCategory}
+          totalTrials={stats.totalTrials}
+          highlightCategory={focus.category}
+          isMock={statsAreMock}
         />
+      </LiquidGlassPanel>
 
-        <ExclusionTable rows={table.rows} />
-        {table.source === "mock" ? (
-          <p className="mt-2 text-xs text-[var(--text-muted)]">Table uses mock rows.</p>
-        ) : null}
-      </PageCard>
-    </main>
+      <LiquidGlassPanel className="enter-up p-5 sm:p-7" style={delay(260)}>
+        <ExclusionTable rows={table.rows} isMock={table.source === "mock"} />
+      </LiquidGlassPanel>
+    </div>
   );
 }
