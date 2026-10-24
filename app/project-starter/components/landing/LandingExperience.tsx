@@ -59,12 +59,21 @@ function Hero() {
               Understand who trial criteria may leave out, and explore opportunities for more
               inclusive research.
             </p>
-            <div className="mt-5 hidden flex-wrap items-center justify-between gap-x-4 gap-y-3 border-t border-line pt-4 lg:flex">
-              <span className={researchLabel}>For research teams</span>
-              <GlassLink href="/linter" variant="secondary" size="md">
-                Try the linter
-                <ArrowIcon />
-              </GlassLink>
+            <div className="mt-5 hidden flex-col gap-3 border-t border-line pt-4 lg:flex">
+              <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
+                <span className={researchLabel}>For users</span>
+                <GlassLink href="/matches" variant="secondary" size="md">
+                  Find trials
+                  <ArrowIcon />
+                </GlassLink>
+              </div>
+              <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
+                <span className={researchLabel}>For research teams</span>
+                <GlassLink href="/linter" variant="secondary" size="md">
+                  Try the linter
+                  <ArrowIcon />
+                </GlassLink>
+              </div>
             </div>
           </LiquidGlassPanel>
         </div>
@@ -90,6 +99,13 @@ function Hero() {
             Explore trials
             <ArrowIcon />
           </GlassLink>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <span className={researchLabel}>For users</span>
+            <GlassLink href="/matches" variant="secondary">
+              Find trials
+              <ArrowIcon />
+            </GlassLink>
+          </div>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <span className={researchLabel}>For research teams</span>
             <GlassLink href="/linter" variant="secondary">

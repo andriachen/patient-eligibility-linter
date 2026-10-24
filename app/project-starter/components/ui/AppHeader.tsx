@@ -13,9 +13,9 @@ import { useAccountSession } from "@/lib/useAccountSession";
 
 export const NAV_LINKS = [
   { href: "/", label: "Home" },
-  { href: "/matches", label: "Find trials" },
   { href: "/landscape", label: "Landscape" },
   { href: "/map", label: "Map" },
+  { href: "/matches", label: "Find Trials" },
   { href: "/linter", label: "Linter" },
 ];
 

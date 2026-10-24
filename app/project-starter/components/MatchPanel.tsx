@@ -233,10 +233,20 @@ export function MatchPanel() {
           </GlassButton>
         </div>
 
-        <p className="mt-4 text-xs leading-relaxed text-ink-faint">
-          We check 13 common eligibility barriers, not full eligibility. Results are a starting point,
-          not medical advice — the study team confirms whether you can join.
-        </p>
+        <div className="mt-4 space-y-2 text-xs leading-relaxed text-ink-faint">
+          <p className="flex items-start gap-1.5 text-ink-soft">
+            <span aria-hidden>🔒</span>
+            <span>
+              Your answers are used only to run this search and are never saved, shared, or tied to
+              you. We don&apos;t ask for your name or contact details — matching runs on public trial
+              data, not your identity.
+            </span>
+          </p>
+          <p>
+            We check 13 common eligibility barriers, not full eligibility. Results are a starting
+            point, not medical advice — the study team confirms whether you can join.
+          </p>
+        </div>
       </LiquidGlassPanel>
 
       {/* Results */}

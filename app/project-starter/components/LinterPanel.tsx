@@ -312,6 +312,14 @@ export function LinterPanel({ context }: { context: LintContext }) {
                 Claude isn&apos;t set up on this server (it needs an Anthropic API key), so the Linter uses
                 keyword rules.
               </p>
+            ) : engine === "model" ? (
+              <p className="mt-2 flex items-start gap-1.5 text-xs text-ink-soft">
+                <span aria-hidden>🔒</span>
+                <span>
+                  Claude reads this text through Anthropic&apos;s API. We don&apos;t save it or share it.
+                  Use keyword rules to keep confidential drafts in your browser.
+                </span>
+              </p>
             ) : null}
           </fieldset>
 
