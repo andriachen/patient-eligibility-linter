@@ -61,40 +61,71 @@ export type PatientVector = {
   cancer_type?: string;
 };
 
-/** Map a free-text cancer type to the keywords that identify its trials. */
+/**
+ * Map a free-text cancer type to the word stems that identify its trials. Stems only
+ * match at the start of a word, so "liver" doesn't match "delivery", "crc" doesn't
+ * match "mCRPC", and there is no bare "all" (it matched "small cell" and "overall").
+ * "brain" lists primary brain tumors only: brain-metastasis trials are for other cancers.
+ */
 const CANCER_KEYWORDS: Record<string, string[]> = {
   breast: ["breast"],
   lung: ["lung", "nsclc", "sclc"],
-  prostate: ["prostate"],
-  colorectal: ["colorectal", "colon", "rectal", "crc"],
+  prostate: ["prostat", "crpc", "mcrpc"],
+  colorectal: ["colorectal", "colon", "rectal", "rectum", "crc"],
   lymphoma: ["lymphoma"],
-  leukemia: ["leukemia", "leukaemia", "aml", "cml", "all", "cll"],
+  leukemia: ["leukemia", "leukaemia", "aml", "cml", "cll", "acute lymphoblastic", "acute myeloid"],
   melanoma: ["melanoma"],
-  brain: ["brain", "glioma", "glioblastoma", "cns", "central nervous", "astrocytoma"],
+  brain: ["glioma", "glioblastoma", "astrocytoma", "oligodendroglioma", "meningioma", "brain tumor", "brain tumour", "brain cancer", "cns tumor", "cns tumour"],
   pancreatic: ["pancrea"],
-  ovarian: ["ovarian", "ovary"],
+  ovarian: ["ovarian", "ovary", "fallopian", "primary peritoneal"],
   myeloma: ["myeloma"],
-  kidney: ["kidney", "renal cell", "rcc"],
+  kidney: ["kidney cancer", "renal cell", "rcc"],
   bladder: ["bladder", "urothelial"],
-  liver: ["liver", "hepatocellular", "hcc"],
+  liver: ["liver cancer", "hepatocellular", "hcc", "hepatoma"],
+  stomach: ["gastric", "stomach", "gastroesophageal", "gastro-esophageal"],
+  "head and neck": ["head and neck", "hnscc", "oropharyn", "laryn", "nasopharyn", "hypopharyn", "oral cavity"],
+  esophageal: ["esophag", "oesophag"],
+  uterine: ["endometri", "uterine", "uterus"],
+  cervical: ["cervical cancer", "cervix"],
+  thyroid: ["thyroid"],
+  sarcoma: ["sarcoma"],
 };
 
-/** Keywords for the patient's cancer type (free-text, lenient). */
-function cancerKeywords(cancerType?: string): string[] {
-  if (!cancerType) return [];
-  const t = cancerType.toLowerCase().trim();
-  for (const [key, kws] of Object.entries(CANCER_KEYWORDS)) {
-    if (t.includes(key) || kws.some((k) => t.includes(k))) return kws;
+/** Blood cancers: "advanced solid tumor" trials don't apply to them. */
+const HEME_TYPES = new Set(["lymphoma", "leukemia", "myeloma"]);
+const HEME_TEXT = /lymphoma|leuk|myeloma|hodgkin|myelodysplastic|\bmds\b/i;
+
+/** Trials that enroll many solid tumor types, e.g. "Advanced Solid Tumors". */
+const SOLID_BASKET = /\bsolid (?:tumou?rs?|malignanc|neoplasm|cancers?)|\badvanced (?:cancers?|malignanc)|\bmetastatic cancers?\b/i;
+
+const escapeRegex = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+const wordStart = (stems: string[]) => new RegExp(`\\b(?:${stems.map(escapeRegex).join("|")})`, "i");
+
+/** The patient's cancer type as a matcher: its known key (or null) and a word-start regex. */
+function cancerMatcher(cancerType?: string): { key: string | null; re: RegExp } | null {
+  const t = cancerType?.toLowerCase().trim();
+  if (!t) return null;
+  for (const [key, stems] of Object.entries(CANCER_KEYWORDS)) {
+    const re = wordStart(stems);
+    if (t.includes(key) || re.test(t)) return { key, re };
   }
-  return [t]; // fall back to the raw term
+  return { key: null, re: wordStart([t]) }; // fall back to the raw term
 }
 
-/** Does this trial target the patient's cancer type? (lenient substring match) */
+const trialText = (trial: EnrichedTrial) => trial.conditions.join(" ") + " " + trial.title;
+
+/** Does this trial target the patient's cancer type? No cancer type given = yes. */
 export function trialMatchesCancer(trial: EnrichedTrial, cancerType?: string): boolean {
-  const kws = cancerKeywords(cancerType);
-  if (kws.length === 0) return true; // no cancer type given -> don't filter
-  const hay = (trial.conditions.join(" ") + " " + trial.title).toLowerCase();
-  return kws.some((k) => hay.includes(k));
+  const m = cancerMatcher(cancerType);
+  return !m || m.re.test(trialText(trial));
+}
+
+/** Could this "advanced solid tumors" trial take the patient's (solid) cancer? */
+function acceptsSolidTumors(trial: EnrichedTrial, cancerType?: string): boolean {
+  const m = cancerMatcher(cancerType);
+  if (!m) return false;
+  const heme = m.key ? HEME_TYPES.has(m.key) : HEME_TEXT.test(cancerType ?? "");
+  return !heme && SOLID_BASKET.test(trialText(trial));
 }
 
 /** Is `category` the trial's OWN target disease? (e.g. brain_mets on a brain-cancer
@@ -194,6 +225,18 @@ export function classifyTrial(
 ): MatchedTrial {
   const hits: Hit[] = [];
   const cancerMatch = trialMatchesCancer(trial, patient.cancer_type);
+  // A trial for "advanced solid tumors" may take this patient's cancer even though it
+  // doesn't name it, so ask about it instead of ruling it out.
+  const basket = !cancerMatch && acceptsSolidTumors(trial, patient.cancer_type);
+  if (basket) {
+    hits.push({
+      category: "cancer_type",
+      label: "Cancer type",
+      severity: "soft",
+      source_text: "This trial enrolls several solid tumor types. Check that yours is one of them.",
+      threshold: null,
+    });
+  }
   // #4: no extracted rows means we couldn't screen this trial (112 trials, incl.
   // the 5 known extraction failures) — distinct from "screened, nothing found".
   const notScreened = trial.exclusions.length === 0;
@@ -238,7 +281,7 @@ export function classifyTrial(
   let bucket: Bucket;
   // #1: a trial that doesn't target the patient's cancer type is not a fit,
   // regardless of the 13 barriers — this is the dominant real-world filter.
-  if (!cancerMatch) bucket = "likely_not_a_fit";
+  if (!cancerMatch && !basket) bucket = "likely_not_a_fit";
   else if (hits.some((h) => h.severity === "hard")) bucket = "likely_not_a_fit";
   else if (hits.some((h) => h.severity === "soft")) bucket = "ask_about_this";
   else bucket = "worth_reaching_out";
