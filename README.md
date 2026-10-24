@@ -3,14 +3,17 @@
 Surfaces and lints restrictive clinical-trial eligibility criteria for Massachusetts
 oncology trials, with county-level health and environmental-justice context.
 
+Live: https://patient-eligibility-linter.vercel.app (web app at `/`, accounts at `/account`).
+
 ## Phases & ownership
 
 | Phase | Owner | Folders |
 |-------|-------|---------|
 | P1 Data | `p1-data` | `pipeline/ingest/`, `data/raw/`, P1 CSVs in `data/processed/` |
 | P2 LLM | `p2-extract` | `pipeline/extract/`, `data/cache/`, `data/processed/exclusions.csv` |
-| P3 Frontend | `p3-app` | `app/` |
+| P3 Frontend | `p3-app` | `app/project-starter/` (Next.js; the old Streamlit `app/main.py` is unused) |
 | P4 PM | `p4-eval` | root files, `eval/`, `docs/` |
+| Accounts | `namik` | `accounts/` (Next.js login + profile questions, served at `/account`) |
 
 Each folder has its own `requirements.txt`.
 
@@ -43,7 +46,7 @@ eval/gold_labels.csv
   nct_id, category, threshold, source_text     # one row per category PRESENT
 ```
 
-## Linter function (P2 implements, P3 calls)
+## Linter function (P2 implements; local/CLI use; the web Linter uses keyword rules in `app/project-starter/lib/mockLint.ts`)
 
 ```
 pipeline/extract/lint.py
@@ -86,11 +89,12 @@ Any criterion, in the inclusion OR exclusion section, that restricts who can enr
 ## Setup
 
 ```bash
-cp .env.example .env   # add ANTHROPIC_API_KEY (or Bedrock creds)
+cp .env.example .env   # add ANTHROPIC_API_KEY
 python3.11 -m venv .venv && source .venv/bin/activate
 pip install -r pipeline/ingest/requirements.txt
 pip install -r pipeline/extract/requirements.txt
-pip install -r app/requirements.txt
+cd app/project-starter && npm install && cd ../..   # web app
+cd accounts && npm install && cd ..                 # accounts app (see accounts/README.md)
 ```
 
 ## Running
@@ -104,10 +108,13 @@ python -m pipeline.ingest.build_county
 
 # P2: extract + lint
 python pipeline/extract/fetch_sample.py
-python pipeline/extract/extract.py --input ../../data/processed/trials.csv
+python -m pipeline.extract.extract --input data/processed/trials.csv
 
-# P3: app
-streamlit run app/main.py
+# Web app: http://localhost:3010
+cd app/project-starter && npm run dev
+
+# Accounts app: http://localhost:3000/account
+cd accounts && npm run dev
 
 # P4: eval
 python eval/run_eval.py

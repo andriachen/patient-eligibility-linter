@@ -31,7 +31,7 @@ If the data changes again: `python eval/build_stats.py && python eval/run_eval.p
 Show the Landscape page here (headline is the HIV line, from `data/processed/stats.json`).
 
 Numbers for Q&A:
-- HIV: 33.4% of all 1011 trials restrict (338), 16.3% exclude outright; 44.4% of phase 1–3 drug trials.
+- HIV: 34.3% of all 1011 trials restrict (347), 16.8% exclude outright (170); 45.6% of phase 1–3 drug trials (341 of 748).
 - Language: 82 of 263 non-drug studies flagged (31%); a 10-trial spot-check found 9 real, so about 28–30%.
   Phase 1–3 drug trials: 27 of 748 (3.6%). See `eval/language_spotcheck.md`.
 
@@ -42,8 +42,11 @@ Numbers for Q&A:
 
 1. Paste the demo criteria below into the Linter.
 2. Point at the flags: HIV, brain metastases, English-only, prior cancer. Each one shows its exact quoted sentence.
-3. Open one flag: the suggested rewording and the FDA or ASCO–Friends source it comes from.
-4. Switch to the Map, select **language**, and hover over Suffolk.
+3. Read one flag's suggestion and its FDA or ASCO–Friends source (HIV or brain metastases; English and
+   pregnancy say no specific guidance covers them).
+4. Switch to the Map, select **language**, and hover over Suffolk: 10.7% of its 945 trials restrict
+   language, and the county detail shows 14.4% limited-English households in its environmental-justice
+   block groups (population-weighted). The **Environmental justice areas** tab can color the map by that measure.
 
 > The tool doesn't decide. It shows the protocol team what each rule costs and what the
 > guidance says. They make the call.
@@ -64,15 +67,12 @@ Exclusion Criteria:
 * Pregnant or breastfeeding
 ```
 
-**Blocked as of 13:45. Steps 3–4 fail unless these are fixed:**
-- The Linter tab runs `lib/mockLint.ts` (regex). Its suggestions cite "mock protocol playbook" and
-  its county impact is made up. Without the Anthropic key, the fastest honest fix: keep regex
-  flags, but give each category a fixed suggestion + real source from `docs/sources.md`, and
-  "no specific guidance" for diabetes, BMI, smoking, language, pregnancy. Drop or relabel the
-  county impact list. (P3, with P2's suggestion text.)
-- The Map shows 0% for every county: `loadCounties` never fills `trialsWithCategoryPct`. (P3)
-- If the Linter isn't LLM-backed by demo time, don't call it "AI" on stage. Say "flags" and point
-  to the eval for the AI part.
+**Linter, as built:** keyword rules for the 13 categories, run in the browser. Each flag quotes the
+matching line and gives a fixed suggestion with its FDA or ASCO–Friends source; diabetes, BMI, smoking,
+language and pregnancy say no specific guidance covers them. The Impact tab shows how many MA trials
+share each restriction and the highest CDC PLACES / MassGIS counties. It is not the model, so on stage
+say "flags", not "AI", and point to the eval for the AI part (the offline extraction behind Landscape
+and Map).
 
 **Backup:** if the live Linter fails, play the recorded video and keep talking.
 
@@ -81,7 +81,7 @@ Exclusion Criteria:
 > An LLM that flags medical criteria has to be checked. We hand-labeled 42 trials. We tuned our
 > prompt on 32 of them, so we held 10 back that the AI never saw. On those 10, it matched our
 > labels with **98% precision and 92% recall** (F1 0.95, 95% CI 0.89–0.99). Every flag quotes its source
-> sentence, and we show the categories where we don't have enough examples to score.
+> sentence. Diabetes, smoking and BMI have only two gold examples each, so we don't claim a score for them.
 
 Show the "By subset" table in `eval/results.md`, or a one-slide version of it.
 
@@ -94,8 +94,8 @@ trials drawn afterwards. Labels are human-written; the AI only helped find candi
 > Narrower criteria slow enrollment, which slows the path from Massachusetts labs to patients.
 > They also decide who gets access at all. Fixing one unnecessary rule helps both.
 >
-> Next: patients and caregivers can create a profile (our account prototype), so the same
-> engine can show which criteria they'd hit before they ask their oncologist.
+> Next: patients and caregivers can already save a profile (Account) and try a first matcher
+> (Find trials) that shows which criteria they'd hit before they ask their oncologist.
 >
 > Massachusetts is great at discovery. We fix the step where discovery becomes a trial.
 
@@ -106,7 +106,7 @@ trials drawn afterwards. Labels are human-written; the AI only helped find candi
 | Question | Answer |
 |---|---|
 | Aren't some exclusions necessary? | Yes. Pregnancy with teratogenic drugs, or high blood sugar with PI3K inhibitors, can be justified. We flag and cite; the protocol team decides. That's why the output is a suggestion. |
-| How accurate is the AI? | On 10 held-out trials it never saw: 98% precision, 92% recall. On the 30-trial random sample we tuned it on: 96% / 91%. Every flag quotes its source sentence. Diabetes, smoking, and BMI have too few examples to score, and we say so. |
+| How accurate is the AI? | On 10 held-out trials it never saw: 98% precision, 92% recall. On the 30-trial random sample we tuned it on: 97% / 91%. Every flag quotes its source sentence. Diabetes, smoking, and BMI have only 2 gold examples each, so their 1.00 isn't meaningful. |
 | Did you tune on your test set? | We tuned on the first 32, which is why we drew 10 more afterwards and report those separately. That's the number we quote. |
 | Isn't English needed for validated questionnaires? | Often, yes, and that's most of what we see in supportive-care studies. Many validated instruments have Spanish versions, and several MA studies already accept Spanish, Korean, or Mandarin. We flag it; the team decides. |
 | How do you get "% of people affected"? | CDC PLACES county prevalence (diabetes, smoking, obesity) and MassGIS EJ data (limited English, EJ block groups only). These are county estimates. We never add or multiply them across criteria. |
@@ -118,8 +118,8 @@ trials drawn afterwards. Labels are human-written; the AI only helped find candi
 ## Before rehearsal
 
 - [x] After Arush's rerun: rebuilt `stats.json` and `results.md`, updated the numbers, recomputed the language split
-- [ ] Linter shows real sources, not "mock protocol playbook" (P3)
-- [ ] Map shows real per-county percentages, not 0% (P3)
+- [x] Linter shows real sources, not "mock protocol playbook" (P3)
+- [x] Map shows real per-county percentages, not 0% (P3)
 - [ ] Confirm the demo criteria trigger the expected flags on the deployed site
 - [ ] Record the backup demo video
 - [ ] Rehearse twice with a timer

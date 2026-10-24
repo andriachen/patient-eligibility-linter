@@ -14,13 +14,18 @@ criteria in **recruiting MA cancer trials** (ClinicalTrials.gov), and shows
 **county-level** health (CDC PLACES) and **environmental-justice** (MassGIS EJ)
 context for who those criteria exclude.
 
-Three app tabs: **Landscape** (headline stats + per-category bars + filterable table),
-**Map** (MA county choropleth by category), **Linter** (paste criteria → flagged list +
-suggestions).
+Product name: **Threshold** (was StageShare). App tabs: **Landscape** (headline stats +
+per-category bars + filterable table), **Map** (14 county tiles: share of recruiting trials
+restricting a category, CDC PLACES health, MassGIS environmental-justice minority /
+limited-English), **Linter** (paste criteria → flagged list + suggestions + Impact), **Find
+trials** (matcher, `/matches`).
 
-Status of the data wiring (important): Landscape + Map read the real processed CSVs /
-`stats.json` directly. **The Linter tab still uses `mockLint.ts` (regex), NOT the real
-`lint.py:lint_criteria()`** — see §9.
+Status of the data wiring: Landscape + Map read the real processed CSVs / `stats.json`
+(copied into the app at build, see §8b). The Linter tab is keyword rules for the 13
+categories (`lib/mockLint.ts`, client-side; P 0.89 / R 0.96 against exclusions.csv, which
+it was tuned on) with fixed FDA/ASCO–Friends suggestions copied from
+`pipeline/extract/suggest.py` (keep in sync). It does not call the model or `lint.py`; the
+model runs offline only (exclusions.csv, scored in eval/). Don't present the Linter as AI.
 
 ## 2. Architecture / data flow
 
@@ -32,8 +37,8 @@ MassGIS EJ (ArcGIS) ───┘                                          │   
                                                                   │   reads CSVs + stats.json
 EligibilityCriteria text ─> pipeline/extract (Anthropic tool-use) ┘
       └─> data/cache/{nct_id}.json  +  data/processed/exclusions.csv  (+ auto stats.json)
-      └─> lint.py:lint_criteria(text)  — the live linter; NOT yet wired to the app's
-          Linter tab (that still calls mockLint.ts)
+      └─> lint.py:lint_criteria(text)  — model-backed lint for local/CLI use; the web
+          Linter tab does not call it (keyword rules in lib/mockLint.ts)
 ```
 
 ## 3. Ownership (don't touch other folders)
@@ -98,7 +103,7 @@ MA county FIPS 25001–25027 (odd only), 14 counties — see README.
 | Matcher index (Aim 1 / Sub-Aim 2) | done | `eval/build_trials_enriched.py` -> `trials_enriched.json` (1011 trials + embedded exclusions + MA sites); auto-rebuilt w/ stats.json |
 | Matcher logic (Aim 1 / Sub-Aim 3) | done (logic) | `app/project-starter/lib/{patientVector,loadTrialsIndex,matchTrials}.ts`; deterministic, no inference; reads trials_enriched.json; verified vs real data (all-unknown→all "worth reaching out") |
 | Matcher UI (Aim 1 / Sub-Aim 4) | done (needs build) | `/matches` page + `MatchPanel.tsx` + `matchAction.ts` server action; questionnaire → 3 buckets (worth / ask / not-yet) w/ quoted criterion + CTA; "Find trials" in nav. **P3: `npm run build` to verify** (node_modules wasn't installed here; contracts/paths statically checked) |
-| P3 app | done (frontend) | Next.js at `app/project-starter` (NOT Streamlit); Landscape/Map read real CSVs + stats.json; **Linter still uses `mockLint.ts`** (see §9); deploys on Vercel |
+| P3 app | done | Next.js at `app/project-starter` (NOT Streamlit), live on Vercel as Threshold; Landscape/Map read real CSVs + stats.json (Map: real per-county shares of distinct trials, PLACES, EJ minority + limited-English); Linter = keyword rules for 13 categories with FDA/ASCO–Friends suggestions + Impact tab, not model-backed |
 | P4 eval | done | run_eval.py (42-trial gold, subsets + real bootstrap CI); all-42 F1 **0.94** [0.91,0.97], held-out **0.95** [0.89,0.99]; reproducible |
 | P4 docs | in progress | sources.md done; pitch.md updated (HIV 34.3%, held-out F1 0.95); submission.md TBD |
 | accounts/ | done | separate Next.js 16 app (not Streamlit): email login + branching profile wizard, saved to Supabase `profiles`; see accounts/README.md |
@@ -202,6 +207,14 @@ python -m pipeline.ingest.build_county       # -> county_metrics.csv, county_ej.
   No re-fetch needed (raw pages unchanged); rebuilt trials.csv only. Matters for the
   P2 `age` category.
 
+- 2026-10-24: **Threshold pass (Namik).** Renamed StageShare → Threshold (web + accounts).
+  Map: tabs "Exclusions / Health / Environmental justice areas" (wrap on phones), EJ measure
+  switch (minority / limited-English), county detail row "EJ limited-English households"
+  (Suffolk 14.44%), source caption. New "Paper & Petrol" palette in both apps (no glass,
+  blobs or gradients; 5-class single-hue map scale; Public Sans + Source Serif 4). Earlier
+  the same day: real per-county Map shares (`loadCounties.ts`) and the 13-category keyword
+  Linter (`mockLint.ts`) replaced the 0% map and the 8-category mock.
+
 ## 8b. Vercel data deployment (important)
 
 Vercel deploys only the service root `app/project-starter` (per `vercel.json`), so the
@@ -216,14 +229,13 @@ file the app reads, add it to the FILES list in copy-data.mjs.
 
 ## 9. Open questions / blockers
 
-- **DEMO-CRITICAL — Linter tab is still mock.** `app/project-starter` Landscape + Map
-  use the real pipeline data, but the **Linter tab calls `lib/mockLint.ts` (regex),
-  not `pipeline/extract/lint.py:lint_criteria()`**. Pasting criteria returns mock
-  flags/suggestions, not the real F1-0.94 engine. Before the demo either (a) wire the
-  Linter to the real `lint_criteria()` via a Next.js API route that shells to Python
-  (P3↔P2 task — Python runtime, needs ANTHROPIC_API_KEY server-side; works locally,
-  not on Vercel), or (b) state in the demo that the Linter is a mock while Landscape/
-  Map are real. The real suggestions are already available via `suggest.py`.
+- **Web Linter is keyword rules by design.** A model-backed `lint_criteria()` would need a
+  Python runtime + ANTHROPIC_API_KEY server-side (not on Vercel). On stage say "flags",
+  not "AI"; the AI is the offline extraction, scored in eval/.
+- **Vercel env (manual, Andria):** `NEXT_PUBLIC_SUPABASE_ANON_KEY` is stored with its own
+  name in front (`NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJ…`). Login works because
+  `accounts/src/lib/supabase/env.ts` strips it; set the value to only the part after `=`
+  and check `/account/api/health` shows `"warnings": []`.
 - **P1: none.** All six CSVs are populated. (EJ no longer needs a manual download.)
 - **PLACES URL:** using the default CDC SODA endpoint for `swc5-untb`. If the team's
   kit provides a different URL, pass `--places-url`.
