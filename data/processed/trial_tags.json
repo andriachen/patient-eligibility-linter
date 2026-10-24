@@ -1,0 +1,7412 @@
+{
+  "NCT06855277": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 18,
+    "age_max": 100
+  },
+  "NCT05498428": {
+    "cancer_types": [
+      "lung",
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07104331": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06064877": {
+    "cancer_types": [
+      "head_neck"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06998407": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04895436": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06890884": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07219212": {
+    "cancer_types": [
+      "head_neck"
+    ],
+    "age_min": 18,
+    "age_max": 74
+  },
+  "NCT04251052": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 35,
+    "age_max": 50
+  },
+  "NCT05765500": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04997096": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06138561": {
+    "cancer_types": [
+      "kidney_bladder"
+    ],
+    "age_min": 65,
+    "age_max": null
+  },
+  "NCT05674357": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06563596": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05443126": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06803875": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 1,
+    "age_max": 29
+  },
+  "NCT07393867": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07091032": {
+    "cancer_types": [
+      "colorectal",
+      "gynecologic"
+    ],
+    "age_min": 18,
+    "age_max": 75
+  },
+  "NCT02896335": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06561048": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06118086": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07518186": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04553770": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06940180": {
+    "cancer_types": [
+      "head_neck"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05874921": {
+    "cancer_types": [
+      "kidney_bladder"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05349227": {
+    "cancer_types": [
+      "gynecologic",
+      "breast",
+      "lung",
+      "liver_stomach",
+      "head_neck",
+      "prostate",
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04879329": {
+    "cancer_types": [
+      "kidney_bladder"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07570979": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07063745": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05372354": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07198074": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04724018": {
+    "cancer_types": [
+      "kidney_bladder"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05706766": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04575935": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06617741": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06271291": {
+    "cancer_types": [
+      "pancreatic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07377435": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06502171": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 16,
+    "age_max": null
+  },
+  "NCT04644211": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04657068": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "gynecologic",
+      "colorectal",
+      "pancreatic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06765109": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05235165": {
+    "cancer_types": [
+      "other",
+      "lung"
+    ],
+    "age_min": 0,
+    "age_max": 50
+  },
+  "NCT07527858": {
+    "cancer_types": [
+      "colorectal"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06564038": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06802146": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05785741": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05080673": {
+    "cancer_types": [
+      "colorectal"
+    ],
+    "age_min": 45,
+    "age_max": 70
+  },
+  "NCT06188741": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 1,
+    "age_max": 8
+  },
+  "NCT02285582": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 0,
+    "age_max": null
+  },
+  "NCT06787612": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06128551": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06500273": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06609473": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 0,
+    "age_max": 18
+  },
+  "NCT07220239": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04986579": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07441694": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07393282": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06915753": {
+    "cancer_types": [
+      "liver_stomach",
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07130786": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT03151629": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 21,
+    "age_max": null
+  },
+  "NCT06153251": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07097142": {
+    "cancer_types": [
+      "kidney_bladder"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07023627": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 18,
+    "age_max": 99
+  },
+  "NCT03126916": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 1,
+    "age_max": 30
+  },
+  "NCT05554406": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": 59
+  },
+  "NCT04370587": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "skin",
+      "head_neck",
+      "other",
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04656041": {
+    "cancer_types": [
+      "liver_stomach"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT02523014": {
+    "cancer_types": [
+      "brain"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04777994": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06843447": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06652633": {
+    "cancer_types": [
+      "blood_cancer_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT01587300": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 0,
+    "age_max": 99
+  },
+  "NCT06136546": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 25,
+    "age_max": 50
+  },
+  "NCT06943755": {
+    "cancer_types": [
+      "pancreatic",
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05232916": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": 100
+  },
+  "NCT07581184": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06450171": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 22,
+    "age_max": null
+  },
+  "NCT06053658": {
+    "cancer_types": [
+      "kidney_bladder"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05313243": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06302621": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06534060": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06207032": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 18,
+    "age_max": 99
+  },
+  "NCT02332668": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "skin",
+      "blood"
+    ],
+    "age_min": 0,
+    "age_max": 17
+  },
+  "NCT06312176": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06987890": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 65,
+    "age_max": null
+  },
+  "NCT05952804": {
+    "cancer_types": [
+      "blood_cancer_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT01238250": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 0,
+    "age_max": null
+  },
+  "NCT02012699": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 19,
+    "age_max": 110
+  },
+  "NCT05877599": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "blood_cancer_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07434843": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05128825": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT02432560": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06146738": {
+    "cancer_types": [
+      "brain"
+    ],
+    "age_min": 18,
+    "age_max": 90
+  },
+  "NCT06131840": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06425926": {
+    "cancer_types": [
+      "skin",
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05668962": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 12,
+    "age_max": null
+  },
+  "NCT06052488": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06859424": {
+    "cancer_types": [
+      "blood_cancer_basket"
+    ],
+    "age_min": 18,
+    "age_max": 66
+  },
+  "NCT06789601": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 0,
+    "age_max": null
+  },
+  "NCT07654426": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06000787": {
+    "cancer_types": [
+      "brain",
+      "other"
+    ],
+    "age_min": 0,
+    "age_max": null
+  },
+  "NCT07432295": {
+    "cancer_types": [
+      "liver_stomach"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07112287": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06973187": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT03452774": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 0,
+    "age_max": null
+  },
+  "NCT04504604": {
+    "cancer_types": [
+      "other",
+      "any_cancer"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT03816345": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "blood_cancer_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06368817": {
+    "cancer_types": [
+      "brain"
+    ],
+    "age_min": 3,
+    "age_max": 29
+  },
+  "NCT06067347": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05174169": {
+    "cancer_types": [
+      "colorectal"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07675967": {
+    "cancer_types": [
+      "lung",
+      "breast",
+      "colorectal",
+      "gynecologic",
+      "liver_stomach",
+      "head_neck",
+      "other",
+      "blood",
+      "skin",
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06439693": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT03509961": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 1,
+    "age_max": 25
+  },
+  "NCT06026111": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06597721": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "pancreatic",
+      "head_neck"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06026410": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "lung",
+      "colorectal",
+      "pancreatic",
+      "kidney_bladder"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07621718": {
+    "cancer_types": [
+      "pancreatic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07013435": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT02343042": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05465174": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 1,
+    "age_max": 39
+  },
+  "NCT06123338": {
+    "cancer_types": [
+      "liver_stomach"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06872346": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 21,
+    "age_max": 70
+  },
+  "NCT03526835": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "colorectal",
+      "liver_stomach",
+      "lung",
+      "head_neck"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06116682": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06040541": {
+    "cancer_types": [
+      "lung",
+      "colorectal",
+      "pancreatic",
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06805305": {
+    "cancer_types": [
+      "brain"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04442724": {
+    "cancer_types": [
+      "kidney_bladder"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04590326": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04775485": {
+    "cancer_types": [
+      "brain",
+      "solid_tumor_basket"
+    ],
+    "age_min": 0,
+    "age_max": 25
+  },
+  "NCT06510491": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07132190": {
+    "cancer_types": [
+      "lung",
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT03683680": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06744296": {
+    "cancer_types": [
+      "head_neck"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06274788": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 0,
+    "age_max": 17
+  },
+  "NCT05795101": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07095517": {
+    "cancer_types": [
+      "colorectal"
+    ],
+    "age_min": 18,
+    "age_max": 50
+  },
+  "NCT07600801": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT03535545": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": 80
+  },
+  "NCT02947971": {
+    "cancer_types": [
+      "liver_stomach"
+    ],
+    "age_min": 14,
+    "age_max": 85
+  },
+  "NCT07264959": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06952010": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06835569": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "pancreatic",
+      "lung",
+      "colorectal"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06982521": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05245500": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "lung",
+      "pancreatic",
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06091254": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT01696721": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 0,
+    "age_max": 21
+  },
+  "NCT05372614": {
+    "cancer_types": [
+      "pancreatic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06532565": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06239194": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04028531": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05132283": {
+    "cancer_types": [
+      "kidney_bladder",
+      "prostate"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06507930": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05784922": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 50,
+    "age_max": 80
+  },
+  "NCT06098430": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 8,
+    "age_max": null
+  },
+  "NCT06767514": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07303816": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06549465": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06431594": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05287451": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06119581": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT00756665": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 21,
+    "age_max": null
+  },
+  "NCT06369155": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06676852": {
+    "cancer_types": [
+      "blood_cancer_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06748222": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": 50
+  },
+  "NCT05941507": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06094257": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05564377": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "breast",
+      "gynecologic"
+    ],
+    "age_min": 0,
+    "age_max": null
+  },
+  "NCT06901531": {
+    "cancer_types": [
+      "liver_stomach"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05554393": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": 59
+  },
+  "NCT06252753": {
+    "cancer_types": [
+      "liver_stomach"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06137144": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 12,
+    "age_max": null
+  },
+  "NCT07187063": {
+    "cancer_types": [
+      "kidney_bladder"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT01790152": {
+    "cancer_types": [
+      "blood",
+      "other"
+    ],
+    "age_min": 0,
+    "age_max": null
+  },
+  "NCT05890677": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06647953": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 0,
+    "age_max": 21
+  },
+  "NCT04267848": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06284486": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 12,
+    "age_max": null
+  },
+  "NCT07100990": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05023018": {
+    "cancer_types": [
+      "brain"
+    ],
+    "age_min": 12,
+    "age_max": null
+  },
+  "NCT05735080": {
+    "cancer_types": [
+      "breast",
+      "gynecologic",
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05379985": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "lung",
+      "colorectal",
+      "pancreatic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06721689": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "other"
+    ],
+    "age_min": 1,
+    "age_max": 30
+  },
+  "NCT07216560": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06283251": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 0,
+    "age_max": 17
+  },
+  "NCT07046923": {
+    "cancer_types": [
+      "lung",
+      "gynecologic",
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04516447": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05753748": {
+    "cancer_types": [
+      "liver_stomach"
+    ],
+    "age_min": 18,
+    "age_max": 89
+  },
+  "NCT02584244": {
+    "cancer_types": [
+      "colorectal",
+      "pancreatic",
+      "liver_stomach"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07075185": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06923397": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04635111": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06366347": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06196008": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT02172651": {
+    "cancer_types": [
+      "colorectal"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06934239": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06997185": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07326566": {
+    "cancer_types": [
+      "brain"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07121972": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 40,
+    "age_max": 89
+  },
+  "NCT07439211": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": 90
+  },
+  "NCT06780670": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 18,
+    "age_max": 100
+  },
+  "NCT06926868": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04701645": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06875310": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06955169": {
+    "cancer_types": [
+      "brain"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04665739": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05879926": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": 60
+  },
+  "NCT05730816": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04890613": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07027748": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 1,
+    "age_max": 30
+  },
+  "NCT03972657": {
+    "cancer_types": [
+      "prostate",
+      "kidney_bladder"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05592015": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07011719": {
+    "cancer_types": [
+      "kidney_bladder"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT02269592": {
+    "cancer_types": [
+      "blood_cancer_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05939414": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 18,
+    "age_max": 100
+  },
+  "NCT06581406": {
+    "cancer_types": [
+      "skin"
+    ],
+    "age_min": 0,
+    "age_max": null
+  },
+  "NCT05553782": {
+    "cancer_types": [
+      "head_neck",
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05735184": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07383506": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "gynecologic",
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06465069": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "kidney_bladder",
+      "breast",
+      "lung",
+      "liver_stomach",
+      "pancreatic",
+      "gynecologic",
+      "head_neck",
+      "prostate"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07359820": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07059884": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06807086": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 0,
+    "age_max": null
+  },
+  "NCT03830320": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 18,
+    "age_max": 85
+  },
+  "NCT06401421": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07397611": {
+    "cancer_types": [
+      "kidney_bladder"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07412041": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06890598": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04855695": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06176261": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06819007": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07217587": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": 74
+  },
+  "NCT05951179": {
+    "cancer_types": [
+      "kidney_bladder"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT03310879": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06322888": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": 59
+  },
+  "NCT07006727": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": 100
+  },
+  "NCT07544589": {
+    "cancer_types": [
+      "colorectal",
+      "liver_stomach",
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06861088": {
+    "cancer_types": [
+      "pancreatic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07231952": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06369285": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07204340": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04988555": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 12,
+    "age_max": null
+  },
+  "NCT06567743": {
+    "cancer_types": [
+      "kidney_bladder"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06523868": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 45,
+    "age_max": null
+  },
+  "NCT04363164": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 18,
+    "age_max": 90
+  },
+  "NCT03858205": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05608252": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05061550": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": 95
+  },
+  "NCT04704323": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06788990": {
+    "cancer_types": [
+      "head_neck"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06907797": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06770582": {
+    "cancer_types": [
+      "kidney_bladder"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07276399": {
+    "cancer_types": [
+      "head_neck"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06616584": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06365060": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 40,
+    "age_max": null
+  },
+  "NCT05720117": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06412198": {
+    "cancer_types": [
+      "colorectal"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05715684": {
+    "cancer_types": [
+      "kidney_bladder"
+    ],
+    "age_min": 18,
+    "age_max": 85
+  },
+  "NCT07296484": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04472338": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 40,
+    "age_max": null
+  },
+  "NCT03219450": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04427384": {
+    "cancer_types": [
+      "brain"
+    ],
+    "age_min": 0,
+    "age_max": null
+  },
+  "NCT05319314": {
+    "cancer_types": [
+      "colorectal"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05732831": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07300150": {
+    "cancer_types": [
+      "colorectal",
+      "pancreatic",
+      "lung",
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06274047": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06994676": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 12,
+    "age_max": null
+  },
+  "NCT06247787": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 1,
+    "age_max": 18
+  },
+  "NCT06657222": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "head_neck",
+      "lung",
+      "breast",
+      "colorectal"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06907043": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": 89
+  },
+  "NCT06256588": {
+    "cancer_types": [
+      "head_neck"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT03191149": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07024706": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05006131": {
+    "cancer_types": [
+      "pancreatic"
+    ],
+    "age_min": 18,
+    "age_max": 90
+  },
+  "NCT06121843": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04812366": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05303519": {
+    "cancer_types": [
+      "brain"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07630974": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 0,
+    "age_max": 17
+  },
+  "NCT07101328": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06055296": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06706076": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07218926": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07100080": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04628767": {
+    "cancer_types": [
+      "kidney_bladder"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT02582697": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 11,
+    "age_max": 50
+  },
+  "NCT07297979": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 2,
+    "age_max": null
+  },
+  "NCT06091865": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06056635": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": 45
+  },
+  "NCT03550391": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05842603": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06273176": {
+    "cancer_types": [
+      "brain"
+    ],
+    "age_min": 0,
+    "age_max": 90
+  },
+  "NCT06435429": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04322318": {
+    "cancer_types": [
+      "kidney_bladder"
+    ],
+    "age_min": 0,
+    "age_max": 30
+  },
+  "NCT07007312": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07102797": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 8,
+    "age_max": null
+  },
+  "NCT06936878": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06630234": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07832292": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04373564": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 18,
+    "age_max": 64
+  },
+  "NCT07114601": {
+    "cancer_types": [
+      "breast",
+      "colorectal",
+      "prostate",
+      "gynecologic",
+      "liver_stomach"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06966700": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06167317": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07128641": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07070232": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07062965": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06855771": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04803201": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05201781": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06731478": {
+    "cancer_types": [
+      "liver_stomach"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07637734": {
+    "cancer_types": [
+      "skin"
+    ],
+    "age_min": 2,
+    "age_max": null
+  },
+  "NCT04870944": {
+    "cancer_types": [
+      "brain",
+      "blood",
+      "solid_tumor_basket"
+    ],
+    "age_min": 1,
+    "age_max": 21
+  },
+  "NCT07414836": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07553572": {
+    "cancer_types": [
+      "breast",
+      "blood",
+      "colorectal"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05640999": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06488378": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05673148": {
+    "cancer_types": [
+      "colorectal"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06799026": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04566328": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT03093116": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 12,
+    "age_max": null
+  },
+  "NCT07458347": {
+    "cancer_types": [
+      "lung",
+      "pancreatic",
+      "colorectal",
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06763432": {
+    "cancer_types": [
+      "colorectal"
+    ],
+    "age_min": 45,
+    "age_max": 75
+  },
+  "NCT06643884": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05386108": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04620187": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06001749": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07061964": {
+    "cancer_types": [
+      "kidney_bladder"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06433947": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT00131014": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07224776": {
+    "cancer_types": [
+      "kidney_bladder"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06475235": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04302025": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06712355": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07149363": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07000084": {
+    "cancer_types": [
+      "kidney_bladder"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05547321": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07123649": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 80,
+    "age_max": null
+  },
+  "NCT06724016": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07406633": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06297941": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07383441": {
+    "cancer_types": [
+      "kidney_bladder"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06831552": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 0,
+    "age_max": 17
+  },
+  "NCT06047379": {
+    "cancer_types": [
+      "brain",
+      "gynecologic",
+      "colorectal",
+      "liver_stomach",
+      "head_neck",
+      "skin",
+      "other",
+      "lung",
+      "kidney_bladder",
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06293898": {
+    "cancer_types": [
+      "gynecologic",
+      "kidney_bladder",
+      "other",
+      "breast",
+      "lung",
+      "liver_stomach"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07039916": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": 80
+  },
+  "NCT07341867": {
+    "cancer_types": [
+      "blood",
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06638307": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05501704": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04665206": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "lung",
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT03067181": {
+    "cancer_types": [
+      "other",
+      "gynecologic"
+    ],
+    "age_min": 0,
+    "age_max": null
+  },
+  "NCT04706663": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 18,
+    "age_max": 120
+  },
+  "NCT06986174": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06931626": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06896474": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06983743": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": 99
+  },
+  "NCT06552260": {
+    "cancer_types": [
+      "brain"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05377996": {
+    "cancer_types": [
+      "breast",
+      "gynecologic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04855656": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 12,
+    "age_max": null
+  },
+  "NCT07206056": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04972942": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 0,
+    "age_max": 39
+  },
+  "NCT07094113": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07226427": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07291037": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06906562": {
+    "cancer_types": [
+      "pancreatic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07219537": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": 75
+  },
+  "NCT04842266": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 21,
+    "age_max": null
+  },
+  "NCT05901285": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05155501": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 40,
+    "age_max": 80
+  },
+  "NCT06462365": {
+    "cancer_types": [
+      "blood_cancer_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05898594": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 50,
+    "age_max": 80
+  },
+  "NCT04794322": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 30,
+    "age_max": null
+  },
+  "NCT05796375": {
+    "cancer_types": [
+      "kidney_bladder"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04024761": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 12,
+    "age_max": null
+  },
+  "NCT06747845": {
+    "cancer_types": [
+      "pancreatic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06518564": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06038318": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 12,
+    "age_max": 25
+  },
+  "NCT01873131": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 0,
+    "age_max": null
+  },
+  "NCT04900935": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06541990": {
+    "cancer_types": [
+      "liver_stomach"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06265272": {
+    "cancer_types": [
+      "liver_stomach"
+    ],
+    "age_min": 18,
+    "age_max": 99
+  },
+  "NCT04181060": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06202820": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06943872": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06679101": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05983432": {
+    "cancer_types": [
+      "lung",
+      "liver_stomach",
+      "head_neck",
+      "prostate",
+      "gynecologic",
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06580314": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07357519": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 12,
+    "age_max": null
+  },
+  "NCT05203172": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05281237": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 22,
+    "age_max": null
+  },
+  "NCT05865301": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 0,
+    "age_max": 26
+  },
+  "NCT05006716": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06026319": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06736704": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04185935": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 0,
+    "age_max": null
+  },
+  "NCT07164443": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06218914": {
+    "cancer_types": [
+      "lung",
+      "colorectal",
+      "pancreatic",
+      "gynecologic",
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05726370": {
+    "cancer_types": [
+      "head_neck"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06099769": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07214987": {
+    "cancer_types": [
+      "head_neck"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06917885": {
+    "cancer_types": [
+      "brain"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04188535": {
+    "cancer_types": [
+      "brain",
+      "liver_stomach",
+      "prostate",
+      "gynecologic",
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06925737": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07419295": {
+    "cancer_types": [
+      "kidney_bladder"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07038343": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "lung",
+      "kidney_bladder",
+      "head_neck",
+      "liver_stomach",
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": 75
+  },
+  "NCT05410977": {
+    "cancer_types": [
+      "colorectal"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06862856": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07023289": {
+    "cancer_types": [
+      "colorectal"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06324357": {
+    "cancer_types": [
+      "breast",
+      "liver_stomach",
+      "colorectal"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05327686": {
+    "cancer_types": [
+      "kidney_bladder"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06162221": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT00736749": {
+    "cancer_types": [
+      "blood_cancer_basket",
+      "solid_tumor_basket"
+    ],
+    "age_min": 0,
+    "age_max": null
+  },
+  "NCT06205485": {
+    "cancer_types": [
+      "colorectal"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06084234": {
+    "cancer_types": [
+      "liver_stomach"
+    ],
+    "age_min": 18,
+    "age_max": 85
+  },
+  "NCT07513311": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06910956": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 50,
+    "age_max": 77
+  },
+  "NCT06697184": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06793215": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04541654": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 0,
+    "age_max": null
+  },
+  "NCT07524855": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06297226": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07489495": {
+    "cancer_types": [
+      "kidney_bladder"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04031677": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07037758": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": 90
+  },
+  "NCT06106945": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06797336": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06562192": {
+    "cancer_types": [
+      "pancreatic",
+      "lung",
+      "breast",
+      "colorectal"
+    ],
+    "age_min": 18,
+    "age_max": 100
+  },
+  "NCT06849713": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07225946": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06989112": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06651580": {
+    "cancer_types": [
+      "pancreatic"
+    ],
+    "age_min": 0,
+    "age_max": 17
+  },
+  "NCT04293562": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 1,
+    "age_max": 21
+  },
+  "NCT05740839": {
+    "cancer_types": [
+      "brain"
+    ],
+    "age_min": 18,
+    "age_max": 45
+  },
+  "NCT06919965": {
+    "cancer_types": [
+      "kidney_bladder"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06183437": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04242095": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 0,
+    "age_max": null
+  },
+  "NCT05327465": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04045470": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05524428": {
+    "cancer_types": [
+      "colorectal"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06585410": {
+    "cancer_types": [
+      "skin"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06551142": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT03686124": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05836324": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05535192": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 65,
+    "age_max": null
+  },
+  "NCT04104776": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "blood",
+      "prostate",
+      "gynecologic",
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06742996": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07364474": {
+    "cancer_types": [
+      "skin"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06124157": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 1,
+    "age_max": 46
+  },
+  "NCT07467772": {
+    "cancer_types": [
+      "gynecologic",
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06150664": {
+    "cancer_types": [
+      "lung",
+      "breast",
+      "blood",
+      "head_neck",
+      "skin"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07258511": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06720987": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "colorectal"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06993844": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06163534": {
+    "cancer_types": [
+      "head_neck"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07137416": {
+    "cancer_types": [
+      "breast",
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05019716": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 12,
+    "age_max": null
+  },
+  "NCT05382338": {
+    "cancer_types": [
+      "brain"
+    ],
+    "age_min": 4,
+    "age_max": 21
+  },
+  "NCT07032714": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07294170": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06333262": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04943848": {
+    "cancer_types": [
+      "brain"
+    ],
+    "age_min": 1,
+    "age_max": 18
+  },
+  "NCT05660369": {
+    "cancer_types": [
+      "brain"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07284420": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05533697": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 12,
+    "age_max": null
+  },
+  "NCT05967689": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05587439": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT00898235": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05384626": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "lung"
+    ],
+    "age_min": 12,
+    "age_max": null
+  },
+  "NCT03286335": {
+    "cancer_types": [
+      "brain"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05607420": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": 80
+  },
+  "NCT07111520": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07216521": {
+    "cancer_types": [
+      "pancreatic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT00196742": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 0,
+    "age_max": null
+  },
+  "NCT06941272": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 0,
+    "age_max": 17
+  },
+  "NCT05549297": {
+    "cancer_types": [
+      "skin"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT03471260": {
+    "cancer_types": [
+      "blood_cancer_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06854653": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05356117": {
+    "cancer_types": [
+      "pancreatic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06649851": {
+    "cancer_types": [
+      "brain"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05918640": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 10,
+    "age_max": null
+  },
+  "NCT06805617": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07466316": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 0,
+    "age_max": 50
+  },
+  "NCT07358195": {
+    "cancer_types": [
+      "blood_cancer_basket"
+    ],
+    "age_min": 18,
+    "age_max": 70
+  },
+  "NCT07029399": {
+    "cancer_types": [
+      "breast",
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06292780": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06059391": {
+    "cancer_types": [
+      "blood_cancer_basket"
+    ],
+    "age_min": 18,
+    "age_max": 75
+  },
+  "NCT05265429": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 15,
+    "age_max": null
+  },
+  "NCT02734537": {
+    "cancer_types": [
+      "head_neck"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07020533": {
+    "cancer_types": [
+      "blood_cancer_basket"
+    ],
+    "age_min": 18,
+    "age_max": 75
+  },
+  "NCT05335928": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04892173": {
+    "cancer_types": [
+      "head_neck"
+    ],
+    "age_min": 60,
+    "age_max": null
+  },
+  "NCT07735442": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06644183": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07718854": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT02747888": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 0,
+    "age_max": null
+  },
+  "NCT03435796": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 0,
+    "age_max": null
+  },
+  "NCT05625659": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 45,
+    "age_max": 74
+  },
+  "NCT05653388": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 0,
+    "age_max": null
+  },
+  "NCT07144280": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06532279": {
+    "cancer_types": [
+      "head_neck"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05168930": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06457503": {
+    "cancer_types": [
+      "head_neck"
+    ],
+    "age_min": 12,
+    "age_max": null
+  },
+  "NCT04851119": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "blood",
+      "colorectal",
+      "gynecologic",
+      "skin",
+      "pancreatic",
+      "liver_stomach",
+      "other",
+      "kidney_bladder"
+    ],
+    "age_min": 1,
+    "age_max": 30
+  },
+  "NCT07735624": {
+    "cancer_types": [
+      "colorectal"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06672146": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04049331": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": 54
+  },
+  "NCT07277231": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06496256": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06589596": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05985161": {
+    "cancer_types": [
+      "kidney_bladder",
+      "solid_tumor_basket",
+      "other"
+    ],
+    "age_min": 1,
+    "age_max": null
+  },
+  "NCT07162337": {
+    "cancer_types": [
+      "colorectal"
+    ],
+    "age_min": 18,
+    "age_max": 80
+  },
+  "NCT07127874": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06380751": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07128303": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07197554": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "other",
+      "liver_stomach"
+    ],
+    "age_min": 16,
+    "age_max": null
+  },
+  "NCT07662239": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 15,
+    "age_max": 39
+  },
+  "NCT06202183": {
+    "cancer_types": [
+      "colorectal"
+    ],
+    "age_min": 18,
+    "age_max": 50
+  },
+  "NCT06619587": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06138587": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06806033": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06743126": {
+    "cancer_types": [
+      "skin"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT00872495": {
+    "cancer_types": [
+      "kidney_bladder"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT00471978": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": 120
+  },
+  "NCT05614739": {
+    "cancer_types": [
+      "kidney_bladder"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05710848": {
+    "cancer_types": [
+      "kidney_bladder"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06915662": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 22,
+    "age_max": null
+  },
+  "NCT06424327": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06852222": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05872295": {
+    "cancer_types": [
+      "breast",
+      "liver_stomach"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04511806": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 0,
+    "age_max": null
+  },
+  "NCT04796012": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "other"
+    ],
+    "age_min": 0,
+    "age_max": 30
+  },
+  "NCT07405164": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07226349": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07195695": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06876649": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06515613": {
+    "cancer_types": [
+      "gynecologic",
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07252232": {
+    "cancer_types": [
+      "pancreatic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04269902": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05687136": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06810544": {
+    "cancer_types": [
+      "lung",
+      "brain",
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT03723928": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT03104491": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 16,
+    "age_max": 75
+  },
+  "NCT07227584": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": 51
+  },
+  "NCT06899126": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07349537": {
+    "cancer_types": [
+      "lung",
+      "colorectal",
+      "pancreatic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07166406": {
+    "cancer_types": [
+      "liver_stomach"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06950034": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05677490": {
+    "cancer_types": [
+      "liver_stomach"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05621291": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 1,
+    "age_max": 25
+  },
+  "NCT05797168": {
+    "cancer_types": [
+      "gynecologic",
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05783609": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06964009": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06265688": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06244771": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05592626": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06510361": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05292664": {
+    "cancer_types": [
+      "blood_cancer_basket"
+    ],
+    "age_min": 1,
+    "age_max": 40
+  },
+  "NCT05463796": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 0,
+    "age_max": null
+  },
+  "NCT04641247": {
+    "cancer_types": [
+      "gynecologic",
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05469893": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT02610426": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 0,
+    "age_max": null
+  },
+  "NCT06975293": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06123988": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06757192": {
+    "cancer_types": [
+      "colorectal"
+    ],
+    "age_min": 45,
+    "age_max": 54
+  },
+  "NCT07233408": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07109726": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "breast",
+      "gynecologic",
+      "lung",
+      "head_neck",
+      "liver_stomach"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07155174": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05372640": {
+    "cancer_types": [
+      "breast",
+      "solid_tumor_basket"
+    ],
+    "age_min": 12,
+    "age_max": null
+  },
+  "NCT04752722": {
+    "cancer_types": [
+      "kidney_bladder"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07597837": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT03937635": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT03623958": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06099093": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06564233": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 19,
+    "age_max": null
+  },
+  "NCT04899908": {
+    "cancer_types": [
+      "lung",
+      "breast",
+      "colorectal",
+      "brain"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07522073": {
+    "cancer_types": [
+      "pancreatic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06795412": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05950945": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05850234": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05010005": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06786104": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 0,
+    "age_max": null
+  },
+  "NCT05768139": {
+    "cancer_types": [
+      "breast",
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06709495": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 12,
+    "age_max": 49
+  },
+  "NCT05098132": {
+    "cancer_types": [
+      "lung",
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06492616": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05428007": {
+    "cancer_types": [
+      "skin"
+    ],
+    "age_min": 18,
+    "age_max": 100
+  },
+  "NCT05684692": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05920356": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": 100
+  },
+  "NCT07244341": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04294927": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 25,
+    "age_max": 50
+  },
+  "NCT06521554": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06760819": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06881992": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07182149": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06375044": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06152809": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT03854110": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04771572": {
+    "cancer_types": [
+      "blood_cancer_basket"
+    ],
+    "age_min": 13,
+    "age_max": null
+  },
+  "NCT03216525": {
+    "cancer_types": [
+      "kidney_bladder"
+    ],
+    "age_min": 18,
+    "age_max": 85
+  },
+  "NCT05976490": {
+    "cancer_types": [
+      "brain"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06886516": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05304585": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 0,
+    "age_max": 21
+  },
+  "NCT06854003": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06172296": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 0,
+    "age_max": 30
+  },
+  "NCT05779423": {
+    "cancer_types": [
+      "skin"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05475925": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04655404": {
+    "cancer_types": [
+      "brain"
+    ],
+    "age_min": 0,
+    "age_max": 21
+  },
+  "NCT03396341": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 25,
+    "age_max": null
+  },
+  "NCT06487247": {
+    "cancer_types": [
+      "blood_cancer_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06946225": {
+    "cancer_types": [
+      "skin",
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT03761121": {
+    "cancer_types": [
+      "brain"
+    ],
+    "age_min": 0,
+    "age_max": null
+  },
+  "NCT03922555": {
+    "cancer_types": [
+      "brain"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05711615": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06533826": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05468034": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04389632": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07002034": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 18,
+    "age_max": 80
+  },
+  "NCT04840602": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT03394365": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 0,
+    "age_max": null
+  },
+  "NCT07168629": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 50,
+    "age_max": 80
+  },
+  "NCT07883720": {
+    "cancer_types": [
+      "brain"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04787042": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "skin",
+      "kidney_bladder",
+      "breast",
+      "lung",
+      "head_neck"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06665100": {
+    "cancer_types": [
+      "blood_cancer_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05773144": {
+    "cancer_types": [
+      "colorectal"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06923527": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04674267": {
+    "cancer_types": [
+      "liver_stomach",
+      "colorectal",
+      "pancreatic"
+    ],
+    "age_min": 65,
+    "age_max": null
+  },
+  "NCT05176483": {
+    "cancer_types": [
+      "kidney_bladder",
+      "prostate",
+      "liver_stomach",
+      "lung",
+      "colorectal",
+      "head_neck",
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04585958": {
+    "cancer_types": [
+      "gynecologic",
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07213791": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07729150": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT03875716": {
+    "cancer_types": [
+      "head_neck"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT02977780": {
+    "cancer_types": [
+      "brain"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04789486": {
+    "cancer_types": [
+      "lung",
+      "pancreatic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06171750": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "lung",
+      "skin"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06667908": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT03675893": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06469307": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07249346": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT03113643": {
+    "cancer_types": [
+      "blood_cancer_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06561685": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04991922": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07478185": {
+    "cancer_types": [
+      "pancreatic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07644559": {
+    "cancer_types": [
+      "pancreatic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04134559": {
+    "cancer_types": [
+      "liver_stomach"
+    ],
+    "age_min": 0,
+    "age_max": 30
+  },
+  "NCT06056908": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 0,
+    "age_max": null
+  },
+  "NCT07225621": {
+    "cancer_types": [
+      "brain"
+    ],
+    "age_min": 18,
+    "age_max": 80
+  },
+  "NCT04684368": {
+    "cancer_types": [
+      "brain"
+    ],
+    "age_min": 3,
+    "age_max": 29
+  },
+  "NCT05237258": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": 120
+  },
+  "NCT06945120": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 18,
+    "age_max": 100
+  },
+  "NCT06876714": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06784193": {
+    "cancer_types": [
+      "breast",
+      "lung",
+      "prostate"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT03448926": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 30,
+    "age_max": 85
+  },
+  "NCT07140900": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04305834": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 70,
+    "age_max": null
+  },
+  "NCT06947928": {
+    "cancer_types": [
+      "skin"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06832865": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07403812": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06022939": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05417594": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05422794": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06140524": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07288073": {
+    "cancer_types": [
+      "skin"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06835803": {
+    "cancer_types": [
+      "brain"
+    ],
+    "age_min": 65,
+    "age_max": null
+  },
+  "NCT04802759": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06772623": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05800366": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06001788": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05786924": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07482384": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": 49
+  },
+  "NCT06062745": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05024929": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 0,
+    "age_max": null
+  },
+  "NCT07219459": {
+    "cancer_types": [
+      "liver_stomach"
+    ],
+    "age_min": 18,
+    "age_max": 100
+  },
+  "NCT06152575": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04485286": {
+    "cancer_types": [
+      "lung",
+      "pancreatic"
+    ],
+    "age_min": 18,
+    "age_max": 80
+  },
+  "NCT05013892": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05136196": {
+    "cancer_types": [
+      "skin",
+      "head_neck"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT01120353": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 0,
+    "age_max": null
+  },
+  "NCT06058377": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05774899": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04910685": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06064097": {
+    "cancer_types": [
+      "head_neck"
+    ],
+    "age_min": 0,
+    "age_max": 21
+  },
+  "NCT06690775": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05408845": {
+    "cancer_types": [
+      "head_neck"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04256317": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05926102": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 55,
+    "age_max": 69
+  },
+  "NCT07195682": {
+    "cancer_types": [
+      "kidney_bladder"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06498635": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT01351545": {
+    "cancer_types": [
+      "blood_cancer_basket"
+    ],
+    "age_min": 0,
+    "age_max": null
+  },
+  "NCT04924075": {
+    "cancer_types": [
+      "other",
+      "pancreatic",
+      "solid_tumor_basket"
+    ],
+    "age_min": 12,
+    "age_max": null
+  },
+  "NCT05129605": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 35,
+    "age_max": 74
+  },
+  "NCT07227168": {
+    "cancer_types": [
+      "head_neck",
+      "lung",
+      "liver_stomach",
+      "colorectal",
+      "pancreatic",
+      "gynecologic",
+      "kidney_bladder"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06311214": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07222215": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT03516708": {
+    "cancer_types": [
+      "colorectal"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07100106": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07548476": {
+    "cancer_types": [
+      "kidney_bladder"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07624513": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": 75
+  },
+  "NCT06524544": {
+    "cancer_types": [
+      "kidney_bladder"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05714839": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04368702": {
+    "cancer_types": [
+      "liver_stomach",
+      "breast",
+      "blood",
+      "head_neck",
+      "kidney_bladder"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06800313": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04135807": {
+    "cancer_types": [
+      "brain"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06122896": {
+    "cancer_types": [
+      "pancreatic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06089083": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06550141": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04613596": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06953960": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05548296": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05687110": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05692024": {
+    "cancer_types": [
+      "colorectal"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05564390": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04900818": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "liver_stomach",
+      "pancreatic",
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05789303": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06265727": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05652686": {
+    "cancer_types": [
+      "lung",
+      "prostate",
+      "pancreatic",
+      "liver_stomach",
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07227415": {
+    "cancer_types": [
+      "kidney_bladder"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07154706": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07061951": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06321484": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 18,
+    "age_max": 85
+  },
+  "NCT05375643": {
+    "cancer_types": [
+      "liver_stomach",
+      "blood_cancer_basket",
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05216432": {
+    "cancer_types": [
+      "breast",
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06561347": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05381597": {
+    "cancer_types": [
+      "skin"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04429542": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07148180": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT03328078": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06795529": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07761026": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT02984761": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06427954": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06543537": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06780137": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04202341": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04115254": {
+    "cancer_types": [
+      "pancreatic",
+      "lung",
+      "kidney_bladder",
+      "prostate",
+      "other",
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05946213": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06212479": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06275126": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": 44
+  },
+  "NCT06635785": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06667076": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT03866382": {
+    "cancer_types": [
+      "kidney_bladder",
+      "prostate",
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04410796": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06095505": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04970056": {
+    "cancer_types": [
+      "pancreatic"
+    ],
+    "age_min": 18,
+    "age_max": 90
+  },
+  "NCT05700461": {
+    "cancer_types": [
+      "kidney_bladder"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05683418": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05519241": {
+    "cancer_types": [
+      "kidney_bladder"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06312644": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 0,
+    "age_max": null
+  },
+  "NCT06517901": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07671209": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04883671": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07405190": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT02790983": {
+    "cancer_types": [
+      "brain"
+    ],
+    "age_min": 0,
+    "age_max": null
+  },
+  "NCT06999954": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 0,
+    "age_max": null
+  },
+  "NCT06966024": {
+    "cancer_types": [
+      "kidney_bladder",
+      "prostate"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05987241": {
+    "cancer_types": [
+      "kidney_bladder"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT03749980": {
+    "cancer_types": [
+      "kidney_bladder",
+      "other"
+    ],
+    "age_min": 0,
+    "age_max": null
+  },
+  "NCT06716580": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 40,
+    "age_max": 80
+  },
+  "NCT06850623": {
+    "cancer_types": [
+      "pancreatic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06395519": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "breast",
+      "gynecologic",
+      "prostate",
+      "colorectal",
+      "liver_stomach"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04150497": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 15,
+    "age_max": 50
+  },
+  "NCT07081646": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04752137": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04893109": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05676099": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 0,
+    "age_max": null
+  },
+  "NCT07193511": {
+    "cancer_types": [
+      "kidney_bladder",
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05123482": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "breast",
+      "gynecologic",
+      "lung",
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05862012": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT02290834": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 60,
+    "age_max": null
+  },
+  "NCT06426628": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 29,
+    "age_max": 85
+  },
+  "NCT06569147": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07427043": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 45,
+    "age_max": null
+  },
+  "NCT03899155": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05655949": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06623422": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07166094": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06484062": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04996875": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07601243": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06801236": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07249840": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06726148": {
+    "cancer_types": [
+      "breast",
+      "solid_tumor_basket",
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": 100
+  },
+  "NCT02610439": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 0,
+    "age_max": null
+  },
+  "NCT06644755": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06691217": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06710548": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07584226": {
+    "cancer_types": [
+      "skin",
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05536141": {
+    "cancer_types": [
+      "kidney_bladder",
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07491497": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06827613": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06401330": {
+    "cancer_types": [
+      "kidney_bladder"
+    ],
+    "age_min": 0,
+    "age_max": 30
+  },
+  "NCT07465276": {
+    "cancer_types": [
+      "head_neck"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06624644": {
+    "cancer_types": [
+      "skin"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07116616": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06398639": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 40,
+    "age_max": 69
+  },
+  "NCT06625775": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "breast",
+      "colorectal",
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05948943": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 0,
+    "age_max": 100
+  },
+  "NCT05696626": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06472089": {
+    "cancer_types": [
+      "blood_cancer_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07215910": {
+    "cancer_types": [
+      "brain"
+    ],
+    "age_min": 12,
+    "age_max": null
+  },
+  "NCT07024615": {
+    "cancer_types": [
+      "pancreatic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06451497": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06239272": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 0,
+    "age_max": 30
+  },
+  "NCT03029325": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06655246": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05675410": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 5,
+    "age_max": 60
+  },
+  "NCT03666000": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06472245": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07358260": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "other"
+    ],
+    "age_min": 1,
+    "age_max": 30
+  },
+  "NCT03492151": {
+    "cancer_types": [
+      "pancreatic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06910969": {
+    "cancer_types": [
+      "blood_cancer_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06099743": {
+    "cancer_types": [
+      "brain"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05183035": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 0,
+    "age_max": 21
+  },
+  "NCT04468061": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06357533": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06298565": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07020221": {
+    "cancer_types": [
+      "pancreatic",
+      "lung",
+      "colorectal",
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06661720": {
+    "cancer_types": [
+      "kidney_bladder"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05142800": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": 80
+  },
+  "NCT06440135": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07711483": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06518551": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT03659448": {
+    "cancer_types": [
+      "colorectal"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT03838718": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07198724": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05382559": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07415031": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05579366": {
+    "cancer_types": [
+      "gynecologic",
+      "lung",
+      "breast",
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06040125": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07123090": {
+    "cancer_types": [
+      "kidney_bladder"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06239220": {
+    "cancer_types": [
+      "head_neck"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06395103": {
+    "cancer_types": [
+      "blood",
+      "other",
+      "solid_tumor_basket"
+    ],
+    "age_min": 0,
+    "age_max": 25
+  },
+  "NCT04900623": {
+    "cancer_types": [
+      "head_neck"
+    ],
+    "age_min": 22,
+    "age_max": null
+  },
+  "NCT06876662": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06840886": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "gynecologic",
+      "breast",
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT01521741": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04671667": {
+    "cancer_types": [
+      "head_neck"
+    ],
+    "age_min": 18,
+    "age_max": 79
+  },
+  "NCT02402244": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "blood_cancer_basket",
+      "brain",
+      "kidney_bladder"
+    ],
+    "age_min": 0,
+    "age_max": 25
+  },
+  "NCT07578571": {
+    "cancer_types": [
+      "colorectal",
+      "lung",
+      "breast",
+      "liver_stomach"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06510374": {
+    "cancer_types": [
+      "kidney_bladder"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07755436": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07173751": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04374305": {
+    "cancer_types": [
+      "other",
+      "brain"
+    ],
+    "age_min": 12,
+    "age_max": null
+  },
+  "NCT03990896": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT02610413": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 0,
+    "age_max": null
+  },
+  "NCT02000089": {
+    "cancer_types": [
+      "pancreatic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06184750": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": 55
+  },
+  "NCT06959706": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT03295981": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05642572": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05434234": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT03851445": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06138275": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07426484": {
+    "cancer_types": [
+      "skin"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07321652": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 65,
+    "age_max": null
+  },
+  "NCT06759649": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07015242": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06317649": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05486572": {
+    "cancer_types": [
+      "liver_stomach"
+    ],
+    "age_min": 18,
+    "age_max": 75
+  },
+  "NCT06589804": {
+    "cancer_types": [
+      "head_neck"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05533775": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 0,
+    "age_max": 30
+  },
+  "NCT04230109": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06565052": {
+    "cancer_types": [
+      "colorectal"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT00843375": {
+    "cancer_types": [
+      "colorectal"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05137054": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07266428": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07365241": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07390539": {
+    "cancer_types": [
+      "brain"
+    ],
+    "age_min": 2,
+    "age_max": 21
+  },
+  "NCT06090539": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06428019": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06758401": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07061977": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05669430": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "gynecologic",
+      "head_neck",
+      "colorectal",
+      "skin",
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06957691": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 40,
+    "age_max": null
+  },
+  "NCT06422806": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06914128": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT03150693": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": 39
+  },
+  "NCT03970447": {
+    "cancer_types": [
+      "brain"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07090499": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "kidney_bladder",
+      "lung",
+      "head_neck",
+      "liver_stomach",
+      "pancreatic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05602363": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06615479": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05118789": {
+    "cancer_types": [
+      "lung",
+      "solid_tumor_basket"
+    ],
+    "age_min": 12,
+    "age_max": null
+  },
+  "NCT04421560": {
+    "cancer_types": [
+      "brain",
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05315700": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06234423": {
+    "cancer_types": [
+      "gynecologic",
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06385080": {
+    "cancer_types": [
+      "head_neck"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07222800": {
+    "cancer_types": [
+      "colorectal"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06253871": {
+    "cancer_types": [
+      "breast",
+      "lung",
+      "colorectal",
+      "kidney_bladder",
+      "liver_stomach",
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07209436": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05304962": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT02792270": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05544019": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06682988": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07139769": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06122077": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 50,
+    "age_max": null
+  },
+  "NCT04634357": {
+    "cancer_types": [
+      "liver_stomach"
+    ],
+    "age_min": 1,
+    "age_max": 21
+  },
+  "NCT07787156": {
+    "cancer_types": [
+      "pancreatic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04545957": {
+    "cancer_types": [
+      "prostate",
+      "liver_stomach",
+      "head_neck"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06791057": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07070466": {
+    "cancer_types": [
+      "liver_stomach"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07374029": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 0,
+    "age_max": null
+  },
+  "NCT06677190": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05894239": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06586957": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "gynecologic",
+      "breast",
+      "liver_stomach",
+      "lung"
+    ],
+    "age_min": 19,
+    "age_max": null
+  },
+  "NCT06664151": {
+    "cancer_types": [
+      "skin"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05646576": {
+    "cancer_types": [
+      "blood_cancer_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06283927": {
+    "cancer_types": [
+      "brain"
+    ],
+    "age_min": 18,
+    "age_max": 90
+  },
+  "NCT05651932": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06707493": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": 75
+  },
+  "NCT04636710": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05914766": {
+    "cancer_types": [
+      "colorectal"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06875609": {
+    "cancer_types": [
+      "skin"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05922501": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04669171": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07288112": {
+    "cancer_types": [
+      "skin"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06667141": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06117709": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 21,
+    "age_max": null
+  },
+  "NCT04588922": {
+    "cancer_types": [
+      "blood_cancer_basket"
+    ],
+    "age_min": 12,
+    "age_max": null
+  },
+  "NCT04196595": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06995677": {
+    "cancer_types": [
+      "kidney_bladder"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06034002": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06302595": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 30,
+    "age_max": null
+  },
+  "NCT06917079": {
+    "cancer_types": [
+      "lung",
+      "colorectal",
+      "pancreatic",
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06096844": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 70,
+    "age_max": null
+  },
+  "NCT06879041": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04726241": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 0,
+    "age_max": 22
+  },
+  "NCT04928677": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 1,
+    "age_max": 21
+  },
+  "NCT06359041": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": 70
+  },
+  "NCT06632977": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06844383": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06146725": {
+    "cancer_types": [
+      "brain"
+    ],
+    "age_min": 18,
+    "age_max": 90
+  },
+  "NCT06686394": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06203210": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07232043": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07355335": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 12,
+    "age_max": null
+  },
+  "NCT06588478": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07128355": {
+    "cancer_types": [
+      "colorectal"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06769126": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06043674": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT01961713": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04094610": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "blood",
+      "brain"
+    ],
+    "age_min": 0,
+    "age_max": 25
+  },
+  "NCT05076942": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04033497": {
+    "cancer_types": [
+      "brain"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT03418961": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06952803": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05642455": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 2,
+    "age_max": 21
+  },
+  "NCT04792489": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06538376": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06469281": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06486454": {
+    "cancer_types": [
+      "liver_stomach"
+    ],
+    "age_min": 22,
+    "age_max": null
+  },
+  "NCT06641908": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06472128": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": 120
+  },
+  "NCT06533761": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06179160": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04616560": {
+    "cancer_types": [
+      "other",
+      "kidney_bladder"
+    ],
+    "age_min": 12,
+    "age_max": 39
+  },
+  "NCT05633654": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06031688": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 0,
+    "age_max": null
+  },
+  "NCT06445062": {
+    "cancer_types": [
+      "colorectal",
+      "pancreatic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05019703": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 12,
+    "age_max": null
+  },
+  "NCT07181161": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06317662": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 0,
+    "age_max": 1
+  },
+  "NCT05243797": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06820463": {
+    "cancer_types": [
+      "colorectal"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04434040": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05573126": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05503797": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "brain"
+    ],
+    "age_min": 8,
+    "age_max": null
+  },
+  "NCT06922591": {
+    "cancer_types": [
+      "pancreatic",
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT03564340": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT03595917": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07218809": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07014293": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06774963": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "gynecologic",
+      "breast",
+      "lung",
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05812807": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06510309": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06952504": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07052695": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06313437": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": 75
+  },
+  "NCT07428616": {
+    "cancer_types": [
+      "brain"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06252129": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT02641145": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": 99
+  },
+  "NCT03830801": {
+    "cancer_types": [
+      "liver_stomach"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07228832": {
+    "cancer_types": [
+      "colorectal"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06950385": {
+    "cancer_types": [
+      "colorectal"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06377852": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 60,
+    "age_max": null
+  },
+  "NCT07085767": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04839614": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07217704": {
+    "cancer_types": [
+      "liver_stomach"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05646862": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05886049": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": 75
+  },
+  "NCT05009992": {
+    "cancer_types": [
+      "brain"
+    ],
+    "age_min": 2,
+    "age_max": 39
+  },
+  "NCT05280314": {
+    "cancer_types": [
+      "skin",
+      "head_neck"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04079179": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 0,
+    "age_max": null
+  },
+  "NCT05104983": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 0,
+    "age_max": null
+  },
+  "NCT06118723": {
+    "cancer_types": [
+      "brain"
+    ],
+    "age_min": 18,
+    "age_max": 90
+  },
+  "NCT06042569": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 65,
+    "age_max": null
+  },
+  "NCT06720142": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06551220": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": 80
+  },
+  "NCT05624996": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT04678401": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": 75
+  },
+  "NCT07059845": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06723236": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "lung",
+      "pancreatic",
+      "colorectal",
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06127407": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07284186": {
+    "cancer_types": [
+      "liver_stomach",
+      "lung",
+      "solid_tumor_basket"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05919264": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "colorectal",
+      "prostate",
+      "gynecologic",
+      "liver_stomach",
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07226843": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06067841": {
+    "cancer_types": [
+      "prostate"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06623097": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT06900595": {
+    "cancer_types": [
+      "other"
+    ],
+    "age_min": 12,
+    "age_max": null
+  },
+  "NCT06116110": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05929768": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT05467891": {
+    "cancer_types": [
+      "breast"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07227623": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT07305740": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 18,
+    "age_max": null
+  },
+  "NCT03959085": {
+    "cancer_types": [
+      "blood"
+    ],
+    "age_min": 1,
+    "age_max": 25
+  },
+  "NCT04585750": {
+    "cancer_types": [
+      "solid_tumor_basket"
+    ],
+    "age_min": 12,
+    "age_max": null
+  }
+}

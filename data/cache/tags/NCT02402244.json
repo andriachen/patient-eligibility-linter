@@ -1,0 +1,14 @@
+{
+  "nct_id": "NCT02402244",
+  "prompt_version": "tags-v1-2026-10-24",
+  "tag": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "blood_cancer_basket",
+      "brain",
+      "kidney_bladder"
+    ],
+    "age_min": 0,
+    "age_max": 25
+  }
+}

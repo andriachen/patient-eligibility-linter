@@ -1,0 +1,15 @@
+{
+  "nct_id": "NCT04104776",
+  "prompt_version": "tags-v1-2026-10-24",
+  "tag": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "blood",
+      "prostate",
+      "gynecologic",
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "nct_id": "NCT04787042",
+  "prompt_version": "tags-v1-2026-10-24",
+  "tag": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "skin",
+      "kidney_bladder",
+      "breast",
+      "lung",
+      "head_neck"
+    ],
+    "age_min": 18,
+    "age_max": null
+  }
+}

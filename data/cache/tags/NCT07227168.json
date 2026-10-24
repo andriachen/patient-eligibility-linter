@@ -1,0 +1,17 @@
+{
+  "nct_id": "NCT07227168",
+  "prompt_version": "tags-v1-2026-10-24",
+  "tag": {
+    "cancer_types": [
+      "head_neck",
+      "lung",
+      "liver_stomach",
+      "colorectal",
+      "pancreatic",
+      "gynecologic",
+      "kidney_bladder"
+    ],
+    "age_min": 18,
+    "age_max": null
+  }
+}

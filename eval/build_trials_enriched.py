@@ -45,8 +45,17 @@ def _num(s: str):
         return None
 
 
+def _load_tags() -> dict:
+    """Load trial_tags.json (cancer_types + normalized age) if present."""
+    p = PROCESSED / "trial_tags.json"
+    if not p.exists():
+        return {}
+    return json.loads(p.read_text())
+
+
 def build() -> list[dict]:
     trials = _read("trials.csv")
+    tags = _load_tags()
 
     # group exclusions + sites by nct_id
     excl_by: dict[str, list[dict]] = defaultdict(list)
@@ -77,6 +86,9 @@ def build() -> list[dict]:
     for t in trials:
         nct = t["nct_id"]
         exclusions = excl_by.get(nct, [])
+        tag = tags.get(nct, {})
+        # LLM-tagged cancer types + age range (tag_trials.py). Prefer tagged age
+        # (normalizes compound rules); fall back to the raw trials.csv age.
         records.append(
             {
                 "nct_id": nct,
@@ -84,8 +96,9 @@ def build() -> list[dict]:
                 "phase": t.get("phase", ""),
                 "lead_sponsor": t.get("lead_sponsor", ""),
                 "conditions": [c for c in (t.get("conditions") or "").split(";") if c],
-                "min_age": _num(t.get("min_age")),
-                "max_age": _num(t.get("max_age")),
+                "cancer_types": tag.get("cancer_types", ["any_cancer"]),
+                "min_age": tag.get("age_min", _num(t.get("min_age"))),
+                "max_age": tag.get("age_max", _num(t.get("max_age"))),
                 "exclusions": exclusions,
                 "exclusion_categories": sorted({e["category"] for e in exclusions}),
                 "sites": sites_by.get(nct, []),
