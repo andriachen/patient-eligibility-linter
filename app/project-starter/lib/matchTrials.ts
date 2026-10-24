@@ -14,7 +14,8 @@ export type MatchResult = {
   worthReachingOut: MatchedTrial[];
   askAboutThis: MatchedTrial[];
   likelyNotAFit: MatchedTrial[];
-  counts: { worth: number; ask: number; notFit: number; total: number };
+  /** otherCancer: trials left out because they don't target the patient's cancer type. */
+  counts: { worth: number; ask: number; notFit: number; otherCancer: number; total: number };
   source: "mock" | "processed";
 };
 
@@ -27,8 +28,9 @@ const BUCKET_ORDER: Record<Bucket, keyof Omit<MatchResult, "counts" | "source">>
 /**
  * Match a patient against every trial in the index.
  *
- * Within each bucket, trials with a site in the patient's county ("nearby") come
- * first, then those with fewer hits (closer to a fit).
+ * Trials for other cancer types are left out (only counted), so every bucket is
+ * about the patient's own cancer. Within each bucket, trials with a site in the
+ * patient's county ("nearby") come first, then those with fewer hits (closer to a fit).
  */
 export function matchTrials(patient: PatientVector): MatchResult {
   const { trials, source } = loadTrialsIndex();
@@ -39,9 +41,11 @@ export function matchTrials(patient: PatientVector): MatchResult {
     likely_not_a_fit: [],
   };
 
+  let otherCancer = 0;
   for (const trial of trials) {
     const matched = classifyTrial(patient, trial);
-    groups[matched.bucket].push(matched);
+    if (matched.cancerMatch) groups[matched.bucket].push(matched);
+    else otherCancer++;
   }
 
   // #2: deterministic, meaningful order — nearby first, then screened-and-clear
@@ -73,6 +77,7 @@ export function matchTrials(patient: PatientVector): MatchResult {
       worth: groups.worth_reaching_out.length,
       ask: groups.ask_about_this.length,
       notFit: groups.likely_not_a_fit.length,
+      otherCancer,
       total: trials.length,
     },
     source,

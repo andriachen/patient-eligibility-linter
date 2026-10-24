@@ -5,7 +5,8 @@
 import { normalizeCriteria } from "./criteriaText";
 import { loadCounties } from "./loadCounties";
 import { loadTrialsIndex } from "./loadTrialsIndex";
-import type { Exclusion } from "./patientVector";
+import type { EnrichedTrial } from "./patientVector";
+import { barsTreatedBrainMets, ecogCap, isBrainTumorTrial } from "./traitRules";
 
 /** One trial, reduced to what the funnel filters on. */
 export type FunnelTrial = {
@@ -13,7 +14,10 @@ export type FunnelTrial = {
   minAge: number | null;
   maxAge: number | null;
   fips: string[];
-  /** Restricted categories: "a" = excludes outright, "c" = only under conditions. */
+  /**
+   * Restricted categories: "a" = excludes outright, "c" = only under conditions. For
+   * brain_mets, "a" means it turns away treated, stable metastases (lib/traitRules.ts).
+   */
   r: Record<string, "a" | "c">;
   /** Highest ECOG score the trial accepts, or null if it doesn't cap performance status. */
   ecogMax: number | null;
@@ -47,37 +51,12 @@ function cleanQuote(text: string) {
   return clean.length > 150 ? `${clean.slice(0, 147).trimEnd()}...` : clean;
 }
 
-/**
- * The highest ECOG score a performance-status rule accepts. Karnofsky/KPS/Lansky are
- * converted (70+ = ECOG 1, 50+ = ECOG 2). Returns null when the text can't be read.
- */
-export function ecogCap(threshold: string | null, section: string): number | null {
-  if (!threshold) return null;
-  const t = threshold.replace(/\\/g, "");
-  const ecog = t.match(/\b(?:ECOG|Zubrod|WHO)\b[^;(]*/i)?.[0];
-  if (ecog) {
-    let m: RegExpMatchArray | null;
-    if ((m = ecog.match(/(\d)\s*(?:-|–|to)\s*(\d)/))) return Number(m[2]);
-    if ((m = ecog.match(/(\d)(?:\s*,\s*\d)*\s*,?\s*or\s*(\d)/))) return Number(m[2]);
-    if ((m = ecog.match(/(?:≤|<=)\s*(\d)/))) return Number(m[1]);
-    if ((m = ecog.match(/<\s*(\d)/))) return Number(m[1]) - 1;
-    if ((m = ecog.match(/(?:≥|>=)\s*(\d)/))) return section === "exclusion" ? Number(m[1]) - 1 : null;
-    if ((m = ecog.match(/>\s*(\d)/))) return Number(m[1]);
-    if ((m = ecog.match(/\b(\d)\b/))) return Number(m[1]);
-    return null;
-  }
-  const kps = t.match(/(?:Karnofsky|KPS|Lansky)[^\d]{0,15}(\d{2,3})/i);
-  if (kps) {
-    const score = Number(kps[1]);
-    return score >= 70 ? 1 : score >= 50 ? 2 : 3;
-  }
-  return null;
-}
-
-function restrictions(exclusions: Exclusion[]): Record<string, "a" | "c"> {
+function restrictions(trial: EnrichedTrial): Record<string, "a" | "c"> {
   const r: Record<string, "a" | "c"> = {};
-  for (const e of exclusions) {
-    if (e.absolute) r[e.category] = "a";
+  for (const e of trial.exclusions) {
+    if (e.category === "brain_mets" && isBrainTumorTrial(trial)) continue;
+    const outright = e.category === "brain_mets" ? barsTreatedBrainMets(e) : e.absolute;
+    if (outright) r[e.category] = "a";
     else if (!r[e.category]) r[e.category] = "c";
   }
   return r;
@@ -97,12 +76,12 @@ export function loadTurnedAwayData(): TurnedAwayData {
       minAge: t.min_age,
       maxAge: t.max_age,
       fips: [...new Set(t.sites.map((s) => s.county_fips).filter(Boolean))],
-      r: restrictions(t.exclusions),
+      r: restrictions(t),
       ecogMax: caps.length ? Math.min(...caps) : null,
     };
   });
 
-  // Up to two quotes per (county, category); absolute rules first so the examples are clear.
+  // Quotes per (county, category); rules that turn people away outright first.
   const examples: TurnedAwayData["examples"] = {};
   const add = (key: string, category: string, example: FunnelExample) => {
     const byCategory = (examples[key] ??= {});
@@ -113,7 +92,9 @@ export function loadTurnedAwayData(): TurnedAwayData {
   for (const pass of [true, false]) {
     for (const t of trials) {
       for (const e of t.exclusions) {
-        if (e.absolute !== pass || !(FUNNEL_CATEGORIES as readonly string[]).includes(e.category)) continue;
+        const outright = e.category === "brain_mets" ? barsTreatedBrainMets(e) : e.absolute;
+        if (outright !== pass || !(FUNNEL_CATEGORIES as readonly string[]).includes(e.category)) continue;
+        if (e.category === "brain_mets" && isBrainTumorTrial(t)) continue;
         // Only ECOG rules that turn away ECOG 2 (the funnel's test), not "ECOG ≤ 2".
         if (e.category === "performance_status" && (ecogCap(e.threshold, e.section) ?? 2) >= 2) continue;
         const example = { id: t.nct_id, text: cleanQuote(e.source_text) };

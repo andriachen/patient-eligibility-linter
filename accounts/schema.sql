@@ -1,6 +1,6 @@
 -- Accounts: run once in the Supabase SQL editor of the hackathon project.
 -- One row per user: the role they picked plus every wizard answer as JSON.
--- Answer keys and values are listed in accounts/questions.py.
+-- Answer keys and values are listed in accounts/src/lib/questions.ts.
 
 create table if not exists public.profiles (
   user_id    uuid primary key references auth.users (id) on delete cascade,

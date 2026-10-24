@@ -6,8 +6,8 @@ password (Supabase Auth), then answer one question per screen. The first questio
 role and the rest branch:
 
 - **patient / caregiver**: age, sex, town (→ county), travel distance, cancer type,
-  stage, treatment status, health conditions, height and weight (→ BMI), smoking,
-  activity level (ECOG), pregnancy, language, notes
+  stage, treatment status, health conditions, diabetes control, height and weight (→ BMI),
+  smoking, activity level (ECOG), pregnancy, language, reading English, notes
 - **trial_designer**: org type and name, job, cancer focus, phases, counties, goals, notes
 
 Answers save after every step, so people can stop and pick up where they left off.

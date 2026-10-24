@@ -15,6 +15,8 @@ type Trait = "hiv" | "language" | "brain_mets" | "prior_malignancy" | "performan
  * Funnel steps, in order. `label` finishes "don't restrict ..."; `trait` is the checkbox text.
  * `outright` traits describe a controlled condition, so only outright rules remove the trial:
  * conditional ones ("eligible if viral load is undetectable", "if treated and stable") admit them.
+ * For brain metastases, rules aimed only at active disease admit them too (lib/traitRules.ts),
+ * the same test Find trials uses.
  */
 const TRAITS: { key: Trait; trait: string; label: string; outright?: true }[] = [
   { key: "hiv", trait: "HIV, controlled on treatment", label: "HIV", outright: true },
