@@ -175,28 +175,34 @@ def write_exclusions(results: list[dict]) -> None:
         f"  dropped {dropped_guard} guard records "
         f"(bare adult-age floor or category-keyword mismatch — intended)"
     )
-    _rebuild_stats()
+    _rebuild_derived()
 
 
-def _rebuild_stats() -> None:
-    """Rebuild data/processed/stats.json so the app headline can't go stale.
+def _rebuild_derived() -> None:
+    """Rebuild app-facing artifacts derived from exclusions.csv so they can't go stale:
+      - stats.json          (Landscape headline / per-category bars)
+      - trials_enriched.json (the matcher's runtime index, Sub-Aim 2)
 
-    Run as a subprocess to avoid a pipeline->eval import dependency. Best-effort:
-    a failure here is logged, not fatal (exclusions.csv is already written).
+    Each runs as a subprocess (no pipeline->eval import dependency). Best-effort:
+    a failure is logged, not fatal (exclusions.csv is already written).
     """
     import subprocess
     import sys
 
-    script = ROOT / "eval" / "build_stats.py"
-    if not script.exists():
-        return
-    try:
-        subprocess.run([sys.executable, str(script)], check=True, cwd=str(ROOT),
-                       capture_output=True, text=True, timeout=60)
-        print("stats.json rebuilt from exclusions.csv")
-    except Exception as err:  # noqa: BLE001 - non-fatal
-        print(f"  WARNING: stats.json rebuild failed ({err}); run eval/build_stats.py manually",
-              file=sys.stderr)
+    for script_name, label in (
+        ("build_stats.py", "stats.json"),
+        ("build_trials_enriched.py", "trials_enriched.json"),
+    ):
+        script = ROOT / "eval" / script_name
+        if not script.exists():
+            continue
+        try:
+            subprocess.run([sys.executable, str(script)], check=True, cwd=str(ROOT),
+                           capture_output=True, text=True, timeout=120)
+            print(f"{label} rebuilt from exclusions.csv")
+        except Exception as err:  # noqa: BLE001 - non-fatal
+            print(f"  WARNING: {label} rebuild failed ({err}); run eval/{script_name} manually",
+                  file=sys.stderr)
 
 
 # --------------------------------------------------------------------------- #
