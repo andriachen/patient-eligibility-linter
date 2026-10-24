@@ -6,10 +6,9 @@ Eligibility Criteria" guidances and the ASCO-Friends of Cancer Research
 recommendations (see docs/sources.md). In a medical context the recommendations
 must be fixed and reviewable, not improvised by a model at request time.
 
-Honesty rule (from docs/sources.md): FDA / ASCO-Friends guidance does NOT cover
-diabetes, bmi, smoking, language, or pregnancy. Those get a neutral "no specific
-guidance — review whether the exclusion is scientifically necessary" suggestion
-and NO fabricated citation.
+Honesty rule (from docs/sources.md): every citation names its strength. Diabetes,
+bmi and smoking have only general guidance (FDA 2020, Enhancing Diversity), and
+pregnancy cites ICH E21, which is a draft; the source strings say so.
 
 Consumed by lint.py and extract.py to fill the `suggestion` and
 `suggestion_source` fields of each flagged criterion.
@@ -18,77 +17,80 @@ Consumed by lint.py and extract.py to fill the `suggestion` and
 from __future__ import annotations
 
 # category -> (suggestion, suggestion_source)
-# suggestion_source is "" when no formal guidance covers the category.
 _SUGGESTIONS: dict[str, tuple[str, str]] = {
     "brain_mets": (
-        "Allow patients with treated/stable or asymptomatic CNS metastases rather "
-        "than excluding all brain metastases; define activity and stability criteria.",
-        "FDA 2020 (Brain Metastases); ASCO-Friends 2017",
+        "Allow patients with treated, stable, or asymptomatic brain metastases "
+        "instead of excluding all brain metastases; define what counts as active "
+        "or stable.",
+        "FDA 2020 (Brain Metastases, final); ASCO–Friends 2017",
     ),
     "hiv": (
-        "Allow HIV-positive patients on effective antiretroviral therapy with "
-        "adequate CD4 count instead of a blanket HIV exclusion.",
-        "FDA 2020 (HIV/HBV/HCV); ASCO-Friends 2017",
+        "Allow people with HIV whose disease is controlled on antiretroviral "
+        "therapy instead of a blanket HIV exclusion.",
+        "FDA 2020 (HIV, Hepatitis B, Hepatitis C, final); ASCO–Friends 2017",
     ),
     "renal": (
-        "Set renal thresholds to the level actually required for drug safety and "
-        "allow calculated creatinine clearance; avoid cutoffs stricter than needed.",
-        "FDA 2020 (Organ Dysfunction) & Laboratory Values; ASCO-Friends 2017/2021",
+        "Set kidney thresholds to what the drug's safety actually requires, allow "
+        "calculated creatinine clearance, and avoid cutoffs stricter than needed.",
+        "FDA 2026 (Laboratory Values, final); FDA 2020 (Organ Dysfunction, final); "
+        "ASCO–Friends 2021",
     ),
     "hepatic": (
-        "Set hepatic thresholds (bilirubin, AST/ALT) to what drug safety requires "
-        "and allow for liver metastases or Gilbert's; avoid overly strict caps.",
-        "FDA 2020 (Organ Dysfunction) & Laboratory Values; ASCO-Friends 2017/2021",
+        "Set liver thresholds (bilirubin, AST/ALT) to what the drug's safety "
+        "requires, and allow for liver metastases or Gilbert's syndrome.",
+        "FDA 2026 (Laboratory Values, final); FDA 2020 (Organ Dysfunction, final); "
+        "ASCO–Friends 2021",
     ),
     "cardiac": (
-        "Use objective, drug-specific cardiac criteria (e.g. LVEF, recent-MI window) "
-        "rather than broad 'clinically significant cardiac disease' exclusions.",
-        "FDA 2020 (Organ Dysfunction); ASCO-Friends 2017",
+        "Use objective, drug-specific heart criteria (NYHA class, ejection "
+        "fraction, recent-MI window) instead of broad 'significant cardiac "
+        "disease' exclusions.",
+        "FDA 2020 (Organ Dysfunction, final); FDA 2020 (Enhancing Diversity, "
+        "final); ASCO–Friends 2017",
     ),
     "prior_malignancy": (
-        "Exclude a prior malignancy only when it could confound safety/efficacy; "
-        "otherwise allow it, rather than a blanket 'cancer within X years' rule.",
-        "FDA 2020 (Prior/Concurrent Malignancies); ASCO-Friends 2017",
+        "Exclude a prior cancer only when it could affect safety or efficacy "
+        "results; otherwise allow it, instead of a blanket 'cancer within X "
+        "years' rule.",
+        "FDA 2020 (Prior or Concurrent Malignancies, final); ASCO–Friends 2017",
     ),
     "age": (
-        "Avoid arbitrary upper age caps and lower the minimum age where the science "
-        "allows; justify any age limit by a specific safety or pharmacology concern.",
-        "FDA 2020 (Minimum Age); ASCO-Friends 2017",
+        "Avoid upper age caps unless a specific safety or drug-handling concern "
+        "requires one; older adults carry much of the cancer burden.",
+        "FDA 2022 (Inclusion of Older Adults in Cancer Clinical Trials, final)",
     ),
     "performance_status": (
-        "Consider including ECOG 2 (or the equivalent) when patients are otherwise "
-        "clinically stable, instead of restricting to ECOG 0-1.",
-        "FDA 2024 (Performance Status); ASCO-Friends 2021",
-    ),
-    # --- categories WITHOUT formal FDA/ASCO guidance: neutral, no citation ---
-    "diabetes": (
-        "No specific FDA/ASCO guidance. Review whether excluding diabetes is "
-        "scientifically necessary; consider allowing controlled diabetes with a "
-        "documented HbA1c ceiling rather than a blanket exclusion.",
-        "",
-    ),
-    "bmi": (
-        "No specific FDA/ASCO guidance. Review whether the BMI or weight cap is "
-        "scientifically necessary (e.g. a scanner limit) or could be relaxed.",
-        "",
-    ),
-    "smoking": (
-        "No specific FDA/ASCO guidance. Review whether the restriction is "
-        "necessary; consider excluding only active use within a defined window "
-        "rather than all current or former users.",
-        "",
+        "Consider including ECOG 2 (or equivalent) patients who are otherwise "
+        "clinically stable, instead of restricting to ECOG 0–1.",
+        "FDA 2026 (Performance Status, final); ASCO–Friends 2021",
     ),
     "language": (
-        "No specific FDA/ASCO guidance. Consider offering translated consent and "
-        "patient-reported-outcome materials rather than an English-only requirement, "
-        "which can disproportionately exclude limited-English communities.",
-        "",
+        "Offer translated consent forms, translated patient materials, and "
+        "interpreters instead of an English-only requirement.",
+        "FDA 2020 (Enhancing the Diversity of Clinical Trial Populations, final)",
     ),
+    # --- draft guidance only ---
     "pregnancy": (
-        "No specific FDA/ASCO guidance. Where the investigational agent allows, "
-        "consider contraception requirements rather than a broad exclusion of all "
-        "people who could become pregnant.",
-        "",
+        "Where the drug's safety profile allows, use contraception requirements "
+        "and planned data collection instead of excluding everyone who could "
+        "become pregnant.",
+        "ICH E21 (draft, 2025)",
+    ),
+    # --- general guidance only: no category-specific FDA/ASCO guidance ---
+    "diabetes": (
+        "Consider allowing controlled diabetes with a documented HbA1c ceiling "
+        "instead of a blanket exclusion, unless the drug affects blood sugar.",
+        "FDA 2020 (Enhancing Diversity, final), general guidance only",
+    ),
+    "bmi": (
+        "Check whether the BMI or weight cap is required (for example, a scanner "
+        "table limit) or could be relaxed.",
+        "FDA 2020 (Enhancing Diversity, final), general guidance only",
+    ),
+    "smoking": (
+        "Exclude only active use within a defined window if needed, not all "
+        "current or former smokers.",
+        "FDA 2020 (Enhancing Diversity, final), general guidance only",
     ),
 }
 

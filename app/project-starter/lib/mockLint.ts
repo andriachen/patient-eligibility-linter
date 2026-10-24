@@ -11,67 +11,84 @@ export type LintFlag = {
   source_text: string;
   suggestion: string;
   suggestion_source: string;
+  /** Standard inclusive wording to paste in place of an absolute rule (see REPLACEMENT). */
+  replacement?: string;
 };
 
 export type LintResult = {
   flags: LintFlag[];
 };
 
-// Copied from pipeline/extract/suggest.py (keep in sync). An empty source means no
-// FDA or ASCO-Friends guidance covers the category, so none is cited.
+// Copied from pipeline/extract/suggest.py (keep in sync; tests/test_suggest_parity.py
+// checks it). Sources are listed in docs/sources.md.
 const SUGGESTIONS: Record<string, [string, string]> = {
   brain_mets: [
-    "Allow patients with treated/stable or asymptomatic CNS metastases rather than excluding all brain metastases; define activity and stability criteria.",
-    "FDA 2020 (Brain Metastases); ASCO-Friends 2017",
+    "Allow patients with treated, stable, or asymptomatic brain metastases instead of excluding all brain metastases; define what counts as active or stable.",
+    "FDA 2020 (Brain Metastases, final); ASCO–Friends 2017",
   ],
   hiv: [
-    "Allow HIV-positive patients on effective antiretroviral therapy with adequate CD4 count instead of a blanket HIV exclusion.",
-    "FDA 2020 (HIV/HBV/HCV); ASCO-Friends 2017",
+    "Allow people with HIV whose disease is controlled on antiretroviral therapy instead of a blanket HIV exclusion.",
+    "FDA 2020 (HIV, Hepatitis B, Hepatitis C, final); ASCO–Friends 2017",
   ],
   renal: [
-    "Set renal thresholds to the level actually required for drug safety and allow calculated creatinine clearance; avoid cutoffs stricter than needed.",
-    "FDA 2020 (Organ Dysfunction) & Laboratory Values; ASCO-Friends 2017/2021",
+    "Set kidney thresholds to what the drug's safety actually requires, allow calculated creatinine clearance, and avoid cutoffs stricter than needed.",
+    "FDA 2026 (Laboratory Values, final); FDA 2020 (Organ Dysfunction, final); ASCO–Friends 2021",
   ],
   hepatic: [
-    "Set hepatic thresholds (bilirubin, AST/ALT) to what drug safety requires and allow for liver metastases or Gilbert's; avoid overly strict caps.",
-    "FDA 2020 (Organ Dysfunction) & Laboratory Values; ASCO-Friends 2017/2021",
+    "Set liver thresholds (bilirubin, AST/ALT) to what the drug's safety requires, and allow for liver metastases or Gilbert's syndrome.",
+    "FDA 2026 (Laboratory Values, final); FDA 2020 (Organ Dysfunction, final); ASCO–Friends 2021",
   ],
   cardiac: [
-    "Use objective, drug-specific cardiac criteria (e.g. LVEF, recent-MI window) rather than broad 'clinically significant cardiac disease' exclusions.",
-    "FDA 2020 (Organ Dysfunction); ASCO-Friends 2017",
+    "Use objective, drug-specific heart criteria (NYHA class, ejection fraction, recent-MI window) instead of broad 'significant cardiac disease' exclusions.",
+    "FDA 2020 (Organ Dysfunction, final); FDA 2020 (Enhancing Diversity, final); ASCO–Friends 2017",
   ],
   prior_malignancy: [
-    "Exclude a prior malignancy only when it could confound safety/efficacy; otherwise allow it, rather than a blanket 'cancer within X years' rule.",
-    "FDA 2020 (Prior/Concurrent Malignancies); ASCO-Friends 2017",
+    "Exclude a prior cancer only when it could affect safety or efficacy results; otherwise allow it, instead of a blanket 'cancer within X years' rule.",
+    "FDA 2020 (Prior or Concurrent Malignancies, final); ASCO–Friends 2017",
   ],
   age: [
-    "Avoid arbitrary upper age caps and lower the minimum age where the science allows; justify any age limit by a specific safety or pharmacology concern.",
-    "FDA 2020 (Minimum Age); ASCO-Friends 2017",
+    "Avoid upper age caps unless a specific safety or drug-handling concern requires one; older adults carry much of the cancer burden.",
+    "FDA 2022 (Inclusion of Older Adults in Cancer Clinical Trials, final)",
   ],
   performance_status: [
-    "Consider including ECOG 2 (or the equivalent) when patients are otherwise clinically stable, instead of restricting to ECOG 0-1.",
-    "FDA 2024 (Performance Status); ASCO-Friends 2021",
-  ],
-  diabetes: [
-    "No specific FDA/ASCO guidance. Review whether excluding diabetes is scientifically necessary; consider allowing controlled diabetes with a documented HbA1c ceiling rather than a blanket exclusion.",
-    "",
-  ],
-  bmi: [
-    "No specific FDA/ASCO guidance. Review whether the BMI or weight cap is scientifically necessary (e.g. a scanner limit) or could be relaxed.",
-    "",
-  ],
-  smoking: [
-    "No specific FDA/ASCO guidance. Review whether the restriction is necessary; consider excluding only active use within a defined window rather than all current or former users.",
-    "",
+    "Consider including ECOG 2 (or equivalent) patients who are otherwise clinically stable, instead of restricting to ECOG 0–1.",
+    "FDA 2026 (Performance Status, final); ASCO–Friends 2021",
   ],
   language: [
-    "No specific FDA/ASCO guidance. Consider offering translated consent and patient-reported-outcome materials rather than an English-only requirement, which can disproportionately exclude limited-English communities.",
-    "",
+    "Offer translated consent forms, translated patient materials, and interpreters instead of an English-only requirement.",
+    "FDA 2020 (Enhancing the Diversity of Clinical Trial Populations, final)",
   ],
   pregnancy: [
-    "No specific FDA/ASCO guidance. Where the investigational agent allows, consider contraception requirements rather than a broad exclusion of all people who could become pregnant.",
-    "",
+    "Where the drug's safety profile allows, use contraception requirements and planned data collection instead of excluding everyone who could become pregnant.",
+    "ICH E21 (draft, 2025)",
   ],
+  diabetes: [
+    "Consider allowing controlled diabetes with a documented HbA1c ceiling instead of a blanket exclusion, unless the drug affects blood sugar.",
+    "FDA 2020 (Enhancing Diversity, final), general guidance only",
+  ],
+  bmi: [
+    "Check whether the BMI or weight cap is required (for example, a scanner table limit) or could be relaxed.",
+    "FDA 2020 (Enhancing Diversity, final), general guidance only",
+  ],
+  smoking: [
+    "Exclude only active use within a defined window if needed, not all current or former smokers.",
+    "FDA 2020 (Enhancing Diversity, final), general guidance only",
+  ],
+};
+
+/**
+ * Standard inclusive wording used by NCI-sponsored trials in our dataset, offered in place
+ * of an absolute rule. Quoted as written; categories not listed get no replacement.
+ */
+export const REPLACEMENT: Record<string, string> = {
+  hiv: "HIV-infected patients on effective anti-retroviral therapy with undetectable viral load within 6 months are eligible for this trial.",
+  brain_mets:
+    "Patients with treated brain metastases are eligible if follow-up brain imaging after central nervous system (CNS)-directed therapy shows no evidence of progression.",
+  prior_malignancy:
+    "Patients with a prior or concurrent malignancy whose natural history or treatment does not have the potential to interfere with the safety or efficacy assessment of the investigational regimen are eligible for this trial.",
+  cardiac:
+    "Patients with known history or current symptoms of cardiac disease, or history of treatment with cardiotoxic agents, should have a clinical risk assessment of cardiac function using the New York Heart Association Functional Classification. To be eligible for this trial, patients should be class 2B or better.",
+  performance_status: "Eastern Cooperative Oncology Group (ECOG) performance status ≤ 2 (Karnofsky ≥ 60%).",
 };
 
 /** A comparison with a number and unit, e.g. ">= 60 mL/min" or "> 8%". */
@@ -294,6 +311,8 @@ export function mockLintCriteria(text: string): LintResult {
       const existing = byCategory.get(rule.category);
       if (existing && (existing.absolute || !absolute)) continue;
       const [suggestion, suggestion_source] = SUGGESTIONS[rule.category];
+      // A conditional flag already uses inclusive wording, so only absolute rules get one.
+      const replacement = absolute ? REPLACEMENT[rule.category] : undefined;
       byCategory.set(rule.category, {
         category: rule.category,
         threshold,
@@ -302,6 +321,7 @@ export function mockLintCriteria(text: string): LintResult {
         source_text: quote(clause.text),
         suggestion,
         suggestion_source,
+        ...(replacement ? { replacement } : {}),
       });
     }
   }
