@@ -8,25 +8,32 @@ whenever you change state. Keep entries short and factual.
 
 ## 1. What we're building
 
-A Streamlit app that flags restrictive eligibility criteria in **recruiting MA cancer
-trials** (ClinicalTrials.gov), and shows **county-level** health (CDC PLACES) and
-**environmental-justice** (MassGIS EJ) context for who those criteria exclude.
+A **Next.js app** (at `app/project-starter`, deployed on Vercel — NOT Streamlit; the
+old `app/main.py` Streamlit scaffold is dead) that flags restrictive eligibility
+criteria in **recruiting MA cancer trials** (ClinicalTrials.gov), and shows
+**county-level** health (CDC PLACES) and **environmental-justice** (MassGIS EJ)
+context for who those criteria exclude.
 
 Three app tabs: **Landscape** (headline stats + per-category bars + filterable table),
 **Map** (MA county choropleth by category), **Linter** (paste criteria → flagged list +
 suggestions).
+
+Status of the data wiring (important): Landscape + Map read the real processed CSVs /
+`stats.json` directly. **The Linter tab still uses `mockLint.ts` (regex), NOT the real
+`lint.py:lint_criteria()`** — see §9.
 
 ## 2. Architecture / data flow
 
 ```
 ClinicalTrials.gov v2 ─┐
                        ├─ pipeline/ingest ─> data/processed/*.csv ─┐
-CDC PLACES (SODA) ─────┤                                          ├─> app/ (Streamlit)
-MassGIS EJ zip ────────┘                                          │
-                                                                  │
+CDC PLACES (SODA) ─────┤                                          ├─> app/project-starter
+MassGIS EJ (ArcGIS) ───┘                                          │   (Next.js, Vercel)
+                                                                  │   reads CSVs + stats.json
 EligibilityCriteria text ─> pipeline/extract (Anthropic tool-use) ┘
-      └─> data/cache/{nct_id}.json  +  data/processed/exclusions.csv
-      └─> lint.py:lint_criteria(text) called live by the app's Linter tab
+      └─> data/cache/{nct_id}.json  +  data/processed/exclusions.csv  (+ auto stats.json)
+      └─> lint.py:lint_criteria(text)  — the live linter; NOT yet wired to the app's
+          Linter tab (that still calls mockLint.ts)
 ```
 
 ## 3. Ownership (don't touch other folders)
@@ -35,7 +42,7 @@ EligibilityCriteria text ─> pipeline/extract (Anthropic tool-use) ┘
 |-------|--------|------|
 | P1 Data | `p1-data` | `pipeline/ingest/`, `data/raw/`, P1 CSVs |
 | P2 LLM | `p2-extract` | `pipeline/extract/`, `data/cache/`, `exclusions.csv` |
-| P3 Frontend | `p3-app` | `app/` |
+| P3 Frontend | `p3-app` | `app/project-starter/` (Next.js; old `app/main.py` Streamlit is dead) |
 | P4 PM | `p4-eval` | root files, `eval/`, `docs/` |
 | Accounts (Namik) | `namik` | `accounts/` (Next.js app at `/account`: login + profile questions, Supabase) |
 
@@ -82,15 +89,15 @@ MA county FIPS 25001–25027 (odd only), 14 counties — see README.
 | ma_town_county.csv | done | 351 municipalities, 14 counties |
 | county_metrics.csv | done | 70 rows = 14 counties x 5 measures (crude prevalence, 2023) |
 | county_ej.csv | done | 14 counties, 2604 EJ block groups, pop-weighted limEng/minority |
-| P2 prompts/llm/logic | done | Anthropic tool-use, claude-haiku-5-5, 20 unit tests green |
+| P2 prompts/llm/logic | done | Anthropic tool-use, claude-haiku-5-5, 36 unit tests green |
 | P2 extract.py | done | cached batch + CLI; sample run clean |
 | P2 lint.py | done | lint_criteria reuses engine; mock fallback w/o key |
 | P2 sample (10 trials) | done | 0 substring failures; hand-check clean after prompt tighten |
-| exclusions.csv (full run) | done | **v2 prompt, all 1011 uniform**; 3792 rows; 0 contract violations |
+| exclusions.csv (full run) | done | **v2 prompt, all 1011 uniform**; 3839 rows; 0 rows fail their own guard |
 | P2 suggest.py | done | template, 13 cats, FDA/ASCO-cited; 5 gap cats say "no guidance" w/ empty source; wired into lint.py |
-| P3 app | done (frontend) | Next.js at `app/project-starter` (NOT Streamlit); Landscape/Map read real CSVs, Linter still uses `mockLint.ts`; deploys on Vercel |
+| P3 app | done (frontend) | Next.js at `app/project-starter` (NOT Streamlit); Landscape/Map read real CSVs + stats.json; **Linter still uses `mockLint.ts`** (see §9); deploys on Vercel |
 | P4 eval | done | run_eval.py (42-trial gold, subsets + real bootstrap CI); all-42 F1 **0.94** [0.91,0.97], held-out **0.95** [0.89,0.99]; reproducible |
-| P4 docs | todo | sources.md / pitch.md / submission.md |
+| P4 docs | in progress | sources.md done; pitch.md updated (HIV 34.3%, held-out F1 0.95); submission.md TBD |
 | accounts/ | done | separate Next.js 16 app (not Streamlit): email login + branching profile wizard, saved to Supabase `profiles`; see accounts/README.md |
 
 ### P1 numbers (actual, after per-site RECRUITING filter)
@@ -194,6 +201,14 @@ python -m pipeline.ingest.build_county       # -> county_metrics.csv, county_ej.
 
 ## 9. Open questions / blockers
 
+- **DEMO-CRITICAL — Linter tab is still mock.** `app/project-starter` Landscape + Map
+  use the real pipeline data, but the **Linter tab calls `lib/mockLint.ts` (regex),
+  not `pipeline/extract/lint.py:lint_criteria()`**. Pasting criteria returns mock
+  flags/suggestions, not the real F1-0.94 engine. Before the demo either (a) wire the
+  Linter to the real `lint_criteria()` via a Next.js API route that shells to Python
+  (P3↔P2 task — Python runtime, needs ANTHROPIC_API_KEY server-side; works locally,
+  not on Vercel), or (b) state in the demo that the Linter is a mock while Landscape/
+  Map are real. The real suggestions are already available via `suggest.py`.
 - **P1: none.** All six CSVs are populated. (EJ no longer needs a manual download.)
 - **PLACES URL:** using the default CDC SODA endpoint for `swc5-untb`. If the team's
   kit provides a different URL, pass `--places-url`.
