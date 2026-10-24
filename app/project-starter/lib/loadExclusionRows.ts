@@ -1,7 +1,9 @@
 import exclusionRowsMock from "./mock/exclusion-rows.json";
+import { normalizeCriteria } from "./criteriaText";
 import { parseCsv, readProcessedText } from "./readProcessedFile";
 
 export type ExclusionRow = {
+  nct_id?: string;
   category: string;
   phase: string;
   sponsor: string;
@@ -25,16 +27,17 @@ function loadFromProcessed(): ExclusionRow[] | null {
   const trialByNct = new Map(trials.map((t) => [t.nct_id, t]));
 
   return exclusions
-    .map((ex) => {
+    .map((ex): ExclusionRow | null => {
       const trial = trialByNct.get(ex.nct_id);
       if (!trial) {
         return null;
       }
       return {
+        nct_id: ex.nct_id,
         category: ex.category,
         phase: trial.phase || "Unknown",
         sponsor: trial.lead_sponsor || "Unknown",
-        source_text: ex.source_text,
+        source_text: normalizeCriteria(ex.source_text),
       };
     })
     .filter((row): row is ExclusionRow => row !== null);

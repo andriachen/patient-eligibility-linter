@@ -2,6 +2,7 @@
 // build time from trials_enriched.json (the matcher's index), so the client gets a
 // compact list instead of the full criteria text.
 
+import { normalizeCriteria } from "./criteriaText";
 import { loadCounties } from "./loadCounties";
 import { loadTrialsIndex } from "./loadTrialsIndex";
 import type { Exclusion } from "./patientVector";
@@ -40,16 +41,10 @@ export const FUNNEL_CATEGORIES = [
   "pregnancy",
 ] as const;
 
-/** CT.gov escapes ("\<", "&gt;") make quotes hard to read, so clean them for display. */
+/** Readable, short version of a quote for the funnel. */
 function cleanQuote(text: string) {
-  const decoded = text
-    .replace(/&lt;/g, "<")
-    .replace(/&gt;/g, ">")
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&amp;/g, "&")
-    .replace(/\\([^\w\s])/g, "$1");
-  return decoded.length > 150 ? `${decoded.slice(0, 147).trimEnd()}...` : decoded;
+  const clean = normalizeCriteria(text);
+  return clean.length > 150 ? `${clean.slice(0, 147).trimEnd()}...` : clean;
 }
 
 /**

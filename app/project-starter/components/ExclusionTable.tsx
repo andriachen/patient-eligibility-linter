@@ -1,7 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo, useState } from "react";
 
+import { focusRing } from "@/components/styles";
 import { DemoDataBadge, GlassBadge } from "@/components/ui/GlassBadge";
 import { GlassField, GlassInput, GlassSelect } from "@/components/ui/GlassField";
 import { categoryLabel } from "@/lib/categories";
@@ -36,10 +38,8 @@ export function ExclusionTable({ rows, isMock }: Props) {
       if (category && row.category !== category) return false;
       if (phase && row.phase !== phase) return false;
       if (sponsor && row.sponsor !== sponsor) return false;
-      if (
-        textQuery &&
-        !row.source_text.toLowerCase().includes(textQuery.toLowerCase())
-      ) {
+      const q = textQuery.toLowerCase();
+      if (q && !row.source_text.toLowerCase().includes(q) && !row.nct_id?.toLowerCase().includes(q)) {
         return false;
       }
       return true;
@@ -91,7 +91,7 @@ export function ExclusionTable({ rows, isMock }: Props) {
             ))}
           </GlassSelect>
         </GlassField>
-        <GlassField label="Search source text">
+        <GlassField label="Search text or NCT ID">
           <GlassInput
             type="search"
             placeholder="e.g. HbA1c"
@@ -110,6 +110,7 @@ export function ExclusionTable({ rows, isMock }: Props) {
         <table className="min-w-full text-left text-sm">
           <thead className="sticky top-0 z-10 bg-sunken text-xs uppercase tracking-[0.08em] text-ink-soft">
             <tr>
+              <th scope="col" className="px-4 py-3 font-semibold">Trial</th>
               <th scope="col" className="px-4 py-3 font-semibold">Category</th>
               <th scope="col" className="px-4 py-3 font-semibold">Phase</th>
               <th scope="col" className="px-4 py-3 font-semibold">Sponsor</th>
@@ -120,6 +121,17 @@ export function ExclusionTable({ rows, isMock }: Props) {
             {filtered.map((row, i) => (
               <tr key={`${row.category}-${i}`} className="border-t border-line align-top">
                 <td className="whitespace-nowrap px-4 py-3">
+                  {row.nct_id ? (
+                    <Link
+                      href={`/trial/${row.nct_id}`}
+                      prefetch={false}
+                      className={`font-mono text-xs text-accent underline-offset-2 hover:underline ${focusRing}`}
+                    >
+                      {row.nct_id}
+                    </Link>
+                  ) : null}
+                </td>
+                <td className="whitespace-nowrap px-4 py-3">
                   <GlassBadge tone="cobalt">{categoryLabel(row.category)}</GlassBadge>
                 </td>
                 <td className="whitespace-nowrap px-4 py-3 text-ink-soft">{row.phase}</td>
@@ -129,7 +141,7 @@ export function ExclusionTable({ rows, isMock }: Props) {
             ))}
             {filtered.length === 0 ? (
               <tr>
-                <td colSpan={4} className="px-4 py-8 text-center text-ink-soft">
+                <td colSpan={5} className="px-4 py-8 text-center text-ink-soft">
                   No rows match these filters.
                 </td>
               </tr>

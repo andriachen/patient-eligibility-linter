@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 
 import { focusRing } from "@/components/styles";
@@ -160,14 +161,13 @@ export function TurnedAwayPanel({ data }: { data: TurnedAwayData }) {
                       {examples[step.trait].map((ex) => (
                         <li key={ex.id} className="border-l-2 border-line-strong pl-2.5 text-xs leading-relaxed text-ink-soft">
                           &ldquo;{ex.text}&rdquo;{" "}
-                          <a
-                            href={`https://clinicaltrials.gov/study/${ex.id}`}
-                            target="_blank"
-                            rel="noreferrer"
+                          <Link
+                            href={`/trial/${ex.id}`}
+                            prefetch={false}
                             className={`font-mono text-[0.7rem] text-accent underline-offset-2 hover:underline ${focusRing}`}
                           >
                             {ex.id}
-                          </a>
+                          </Link>
                         </li>
                       ))}
                     </ul>
