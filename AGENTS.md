@@ -37,7 +37,7 @@ EligibilityCriteria text ─> pipeline/extract (Anthropic tool-use) ┘
 | P2 LLM | `p2-extract` | `pipeline/extract/`, `data/cache/`, `exclusions.csv` |
 | P3 Frontend | `p3-app` | `app/` |
 | P4 PM | `p4-eval` | root files, `eval/`, `docs/` |
-| Accounts (Namik) | `namik` | `accounts/` (Next.js app: login + profile questions, Supabase, deployed on Vercel) |
+| Accounts (Namik) | `namik` | `accounts/` (Next.js app at `/account`: login + profile questions, Supabase) |
 
 ## 4. Data contracts
 
@@ -170,8 +170,8 @@ python -m pipeline.ingest.build_county       # -> county_metrics.csv, county_ej.
 - **P1: none.** All six CSVs are populated. (EJ no longer needs a manual download.)
 - **PLACES URL:** using the default CDC SODA endpoint for `swc5-untb`. If the team's
   kit provides a different URL, pass `--places-url`.
-- **Accounts is its own Next.js app** in `accounts/`, deployed separately on Vercel (root
-  directory `accounts`). It has its own `package.json` and `.env.local`
-  (`NEXT_PUBLIC_SUPABASE_URL` / `NEXT_PUBLIC_SUPABASE_ANON_KEY`). Nothing in `app/` needs
-  to change; link to its URL from the Streamlit app if wanted.
+- **Accounts is its own Next.js app** in `accounts/`, served at `/account` by the root
+  `vercel.json` (basePath `/account`; locally http://localhost:3000/account). It has its
+  own `package.json` and `.env.local` (`NEXT_PUBLIC_SUPABASE_URL` /
+  `NEXT_PUBLIC_SUPABASE_ANON_KEY`); set the same two on the Vercel project.
 - Field paths for the trials API were confirmed live via `fetch_trials --probe`.
