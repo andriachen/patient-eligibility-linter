@@ -53,6 +53,9 @@ export function matchTrials(patient: PatientVector): MatchResult {
   };
   const sortBucket = (arr: MatchedTrial[]) =>
     arr.sort((a, b) => {
+      // #1: in "Likely not yet", float the patient's OWN-cancer trials (blocked by a
+      // real barrier) above the hundreds of other-cancer trials they'd never join.
+      if (a.cancerMatch !== b.cancerMatch) return a.cancerMatch ? -1 : 1;
       if (a.nearby !== b.nearby) return a.nearby ? -1 : 1;
       if (a.notScreened !== b.notScreened) return a.notScreened ? 1 : -1;
       if (a.hits.length !== b.hits.length) return a.hits.length - b.hits.length;

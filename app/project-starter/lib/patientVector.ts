@@ -224,14 +224,17 @@ export function classifyTrial(
       threshold: null,
     });
   } else if (fit === "basket") {
-    // A basket trial (e.g. "advanced solid tumors") likely includes this patient's
-    // cancer but doesn't name it — surface it as "ask", not a clean match.
+    // "ask about it" — but the reason differs: a tumor-type basket vs. a trial that
+    // isn't cancer-type-specific at all (any_cancer / unknown tag). #2
+    const tags = trial.cancer_types ?? [];
+    const nonSpecific = tags.includes("any_cancer") || tags.includes("unknown");
     hits.push({
       category: "cancer_type",
       label: "Cancer type",
       severity: "soft",
-      source_text:
-        "This trial enrolls several tumor types rather than naming yours — confirm yours is included.",
+      source_text: nonSpecific
+        ? "Open to any cancer, or not specific to a cancer type — check whether it applies to you."
+        : "This trial enrolls several tumor types rather than naming yours — confirm yours is included.",
       threshold: null,
     });
   }

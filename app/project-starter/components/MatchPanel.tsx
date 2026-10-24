@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useTransition, type CSSProperties } from "react";
+import { useRef, useState, useTransition, type CSSProperties } from "react";
 
 import { GlassBadge } from "@/components/ui/GlassBadge";
 import { GlassButton } from "@/components/ui/GlassButton";
@@ -112,6 +112,11 @@ export function MatchPanel() {
   const [tab, setTab] = useState<Tab>("worth");
   const [ageError, setAgeError] = useState("");
   const [pending, startTransition] = useTransition();
+  const formRef = useRef<HTMLDivElement>(null);
+
+  function scrollToForm() {
+    formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
 
   function set(key: string, value: string) {
     setVec((v) => ({ ...v, [key]: value }));
@@ -153,7 +158,7 @@ export function MatchPanel() {
     : 0;
 
   return (
-    <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)]">
+    <div ref={formRef} className="grid items-start gap-6 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)]">
       {/* Questionnaire */}
       <LiquidGlassPanel
         className="enter-up p-5 sm:p-6 lg:sticky lg:top-[calc(var(--header-offset)+0.5rem)]"
@@ -229,7 +234,18 @@ export function MatchPanel() {
       {/* Results */}
       <LiquidGlassPanel className="enter-up p-5 sm:p-6" style={delay(200)}>
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <h2 className="text-lg font-semibold text-ink">Trials near you</h2>
+          <div className="flex items-center gap-3">
+            <h2 className="text-lg font-semibold text-ink">Trials near you</h2>
+            {result ? (
+              <button
+                type="button"
+                onClick={scrollToForm}
+                className="text-xs font-semibold text-cobalt hover:underline lg:hidden"
+              >
+                ↑ Edit answers
+              </button>
+            ) : null}
+          </div>
           {result ? (
             <GlassTabs idBase="match-results" label="Match buckets" tabs={tabs} value={tab} onChange={setTab} />
           ) : null}

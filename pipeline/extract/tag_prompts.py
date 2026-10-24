@@ -54,16 +54,11 @@ Rules:
   any_cancer.
 - If a specific cancer doesn't map to a named category, use "other" (not a basket).
 
-2) age_min_years / age_max_years: the trial's eligible age range in YEARS as integers
-   (round sub-year to 0). Use the simplest overall range implied by the eligibility
-   text. If there is no lower bound use 0; if no upper bound use null. Ignore
-   "age at diagnosis" style phrasing — give the age range for ENROLLING today.
-
-Base everything on the provided condition labels, title, and age fields only."""
+Base everything on the provided condition labels and title."""
 
 TAG_TOOL = {
     "name": "tag_trial",
-    "description": "Assign a trial its cancer-type categories and normalized age range.",
+    "description": "Assign a trial its cancer-type categories from the fixed list.",
     "input_schema": {
         "type": "object",
         "properties": {
@@ -72,15 +67,7 @@ TAG_TOOL = {
                 "items": {"type": "string", "enum": CANCER_TYPES},
                 "description": "Categories the trial is for (usually one).",
             },
-            "age_min_years": {
-                "type": "integer",
-                "description": "Youngest eligible age in whole years (0 if no lower bound).",
-            },
-            "age_max_years": {
-                "type": ["integer", "null"],
-                "description": "Oldest eligible age in whole years, or null if no cap.",
-            },
         },
-        "required": ["cancer_types", "age_min_years"],
+        "required": ["cancer_types"],
     },
 }
