@@ -1,0 +1,11 @@
+{
+  "nct_id": "NCT06469281",
+  "prompt_version": "tags-v1-2026-10-24",
+  "tag": {
+    "cancer_types": [
+      "gynecologic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  }
+}

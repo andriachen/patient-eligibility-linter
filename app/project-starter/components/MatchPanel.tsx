@@ -83,6 +83,24 @@ const MA_COUNTIES = [
   "Hampshire", "Middlesex", "Nantucket", "Norfolk", "Plymouth", "Suffolk", "Worcester",
 ];
 
+// Fixed cancer-type vocabulary — matches tag_trials.py / the accounts wizard, so the
+// patient's choice is a deterministic set test against each trial's tagged types.
+const CANCER_TYPE_OPTIONS = [
+  { value: "breast", label: "Breast" },
+  { value: "lung", label: "Lung" },
+  { value: "colorectal", label: "Colon or rectal" },
+  { value: "prostate", label: "Prostate" },
+  { value: "blood", label: "Blood cancer (leukemia, lymphoma, myeloma)" },
+  { value: "skin", label: "Melanoma or other skin cancer" },
+  { value: "pancreatic", label: "Pancreatic" },
+  { value: "gynecologic", label: "Ovarian, uterine or cervical" },
+  { value: "brain", label: "Brain or spinal cord" },
+  { value: "kidney_bladder", label: "Kidney or bladder" },
+  { value: "head_neck", label: "Head and neck" },
+  { value: "liver_stomach", label: "Liver, stomach or esophagus" },
+  { value: "other", label: "Other" },
+];
+
 type Tab = "worth" | "ask" | "notfit";
 
 export function MatchPanel() {
@@ -148,12 +166,13 @@ export function MatchPanel() {
         </p>
 
         <div className="mt-4 grid gap-3">
-          <GlassField label="Cancer type" hint="e.g. breast, lung, lymphoma. We only show trials for your cancer.">
-            <GlassInput
-              placeholder="e.g. breast"
-              value={cancerType}
-              onChange={(e) => setCancerType(e.target.value)}
-            />
+          <GlassField label="Cancer type" hint="We only show trials for your cancer type.">
+            <GlassSelect value={cancerType} onChange={(e) => setCancerType(e.target.value)}>
+              <option value="">Any / not sure</option>
+              {CANCER_TYPE_OPTIONS.map((o) => (
+                <option key={o.value} value={o.value}>{o.label}</option>
+              ))}
+            </GlassSelect>
           </GlassField>
           <div className="grid grid-cols-2 gap-3">
             <GlassField label="Age">

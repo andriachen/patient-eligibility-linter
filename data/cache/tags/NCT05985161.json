@@ -1,0 +1,13 @@
+{
+  "nct_id": "NCT05985161",
+  "prompt_version": "tags-v1-2026-10-24",
+  "tag": {
+    "cancer_types": [
+      "kidney_bladder",
+      "solid_tumor_basket",
+      "other"
+    ],
+    "age_min": 1,
+    "age_max": null
+  }
+}

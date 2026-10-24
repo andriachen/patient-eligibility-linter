@@ -1,0 +1,16 @@
+{
+  "nct_id": "NCT07090499",
+  "prompt_version": "tags-v1-2026-10-24",
+  "tag": {
+    "cancer_types": [
+      "solid_tumor_basket",
+      "kidney_bladder",
+      "lung",
+      "head_neck",
+      "liver_stomach",
+      "pancreatic"
+    ],
+    "age_min": 18,
+    "age_max": null
+  }
+}

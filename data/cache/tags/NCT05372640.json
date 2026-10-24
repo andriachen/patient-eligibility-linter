@@ -1,0 +1,12 @@
+{
+  "nct_id": "NCT05372640",
+  "prompt_version": "tags-v1-2026-10-24",
+  "tag": {
+    "cancer_types": [
+      "breast",
+      "solid_tumor_basket"
+    ],
+    "age_min": 12,
+    "age_max": null
+  }
+}
