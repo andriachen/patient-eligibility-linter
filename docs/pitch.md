@@ -44,9 +44,9 @@ If over time, cut the access line; it's on the slide.
    Click any trial ID in the table: the trial page shows its full criteria with the flagged sentence highlighted.
    > Every number here has a receipt. Click any row and you see the sentence it came from.
 2. **Linter.** Paste the demo criteria below and run it. Expect 8 flags and the banner
-   "This draft restricts 8 of 13 categories (8 outright). That's more than 84% of 1,011 recruiting
-   Massachusetts cancer trials (median: 4)."
-   > Eight flags, each quoting its sentence. This draft is more restrictive than 84% of
+   "This draft restricts 8 of 13 categories (8 outright). That's more than 83% of 1,011 recruiting
+   Massachusetts cancer trials (median: 4)." (It rounds down so "more than" stays true: 849 of 1,011 is 83.98%.)
+   > Eight flags, each quoting its sentence. This draft is more restrictive than 83% of
    > Massachusetts trials.
 3. Open the **HIV** flag: suggestion plus "FDA 2020 (HIV/HBV/HCV); ASCO-Friends 2017". Then point at
    English or pregnancy, which say no FDA or ASCO–Friends guidance covers them.
@@ -74,11 +74,12 @@ Exclusion Criteria:
 * Pregnant or breastfeeding
 ```
 
-**Don't demo "Who gets turned away" (Map page) until Namik fixes it.** It opens on a 58-year-old in
-Hampden with "HIV, controlled on treatment", but its default mode removes every trial with *any*
-HIV rule. 6 of the 7 Hampden trials it removes for HIV say people on effective antiretroviral
-therapy with an undetectable viral load **are eligible**, so it overstates who's turned away.
-With "Count only rules that exclude outright" checked, it goes 24 → 20 → 20 → 18.
+**"Who gets turned away" (Map page, below the map) is fixed and safe to show.** The traits are now
+generic ("HIV", "Limited English"), so the counts describe the person on screen: someone with HIV is
+restricted by any HIV rule, including "eligible if on ART with an undetectable viral load". The
+example button (58, HIV, limited English, Hampden) gives 24 → 20 → 13 → 10, and each step quotes
+sentences from the trials it removed. For the story's controlled-HIV patient, tick "Count only rules
+that exclude outright": 24 → 20 → 20 → 18.
 
 **Linter, as built:** keyword rules for the 13 categories, run in the browser so it works live
 with no API key. It is not the model: on stage say "flags", not "AI", and point to the eval for
@@ -139,7 +140,7 @@ trials drawn after tuning and labeled blind. Labels are human-written; no AI wro
 
 - [x] Data rerun, `stats.json` and `results.md` rebuilt; Landscape headline now separates outright from conditional HIV rules
 - [x] Linter shows real sources; Map shows real county numbers and limited-English households
-- [ ] Namik: fix or hide the "Who gets turned away" default (see the demo section)
-- [ ] Confirm the demo criteria give 8 flags and "more than 84%" on the deployed site
+- [x] Namik: fix or hide the "Who gets turned away" default (see the demo section)
+- [ ] Confirm the demo criteria give 8 flags and "more than 83%" on the deployed site
 - [ ] Record the backup demo video
 - [ ] Rehearse twice with a timer
