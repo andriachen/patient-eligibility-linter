@@ -1,10 +1,11 @@
 {
   "nct_id": "NCT02610426",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "cardiac",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "African American cases (based on a drop in left ventricular ejection fraction \\[LVEF\\] \\< 50 or a drop from baseline \\> 20 points) and African American controls",
       "threshold": "LVEF < 50 or drop from baseline > 20 points"

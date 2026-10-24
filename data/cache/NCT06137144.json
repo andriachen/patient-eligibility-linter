@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06137144",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -14,21 +15,7 @@
       "absolute": true,
       "section": "inclusion",
       "source_text": "Participants must be at least 50 years of age or older at study entry.",
-      "threshold": "age >= 50"
-    },
-    {
-      "category": "brain_mets",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Active CNS involvement by lymphoma, leptomeningeal disease, or spinal cord compression.",
-      "threshold": null
-    },
-    {
-      "category": "hiv",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Known to have tested positive for HIV.",
-      "threshold": null
+      "threshold": ">= 50 years"
     },
     {
       "category": "cardiac",
@@ -38,10 +25,17 @@
       "threshold": "QTcF > 470 msec"
     },
     {
-      "category": "cardiac",
+      "category": "hiv",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Severe valvular heart disease.",
+      "source_text": "Known to have tested positive for HIV.",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Active CNS involvement by lymphoma, leptomeningeal disease, or spinal cord compression.",
       "threshold": null
     },
     {
@@ -49,20 +43,13 @@
       "absolute": true,
       "section": "exclusion",
       "source_text": "Congestive heart failure Grade II to Grade IV.",
-      "threshold": "CHF Grade II-IV"
+      "threshold": "CHF grade II-IV"
     },
     {
       "category": "cardiac",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Prior or current cardiomyopathy.",
-      "threshold": null
-    },
-    {
-      "category": "cardiac",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Uncontrolled hypertension.",
+      "source_text": "Severe valvular heart disease.",
       "threshold": null
     },
     {
@@ -77,6 +64,48 @@
       "absolute": true,
       "section": "exclusion",
       "source_text": "Pregnant (confirmed with positive pregnancy test) or breastfeeding or intends to become pregnant during the study.",
+      "threshold": null
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Unresolved toxicities of Grade \\> 1 from prior anti cancer therapy (excluding peripheral neuropathy, vitiligo, alopecia and endocrine disorders that are controlled with replacement hormone therapy, and asymptomatic laboratory abnormalities), unless immune-mediated.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Uncontrolled hypertension.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Prior or current cardiomyopathy.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Acute coronary syndrome / myocardial infarction, e) Unstable or poorly controlled angina pectoris",
+      "threshold": "within 6 months"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "History of immune-mediated myocarditis or pericarditis.",
+      "threshold": null
+    },
+    {
+      "category": "smoking",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Psychiatric illness/social situations/substance abuse disorders that would limit compliance with study requirements or compromise the ability to give written informed consent.",
       "threshold": null
     }
   ]

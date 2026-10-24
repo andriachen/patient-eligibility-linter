@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT07377435",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -14,7 +15,7 @@
       "absolute": false,
       "section": "inclusion",
       "source_text": "Total bilirubin \u2264 1.5 x institutional upper limit of normal",
-      "threshold": "total bilirubin \u2264 1.5 x ULN"
+      "threshold": "bilirubin \u2264 1.5 x ULN"
     },
     {
       "category": "hepatic",
@@ -41,14 +42,7 @@
       "category": "pregnancy",
       "absolute": false,
       "section": "inclusion",
-      "source_text": "Should a woman become pregnant or suspect she is pregnant while she or her partner are participating in this study, she should inform her treating physician immediately.",
-      "threshold": null
-    },
-    {
-      "category": "hiv",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Patients who have known active uncontrolled infections with human immunodeficiency virus (HIV), hepatitis C virus (HCV) or hepatitis B virus (HBV)",
+      "source_text": "women and men of child-bearing potential must agree to use adequate contraception",
       "threshold": null
     },
     {
@@ -57,6 +51,13 @@
       "section": "exclusion",
       "source_text": "Myocardial infarction within 6 months prior to enrollment or New York Heart Association (NYHA) Class III or IV heart failure, uncontrolled angina, severe uncontrolled ventricular arrhythmias.",
       "threshold": "MI within 6 months; NYHA class III or IV"
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Patients who have known active uncontrolled infections with human immunodeficiency virus (HIV), hepatitis C virus (HCV) or hepatitis B virus (HBV)",
+      "threshold": null
     },
     {
       "category": "pregnancy",

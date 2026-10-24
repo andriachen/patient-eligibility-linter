@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06586957",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "prior_malignancy",
@@ -11,7 +12,7 @@
     },
     {
       "category": "brain_mets",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "Known active CNS metastases and/or carcinomatous meningitis",
       "threshold": null
@@ -28,7 +29,7 @@
       "absolute": false,
       "section": "exclusion",
       "source_text": "Childs-Pugh class B or C cirrhosis or any other clinically significant liver disorder",
-      "threshold": "Childs-Pugh class B or C"
+      "threshold": null
     },
     {
       "category": "cardiac",
@@ -39,10 +40,17 @@
     },
     {
       "category": "cardiac",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Left ventricular ejection fraction (LVEF) \\<50% as measured by echocardiogram (ECHO) or multigated acquisition (MUGA) scan within 4 weeks prior to first dose",
-      "threshold": "LVEF <50%"
+      "threshold": "LVEF < 50%"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Active cardiac conditions including myocarditis, pericarditis, or clinically significant valvular heart disease",
+      "threshold": null
     },
     {
       "category": "cardiac",
@@ -52,10 +60,10 @@
       "threshold": null
     },
     {
-      "category": "cardiac",
+      "category": "pregnancy",
       "absolute": false,
-      "section": "exclusion",
-      "source_text": "Active cardiac conditions including myocarditis, pericarditis, or clinically significant valvular heart disease",
+      "section": "inclusion",
+      "source_text": "Subjects with female reproductive organs must be surgically sterile, post-menopausal, or must be willing to use highly effective method(s) of contraception",
       "threshold": null
     }
   ]

@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06915753",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -11,9 +12,16 @@
     },
     {
       "category": "brain_mets",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Active, symptomatic, or untreated brain metastases.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Females who are pregnant, breastfeeding, or planning to become pregnant and males who plan to father a child while enrolled in this study.",
       "threshold": null
     },
     {
@@ -24,10 +32,10 @@
       "threshold": null
     },
     {
-      "category": "pregnancy",
-      "absolute": true,
+      "category": "cardiac",
+      "absolute": false,
       "section": "exclusion",
-      "source_text": "Females who are pregnant, breastfeeding, or planning to become pregnant and males who plan to father a child while enrolled in this study.",
+      "source_text": "History of or current uncontrolled cardiovascular disease.",
       "threshold": null
     }
   ]

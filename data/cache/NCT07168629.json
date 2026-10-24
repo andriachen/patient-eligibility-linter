@@ -1,13 +1,21 @@
 {
   "nct_id": "NCT07168629",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
       "absolute": true,
+      "section": "inclusion",
+      "source_text": "Adults between the age of 50 and 80.",
+      "threshold": "age 50-80"
+    },
+    {
+      "category": "smoking",
+      "absolute": false,
       "section": "exclusion",
-      "source_text": "Not eligible for lung cancer screening based on age (age \\< 50 or \\> 80 years)",
-      "threshold": "age > 80"
+      "source_text": "smoking history (has not smoked more than 20 pack-years of tobacco cigarettes or quit more than 15 years ago)",
+      "threshold": "> 20 pack-years; quit <= 15 years"
     }
   ]
 }

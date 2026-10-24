@@ -86,9 +86,11 @@ MA county FIPS 25001–25027 (odd only), 14 counties — see README.
 | P2 extract.py | done | cached batch + CLI; sample run clean |
 | P2 lint.py | done | lint_criteria reuses engine; mock fallback w/o key |
 | P2 sample (10 trials) | done | 0 substring failures; hand-check clean after prompt tighten |
-| exclusions.csv (full run) | done | 4304 rows, 926/1011 trials, 0 contract violations |
-| P3 app | todo | other owner |
-| P4 eval/docs | todo | other owner |
+| exclusions.csv (full run) | done | **v2 prompt, all 1011 uniform**; 3792 rows; 0 contract violations |
+| P2 suggest.py | done | template, 13 cats, FDA/ASCO-cited; 5 gap cats say "no guidance" w/ empty source; wired into lint.py |
+| P3 app | done (frontend) | Next.js at `app/project-starter` (NOT Streamlit); Landscape/Map read real CSVs, Linter still uses `mockLint.ts`; deploys on Vercel |
+| P4 eval | done | run_eval.py: micro F1 **0.93** (P 0.96 / R 0.91), CI [0.90,0.97]; results.md |
+| P4 docs | todo | sources.md / pitch.md / submission.md |
 | accounts/ | done | separate Next.js 16 app (not Streamlit): email login + branching profile wizard, saved to Supabase `profiles`; see accounts/README.md |
 
 ### P1 numbers (actual, after per-site RECRUITING filter)
@@ -157,6 +159,17 @@ python -m pipeline.ingest.build_county       # -> county_metrics.csv, county_ej.
   HTML entities (&lt;/&gt;). Top categories: performance_status 59.5%, pregnancy
   53.3%, prior_malignancy 51.5%, brain_mets 45.9%, cardiac 45.5%; language 10.5%
   (the EJ equity angle).
+- 2026-10-24: **P2/eval hardening (fixes a train/eval mismatch).** Prior eval
+  measured only 22 re-extracted gold trials while the app showed 989 old-prompt
+  rows. Fixes: (1) full v2 re-extraction of ALL 1011 trials + `PROMPT_VERSION` in
+  each cache record (stale entries auto-re-extract); (2) category-keyword guard in
+  `logic.drop_noise` drops mis-filed quotes (hiv-is-hepatitis, smoking-is-warfarin,
+  pregnancy-is-contraception); (3) age child-exclusion boilerplate now dropped;
+  (4) `_parse` rejects invalid categories (e.g. `bilirubin_placeholder`); (5)
+  `run_eval.py` rewrites only the table block between markers, preserving the
+  narrative; (6) bootstrap 95% CI on F1. Result: exclusions.csv 4098→3792 rows,
+  uniform v2; **eval now describes the shipped data: micro F1 0.93 (P 0.96 / R 0.91),
+  CI [0.90, 0.97].** Model `claude-haiku-5-5`; MAX_WORKERS 5→12.
 - 2026-10-24: **Age-unit bug fix in build_trials.** `_age_number` dropped the unit,
   so "6 Months" became 6 (read as 6 years). Now normalizes ALL units to YEARS
   (months/weeks/days/hours/minutes, singular + plural): "6 Months"→0.5, "29 Days"→0.08,

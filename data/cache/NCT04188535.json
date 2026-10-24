@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT04188535",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -8,13 +9,6 @@
       "section": "inclusion",
       "source_text": "ECOG performance status \u22642 (Karnofsky \u226560%)",
       "threshold": "ECOG \u22642 (Karnofsky \u226560%)"
-    },
-    {
-      "category": "age",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Patients age 18 or under (patients 18-30 years old are also eligible if the physician determines that based on genetics, the tumor biology is consistent with pediatric high grade glioma).",
-      "threshold": "age <= 18"
     }
   ]
 }

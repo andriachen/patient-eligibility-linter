@@ -1,13 +1,14 @@
 {
   "nct_id": "NCT05384626",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
       "absolute": true,
       "section": "inclusion",
-      "source_text": "Age \u226518 years, Phase 2 Cohort 2f only: Age \u226512 years and weighing \\>40 kg.",
-      "threshold": null
+      "source_text": "DDI sub-study Cohorts G and H only: age 18-60 years, inclusive",
+      "threshold": "age <= 60"
     }
   ]
 }

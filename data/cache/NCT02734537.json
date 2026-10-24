@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT02734537",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "prior_malignancy",
@@ -10,11 +11,18 @@
       "threshold": "disease-free for at least 2 years"
     },
     {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Patients with recurrent disease or multiple primaries are ineligible",
+      "threshold": null
+    },
+    {
       "category": "performance_status",
       "absolute": false,
       "section": "inclusion",
       "source_text": "Patient has Eastern Cooperative Oncology Group (ECOG) performance status 0-1 within 2 weeks prior to randomization",
-      "threshold": "ECOG > 1"
+      "threshold": "ECOG 0-1"
     },
     {
       "category": "pregnancy",
@@ -28,7 +36,14 @@
       "absolute": false,
       "section": "inclusion",
       "source_text": "Calculated creatinine clearance must be \\> 60 ml/min using the Cockcroft-Gault formula within 4 weeks prior to randomization",
-      "threshold": "CrCl <= 60 ml/min"
+      "threshold": "CrCl > 60 ml/min"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Total bilirubin =\\< the upper limit of normal (ULN) within 4 weeks prior to randomization",
+      "threshold": "total bilirubin <= ULN"
     }
   ]
 }

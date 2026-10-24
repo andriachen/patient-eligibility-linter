@@ -1,7 +1,15 @@
 {
   "nct_id": "NCT07198724",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Women or men age \u226518 years are eligible.",
+      "threshold": null
+    },
     {
       "category": "performance_status",
       "absolute": true,
@@ -11,10 +19,10 @@
     },
     {
       "category": "renal",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
-      "source_text": "Calculated creatinine clearance \u2265 45 mL/min via the Cockcroft-Gault formula for participants with creatinine levels above institutional ULN",
-      "threshold": "CrCl \u2265 45 mL/min"
+      "source_text": "Creatinine \u2264 1.5 x institutional ULN OR",
+      "threshold": "creatinine \u2264 1.5 x ULN"
     },
     {
       "category": "hepatic",
@@ -59,25 +67,18 @@
       "threshold": null
     },
     {
-      "category": "cardiac",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "History of myocardial infarction, acute coronary syndrome or coronary angioplasty/stenting/bypass grafting within the last six months",
-      "threshold": "within 6 months"
-    },
-    {
-      "category": "cardiac",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "congestive heart failure (CHF) New York Heart Association (NYHA) Class II-IV or history of CHF NYHA Class III or IV.",
-      "threshold": "NYHA Class II-IV"
-    },
-    {
       "category": "hepatic",
       "absolute": true,
       "section": "exclusion",
       "source_text": "Moderate or severe hepatic impairment (Child-Pugh B or C).",
       "threshold": "Child-Pugh B or C"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "History of myocardial infarction, acute coronary syndrome or coronary angioplasty/stenting/bypass grafting within the last six months OR congestive heart failure (CHF) New York Heart Association (NYHA) Class II-IV or history of CHF NYHA Class III or IV.",
+      "threshold": "MI within 6 months; NYHA Class II-IV"
     },
     {
       "category": "diabetes",
@@ -88,7 +89,7 @@
     },
     {
       "category": "prior_malignancy",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Patients with a history of different malignancy are ineligible, except for those who have been disease-free for at least three years and are deemed by the investigator to be at low risk for recurrence of the prior malignancy.",
       "threshold": "disease-free for at least 3 years"

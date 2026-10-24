@@ -1,27 +1,28 @@
 {
   "nct_id": "NCT07007312",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
       "absolute": true,
       "section": "inclusion",
-      "source_text": "i. Age \u226575, OR",
+      "source_text": "Age \u226575, OR",
       "threshold": "age >= 75"
     },
     {
       "category": "performance_status",
       "absolute": false,
       "section": "inclusion",
-      "source_text": "Age \\<75 with an ECOG performance status of 2 or cardiac, renal, or hepatic impairment per protocol criteria.",
-      "threshold": "ECOG 2 or organ impairment (age <75)"
+      "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status of 0, 1, or 2.",
+      "threshold": "ECOG 0-2"
     },
     {
-      "category": "hiv",
+      "category": "prior_malignancy",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "Known uncontrolled HIV infection or known active hepatitis B virus, hepatitis C virus infection, or other uncontrolled infection.",
-      "threshold": "uncontrolled HIV infection"
+      "source_text": "History of other active concurrent malignancies prior to study entry except:",
+      "threshold": null
     },
     {
       "category": "brain_mets",
@@ -31,17 +32,24 @@
       "threshold": null
     },
     {
+      "category": "hiv",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Known uncontrolled HIV infection or known active hepatitis B virus, hepatitis C virus infection, or other uncontrolled infection.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Uncontrolled intercurrent illness including but not limited to, cardiac illness as defined in the protocol.",
+      "threshold": null
+    },
+    {
       "category": "pregnancy",
       "absolute": true,
       "section": "exclusion",
       "source_text": "Women who are pregnant or lactating.",
-      "threshold": null
-    },
-    {
-      "category": "prior_malignancy",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "History of other active concurrent malignancies prior to study entry except:",
       "threshold": null
     }
   ]

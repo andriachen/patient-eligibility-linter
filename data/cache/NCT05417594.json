@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT05417594",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -10,25 +11,11 @@
       "threshold": null
     },
     {
-      "category": "performance_status",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "ECOG performance status of 0 or 1.",
-      "threshold": "ECOG 0 or 1"
-    },
-    {
       "category": "hepatic",
       "absolute": true,
       "section": "exclusion",
       "source_text": "Participants with an INR \\>1.5 unless the patient is receiving non-vitamin K antagonist oral anticoagulants.",
       "threshold": "INR > 1.5"
-    },
-    {
-      "category": "brain_mets",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Participants with leptomeningeal disease (LMD) unless the LMD is of low volume or is previously treated and the participant is asymptomatic or minimal symptoms.",
-      "threshold": null
     },
     {
       "category": "diabetes",
@@ -39,9 +26,9 @@
     },
     {
       "category": "brain_mets",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
-      "source_text": "Participants with LMD are excluded unless the LMD is of low volume or is previously irradiated and the participant is asymptomatic from the LMD.",
+      "source_text": "Participants with leptomeningeal disease (LMD) unless the LMD is of low volume or is previously treated and the participant is asymptomatic or minimal symptoms.",
       "threshold": null
     },
     {
@@ -52,25 +39,18 @@
       "threshold": "BMI > 30.0 kg/m2 or body weight > 100.0 kg"
     },
     {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Female participants must not breastfeed and must not donate or retrieve ova for their own use from screening to approximately 6 months after the last dose of study treatment.",
+      "threshold": null
+    },
+    {
       "category": "hiv",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "active infection including hepatitis B, hepatitis C and human immunodeficiency virus (HIV).",
+      "source_text": "Any evidence of severe or uncontrolled systemic diseases including active bleeding diatheses, active infection including hepatitis B, hepatitis C and human immunodeficiency virus (HIV).",
       "threshold": null
-    },
-    {
-      "category": "cardiac",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Medical history of myocardial infarction. Participants with troponin levels above ULN at screening and without any myocardial related symptoms.",
-      "threshold": null
-    },
-    {
-      "category": "cardiac",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Left ventricular ejection fraction (LVEF) \u2265 50% by either echocardiogram (ECHO) or multigated acquisition (MUGA) scan within 28 days before start of treatment.",
-      "threshold": "LVEF >= 50%"
     },
     {
       "category": "prior_malignancy",
@@ -80,24 +60,24 @@
       "threshold": null
     },
     {
-      "category": "hiv",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Active primary immunodeficiency, known uncontrolled active HIV infection or active hepatitis B or hepatitis C infection.",
-      "threshold": null
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ECOG performance status of 0 or 1.",
+      "threshold": "ECOG 0 or 1"
     },
     {
-      "category": "brain_mets",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Participants with brain metastases are excluded unless asymptomatic, treated, and participant is clinically stable and not requiring continuous corticosteroids at a dose of \\> 10 mg prednisone/day or equivalent for at least 4 weeks prior to study intervention.",
-      "threshold": null
+      "category": "cardiac",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Left ventricular ejection fraction (LVEF) \u2265 50% by either echocardiogram (ECHO) or multigated acquisition (MUGA) scan within 28 days before start of treatment.",
+      "threshold": "LVEF >= 50%"
     },
     {
-      "category": "brain_mets",
+      "category": "cardiac",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Known and symptomatic leptomeningeal disease.",
+      "source_text": "Medical history of myocardial infarction.",
       "threshold": null
     },
     {
@@ -108,10 +88,17 @@
       "threshold": null
     },
     {
-      "category": "pregnancy",
+      "category": "brain_mets",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Female participants must not breastfeed and must not donate or retrieve ova for their own use from screening to approximately 6 months after the last dose of study treatment.",
+      "source_text": "Participants with brain metastases are excluded unless asymptomatic, treated, and participant is clinically stable and not requiring continuous corticosteroids at a dose of \\> 10 mg prednisone/day or equivalent for at least 4 weeks prior to study intervention.",
+      "threshold": null
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Active primary immunodeficiency, known uncontrolled active HIV infection or active hepatitis B or hepatitis C infection.",
       "threshold": null
     }
   ]

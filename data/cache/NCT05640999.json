@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT05640999",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -8,13 +9,6 @@
       "section": "inclusion",
       "source_text": "Patients' Eastern Cooperative Group (ECOG) performance status must be 0, 1, or 2.",
       "threshold": "ECOG 0-2"
-    },
-    {
-      "category": "age",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Patients' age must be \u2265 18 years.",
-      "threshold": "age >= 18"
     },
     {
       "category": "language",
@@ -28,7 +22,7 @@
       "absolute": false,
       "section": "exclusion",
       "source_text": "Patients with a history of other malignancies, except: carcinoma in-situ without evidence of invasive disease when resected, adequately treated non-melanoma skin cancer, or other tumours curatively treated with no evidence of disease for \u2265 5 years.",
-      "threshold": "no evidence of disease for >= 5 years for other curatively treated tumours"
+      "threshold": "other malignancies excluded unless curatively treated with no evidence of disease for >= 5 years"
     }
   ]
 }

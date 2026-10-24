@@ -1,20 +1,14 @@
 {
   "nct_id": "NCT06152809",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
       "absolute": true,
       "section": "inclusion",
       "source_text": "ECOG performance status \u22642 (see Appendix A)",
-      "threshold": "ECOG \u2264 2"
-    },
-    {
-      "category": "hepatic",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "AST(SGOT)/ALT(SGPT): \u22643 x institutional ULN",
-      "threshold": "AST/ALT \u2264 3 x ULN"
+      "threshold": "ECOG \u22642"
     },
     {
       "category": "renal",
@@ -31,13 +25,6 @@
       "threshold": "LVEF \u2265 40%"
     },
     {
-      "category": "pregnancy",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Negative pregnancy test for women of childbearing potential only.",
-      "threshold": null
-    },
-    {
       "category": "cardiac",
       "absolute": false,
       "section": "inclusion",
@@ -45,17 +32,31 @@
       "threshold": "NYHA class 2B or better"
     },
     {
-      "category": "prior_malignancy",
+      "category": "pregnancy",
       "absolute": false,
       "section": "inclusion",
-      "source_text": "Participants with a prior or concurrent malignancy whose natural history or treatment does not have the potential to interfere with the safety or efficacy assessment of the investigational regimen are eligible for this trial.",
+      "source_text": "Negative pregnancy test for women of childbearing potential only.",
       "threshold": null
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "AST(SGOT)/ALT(SGPT): \u22643 x institutional ULN",
+      "threshold": "AST/ALT \u22643 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Direct bilirubin: \u22641.5 x institutional upper limit of normal (ULN) (except Gilbert's or disease-related hemolysis, then \\< 3 x ULN)",
+      "threshold": "Direct bilirubin \u22641.5 x ULN"
     },
     {
       "category": "pregnancy",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Pregnant women are excluded from this study because of the unknown teratogenic risk of CIML NK cells and IL-2 and with the potential for teratogenic or abortifacient effects by Flu/Cy chemotherapy regimen. Breastfeeding should also be discontinued if the mother is treated on this study because there is an unknown but potential risk for adverse events in nursing infants secondary to treatment of the mother with CIML NK cells and IL-2.",
+      "source_text": "Pregnant women are excluded from this study because of the unknown teratogenic risk of CIML NK cells and IL-2",
       "threshold": null
     },
     {
@@ -66,13 +67,6 @@
       "threshold": null
     },
     {
-      "category": "prior_malignancy",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Individuals with a history of a different malignancy are ineligible except for the following circumstances: 1. History of other malignancy and have had complete remission of disease for at least 2 years; 2. Diagnosed and treated within the past 2 years for: nonmetastatic melanoma, surgically resected (not needing systemic chemotherapy) squamous cell carcinoma of skin and nonmetastatic prostate cancer not needing systemic chemotherapy.",
-      "threshold": "within 2 years (with exceptions)"
-    },
-    {
       "category": "hepatic",
       "absolute": false,
       "section": "exclusion",
@@ -80,11 +74,25 @@
       "threshold": null
     },
     {
-      "category": "performance_status",
+      "category": "prior_malignancy",
       "absolute": true,
-      "section": "inclusion",
-      "source_text": "ECOG performance status \u22642 (see Appendix A)",
-      "threshold": "ECOG \u2264 2"
+      "section": "exclusion",
+      "source_text": "Individuals with a history of a different malignancy are ineligible except for the following circumstances: 1. History of other malignancy and have had complete remission of disease for at least 2 years; 2. Diagnosed and treated within the past 2 years for: nonmetastatic melanoma, surgically resected (not needing systemic chemotherapy) squamous cell carcinoma of skin and nonmetastatic prostate cancer not needing systemic chemotherapy.",
+      "threshold": "within 2 years (exceptions apply)"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Uncontrolled intercurrent illness including, but not limited to, ongoing or active infection, symptomatic congestive heart failure, unstable angina pectoris or cardiac arrhythmia",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Breastfeeding should also be discontinued if the mother is treated on this study",
+      "threshold": null
     }
   ]
 }

@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT03970447",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -25,14 +26,14 @@
     },
     {
       "category": "prior_malignancy",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "History of another malignancy in the previous 2 years, with a disease-free interval of \\< 2 years. Patients with prior history of in situ cancer or basal or squamous cell skin cancer are eligible.",
-      "threshold": "within 2 years"
+      "threshold": "malignancy within 2 years"
     },
     {
       "category": "brain_mets",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "Extensive leptomeningeal disease.",
       "threshold": null

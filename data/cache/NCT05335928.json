@@ -1,27 +1,21 @@
 {
   "nct_id": "NCT05335928",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "pregnancy",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Female who is pregnant, breastfeeding, or is considering becoming pregnant during the study or for approximately 90 days after the last dose of study drug.",
       "threshold": null
     },
     {
-      "category": "hepatic",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Alanine aminotransferase (ALT) or aspartate aminotransferase (AST) \\<20 times the upper limit of the institutional normal ranges;",
-      "threshold": "ALT or AST < 20 times ULN"
-    },
-    {
-      "category": "cardiac",
+      "category": "hiv",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "A significant tachyarrhythmia (ventricular fibrillation of any duration or sustained ventricular tachycardia (\\>30 seconds, \\>120 beats per minute); or a ventricular tachyarrhythmia requiring intervention.",
-      "threshold": "sustained VT > 30 seconds or > 120 bpm"
+      "source_text": "Any active, chronic, or recurrent viral infection that, based on the investigator's clinical assessment, makes the participant an unsuitable candidate for the study.",
+      "threshold": null
     }
   ]
 }

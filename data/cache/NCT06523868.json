@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06523868",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "prior_malignancy",
@@ -8,6 +9,13 @@
       "section": "exclusion",
       "source_text": "Individuals diagnosed with invasive malignancy within 3 years of enrollment (non- melanoma skin cancer is acceptable)",
       "threshold": "within 3 years"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Individuals with evidence of symptomatic or active cancer requiring therapeutic intervention at the time of participation (hormone therapy for breast/prostate cancer is acceptable)",
+      "threshold": null
     }
   ]
 }

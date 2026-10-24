@@ -133,6 +133,75 @@ def test_drop_noise_removes_bare_age_only():
     assert ("renal", "CrCl < 60") in cats_quotes  # untouched
 
 
+def test_quote_matches_category_keyword_guard():
+    from pipeline.extract.logic import quote_matches_category
+
+    # mis-filed quotes -> rejected
+    assert not quote_matches_category("hiv", "active hepatitis B and hepatitis C infection")
+    assert not quote_matches_category("smoking", "Current use of warfarin")
+    assert not quote_matches_category("smoking", "Current alcohol or drug abuse")
+    assert not quote_matches_category("pregnancy", "must use two forms of contraception")
+    # correct quotes -> accepted
+    assert quote_matches_category("hiv", "known HIV infection")
+    assert quote_matches_category("smoking", "current tobacco or nicotine use")
+    assert quote_matches_category("pregnancy", "pregnant or breastfeeding women")
+    assert quote_matches_category("age", "anything")  # age exempt (numeric logic)
+
+
+def test_drop_noise_removes_misfiled_category():
+    from pipeline.extract.logic import drop_noise
+
+    recs = [
+        {"category": "hiv", "source_text": "hepatitis B and C infection"},
+        {"category": "hiv", "source_text": "known HIV positive"},
+        {"category": "pregnancy", "source_text": "two forms of contraception required"},
+        {"category": "pregnancy", "source_text": "pregnant or breastfeeding"},
+    ]
+    out = [(r["category"], r["source_text"]) for r in drop_noise(recs)]
+    assert ("hiv", "hepatitis B and C infection") not in out
+    assert ("hiv", "known HIV positive") in out
+    assert ("pregnancy", "two forms of contraception required") not in out
+    assert ("pregnancy", "pregnant or breastfeeding") in out
+
+
+def test_age_child_exclusion_boilerplate_dropped():
+    from pipeline.extract.logic import is_bare_adult_floor
+
+    q = ("Because no dosing or adverse event data are currently available on the use "
+         "of the drug in patients < 18 years of age, children are excluded from this study")
+    assert is_bare_adult_floor(q)  # not a real cohort age cap -> drop
+    # a genuine pediatric-upper cap still kept
+    assert not is_bare_adult_floor("patients must be < 30 years old at enrollment")
+
+
+def test_suggest_covers_all_13_categories():
+    from pipeline.extract.suggest import suggest_for_category
+    from pipeline.extract.prompts import CATEGORIES
+
+    for cat in CATEGORIES:
+        sugg, src = suggest_for_category(cat)
+        assert sugg and isinstance(sugg, str)  # every category has a suggestion
+
+
+def test_suggest_gap_categories_have_no_fabricated_source():
+    from pipeline.extract.suggest import suggest_for_category
+
+    # These have NO formal FDA/ASCO guidance (per docs/sources.md) -> empty source
+    for cat in ("diabetes", "bmi", "smoking", "language", "pregnancy"):
+        sugg, src = suggest_for_category(cat)
+        assert src == "", f"{cat} must not cite a source"
+        assert "no specific" in sugg.lower()
+
+
+def test_suggest_guided_categories_cite_a_source():
+    from pipeline.extract.suggest import suggest_for_category
+
+    for cat in ("hiv", "brain_mets", "renal", "hepatic", "cardiac",
+                "prior_malignancy", "age", "performance_status"):
+        _, src = suggest_for_category(cat)
+        assert ("FDA" in src) or ("ASCO" in src), f"{cat} should cite guidance"
+
+
 def test_tool_schema_enum_matches_categories():
     enum = EXTRACT_TOOL["input_schema"]["properties"]["exclusions"]["items"][
         "properties"

@@ -1,7 +1,15 @@
 {
   "nct_id": "NCT07037758",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Participants \u2265 18 years (or \u2265 legal age within the country if it is older than 18 years) at the time of signing the informed consent.",
+      "threshold": null
+    },
     {
       "category": "brain_mets",
       "absolute": false,

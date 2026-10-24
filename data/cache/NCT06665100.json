@@ -1,19 +1,20 @@
 {
   "nct_id": "NCT06665100",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "pregnancy",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
       "source_text": "If female, must not be pregnant, plan to become pregnant, or nurse a child during the study and through 30 days after completion of the study.",
       "threshold": null
     },
     {
-      "category": "age",
-      "absolute": true,
+      "category": "pregnancy",
+      "absolute": false,
       "section": "inclusion",
-      "source_text": "Adult (\u2265 18 years of age).",
+      "source_text": "If female, must be either post-menopausal (one year or greater without menses), surgically sterile, or, for female subjects of child-bearing potential who are capable of conception must be: practicing two effective methods of birth control",
       "threshold": null
     }
   ]

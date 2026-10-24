@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06001788",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -14,20 +15,20 @@
       "absolute": false,
       "section": "exclusion",
       "source_text": "Has a mean corrected QT interval (QTcF) \\> 480ms.",
-      "threshold": "QTcF > 480ms"
-    },
-    {
-      "category": "cardiac",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Has uncontrolled intercurrent illness, including, but not limited to protocol defined cardiac disease.",
-      "threshold": null
+      "threshold": "QTcF > 480 ms"
     },
     {
       "category": "pregnancy",
       "absolute": true,
       "section": "exclusion",
       "source_text": "Participant is pregnant or lactating.",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Has clinically active central nervous system leukemia.",
       "threshold": null
     }
   ]

@@ -1,17 +1,18 @@
 {
   "nct_id": "NCT07061964",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "brain_mets",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
-      "source_text": "Participants must not have evidence of \u2265 T2, or N1-3, or M1 disease after NAT",
+      "source_text": "Participants must not have had urothelial carcinoma or histological variant at any site outside of the urinary bladder within 24 months prior to registration",
       "threshold": null
     },
     {
       "category": "prior_malignancy",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "Participants must not have had urothelial carcinoma or histological variant at any site outside of the urinary bladder within 24 months prior to registration except Ta/T1/carcinoma in situ (CIS) of the upper urinary tract, including renal pelvis or ureter if the participant underwent complete nephroureterectomy",
       "threshold": "within 24 months"
@@ -25,7 +26,7 @@
     },
     {
       "category": "performance_status",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "Participants must have Zubrod performance status of 0-2",
       "threshold": "Zubrod 0-2"
@@ -34,36 +35,43 @@
       "category": "cardiac",
       "absolute": false,
       "section": "inclusion",
-      "source_text": "Participants with known history or current symptoms of cardiac disease, or history of treatment with cardiotoxic agents, should have a clinical risk assessment of cardiac function using the New York Heart Association Functional Classification. To be eligible for this trial, patients should be class II or better",
+      "source_text": "To be eligible for this trial, patients should be class II or better",
       "threshold": "NYHA class II or better"
-    },
-    {
-      "category": "hiv",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Participants with a history of human immunodeficiency virus (HIV)-infection must be on effective anti-retroviral therapy at registration and have undetectable viral load test on the most recent test results obtained within 6 months prior to registration",
-      "threshold": "undetectable viral load within 6 months"
     },
     {
       "category": "renal",
       "absolute": false,
       "section": "inclusion",
-      "source_text": "Participants must have a creatinine \u2264 the institutional (I)ULN OR measured OR calculated creatinine clearance \u2265 40 mL/min using the following Cockcroft-Gault Formula. This specimen must have been drawn and processed within 28 days prior to registration",
-      "threshold": "creatinine <= ULN or CrCl >= 40 mL/min"
+      "source_text": "Participants must have a creatinine \u2264 the institutional (I)ULN OR measured OR calculated creatinine clearance \u2265 40 mL/min using the following Cockcroft-Gault Formula.",
+      "threshold": "CrCl \u2265 40 mL/min"
     },
     {
       "category": "hepatic",
       "absolute": false,
       "section": "inclusion",
       "source_text": "Aspartate aminotransferase (AST)/alanine aminotransferase (ALT) \u2264 3 x institutional ULN (within 28 days prior to registration)",
-      "threshold": "AST/ALT <= 3 x ULN"
+      "threshold": "AST/ALT \u2264 3 x ULN"
     },
     {
       "category": "hepatic",
       "absolute": false,
       "section": "inclusion",
       "source_text": "Total bilirubin \u2264 institutional upper limit of normal (ULN) unless history of Gilbert's disease (within 28 days prior to registration)",
-      "threshold": "total bilirubin <= ULN (<= 5 x ULN if Gilbert's)"
+      "threshold": "bilirubin \u2264 ULN (\u2264 5 x ULN if Gilbert's)"
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Participants with a history of human immunodeficiency virus (HIV)-infection must be on effective anti-retroviral therapy at registration and have undetectable viral load test on the most recent test results obtained within 6 months prior to registration",
+      "threshold": null
+    },
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Participants must be \u2265 18 years old at the time of registration",
+      "threshold": null
     }
   ]
 }

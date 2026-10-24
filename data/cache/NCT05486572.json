@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT05486572",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
@@ -11,16 +12,30 @@
     },
     {
       "category": "renal",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "Glomerular Filtration Rate (GFR) \\<30 ml/min",
       "threshold": "GFR < 30 ml/min"
+    },
+    {
+      "category": "bmi",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Unable to fit on MRI machine due to weight (weight \\>400lbs) or body habitus",
+      "threshold": "weight > 400 lbs"
     },
     {
       "category": "pregnancy",
       "absolute": true,
       "section": "exclusion",
       "source_text": "Currently pregnant",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Prior diagnosis or of HCC",
       "threshold": null
     }
   ]

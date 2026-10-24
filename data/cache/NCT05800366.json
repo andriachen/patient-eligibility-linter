@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT05800366",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -10,25 +11,11 @@
       "threshold": "ECOG 0-2"
     },
     {
-      "category": "age",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Greater than or equal to 18 years at the time of signing informed consent",
-      "threshold": null
-    },
-    {
       "category": "cardiac",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Left ventricular ejection fraction (LVEF) \u2265 50% on cardiac multiple-gated acquisition (MUGA) scan or cardiac echocardiogram (ECHO)",
       "threshold": "LVEF \u2265 50%"
-    },
-    {
-      "category": "hepatic",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Total bilirubin \u2264 1.5 x institutional upper limit of normal (ULN) or \\< 3 x ULN in participants with Gilbert's disease",
-      "threshold": "bilirubin \u2264 1.5 x ULN"
     },
     {
       "category": "hepatic",
@@ -60,7 +47,7 @@
     },
     {
       "category": "hepatic",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "Clinically significant liver disease including active viral hepatitis infection, cirrhosis, or current alcohol abuse",
       "threshold": null
@@ -69,19 +56,19 @@
       "category": "cardiac",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "significant or extensive history of cardiovascular disease such as New York Heart Association Class III or IV or objective Class C or D cardiac disease, myocardial infarction within the last 6 months, unstable arrhythmias, or unstable angina, or pulmonary disease",
+      "source_text": "New York Heart Association Class III or IV or objective Class C or D cardiac disease, myocardial infarction within the last 6 months, unstable arrhythmias, or unstable angina",
       "threshold": "NYHA III/IV; MI within 6 months"
     },
     {
       "category": "brain_mets",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
-      "source_text": "CNS lymphoma (primary or secondary involvement)",
+      "source_text": "Known history of central nervous system or neurologic disease including stroke or intracranial hemorrhage within 3 months prior to enrollment or seizure disorder",
       "threshold": null
     },
     {
       "category": "prior_malignancy",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "History of other malignancies, except:",
       "threshold": null
@@ -90,7 +77,7 @@
       "category": "diabetes",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "Patients with autoimmune thyroid disease on a stable dose of thyroid replacement or type 1 diabetes on a stable dose of insulin are eligible.",
+      "source_text": "type 1 diabetes on a stable dose of insulin are eligible",
       "threshold": null
     }
   ]

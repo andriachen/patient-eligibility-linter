@@ -1,33 +1,20 @@
 {
   "nct_id": "NCT05789303",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
-      "category": "age",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Subject must be \u2265 18 years of age.",
-      "threshold": null
-    },
-    {
       "category": "performance_status",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
       "source_text": "Subject must have an Eastern Cooperative Oncology Group (ECOG) performance status of \u2264 2",
       "threshold": "ECOG \u2264 2"
     },
     {
-      "category": "pregnancy",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Subjects must not be pregnant or lactating.",
-      "threshold": null
-    },
-    {
-      "category": "hiv",
+      "category": "hepatic",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "Subject with HIV infection will be excluded unless certain T-cell count, viral load and clinical qualifications are met as confirmed by the study doctor",
+      "source_text": "Subject must not have current unstable liver or biliary disease defined by the presence of ascites, encephalopathy, coagulopathy, hypoalbuminemia, esophageal or gastric varices, persistent jaundice, or cirrhosis.",
       "threshold": null
     },
     {
@@ -38,10 +25,10 @@
       "threshold": null
     },
     {
-      "category": "hepatic",
+      "category": "hiv",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "Subject must not have current unstable liver or biliary disease defined by the presence of ascites, encephalopathy, coagulopathy, hypoalbuminemia, esophageal or gastric varices, persistent jaundice, or cirrhosis.",
+      "source_text": "Subject with HIV infection will be excluded unless certain T-cell count, viral load and clinical qualifications are met as confirmed by the study doctor",
       "threshold": null
     },
     {
@@ -59,6 +46,13 @@
       "threshold": "within 3 months"
     },
     {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Evidence of current clinically significant uncontrolled arrhythmias, including clinically significant ECG abnormalities such as 2nd degree (Mobitz Type II) or 3rd degree atrioventricular (AV) block.",
+      "threshold": null
+    },
+    {
       "category": "prior_malignancy",
       "absolute": false,
       "section": "exclusion",
@@ -66,8 +60,15 @@
       "threshold": "stable for at least 2 years"
     },
     {
-      "category": "hepatic",
+      "category": "pregnancy",
       "absolute": true,
+      "section": "exclusion",
+      "source_text": "Subjects must not be pregnant or lactating.",
+      "threshold": null
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
       "section": "exclusion",
       "source_text": "Patients with Hepatitis B will be excluded unless certain clinical criteria are met as confirmed by the study doctor.",
       "threshold": null

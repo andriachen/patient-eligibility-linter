@@ -1,26 +1,27 @@
 {
   "nct_id": "NCT03448926",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Patient must be 30 to 85 years old.",
-      "threshold": "age 30 to 85"
-    },
-    {
-      "category": "pregnancy",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Patient is pregnant.",
-      "threshold": null
+      "threshold": "age 30-85"
     },
     {
       "category": "prior_malignancy",
       "absolute": true,
       "section": "exclusion",
       "source_text": "Patient has had any prior ipsilateral or contralateral breast DCIS or invasive breast cancer.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Patient is pregnant.",
       "threshold": null
     }
   ]

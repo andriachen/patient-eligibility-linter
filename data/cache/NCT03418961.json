@@ -1,13 +1,14 @@
 {
   "nct_id": "NCT03418961",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Patients must have a Zubrod Performance status of 0-2",
-      "threshold": "Zubrod 0-2"
+      "threshold": "ECOG/Zubrod 0-2"
     },
     {
       "category": "cardiac",
@@ -39,7 +40,7 @@
     },
     {
       "category": "prior_malignancy",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
       "source_text": "No other prior malignancy is allowed except for the following: adequately treated basal cell or squamous cell skin cancer, in situ cervical cancer, prostate cancer on active surveillance, adequately treated stage I or II cancer from which the patient is currently in complete remission, or any other cancer from which the patient has been disease free for five years",
       "threshold": "disease free for five years"

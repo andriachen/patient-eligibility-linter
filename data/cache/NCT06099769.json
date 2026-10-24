@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06099769",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -17,6 +18,13 @@
       "threshold": null
     },
     {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Confirmed QT interval with Fridericia correction (QTcF) > 480 msec.",
+      "threshold": "QTcF > 480 msec"
+    },
+    {
       "category": "pregnancy",
       "absolute": true,
       "section": "exclusion",
@@ -28,34 +36,6 @@
       "absolute": true,
       "section": "inclusion",
       "source_text": "Patients must not have another active malignancy that requires treatment.",
-      "threshold": null
-    },
-    {
-      "category": "hepatic",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Total bilirubin \u22641.5x upper limit of normal (ULN), except for patients with known Gilbert syndrome; AST/ALT \u22643x ULN (\u22645x ULN if liver metastases); creatinine \u2264 1.5x ULN.",
-      "threshold": "bilirubin \u22641.5x ULN; AST/ALT \u22643x ULN (\u22645x ULN if liver metastases)"
-    },
-    {
-      "category": "renal",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "creatinine \u2264 1.5x ULN.",
-      "threshold": "creatinine \u2264 1.5x ULN"
-    },
-    {
-      "category": "cardiac",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Confirmed QT interval with Fridericia correction (QTcF) \\&gt; 480 msec.",
-      "threshold": "QTcF > 480 msec"
-    },
-    {
-      "category": "smoking",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Hypersensitivity reaction to the active pharmaceutical ingredient or any of the tablet components, including Labrasol, butylated hydroxyanisole, and butylated hydroxytoluene.",
       "threshold": null
     }
   ]

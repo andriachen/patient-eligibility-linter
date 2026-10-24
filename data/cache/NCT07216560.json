@@ -1,10 +1,11 @@
 {
   "nct_id": "NCT07216560",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
       "source_text": "ECOG 0-1",
       "threshold": "ECOG 0-1"

@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT05797168",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -28,7 +29,7 @@
       "absolute": false,
       "section": "exclusion",
       "source_text": "History of another malignancy except for:",
-      "threshold": "malignancy treated with curative intent and no known active disease for at least 2 years prior to screening"
+      "threshold": "within 2 years"
     },
     {
       "category": "cardiac",
@@ -39,10 +40,17 @@
     },
     {
       "category": "cardiac",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Mean resting QTcF \\> 470 msec obtained from triplicate electrocardiograms (ECGs) and averaged, recorded within 5 minutes.",
       "threshold": "QTcF > 470 msec"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Acute coronary syndrome/acute myocardial infarction, unstable angina pectoris, coronary intervention procedure with percutaneous coronary intervention, or coronary artery bypass grafting within 6 months of screening.",
+      "threshold": "within 6 months"
     },
     {
       "category": "pregnancy",
@@ -52,10 +60,10 @@
       "threshold": null
     },
     {
-      "category": "renal",
+      "category": "smoking",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "Patients with spinal cord compression or a history of leptomeningeal carcinomatosis.",
+      "source_text": "Substance abuse or any other medical conditions that would increase the safety risk to the participant or interfere with participation of the participant or evaluation of the clinical study in the opinion of the Investigator.",
       "threshold": null
     }
   ]

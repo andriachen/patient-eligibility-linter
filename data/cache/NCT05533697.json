@@ -1,20 +1,21 @@
 {
   "nct_id": "NCT05533697",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
+      "category": "performance_status",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Participant has an Eastern Cooperative Oncology Group (ECOG) performance status of \u22641.",
+      "threshold": "ECOG \u22641"
+    },
+    {
       "category": "brain_mets",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "Participant has active central nervous system tumors or metastases.",
       "threshold": null
-    },
-    {
-      "category": "performance_status",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Participant has an Eastern Cooperative Oncology Group (ECOG) performance status of \u22641.",
-      "threshold": "ECOG > 1"
     },
     {
       "category": "pregnancy",

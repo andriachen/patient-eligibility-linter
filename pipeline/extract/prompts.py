@@ -5,6 +5,11 @@ the model and the gold-labeling guide share one source of truth. Keep them in
 sync with README "Categories (fixed)".
 """
 
+# Bump this whenever SYSTEM_PROMPT or EXTRACT_TOOL changes materially. It is
+# written into each data/cache/{nct_id}.json so stale entries are detectable and
+# can be selectively re-extracted.
+PROMPT_VERSION = "v2-2026-10-24"
+
 # The 13 fixed categories. The tool schema enum is derived from this list, so the
 # model can never emit a category outside it.
 CATEGORIES = [

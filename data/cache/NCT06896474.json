@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06896474",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
@@ -24,13 +25,6 @@
       "threshold": null
     },
     {
-      "category": "language",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Non English or non-Spanish speaking: Women who do not speak English or Spanish will be excluded since these women are not eligible for the DA. If the DA is found to be effective in English and Spanish we plan to have the DA professionally translated to other languages at the end of the trial.",
-      "threshold": null
-    },
-    {
       "category": "prior_malignancy",
       "absolute": true,
       "section": "exclusion",
@@ -38,17 +32,10 @@
       "threshold": null
     },
     {
-      "category": "prior_malignancy",
+      "category": "brain_mets",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "history of invasive breast cancer",
-      "threshold": null
-    },
-    {
-      "category": "pregnancy",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Non English or non-Spanish speaking",
+      "source_text": "In hospice",
       "threshold": null
     }
   ]

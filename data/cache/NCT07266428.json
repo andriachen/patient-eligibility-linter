@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT07266428",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -13,7 +14,7 @@
       "category": "pregnancy",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "",
+      "source_text": "Chronic systemic corticosteroid therapy for physiologic replacement (\u2264 10 mg/day of prednisone equivalents)",
       "threshold": null
     }
   ]

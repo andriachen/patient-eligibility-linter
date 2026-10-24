@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT03937635",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "renal",
@@ -38,25 +39,11 @@
       "threshold": "NYHA III or IV"
     },
     {
-      "category": "cardiac",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "uncontrolled cardiac arrhythmia",
-      "threshold": null
-    },
-    {
       "category": "prior_malignancy",
       "absolute": false,
       "section": "inclusion",
       "source_text": "Patients with a history of prior malignancy are eligible provided they were treated with curative intent and have been free of disease for the time period considered appropriate for cure of the specific cancer. For most diseases this time frame is 5 years.",
       "threshold": "free of disease for 5 years"
-    },
-    {
-      "category": "hiv",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Human immunodeficiency virus (HIV)+ patients with undetectable HIV viral loads tested within 6 months are eligible.",
-      "threshold": "undetectable viral load within 6 months"
     },
     {
       "category": "pregnancy",
@@ -73,11 +60,11 @@
       "threshold": null
     },
     {
-      "category": "diabetes",
+      "category": "hiv",
       "absolute": false,
       "section": "inclusion",
-      "source_text": "Patients must not have known chronic obstructive pulmonary disease (COPD)",
-      "threshold": null
+      "source_text": "Human immunodeficiency virus (HIV)+ patients with undetectable HIV viral loads tested within 6 months are eligible.",
+      "threshold": "undetectable viral load within 6 months"
     }
   ]
 }

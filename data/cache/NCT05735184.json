@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT05735184",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -18,7 +19,7 @@
     },
     {
       "category": "brain_mets",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "Active central nervous system (CNS) involvement by AML.",
       "threshold": null
@@ -32,10 +33,17 @@
     },
     {
       "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Uncontrolled intercurrent illness including, but not limited to, cardiac illness as defined in the protocol",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
       "absolute": true,
       "section": "exclusion",
       "source_text": "Mean QT interval corrected for heart rate by Fredericia's formula (QTcF)",
-      "threshold": "Arm A and Arm B: >480 ms on triplicate ECGs; Arm C: >450 ms on triplicate ECGs"
+      "threshold": "QTcF >480 ms (Arm A and B); >450 ms (Arm C) on triplicate ECGs"
     },
     {
       "category": "pregnancy",
@@ -49,13 +57,6 @@
       "absolute": false,
       "section": "exclusion",
       "source_text": "An active malignancy and currently receiving chemotherapy for that malignancy or disease that is uncontrolled/progressing",
-      "threshold": null
-    },
-    {
-      "category": "hepatic",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Advanced malignant hepatic tumor",
       "threshold": null
     }
   ]

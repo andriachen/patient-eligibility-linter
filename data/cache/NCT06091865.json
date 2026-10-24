@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06091865",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -20,7 +21,7 @@
       "category": "brain_mets",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "known involvement by non-primary CNS NHL and history or current relevant CNS pathology",
+      "source_text": "Primary Central Nervous System (CNS) lymphoma or known involvement by non-primary CNS NHL and history or current relevant CNS pathology",
       "threshold": null
     }
   ]

@@ -1,14 +1,8 @@
 {
   "nct_id": "NCT05602363",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
-    {
-      "category": "age",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Age \u226518 years",
-      "threshold": null
-    },
     {
       "category": "performance_status",
       "absolute": true,
@@ -17,10 +11,17 @@
       "threshold": "ECOG 0 to 2"
     },
     {
-      "category": "prior_malignancy",
+      "category": "cardiac",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "Active second malignancy unless in remission with life expectancy \\>2 years",
+      "source_text": "Clinically significant, uncontrolled cardiac, cardiovascular disease or history of myocardial infarction within 6 months before planned start of docirbrutinib, or prolongation of the QT interval corrected for heart rate using Fridericia's Formula (QTcF) >470 msec on at least 2 of 3 consecutive ECGs, and mean QTcF >470 msec on all 3 ECGs, during Screening",
+      "threshold": "recent MI within 6 months; QTcF >470 msec"
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Positive for HIV. For patients with unknown HIV status, HIV testing will be performed at Screening",
       "threshold": null
     },
     {
@@ -31,17 +32,10 @@
       "threshold": null
     },
     {
-      "category": "cardiac",
+      "category": "prior_malignancy",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "Clinically significant, uncontrolled cardiac, cardiovascular disease or history of myocardial infarction within 6 months before planned start of docirbrutinib, or prolongation of the QT interval corrected for heart rate using Fridericia's Formula (QTcF) \\>470 msec on at least 2 of 3 consecutive ECGs, and mean QTcF \\>470 msec on all 3 ECGs, during Screening",
-      "threshold": "MI within 6 months; QTcF > 470 msec"
-    },
-    {
-      "category": "hiv",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Positive for HIV. For patients with unknown HIV status, HIV testing will be performed at Screening",
+      "source_text": "Active second malignancy unless in remission with life expectancy \\>2 years",
       "threshold": null
     },
     {

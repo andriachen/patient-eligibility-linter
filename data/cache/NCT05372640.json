@@ -1,13 +1,14 @@
 {
   "nct_id": "NCT05372640",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
       "absolute": true,
       "section": "inclusion",
-      "source_text": "Age \\>= 12 years. Patients 12-17 years of age must be \\> 40 kg at enrollment.",
-      "threshold": null
+      "source_text": "Age \\>= 12 years.",
+      "threshold": "age >= 12 years"
     },
     {
       "category": "performance_status",
@@ -15,6 +16,13 @@
       "section": "inclusion",
       "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status =\\< 2 for participants \\>= 16 years of age, Lansky \\>= 50% if \\< 16 years of age",
       "threshold": "ECOG <= 2"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Serum or plasma creatinine =\\< 1.5 x institutional ULN OR calculated creatinine clearance \\>= 50 mL/min",
+      "threshold": "creatinine <= 1.5 x ULN OR CrCl >= 50 mL/min"
     },
     {
       "category": "hepatic",
@@ -31,13 +39,6 @@
       "threshold": "AST/ALT <= 2.5 x ULN"
     },
     {
-      "category": "renal",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Serum or plasma creatinine =\\< 1.5 x institutional ULN OR calculated creatinine clearance \\>= 50 mL/min",
-      "threshold": "creatinine <= 1.5 x ULN or CrCl >= 50 mL/min"
-    },
-    {
       "category": "hiv",
       "absolute": false,
       "section": "inclusion",
@@ -48,7 +49,7 @@
       "category": "brain_mets",
       "absolute": false,
       "section": "inclusion",
-      "source_text": "Patients with treated brain metastases are eligible if follow-up brain imaging after central nervous system (CNS)-directed therapy shows no evidence of progression and has been clinically stable for at least 1 month.",
+      "source_text": "Patients with treated brain metastases are eligible if follow-up brain imaging after central nervous system (CNS)-directed therapy shows no evidence of progression",
       "threshold": null
     },
     {
@@ -67,7 +68,7 @@
     },
     {
       "category": "pregnancy",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "Women of childbearing potential must have a negative pregnancy test within 7 days of starting treatment",
       "threshold": null
@@ -83,12 +84,12 @@
       "category": "cardiac",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Fridericia's formula-corrected QT interval (QTcF) \\>= 450 msec on screening electrocardiogram (ECG) by Fredericia (machine or manual read allowed).",
+      "source_text": "Fridericia's formula-corrected QT interval (QTcF) \\>= 450 msec on screening electrocardiogram (ECG)",
       "threshold": "QTcF >= 450 msec"
     },
     {
       "category": "cardiac",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Myocardial infarction or unstable angina within 6 months prior to the first dose of ZEN003694",
       "threshold": "within 6 months"
@@ -98,7 +99,7 @@
       "absolute": false,
       "section": "exclusion",
       "source_text": "severe renal impairment (e.g. estimated creatinine clearance \\< 30ml/min)",
-      "threshold": "CrCl < 30 ml/min"
+      "threshold": "CrCl < 30 mL/min"
     },
     {
       "category": "cardiac",
@@ -110,8 +111,8 @@
     {
       "category": "smoking",
       "absolute": true,
-      "section": "inclusion",
-      "source_text": "",
+      "section": "exclusion",
+      "source_text": "Patients receiving any medications or substances that are strong inhibitors or inducers of CYP3A4",
       "threshold": null
     }
   ]

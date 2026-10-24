@@ -1,13 +1,14 @@
 {
   "nct_id": "NCT06861088",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status \u2264 2.",
-      "threshold": "ECOG <= 2"
+      "threshold": "ECOG \u2264 2"
     },
     {
       "category": "renal",
@@ -15,20 +16,6 @@
       "section": "inclusion",
       "source_text": "Estimated creatinine clearance (CrCl \\> 30 mL/min).",
       "threshold": "CrCl > 30 mL/min"
-    },
-    {
-      "category": "hepatic",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Total bilirubin \u2264 3x ULN without liver metastases and \\< 5x ULN in presence of liver metastases.",
-      "threshold": "Total bilirubin <= 3x ULN without liver metastases; < 5x ULN with liver metastases"
-    },
-    {
-      "category": "hepatic",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Aspartate aminotransferase (AST) and alanine aminotransferase (ALT) \u2264 3x ULN without liver metastases and \\< 5x ULN in the presence of liver metastases",
-      "threshold": "AST/ALT <= 3x ULN without liver metastases; < 5x ULN with liver metastases"
     },
     {
       "category": "brain_mets",

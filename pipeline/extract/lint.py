@@ -2,29 +2,29 @@
 
 lint_criteria(text) runs the same extraction as the batch engine, applies the
 per-category dedupe, and returns dicts matching the exclusions.csv fields (minus
-nct_id) plus suggestion / suggestion_source (empty this phase — Phase 3 fills
-them). No nct_id, no cache. If the API key is missing, returns a small mock so
-the app still renders.
+nct_id) plus suggestion / suggestion_source, filled from suggest.py (template,
+grounded in FDA/ASCO guidance). No nct_id, no cache. If the API key is missing,
+returns a small mock so the app still renders.
 """
 
 from __future__ import annotations
 
 from . import llm
 from .logic import dedupe, drop_noise, is_valid
-
-_SUGGESTION = ""
-_SUGGESTION_SOURCE = ""
+from .suggest import suggest_for_category
 
 
 def _shape(rec: dict) -> dict:
+    category = rec.get("category")
+    suggestion, suggestion_source = suggest_for_category(category)
     return {
-        "category": rec.get("category"),
+        "category": category,
         "threshold": rec.get("threshold"),
         "absolute": bool(rec.get("absolute")),
         "section": rec.get("section"),
         "source_text": rec.get("source_text", ""),
-        "suggestion": _SUGGESTION,
-        "suggestion_source": _SUGGESTION_SOURCE,
+        "suggestion": suggestion,
+        "suggestion_source": suggestion_source,
     }
 
 

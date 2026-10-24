@@ -1,12 +1,13 @@
 {
   "nct_id": "NCT05985161",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
       "absolute": true,
       "section": "inclusion",
-      "source_text": "Performance: Karnofsky \u2265 60% for patients \\> 16 years of age and Lansky \u2265 60 for patients \u2264 16 years of age.",
+      "source_text": "Karnofsky \u2265 60% for patients \\> 16 years of age and Lansky \u2265 60 for patients \u2264 16 years of age.",
       "threshold": "Karnofsky \u2265 60%; Lansky \u2265 60"
     },
     {
@@ -35,13 +36,6 @@
       "absolute": true,
       "section": "exclusion",
       "source_text": "Pregnant or breast-feeding women will not be entered on this study",
-      "threshold": null
-    },
-    {
-      "category": "prior_malignancy",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Patients who have had a prior solid organ transplantation are not eligible.",
       "threshold": null
     }
   ]

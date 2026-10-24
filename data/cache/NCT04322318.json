@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT04322318",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
@@ -14,42 +15,35 @@
       "absolute": true,
       "section": "inclusion",
       "source_text": "Patients must have a performance status corresponding to Eastern Cooperative Oncology Group (ECOG) scores of 0, 1 or 2.",
-      "threshold": "ECOG > 2"
-    },
-    {
-      "category": "renal",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Creatinine clearance or radioisotope GFR \\>= 60 mL/min/1.73 m\\^2 (performed within 7 days prior to enrollment)",
-      "threshold": "CrCl or GFR < 60 mL/min/1.73 m^2"
-    },
-    {
-      "category": "hepatic",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Total bilirubin =\\< 1.5 x upper limit of normal (ULN) for age or direct bilirubin =\\< ULN for patients whose total bilirubin \\> 1.5 x ULN (performed within 7 days prior to enrollment)",
-      "threshold": "total bilirubin > 1.5 x ULN"
-    },
-    {
-      "category": "hepatic",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Serum glutamic-oxaloacetic transaminase (SGOT) (aspartate aminotransferase \\[AST\\]) or serum glutamate pyruvate transaminase (SGPT) (alanine aminotransferase \\[ALT\\]) \\< 2.5 x upper limit of normal (ULN) for age or =\\< 5 x ULN for patients with liver metastases (performed within 7 days prior to enrollment)",
-      "threshold": "AST/ALT >= 2.5 x ULN (<= 5 x ULN with liver metastases)"
+      "threshold": "ECOG 0-2"
     },
     {
       "category": "cardiac",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Shortening fraction of \\>= 27% by echocardiogram, or ejection fraction of \\>= 50% by radionuclide angiogram (obtained within 21 days prior to enrollment and start of protocol therapy)",
-      "threshold": "shortening fraction < 27% or ejection fraction < 50%"
+      "threshold": "SF >= 27% or EF >= 50%"
     },
     {
-      "category": "cardiac",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "symptomatic congestive heart failure (defined as grade 2 or higher heart failure per Common Terminology Criteria for Adverse Events \\[CTCAE\\] version 5.0)",
-      "threshold": "grade >= 2 heart failure"
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Total bilirubin =\\< 1.5 x upper limit of normal (ULN) for age or direct bilirubin =\\< ULN for patients whose total bilirubin \\> 1.5 x ULN (performed within 7 days prior to enrollment)",
+      "threshold": "total bilirubin <= 1.5 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Serum glutamic-oxaloacetic transaminase (SGOT) (aspartate aminotransferase \\[AST\\]) or serum glutamate pyruvate transaminase (SGPT) (alanine aminotransferase \\[ALT\\]) \\< 2.5 x upper limit of normal (ULN) for age or =\\< 5 x ULN for patients with liver metastases (performed within 7 days prior to enrollment)",
+      "threshold": "AST/ALT < 2.5 x ULN (<= 5 x ULN with liver mets)"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Creatinine clearance or radioisotope GFR \\>= 60 mL/min/1.73 m\\^2 (performed within 7 days prior to enrollment)",
+      "threshold": "CrCl or GFR >= 60 mL/min/1.73 m^2"
     },
     {
       "category": "pregnancy",
@@ -70,6 +64,20 @@
       "absolute": true,
       "section": "exclusion",
       "source_text": "Patients with a history of bilateral Wilms tumor (synchronous or metachronous)",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "symptomatic congestive heart failure (defined as grade 2 or higher heart failure per Common Terminology Criteria for Adverse Events \\[CTCAE\\] version 5.0)",
+      "threshold": "grade >= 2 heart failure"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Chronic inflammatory bowel disease and/or bowel obstruction",
       "threshold": null
     }
   ]

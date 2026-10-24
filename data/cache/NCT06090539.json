@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06090539",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -14,6 +15,13 @@
       "absolute": false,
       "section": "exclusion",
       "source_text": "Participants must not have known or suspected central nervous system involvement.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Participants must accept and follow pregnancy prevention plan.",
       "threshold": null
     }
   ]

@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT05950945",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -8,27 +9,6 @@
       "section": "inclusion",
       "source_text": "Has an Eastern Cooperative Oncology Group performance status of 0 or 1.",
       "threshold": "ECOG 0 or 1"
-    },
-    {
-      "category": "cardiac",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Has a left ventricular ejection fraction \u226550% within 28 days before enrollment.",
-      "threshold": "LVEF \u226550%"
-    },
-    {
-      "category": "brain_mets",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Participants with brain metastases are allowed in the study. The brain lesion(s) should be small (\\<2 cm), untreated, asymptomatic, not requiring urgent medical intervention, and are asymptomatic and clinically stable.",
-      "threshold": "brain lesion <2 cm, untreated, asymptomatic"
-    },
-    {
-      "category": "prior_malignancy",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Has multiple primary malignancies within 3 years, except adequately resected non-melanoma skin cancer, curatively treated in situ disease, other solid tumors curatively treated, or contralateral BC.",
-      "threshold": "within 3 years"
     },
     {
       "category": "cardiac",
@@ -46,17 +26,24 @@
     },
     {
       "category": "brain_mets",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Has spinal cord compression or clinically active central nervous system metastases.",
-      "threshold": "clinically active"
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Has multiple primary malignancies within 3 years, except adequately resected non-melanoma skin cancer, curatively treated in situ disease, other solid tumors curatively treated, or contralateral BC.",
+      "threshold": "within 3 years"
     },
     {
       "category": "hiv",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "Active primary immunodeficiency, known uncontrolled active human immunodeficiency virus (HIV) infection, or active hepatitis B or C infection.",
-      "threshold": "known uncontrolled active"
+      "source_text": "known uncontrolled active human immunodeficiency virus (HIV) infection",
+      "threshold": null
     },
     {
       "category": "pregnancy",

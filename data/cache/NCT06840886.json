@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06840886",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -10,10 +11,10 @@
       "threshold": "ECOG 0 or 1"
     },
     {
-      "category": "diabetes",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Diagnosis of immunodeficiency",
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Pregnancy prevention requirements",
       "threshold": null
     },
     {

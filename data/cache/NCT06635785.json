@@ -1,27 +1,14 @@
 {
   "nct_id": "NCT06635785",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
-      "category": "age",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Patient is \u2265 18 years of age on the day of signing informed consent.",
-      "threshold": null
-    },
-    {
       "category": "pregnancy",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "female patient of childbearing potential must have negative pregnancy test.",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Patients who are pregnant or breastfeeding or plan pregnancy or fathering the child during the study or within 6 months after the last dosing of study drug",
       "threshold": null
-    },
-    {
-      "category": "performance_status",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Patient must have a performance status of \u2264 1 on the ECOG Performance Scale.",
-      "threshold": "ECOG \u2264 1"
     },
     {
       "category": "brain_mets",
@@ -32,7 +19,7 @@
     },
     {
       "category": "prior_malignancy",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Patient with a different cancer other than the one treated under this protocol, which requires systemic treatments within 24 months prior to C1D1.",
       "threshold": "within 24 months"
@@ -43,20 +30,6 @@
       "section": "exclusion",
       "source_text": "Within past 6 months with history of significant cardiovascular acute myocardial infarction, acute coronary syndrome, ischemic or hemorrhagic stroke, revascularization procedures, acute pulmonary embolism or any disorders resulted in LVEF \\< 40% at the time of screening",
       "threshold": "LVEF < 40%"
-    },
-    {
-      "category": "pregnancy",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Patients who are pregnant or breastfeeding or plan pregnancy or fathering the child during the study or within 6 months after the last dosing of study drug",
-      "threshold": null
-    },
-    {
-      "category": "cardiac",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Uncontrolled hypertension: systolic pressure \u2265 150 millimeters of mercury (mmHg) or diastolic pressure \u2265 90 mmHg on repeated measurements that cannot be managed by standard antihypertension medications \u2264 28 days before the first dose of study drug(s).",
-      "threshold": "SBP \u2265 150 or DBP \u2265 90 mmHg"
     }
   ]
 }

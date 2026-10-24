@@ -1,13 +1,14 @@
 {
   "nct_id": "NCT07393282",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Eastern Cooperative Oncology Group performance status score \u22641",
-      "threshold": "ECOG \u2264 1"
+      "threshold": "ECOG <= 1"
     }
   ]
 }

@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06917885",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -8,13 +9,6 @@
       "section": "inclusion",
       "source_text": "Have a Karnofsky performance status (KPS) \u2265 70 (Appendix A);",
       "threshold": "KPS \u2265 70"
-    },
-    {
-      "category": "age",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Be \u2265 18 years of age on day of signing informed consent;",
-      "threshold": "age \u2265 18"
     },
     {
       "category": "renal",
@@ -25,30 +19,30 @@
     },
     {
       "category": "hepatic",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "AST (SGOT) and ALT (SGPT) \u2264 3.0 X institutional ULN OR \u2264 5 X institutional ULN for participants with Gilberts syndrome",
-      "threshold": "AST/ALT \u2264 3.0 X ULN (\u2264 5 X ULN Gilbert's)"
+      "threshold": "AST/ALT \u2264 3.0 X ULN"
     },
     {
       "category": "hiv",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "Has a known history of Human Immunodeficiency Virus (HIV) (HIV 1/2 antibodies) and is receiving antiretroviral therapy.",
       "threshold": null
     },
     {
-      "category": "brain_mets",
+      "category": "pregnancy",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Presence of multifocal tumor, bi-hemispheric tumor (radiographic evidence of tumor extending from one hemisphere into the other through the corpus callosum), diffuse leptomeningeal or extracranial disease;",
+      "source_text": "Is pregnant or breastfeeding or expecting to conceive within the projected duration of the trial",
       "threshold": null
     },
     {
       "category": "prior_malignancy",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "Has a known additional malignancy that is progressing or requires active treatment within 1 year of start of study drug, except for those treated with surgical therapy only (e.g. basal cell carcinoma of the skin, squamous cell carcinoma of the skin, or in situ cervical cancer that has undergone potentially curative therapy);",
+      "source_text": "Has a known additional malignancy that is progressing or requires active treatment within 1 year of start of study drug",
       "threshold": "within 1 year"
     },
     {
@@ -59,17 +53,17 @@
       "threshold": "within 12 months"
     },
     {
-      "category": "pregnancy",
+      "category": "brain_mets",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Is pregnant or breastfeeding or expecting to conceive within the projected duration of the trial, starting with the screening visit through 120 days after the last dose of trial treatment or the initiation of other cancer therapy (whichever is shorter).",
+      "source_text": "Presence of multifocal tumor, bi-hemispheric tumor (radiographic evidence of tumor extending from one hemisphere into the other through the corpus callosum), diffuse leptomeningeal or extracranial disease;",
       "threshold": null
     },
     {
-      "category": "diabetes",
+      "category": "pregnancy",
       "absolute": false,
-      "section": "exclusion",
-      "source_text": "Has a history of known coagulopathy",
+      "section": "inclusion",
+      "source_text": "Women of child-bearing potential (WOCBP), defined as all women physiologically capable of becoming pregnant, must have a negative urine or serum pregnancy within 72 hours prior to enrollment.",
       "threshold": null
     }
   ]

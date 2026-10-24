@@ -1,14 +1,8 @@
 {
   "nct_id": "NCT07070232",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
-    {
-      "category": "age",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Aged \u226518 years at the time of giving informed consent.",
-      "threshold": null
-    },
     {
       "category": "performance_status",
       "absolute": true,
@@ -28,6 +22,13 @@
       "absolute": true,
       "section": "exclusion",
       "source_text": "Are a participant of child-bearing potential who are pregnant or breastfeeding or are planning pregnancy within 225 days (\\~7.5 months) after receiving last dose of BNT326 and within 6 months after last dose of pumitamig, whichever is longer.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Are potentially fertile males, who are planning to father children during the study or within 135 days (\\~4.5 months) after the last dose of BNT326 and within 6 months after last dose of pumitamig, whichever is longer.",
       "threshold": null
     }
   ]

@@ -1,7 +1,15 @@
 {
   "nct_id": "NCT04855695",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age \u2265 18 years.",
+      "threshold": null
+    },
     {
       "category": "performance_status",
       "absolute": true,
@@ -52,18 +60,18 @@
       "threshold": null
     },
     {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Currently active, clinically significant cardiovascular disease, such as uncontrolled arrhythmia or Class 3 or 4 congestive heart failure as defined by the New York Heart Association Functional Classification; or a history of myocardial infarction, unstable angina, or acute coronary syndrome within 6 months prior to randomization.",
+      "threshold": "NYHA Class 3 or 4; MI within 6 months"
+    },
+    {
       "category": "pregnancy",
       "absolute": true,
       "section": "exclusion",
       "source_text": "Lactating or pregnant women are excluded from this study",
       "threshold": null
-    },
-    {
-      "category": "cardiac",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Currently active, clinically significant cardiovascular disease, such as uncontrolled arrhythmia or Class 3 or 4 congestive heart failure as defined by the New York Heart Association Functional Classification; or a history of myocardial infarction, unstable angina, or acute coronary syndrome within 6 months prior to randomization.",
-      "threshold": "Class 3 or 4 CHF; MI/ACS within 6 months"
     }
   ]
 }

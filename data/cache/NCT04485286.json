@@ -1,20 +1,14 @@
 {
   "nct_id": "NCT04485286",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "smoking",
       "absolute": false,
       "section": "inclusion",
       "source_text": "No tobacco use within the prior 6 months.",
-      "threshold": "no tobacco use within prior 6 months"
-    },
-    {
-      "category": "age",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Age greater than 18 years",
-      "threshold": "age > 18"
+      "threshold": "within 6 months"
     },
     {
       "category": "pregnancy",
@@ -41,15 +35,15 @@
       "category": "bmi",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Body weight of \\> 300 lbs (weight limit of the MRI table);",
-      "threshold": "body weight > 300 lbs"
+      "source_text": "BMI \\> 33 (limit of the PET-MRI table)",
+      "threshold": "BMI > 33"
     },
     {
       "category": "bmi",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "BMI \\> 33 (limit of the PET-MRI table)",
-      "threshold": "BMI > 33"
+      "source_text": "Body weight of \\> 300 lbs (weight limit of the MRI table);",
+      "threshold": "body weight > 300 lbs"
     },
     {
       "category": "prior_malignancy",

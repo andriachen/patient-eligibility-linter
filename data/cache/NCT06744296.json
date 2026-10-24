@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06744296",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
@@ -11,7 +12,7 @@
     },
     {
       "category": "prior_malignancy",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "Active non-HNSCC malignancy.",
       "threshold": null

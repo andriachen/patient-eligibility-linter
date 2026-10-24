@@ -1,17 +1,25 @@
 {
   "nct_id": "NCT04855656",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "Lansky performance status \u226550% for patients \u226416 years of age, or ECOG score of 0, 1, (or 2 for module 1) for patients \\>16 years of age.",
-      "threshold": "Lansky \u226550%; ECOG 0, 1, (or 2 for module 1)"
+      "threshold": "ECOG 0-1 (2 for module 1); Lansky \u226550% for \u226416 years"
+    },
+    {
+      "category": "bmi",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Patients \\<18 years of age must weigh at least 40 kg.",
+      "threshold": "weight >= 40 kg for patients <18 years"
     },
     {
       "category": "pregnancy",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Patients who are pregnant or breastfeeding.",
       "threshold": null

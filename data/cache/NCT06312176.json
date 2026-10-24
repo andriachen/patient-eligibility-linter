@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06312176",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -8,13 +9,6 @@
       "section": "inclusion",
       "source_text": "Has an eastern cooperative oncology group (ECOG) performance status of 0 to 1 assessed within 7 days before randomization",
       "threshold": "ECOG 0 to 1"
-    },
-    {
-      "category": "hiv",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Human immunodeficiency virus (HIV)-infected participants must have well controlled HIV on antiretroviral therapy",
-      "threshold": null
     }
   ]
 }

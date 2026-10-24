@@ -1,13 +1,14 @@
 {
   "nct_id": "NCT06136546",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Aged 25-50 years",
-      "threshold": "age 25-50 years"
+      "threshold": "age 25-50"
     },
     {
       "category": "language",
@@ -24,17 +25,24 @@
       "threshold": null
     },
     {
-      "category": "hepatic",
+      "category": "hiv",
       "absolute": true,
+      "section": "exclusion",
+      "source_text": "chronic infection (e.g., hepatitis B or C or HIV) or history of Covid 19 infection within the past 6 months or with persisting symptoms.",
+      "threshold": null
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
       "section": "exclusion",
       "source_text": "History of liver abnormalities",
       "threshold": null
     },
     {
-      "category": "hiv",
+      "category": "cardiac",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "chronic infection (e.g., hepatitis B or C or HIV)",
+      "source_text": "uncontrolled cardiovascular, endocrine, hematologic, hepatic, renal or neurologic disease",
       "threshold": null
     },
     {
@@ -45,10 +53,24 @@
       "threshold": null
     },
     {
-      "category": "smoking",
-      "absolute": true,
+      "category": "diabetes",
+      "absolute": false,
       "section": "exclusion",
-      "source_text": "Of note, stable medical conditions such as diabetes and cardiovascular disease, will be allowed in the study",
+      "source_text": "stable medical conditions such as diabetes and cardiovascular disease, will be allowed in the study",
+      "threshold": null
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "uncontrolled cardiovascular, endocrine, hematologic, hepatic, renal or neurologic disease",
+      "threshold": null
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "uncontrolled cardiovascular, endocrine, hematologic, hepatic, renal or neurologic disease",
       "threshold": null
     }
   ]

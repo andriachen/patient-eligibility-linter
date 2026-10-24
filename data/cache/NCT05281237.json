@@ -1,7 +1,15 @@
 {
   "nct_id": "NCT05281237",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Participants must be at least 22 years old and able to provide consent",
+      "threshold": "age >= 22"
+    },
     {
       "category": "pregnancy",
       "absolute": true,

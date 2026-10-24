@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06957691",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "hepatic",
@@ -14,14 +15,14 @@
       "absolute": true,
       "section": "exclusion",
       "source_text": "Alanine aminotransferase (ALT) or aspartate aminotransferase (AST) above the upper limit of normal",
-      "threshold": "above upper limit of normal"
+      "threshold": "above the upper limit of normal"
     },
     {
       "category": "hepatic",
       "absolute": true,
       "section": "exclusion",
       "source_text": "Total bilirubin above the upper limit of normal",
-      "threshold": "above upper limit of normal"
+      "threshold": "above the upper limit of normal"
     },
     {
       "category": "renal",

@@ -1,12 +1,13 @@
 {
   "nct_id": "NCT00131014",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "prior_malignancy",
       "absolute": true,
       "section": "inclusion",
-      "source_text": "Any individual diagnosed with non-Hodgkin's lymphoma or Hodgkin's disease or chronic lymphocytic leukemia (CLL), who has a 1st degree relative (parent, sibling or child) with a lymphoproliferative disorder",
+      "source_text": "Any individual diagnosed with non-Hodgkin's lymphoma or Hodgkin's disease or chronic lymphocytic leukemia (CLL)",
       "threshold": null
     }
   ]

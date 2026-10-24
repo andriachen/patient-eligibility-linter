@@ -1,27 +1,28 @@
 {
   "nct_id": "NCT05886049",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status =\\< 2 (Karnofsky \\>= 60%)",
+      "threshold": "ECOG <= 2"
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Patients over the age of 65 must have an ECOG performance status of 0-1",
+      "threshold": "ECOG 0-1 for age > 65"
+    },
     {
       "category": "age",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Patients ages 18-75 years at time of diagnosis",
       "threshold": "age <= 75"
-    },
-    {
-      "category": "age",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Because no dosing or adverse event data are currently available on the use of SNDX-5613 in combination with daunorubicin and cytarabine in patients \\< 18 years of age, children are excluded from this study",
-      "threshold": "age >= 18"
-    },
-    {
-      "category": "performance_status",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status =\\< 2 (Karnofsky \\>= 60%). Patients over the age of 65 must have an ECOG performance status of 0-1",
-      "threshold": "ECOG <= 2; ECOG 0-1 if age > 65"
     },
     {
       "category": "hepatic",
@@ -52,17 +53,10 @@
       "threshold": null
     },
     {
-      "category": "prior_malignancy",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Patients with a prior or concurrent malignancy whose natural history or treatment does not have the potential to interfere with the safety or efficacy assessment of the investigational regimen are eligible for this trial",
-      "threshold": null
-    },
-    {
       "category": "cardiac",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
-      "source_text": "Patients with known history or current symptoms of cardiac disease, or history of treatment with cardiotoxic agents, should have a clinical risk assessment of cardiac function using the New York Heart Association Functional Classification. To be eligible for this trial, patients should be class 2B or better",
+      "source_text": "To be eligible for this trial, patients should be class 2B or better",
       "threshold": "NYHA class 2B or better"
     },
     {
@@ -70,7 +64,21 @@
       "absolute": true,
       "section": "inclusion",
       "source_text": "Ejection fraction \\>= 50% (or \\>= 45% if no evidence of congestive heart failure \\[CHF\\] or other cardiac symptoms) by transthoracic echocardiogram (TTE) or multi-gated acquisition (MUGA) scan",
-      "threshold": "EF >= 50% (or >= 45% without CHF)"
+      "threshold": "LVEF >= 50% (or >= 45%)"
+    },
+    {
+      "category": "bmi",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "White blood cells (WBC) must be \\< 25 x 10\\^9/L.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant women are excluded from this study",
+      "threshold": null
     },
     {
       "category": "cardiac",
@@ -80,18 +88,25 @@
       "threshold": "QTcF >= 450 ms"
     },
     {
-      "category": "pregnancy",
+      "category": "hepatic",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Pregnant women are excluded from this study because SNDX-5613 is a menin-KMT2A inhibitor agent with the potential for teratogenic or abortifacient effects. Because there is an unknown but potential risk for adverse events in nursing infants secondary to treatment of the mother with SNDX-5613, breastfeeding should be discontinued if the mother is treated with SNDX-5613. These potential risks may also apply to other agents used in this study",
+      "source_text": "Patients who have cirrhosis with a Child-Pugh score of B or C",
       "threshold": null
     },
     {
       "category": "prior_malignancy",
       "absolute": false,
-      "section": "exclusion",
-      "source_text": "Patients with myelodysplastic syndromes (MDS) treated with previous intensive induction regimens similar to 7+3",
+      "section": "inclusion",
+      "source_text": "Patients with a prior or concurrent malignancy whose natural history or treatment does not have the potential to interfere with the safety or efficacy assessment of the investigational regimen are eligible for this trial",
       "threshold": null
+    },
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "children are excluded from this study",
+      "threshold": "age >= 18 years"
     }
   ]
 }

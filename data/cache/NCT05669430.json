@@ -1,13 +1,14 @@
 {
   "nct_id": "NCT05669430",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
       "absolute": true,
       "section": "inclusion",
       "source_text": "ECOG performance status of 0 or 1",
-      "threshold": "ECOG > 1"
+      "threshold": "ECOG 0 or 1"
     },
     {
       "category": "prior_malignancy",
@@ -18,14 +19,14 @@
     },
     {
       "category": "cardiac",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "Participant with heart disease or unstable arrhythmia",
       "threshold": null
     },
     {
       "category": "brain_mets",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "Symptomatic central nervous system (CNS) malignancy or metastasis",
       "threshold": null
@@ -38,17 +39,17 @@
       "threshold": null
     },
     {
-      "category": "prior_malignancy",
+      "category": "hepatic",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Has a known additional malignancy that is progressing or has required active treatment within the past 2 years from C1D1",
-      "threshold": "within 2 years"
+      "source_text": "Participants with liver metastases unless approved by the Sponsor",
+      "threshold": null
     },
     {
       "category": "prior_malignancy",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
-      "source_text": "Has a known additional malignancy that is progressing or has required active treatment within the past 2 years from C1D1 (Parts C and D only)",
+      "source_text": "Has a known additional malignancy that is progressing or has required active treatment within the past 2 years from C1D1",
       "threshold": "within 2 years"
     }
   ]

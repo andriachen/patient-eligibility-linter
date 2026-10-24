@@ -1,41 +1,35 @@
 {
   "nct_id": "NCT03113643",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
-      "category": "renal",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Serum creatinine \\< 1.5x ULN",
-      "threshold": "creatinine < 1.5x ULN"
-    },
-    {
       "category": "hepatic",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
       "source_text": "Aspartate aminotransferase (AST) and alanine aminotransferase (ALT) \\< 2.5x ULN",
       "threshold": "AST/ALT < 2.5x ULN"
     },
     {
       "category": "hepatic",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
       "source_text": "Total bilirubin \\< 1.5x ULN",
-      "threshold": "total bilirubin < 1.5x ULN"
+      "threshold": "bilirubin < 1.5x ULN"
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Serum creatinine \\< 1.5x ULN",
+      "threshold": "creatinine < 1.5x ULN"
     },
     {
       "category": "cardiac",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
       "source_text": "Left ventricular ejection fraction \\> institutional lower limit of normal by MUGA scan or echocardiogram within 30 days of first protocol treatment",
-      "threshold": "LVEF > institutional lower limit of normal"
-    },
-    {
-      "category": "prior_malignancy",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Patients with known active advanced malignant solid tumors are excluded (except for basal or squamous skin cancers, or carcinomas in situ). Patients with additional hematologic malignancies that require treatment are excluded.",
-      "threshold": null
+      "threshold": "LVEF > institutional LLN"
     },
     {
       "category": "hiv",
@@ -46,17 +40,10 @@
     },
     {
       "category": "cardiac",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "Clinically significant cardiopulmonary disease including uncontrolled or NYHA class 3 or 4 congestive heart failure, uncontrolled angina, uncontrolled hypertension, uncontrolled arrhythmia, myocardial infarction or stroke within 6 months of first protocol treatment, or QTc \\> 480 ms",
-      "threshold": "NYHA class 3 or 4; QTc > 480 ms; MI within 6 months"
-    },
-    {
-      "category": "pregnancy",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Pregnant women are excluded from this study",
-      "threshold": null
+      "threshold": "NYHA class 3 or 4; MI within 6 months; QTc > 480 ms"
     },
     {
       "category": "brain_mets",
@@ -66,11 +53,25 @@
       "threshold": null
     },
     {
-      "category": "age",
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Patients with known active advanced malignant solid tumors are excluded (except for basal or squamous skin cancers, or carcinomas in situ). Patients with additional hematologic malignancies that require treatment are excluded.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
       "absolute": true,
-      "section": "inclusion",
-      "source_text": "Age \\>= 18 years with relapsed or refractory AML",
-      "threshold": "age >= 18"
+      "section": "exclusion",
+      "source_text": "Pregnant women are excluded from this study",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "breastfeeding should be discontinued if the mother is treated with SL-401, azacitidine, and venetoclax",
+      "threshold": null
     }
   ]
 }

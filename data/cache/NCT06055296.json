@@ -1,13 +1,21 @@
 {
   "nct_id": "NCT06055296",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "language",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
       "source_text": "understands written and spoken English or Spanish",
-      "threshold": "English or Spanish"
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participants will not be eligible if their child has second malignancy/relapse",
+      "threshold": null
     }
   ]
 }

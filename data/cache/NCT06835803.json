@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06835803",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
@@ -35,7 +36,7 @@
       "absolute": false,
       "section": "inclusion",
       "source_text": "ALT (SGPT) \\< 2.5 times the upper limit of normal and/or AST (SGOT) \\< 2.5 times the upper limit of normal",
-      "threshold": "ALT and/or AST < 2.5 x ULN"
+      "threshold": "ALT/AST < 2.5 x ULN"
     },
     {
       "category": "brain_mets",

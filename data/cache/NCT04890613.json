@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT04890613",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
@@ -11,31 +12,31 @@
     },
     {
       "category": "performance_status",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status \u2264 2 within 14 days of registration.",
-      "threshold": "ECOG <= 2"
+      "threshold": "ECOG \u2264 2"
     },
     {
       "category": "renal",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "Calculated creatinine clearance \\> 51mL/min (Cockcroft-Gault formula)",
       "threshold": "CrCl > 51 mL/min"
     },
     {
       "category": "hepatic",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
-      "source_text": "AST/ALT \u2264 2.5\u00d7 the upper limit of normal (ULN). Subjects with liver metastasis may have AST, ALP, and ALT \u2264 5.0 X ULN.",
-      "threshold": "AST/ALT <= 2.5x ULN"
+      "source_text": "AST/ALT \u2264 2.5\u00d7 the upper limit of normal (ULN).",
+      "threshold": "AST/ALT \u2264 2.5\u00d7 ULN"
     },
     {
       "category": "hepatic",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "Bilirubin \u2264 1.5\u00d7ULN.",
-      "threshold": "Bilirubin <= 1.5x ULN"
+      "threshold": "Bilirubin \u2264 1.5\u00d7ULN"
     },
     {
       "category": "pregnancy",
@@ -52,13 +53,6 @@
       "threshold": null
     },
     {
-      "category": "prior_malignancy",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Other malignancies within 5 years except for noninvasive malignancies such as cervical carcinoma in situ, non-melanomatous carcinoma of the skin, or ductal carcinoma in situ of the breast that has been surgically cured.",
-      "threshold": "within 5 years"
-    },
-    {
       "category": "brain_mets",
       "absolute": false,
       "section": "exclusion",
@@ -67,10 +61,17 @@
     },
     {
       "category": "cardiac",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "A marked baseline prolongation of QT/QTc interval (e.g., repeated demonstration of a QTc interval \\>450 ms).",
       "threshold": "QTc > 450 ms"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Other malignancies within 5 years except for noninvasive malignancies such as cervical carcinoma in situ, non-melanomatous carcinoma of the skin, or ductal carcinoma in situ of the breast that has been surgically cured.",
+      "threshold": "within 5 years"
     }
   ]
 }

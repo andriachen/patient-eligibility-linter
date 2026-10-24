@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT05554406",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
@@ -14,7 +15,7 @@
       "absolute": true,
       "section": "inclusion",
       "source_text": "Participants must have Zubrod performance status =\\< 3 as determined by a complete medical history and physical exam (H\\&P) completed within 7 days prior to registration",
-      "threshold": "Zubrod <= 3"
+      "threshold": "Zubrod PS <= 3"
     },
     {
       "category": "hiv",
@@ -42,20 +43,20 @@
       "absolute": true,
       "section": "inclusion",
       "source_text": "Total bilirubin =\\< 2.0 x ULN (or 5.0 x ULN if the participant has a history of Gilbert's disease) within 28 days prior to registration",
-      "threshold": "bilirubin <= 2.0 x ULN (5.0 x ULN if Gilbert's)"
+      "threshold": "bilirubin <= 2.0 x ULN"
     },
     {
       "category": "cardiac",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Participants must have adequate cardiac function as determined by echocardiography or MUGA scan with an ejection fraction \\>= 50% within 28 days prior to registration",
-      "threshold": "EF >= 50%"
+      "threshold": "LVEF >= 50%"
     },
     {
       "category": "prior_malignancy",
       "absolute": false,
       "section": "inclusion",
-      "source_text": "Participants with a prior or concurrent malignancy whose natural history (in the opinion of the treating physician) does not have the potential to interfere with the safety or efficacy assessment of the investigational regimen are eligible for this trial. No concurrent therapies for such malignancy are allowed with the exception of hormonal therapy",
+      "source_text": "Participants with a prior or concurrent malignancy whose natural history (in the opinion of the treating physician) does not have the potential to interfere with the safety or efficacy assessment of the investigational regimen are eligible for this trial.",
       "threshold": null
     },
     {

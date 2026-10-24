@@ -9,7 +9,9 @@ from __future__ import annotations
 import os
 import time
 
-from .prompts import EXTRACT_TOOL, SYSTEM_PROMPT
+from .prompts import CATEGORIES, EXTRACT_TOOL, SYSTEM_PROMPT
+
+_VALID_CATEGORIES = set(CATEGORIES)
 
 DEFAULT_MODEL = "claude-haiku-5-5"
 MAX_TOKENS = 4096
@@ -122,8 +124,20 @@ def _parse(resp) -> list[dict]:
                 return []
         if not isinstance(items, list):
             return []
-        # Keep only well-formed dict records.
-        return [dict(it) for it in items if isinstance(it, dict)]
+        # Keep only well-formed dict records with a VALID category. The model
+        # occasionally invents one (e.g. "bilirubin_placeholder") — drop it here.
+        clean = []
+        for it in items:
+            if not isinstance(it, dict):
+                continue
+            if it.get("category") not in _VALID_CATEGORIES:
+                print(
+                    f"  WARNING: dropping invalid category {it.get('category')!r}",
+                    file=sys.stderr,
+                )
+                continue
+            clean.append(dict(it))
+        return clean
     return []
 
 

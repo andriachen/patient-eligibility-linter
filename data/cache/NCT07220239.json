@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT07220239",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "pregnancy",

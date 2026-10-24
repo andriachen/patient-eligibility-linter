@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06084234",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
@@ -24,25 +25,11 @@
       "threshold": null
     },
     {
-      "category": "hepatic",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Child Pugh C cirrhosis",
-      "threshold": "Child-Pugh C"
-    },
-    {
       "category": "prior_malignancy",
       "absolute": false,
       "section": "exclusion",
       "source_text": "Presence of another active cancer besides non-melanomatous skin cancer or indolent cancer under active surveillance (e.g., prostate cancer or renal cell carcinoma) within the 2 years prior to consent",
-      "threshold": "within 2 years"
-    },
-    {
-      "category": "hepatic",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "History of LR-4, LR-5, or LR-M on multi-phase CT or contrast-enhanced MRI within 6 months prior to consent",
-      "threshold": "within 6 months"
+      "threshold": "within 2 years prior to consent"
     }
   ]
 }

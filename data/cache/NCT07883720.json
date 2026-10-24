@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT07883720",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "language",
@@ -11,9 +12,9 @@
     },
     {
       "category": "pregnancy",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
-      "source_text": "Magnetic resonance imaging (MRI) contraindications (e.g., electrical implants, ferromagnetic implants or objects, pregnancy)",
+      "source_text": "magnetic resonance imaging (MRI) contraindications (e.g., electrical implants, ferromagnetic implants or objects, pregnancy)",
       "threshold": null
     }
   ]

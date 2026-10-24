@@ -1,7 +1,15 @@
 {
   "nct_id": "NCT06043674",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age \u226518 years.",
+      "threshold": null
+    },
     {
       "category": "performance_status",
       "absolute": true,
@@ -11,10 +19,24 @@
     },
     {
       "category": "renal",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "Creatinine \\< 2.0 x ULN (upper limit of normal) or estimated CrCl \\> 50 ml/min according to Cockcroft/Gault formula",
       "threshold": "creatinine < 2.0 x ULN or CrCl > 50 ml/min"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Total bilirubin \\< 1.5 X ULN",
+      "threshold": "bilirubin < 1.5 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "AST/ALT \\< 3.0 X ULN, unless documented liver involvement by lymphoma",
+      "threshold": "AST/ALT < 3.0 x ULN"
     },
     {
       "category": "renal",
@@ -25,31 +47,45 @@
     },
     {
       "category": "hepatic",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
-      "source_text": "Total bilirubin \\< 1.5 X ULN",
-      "threshold": "bilirubin < 1.5 x ULN"
+      "source_text": "AST/ALT \\< 3.0 X ULN, or \\< 5.0 X ULN with documented liver involvement by lymphoma",
+      "threshold": "AST/ALT < 3.0 x ULN (or < 5.0 x ULN with liver involvement)"
     },
     {
       "category": "hepatic",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
-      "source_text": "AST/ALT \\< 3.0 X ULN, unless documented liver involvement by lymphoma",
-      "threshold": "AST/ALT < 3.0 x ULN"
+      "source_text": "Total bilirubin \\< 1.5 X ULN or \\< 3.0 x ULN with documented liver involvement by lymphoma and/or Gilbert's Disease",
+      "threshold": "bilirubin < 1.5 x ULN"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "History of other malignancies, except:",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Current or past history of central nervous system (CNS) disease involvement or history of leptomeningeal disease.",
+      "threshold": null
     },
     {
       "category": "cardiac",
       "absolute": true,
       "section": "exclusion",
       "source_text": "Patients with any one of the following currently or in the previous 6 months will be excluded: myocardial infarction, congenital long QT syndrome, torsade de pointes, unstable angina, or coronary/peripheral artery bypass graft.",
-      "threshold": "MI within 6 months"
+      "threshold": "myocardial infarction within 6 months"
     },
     {
       "category": "cardiac",
       "absolute": true,
       "section": "exclusion",
       "source_text": "Patients with New York Heart Association Class III or IV heart failure or with Objective Assessment Class C or D cardiac disease.",
-      "threshold": "NYHA class III or IV"
+      "threshold": "NYHA Class III or IV"
     },
     {
       "category": "cardiac",
@@ -62,28 +98,14 @@
       "category": "hiv",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "For patients in all other cohorts, only those without controlled disease (controlled disease defined as CD4 count \u2265 200/uL, undetectable viral load, and stable anti-retroviral therapy) will be excluded.",
+      "source_text": "History of Human Immunodeficiency Virus (HIV):",
       "threshold": null
     },
     {
-      "category": "hiv",
+      "category": "hepatic",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "For patients receiving glofitamab in combination with pirtobrutinib, patients who have tested positive for HIV are excluded due to risk of opportunistic infections with both HIV and BTK inhibitors.",
-      "threshold": null
-    },
-    {
-      "category": "brain_mets",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Current or past history of central nervous system (CNS) disease involvement or history of leptomeningeal disease.",
-      "threshold": null
-    },
-    {
-      "category": "prior_malignancy",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "History of other malignancies, except:",
+      "source_text": "Clinically significant liver disease, including cirrhosis and active viral or non-viral hepatitis.",
       "threshold": null
     },
     {
@@ -97,7 +119,7 @@
       "category": "smoking",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Patients with hepatitis C seropositivity are eligible only if they have a negative viral load (by PCR testing).",
+      "source_text": "Patients who are currently receiving treatment",
       "threshold": null
     }
   ]

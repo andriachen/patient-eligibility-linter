@@ -1,20 +1,21 @@
 {
   "nct_id": "NCT05428007",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
-    {
-      "category": "brain_mets",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Patients with untreated brain metastases, carcinomatosis meningitis or current ocular/uveal melanoma are excluded.",
-      "threshold": null
-    },
     {
       "category": "prior_malignancy",
       "absolute": false,
       "section": "exclusion",
       "source_text": "Patients with previous non-melanoma malignancies are excluded unless a complete resection or remission was achieved at least 2 years prior to study entry and no additional therapy is required or anticipated to be required during the study period",
       "threshold": "complete resection or remission at least 2 years prior to study entry"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Patients with untreated brain metastases, carcinomatosis meningitis or current ocular/uveal melanoma are excluded.",
+      "threshold": null
     }
   ]
 }

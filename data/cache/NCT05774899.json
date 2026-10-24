@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT05774899",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
@@ -27,8 +28,15 @@
       "category": "hepatic",
       "absolute": true,
       "section": "inclusion",
-      "source_text": "Serum aspartate aminotransferase (AST) and alanine aminotransferase (ALT) \u22643x ULN Total serum bilirubin \u22641.5x ULN (patients with Gilbert's syndrome with a total bilirubin \u22642.0 times ULN and direct bilirubin within normal limits are permitted).",
+      "source_text": "Serum aspartate aminotransferase (AST) and alanine aminotransferase (ALT) \u22643x ULN Total serum bilirubin \u22641.5x ULN",
       "threshold": "AST/ALT \u22643x ULN; bilirubin \u22641.5x ULN"
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Baseline proteinuria with a urinalysis or urine dipstick value of 2+ requires a spot urine protein/creatinine ratio of \\<0.3 (or 24-hour urine collection protein value \\<300 mg/g) in Cohort 2 only",
+      "threshold": "UPCR <0.3 if dipstick 2+"
     },
     {
       "category": "brain_mets",
@@ -39,7 +47,7 @@
     },
     {
       "category": "pregnancy",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "Female subjects of childbearing potential should have a negative serum pregnancy test within 7 days before start of study treatment.",
       "threshold": null
@@ -60,16 +68,9 @@
     },
     {
       "category": "hiv",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
-      "source_text": "such as known human immunodeficiency virus positivity",
-      "threshold": null
-    },
-    {
-      "category": "cardiac",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "ventricular arrhythmia of pathological origin (including, but not limited to, ventricular tachycardia and ventricular fibrillation), or sudden cardiac arrest",
+      "source_text": "known human immunodeficiency virus positivity",
       "threshold": null
     },
     {
@@ -83,8 +84,15 @@
       "category": "cardiac",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Corrected QTcF >450 msec for males and >470 msec for females in screening",
-      "threshold": "QTcF >450 msec male; >470 msec female"
+      "source_text": "Corrected QTcF \\>450 msec for males and \\>470 msec for females in screening",
+      "threshold": "QTcF >450 msec males; >470 msec females"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "ventricular arrhythmia of pathological origin (including, but not limited to, ventricular tachycardia and ventricular fibrillation), or sudden cardiac arrest",
+      "threshold": null
     }
   ]
 }

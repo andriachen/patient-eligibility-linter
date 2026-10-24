@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT07467772",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
@@ -14,7 +15,7 @@
       "absolute": true,
       "section": "inclusion",
       "source_text": "ECOG performance status \u22642 (Karnofsky \u226560%, see Appendix A).",
-      "threshold": "ECOG \u2264 2"
+      "threshold": "ECOG \u22642"
     },
     {
       "category": "renal",
@@ -83,14 +84,14 @@
       "category": "diabetes",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "Participants with uncontrolled intercurrent illness, including but not limited to active infection, uncontrolled diabetes, cardiac disease, hypertension or conditions that in the opinion of the investigator would compromise participant safety or study participation",
+      "source_text": "uncontrolled diabetes",
       "threshold": null
     },
     {
       "category": "cardiac",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "Participants with uncontrolled intercurrent illness, including but not limited to active infection, uncontrolled diabetes, cardiac disease, hypertension or conditions that in the opinion of the investigator would compromise participant safety or study participation",
+      "source_text": "cardiac disease",
       "threshold": null
     }
   ]

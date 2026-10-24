@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT07148180",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -11,10 +12,17 @@
     },
     {
       "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "total bilirubin \u2264 1.5 x institutional upper limit of normal unless due to Gilbert or non-hepatic in origin",
+      "threshold": "total bilirubin \u2264 1.5 x ULN"
+    },
+    {
+      "category": "hepatic",
       "absolute": true,
       "section": "inclusion",
       "source_text": "AST(SGOT) and ALT(SGPT) \u2264 3.0 \u00d7 institutional upper limit of normal",
-      "threshold": "AST/ALT \u2264 3.0 \u00d7 ULN"
+      "threshold": "AST/ALT \u2264 3.0 x ULN"
     },
     {
       "category": "renal",
@@ -38,6 +46,13 @@
       "threshold": null
     },
     {
+      "category": "hiv",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Subjects with known HIV positivity are permitted provided they have undetectable viral load at the time of screening (HIV testing is not required).",
+      "threshold": null
+    },
+    {
       "category": "prior_malignancy",
       "absolute": false,
       "section": "exclusion",
@@ -46,7 +61,7 @@
     },
     {
       "category": "cardiac",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "Subjects with known history or current symptoms of cardiac disease, or history of treatment with cardiotoxic agents, that have New York Heart Association Functional Class III or IV symptoms.",
       "threshold": "NYHA class III or IV"
@@ -57,13 +72,6 @@
       "section": "exclusion",
       "source_text": "Subjects with known active/symptomatic CNS involvement. CNS prophylaxis allowed",
       "threshold": null
-    },
-    {
-      "category": "hiv",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Subjects with known HIV positivity are permitted provided they have undetectable viral load at the time of screening (HIV testing is not required).",
-      "threshold": "undetectable viral load required"
     },
     {
       "category": "pregnancy",

@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT04389632",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -11,9 +12,9 @@
     },
     {
       "category": "prior_malignancy",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
-      "source_text": "History of another malignancy within 3 years before first dose of study drug, or any evidence of residual disease from a previously diagnosed malignancy.",
+      "source_text": "History of another malignancy within 3 years before first dose of study drug, or any evidence of residual disease from a previously diagnosed malignancy. Exceptions are malignancies with a negligible risk of metastasis or death.",
       "threshold": "within 3 years"
     },
     {
@@ -32,7 +33,7 @@
     },
     {
       "category": "pregnancy",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "Investigator site staff directly involved in the conduct of the study and their family members",
       "threshold": null
