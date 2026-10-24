@@ -182,6 +182,23 @@ def test_age_cap_with_child_boilerplate_is_kept():
     assert not is_bare_adult_floor("Patients 21 to 65 years of age")
 
 
+def test_age_regex_ignores_digits_in_drug_codes():
+    from pipeline.extract.logic import is_bare_adult_floor
+
+    # digits inside a code like SM08502 must NOT be read as ages 85/727
+    q = "SM08502 (cirtuvivint): no data in patients < 18 years, children excluded"
+    assert is_bare_adult_floor(q)  # still just child-exclusion boilerplate -> drop
+
+
+def test_age_equal_to_18_not_a_range():
+    from pipeline.extract.logic import is_bare_adult_floor
+
+    # "to 18" must not be mistaken for a range like "18 to 70"
+    assert is_bare_adult_floor("greater than or equal to 18 years")
+    # a genuine range is still kept
+    assert not is_bare_adult_floor("Age 18 to 70 years")
+
+
 def test_keyword_guard_holes_fixed():
     from pipeline.extract.logic import quote_matches_category
 

@@ -238,13 +238,19 @@ def write_results(res: dict, subsets: list[tuple[str, dict]]) -> None:
         "- `-` means no instances (no gold positives and no predictions for that category).",
         "- Gold labels are human-made, independent of the extractor model (`claude-haiku-5-5`).",
         "",
-        "## Known weak spot (not yet fixed)",
+        "## Known weak spots (not yet fixed)",
         "",
         "`prior_malignancy` has the lowest recall and accounts for most of the misses "
         "(the model simply never emits the category on those trials). Fixing it needs a "
         "**prompt change**, deliberately not done here: tuning against the held-out errors "
         "would spend the held-out set. If pursued, label a fresh 10 held-out trials first "
         "and quote the new held-out number, not the current one.",
+        "",
+        "**7 long trials return zero records**, and for 5 the model fails identically every "
+        "time (retry does not help), despite a clear restriction in the text — e.g. "
+        "NCT07166406 'ECOG 0-2', NCT07297979 'Karnofsky >= 70%', NCT04628767 'must not be "
+        "pregnant or breast-feeding'. These are undercounted in the app. A real fix needs a "
+        "larger model or splitting inclusion/exclusion into separate calls.",
         "",
         "## Reproduce",
         "",

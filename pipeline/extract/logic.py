@@ -47,10 +47,15 @@ def validate_records(records: list[dict], eligibility_text: str) -> list[dict]:
 
 # Any integer age mentioned in the quote. Used to decide if an `age` record is
 # just the standard adult floor (>=18, no upper bound) rather than a real cap.
-_AGE_NUM = re.compile(r"(\d{1,3})\s*(?:years?|yrs?|yo\b|y/o\b|years? old)?", re.I)
-# Words that indicate an UPPER bound / real age restriction in the quote.
+# Standalone 1-3 digit number — NOT embedded in a word/code like "SM08502" (which
+# must not read as ages 85/727). Lookarounds reject a leading/trailing word char
+# or dot so drug codes and decimals don't count.
+_AGE_NUM = re.compile(r"(?<![\w.])(\d{1,3})(?![\w.])\s*(?:years?|yrs?|yo\b|y/o\b)?", re.I)
+# Words that indicate an UPPER bound / real age restriction in the quote. Note:
+# "to N" is NOT here — it falsely matched "greater than or equal to 18". A real
+# range still triggers via the "N-N" / "N to N" numeric check in is_bare_adult_floor.
 _AGE_UPPER_HINT = re.compile(
-    r"(<|≤|=<|under|up to|maximum|younger than|no older|between|-\s*\d|to\s+\d)", re.I
+    r"(<|≤|=<|under|up to|maximum|younger than|no older|between|-\s*\d)", re.I
 )
 
 

@@ -160,7 +160,6 @@ NCT03310879,hiv,,true,exclusion,Participants with known HIV-positive status are 
 NCT03310879,performance_status,ECOG 0-1,true,inclusion,ECOG performance status of 0-1 (see APPENDIX A).
 NCT03310879,pregnancy,,true,exclusion,Pregnant women are excluded from this study because abemaciclib is an agent with the potential for teratogenic or abortifacient effects.
 NCT03310879,renal,creatinine <= 1.5 x ULN or CrCl >= 60 mL/min,true,inclusion,Serum Creatinine ≤ 1.5 × institutional ULN -OR-
-NCT03328078,age,,true,inclusion,Males and females greater than or equal to 18 years of age
 NCT03394365,brain_mets,,false,exclusion,Untreated CNS PTLD or CNS PTLD for which the participant is actively receiving CNS-directed chemotherapy (systemic or intrathecal) or radiotherapy at enrollment.
 NCT03394365,hepatic,"ALT, AST, total bilirubin < 5 × ULN (≤ 10 × ULN if due to EBV/PTLD liver involvement)",false,inclusion,"Alanine aminotransferase (ALT), aspartate aminotransferase (AST), and total bilirubin each \< 5 × the upper limit of normal; however, ALT, AST, and total bilirubin each ≤ 10 × upper limit of normal is acceptable if the elevation is considered by the investigator to be due to EBV and/or PTLD involvement of the liver as long as there is no known evidence of significant liver dysfunction."
 NCT03394365,performance_status,ECOG ≤ 3,true,inclusion,Eastern Cooperative Oncology Group performance status ≤ 3 for participants aged ≥ 16 years
@@ -328,6 +327,7 @@ NCT04031677,pregnancy,,true,exclusion,Female patients who are pregnant or breast
 NCT04031677,prior_malignancy,within 5 years,false,exclusion,"Other invasive malignancy within 5 years, with the exception of adequately treated non-melanoma skin cancer, localized cervical cancer, localized and Gleason ≤ 6prostate cancer."
 NCT04033497,pregnancy,,true,exclusion,"Pregnant women are excluded from this study because gadolinium-based agents have not been proven to be safe to administer to a developing fetus. Similarly, breastfeeding women will be excluded from this study."
 NCT04033497,renal,chronic kidney disease stage IV-V or end stage renal disease,true,exclusion,Participants who have chronic kidney disease stage IV-V or end stage renal disease.
+NCT04045470,age,,true,inclusion,Age minimum of age 18.
 NCT04045470,performance_status,ECOG ≤2; Karnofsky ≥60%,true,inclusion,"ECOG performance status ≤2 (Karnofsky ≥60%, see Appendix A)."
 NCT04045470,pregnancy,,false,exclusion,Positive serum pregnancy test at screening visit.
 NCT04049331,age,age <= 54,true,inclusion,Age: 18-54 years
@@ -2296,7 +2296,6 @@ NCT06475235,performance_status,ECOG ≤2,false,inclusion,"ECOG performance statu
 NCT06475235,pregnancy,,true,exclusion,"Is pregnant or breastfeeding or expecting to conceive or father children within the projected duration of the study, starting with the screening visit through 120 days after the last dose of trial treatment"
 NCT06475235,prior_malignancy,within 3 years,false,exclusion,Has a known additional malignancy that is progressing or has required active treatment within the past 3 years.
 NCT06475235,renal,creatinine ≤1.5 x ULN or CrCl ≥40 mL/min,false,inclusion,Creatinine ≤1.5 x ULN OR Measured or calculated creatinine clearance ≥40 mL/min for participant with creatinine levels >1.5 × institutional ULN (Creatinine clearance (CrCl) should be calculated per institutional standard.)
-NCT06484062,age,,true,inclusion,"Age ≥ 18 years. Because no dosing or adverse event data are currently available on the use of SM08502 (cirtuvivint) in combination with ASTX727 in patients < 18 years of age, children are excluded from this study"
 NCT06484062,brain_mets,,false,exclusion,Subject has symptomatic central nervous system (CNS) involvement with AML
 NCT06484062,cardiac,LVEF < 40%,true,exclusion,Left ventricular ejection fraction (LVEF) \< 40% by echocardiogram (ECHO) or multi-gated acquisition (MUGA) scan obtained within 30 days prior to the start of study treatment
 NCT06484062,hepatic,bilirubin ≤ 2 x ULN,false,inclusion,Total bilirubin ≤ 2 x institutional upper limit of normal (ULN) (unless bilirubin rise is due to Gilbert's syndrome or of non-hepatic origin; in that case a cut off of ≤ 4 × institutional ULN will be used)
