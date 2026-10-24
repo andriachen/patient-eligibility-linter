@@ -130,10 +130,10 @@ type FieldProps<T> = {
 };
 
 const optionCard =
-  "flex cursor-pointer items-start gap-3 rounded-md border border-border-strong bg-card px-4 py-3 transition " +
+  "flex cursor-pointer items-start gap-3 rounded-xl border border-border bg-card px-4 py-3 transition " +
   "hover:border-brand/50 has-[:checked]:border-brand has-[:checked]:bg-brand-soft " +
   "has-[:checked]:ring-1 has-[:checked]:ring-brand " +
-  "has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-brand";
+  "has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-brand/40";
 
 function SingleChoice({ q, value, onChange, headingId, helpId }: FieldProps<string | number>) {
   return (

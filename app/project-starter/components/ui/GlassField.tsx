@@ -3,8 +3,8 @@ import type { ComponentPropsWithoutRef, ReactNode } from "react";
 import { controlTransition } from "@/components/styles";
 
 const control =
-  `w-full rounded-control bg-surface shadow-[inset_0_0_0_1px_var(--line-strong)] text-[0.95rem] text-ink placeholder:text-ink-faint ${controlTransition} ` +
-  "focus:outline-none focus-visible:ring-2 focus-visible:ring-accent " +
+  `glass-inset w-full rounded-control text-[0.95rem] text-ink placeholder:text-ink-faint ${controlTransition} ` +
+  "hover:bg-white/70 focus:bg-white/85 focus:outline-none focus-visible:ring-2 focus-visible:ring-cobalt/70 " +
   "disabled:cursor-not-allowed disabled:opacity-60";
 
 type FieldProps = {

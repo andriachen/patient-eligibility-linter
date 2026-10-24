@@ -46,7 +46,8 @@ class ModelErrorBoundary extends Component<
 }
 
 const chip =
-  "inline-flex items-center gap-2 rounded-control bg-surface px-3 py-1.5 text-xs font-medium text-ink-soft ring-1 ring-line";
+  "inline-flex items-center gap-2 rounded-full bg-white/70 px-3.5 py-1.5 text-xs font-medium text-ink-soft " +
+  "shadow-[inset_0_1px_0_rgb(255_255_255),0_6px_18px_-12px_rgb(23_36_71/0.45)] ring-1 ring-ink/[0.06]";
 
 function sameFrame(a: ModelFrame | null, b: ModelFrame) {
   return (
@@ -110,7 +111,7 @@ export function HeroModel({ slotId, className = "" }: Props) {
       {frame ? (
         <div
           aria-hidden
-          className="pointer-events-none absolute rounded-[50%] bg-[radial-gradient(closest-side,rgb(27_26_23/0.06),transparent)]"
+          className="pointer-events-none absolute rounded-[50%] bg-[radial-gradient(closest-side,rgb(255_255_255/0.95),rgb(220_235_255/0.6)_45%,rgb(232_225_250/0))]"
           style={{
             left: frame.x + frame.width * 0.12,
             width: frame.width * 0.76,
@@ -175,7 +176,7 @@ export function HeroModel({ slotId, className = "" }: Props) {
           <button
             type="button"
             onClick={() => setResetSignal((n) => n + 1)}
-            className={`${chip} ${focusRing} ${controlTransition} pointer-events-auto absolute top-0 hover:bg-sunken hover:text-ink focus-visible:opacity-100 ${
+            className={`${chip} ${focusRing} ${controlTransition} pointer-events-auto absolute top-0 hover:bg-white hover:text-ink focus-visible:opacity-100 ${
               interacted ? "opacity-100" : "opacity-0"
             }`}
           >

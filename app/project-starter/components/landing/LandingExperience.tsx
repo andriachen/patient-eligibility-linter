@@ -33,7 +33,7 @@ function Hero() {
           </p>
           <h1
             id="hero-title"
-            className="enter-up mt-3 font-serif text-display font-semibold text-ink lg:text-[clamp(3rem,5vw,4.75rem)]"
+            className="enter-up mt-3 text-display font-semibold text-ink lg:text-[clamp(3.5rem,6.3vw,6.5rem)]"
             style={delay(260)}
           >
             <span className="block">Fair eligibility.</span>
@@ -112,7 +112,7 @@ function Pathways() {
       <div className="grid gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-20">
         <Reveal>
           <p className={eyebrow}>How Threshold works</p>
-          <h2 id="pathways-title" className="mt-4 font-serif text-title font-semibold text-ink">
+          <h2 id="pathways-title" className="mt-4 text-title font-semibold text-ink">
             Public trial data, read with care.
           </h2>
           <p className="mt-5 max-w-md text-base leading-relaxed text-ink-soft">

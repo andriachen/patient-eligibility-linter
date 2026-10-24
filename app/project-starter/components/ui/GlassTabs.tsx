@@ -62,7 +62,7 @@ export function GlassTabs<T extends string>({
     <div
       role="tablist"
       aria-label={label}
-      className={`flex w-full gap-1 rounded-control bg-sunken p-1 ring-1 ring-line sm:inline-flex sm:w-auto ${className}`}
+      className={`glass-inset flex w-full gap-1 rounded-[1.25rem] p-1 sm:inline-flex sm:w-auto sm:rounded-full ${className}`}
     >
       {tabs.map((tab, index) => {
         const selected = tab.id === value;
@@ -81,10 +81,10 @@ export function GlassTabs<T extends string>({
             onClick={() => onChange(tab.id)}
             onKeyDown={(event) => onKeyDown(event, index)}
             // On phones long labels wrap to two lines (a pill would clip them); from sm up they stay on one.
-            className={`min-h-9 flex-1 rounded-[3px] px-2.5 py-1.5 text-[0.8125rem] font-semibold leading-tight sm:flex-none sm:whitespace-nowrap sm:px-4 sm:py-0 sm:text-sm ${focusRing} ${controlTransition} ${
+            className={`min-h-9 flex-1 rounded-2xl px-2.5 py-1.5 text-[0.8125rem] font-semibold leading-tight sm:flex-none sm:whitespace-nowrap sm:rounded-full sm:px-4 sm:py-0 sm:text-sm ${focusRing} ${controlTransition} ${
               selected
-                ? "bg-surface text-ink ring-1 ring-line-strong"
-                : "text-ink-soft hover:bg-surface/70 hover:text-ink"
+                ? "bg-white text-ink shadow-[inset_0_1px_0_rgb(255_255_255),0_4px_12px_-6px_rgb(23_36_71/0.3)]"
+                : "text-ink-soft hover:bg-white/60 hover:text-ink"
             }`}
           >
             {tab.label}

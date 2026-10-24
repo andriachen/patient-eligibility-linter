@@ -3,10 +3,10 @@ import type { ReactNode } from "react";
 export type BadgeTone = "neutral" | "cobalt" | "rose" | "demo";
 
 const TONE: Record<BadgeTone, string> = {
-  neutral: "bg-surface text-ink-soft ring-line",
-  cobalt: "bg-accent-tint text-accent-strong ring-accent/20",
-  rose: "bg-alert-tint text-alert ring-alert/25",
-  demo: "bg-transparent text-ink-soft ring-line-strong",
+  neutral: "bg-white/70 text-ink-soft ring-ink/10",
+  cobalt: "bg-ice/80 text-cobalt-deep ring-cobalt/20",
+  rose: "bg-blush/90 text-rose-deep ring-rose/25",
+  demo: "bg-lavender/80 text-[#4b3c8f] ring-[#4b3c8f]/20",
 };
 
 export function GlassBadge({
@@ -20,7 +20,7 @@ export function GlassBadge({
 }) {
   return (
     <span
-      className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-sm px-2 py-0.5 text-xs font-semibold ring-1 ${TONE[tone]} ${className}`}
+      className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-2.5 py-1 text-xs font-semibold ring-1 shadow-[inset_0_1px_0_rgb(255_255_255/0.8)] ${TONE[tone]} ${className}`}
     >
       {children}
     </span>
