@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT07102797",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "diabetes",
@@ -10,11 +11,74 @@
       "threshold": null
     },
     {
-      "category": "pregnancy",
+      "category": "diabetes",
       "absolute": true,
       "section": "exclusion",
+      "source_text": "Medical conditions that would impact PA participation: Type 1 diabetes; Cardiovascular, neurologic, and/or musculoskeletal conditions limiting ability to participate in physical activity.",
+      "threshold": null
+    },
+    {
+      "category": "language",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Caregiver of child (ie mother, father, or other legal guardian), English-speaking, Access to a device where they are able to receive study e-mails or texts",
+      "threshold": null
+    },
+    {
+      "category": "language",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Child: English-speaking, Female, ages 8-12 years old at time of enrollment",
+      "threshold": null
+    },
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ages 8-12 years old at time of enrollment",
+      "threshold": "age 8-12 years"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "inclusion",
       "source_text": "Pre-menarchal at time of baseline visit",
       "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Significant cardiac, hepatic, oncologic, inflammatory, or psychiatric disease.",
+      "threshold": null
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Significant cardiac, hepatic, oncologic, inflammatory, or psychiatric disease.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Severe congenital heart disease",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Significant cardiac, hepatic, oncologic, inflammatory, or psychiatric disease.",
+      "threshold": null
+    },
+    {
+      "category": "bmi",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "BMI \\>/= 85th percentile",
+      "threshold": "BMI >= 85th percentile"
     }
   ]
 }

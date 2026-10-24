@@ -1,14 +1,8 @@
 {
   "nct_id": "NCT07225621",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
-    {
-      "category": "performance_status",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "WHO performance status of \u2264 2 at screening",
-      "threshold": "WHO PS \u2264 2"
-    },
     {
       "category": "age",
       "absolute": true,
@@ -17,17 +11,38 @@
       "threshold": "age <= 80"
     },
     {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "WHO performance status of \u2264 2 at screening",
+      "threshold": "WHO PS <= 2"
+    },
+    {
       "category": "renal",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "Creatinine clearance (CrCl) as estimated by Cockcroft-Gault equation of \u2265 50 ml/min",
       "threshold": "CrCl >= 50 ml/min"
     },
     {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Aspartate aminotransferase (AST) and alanine aminotransferase (ALT) \u2264 5 x upper limit of normal (ULN)",
+      "threshold": "AST/ALT <= 5 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Total bilirubin \u2264 3 x ULN (unless gilbert's syndrome, then patients may be eligible if total serum bilirubin is \u2264 5.0 x ULN or direct bilirubin is \u2264 3 x ULN)",
+      "threshold": "bilirubin <= 3 x ULN"
+    },
+    {
       "category": "pregnancy",
       "absolute": true,
-      "section": "exclusion",
-      "source_text": "Women who are pregnant or breastfeeding",
+      "section": "inclusion",
+      "source_text": "Non-pregnant, non-lactating females who are postmenopausal, surgically sterile",
       "threshold": null
     },
     {
@@ -39,7 +54,7 @@
     },
     {
       "category": "prior_malignancy",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Has any history of glioma, a concurrent malignancy, or malignancy within 3 years of randomization, unless definitive therapy is completed",
       "threshold": "within 3 years"
@@ -52,31 +67,17 @@
       "threshold": null
     },
     {
-      "category": "hepatic",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Aspartate aminotransferase (AST) and alanine aminotransferase (ALT) \u2264 5 x upper limit of normal (ULN)",
-      "threshold": "AST/ALT <= 5 x ULN"
-    },
-    {
-      "category": "hepatic",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Total bilirubin \u2264 3 x ULN (unless gilbert's syndrome, then patients may be eligible if total serum bilirubin is \u2264 5.0 x ULN or direct bilirubin is \u2264 3 x ULN)",
-      "threshold": "total bilirubin <= 3 x ULN"
-    },
-    {
       "category": "pregnancy",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Women of childbearing potential must have a negative serum human chorionic gonadotropin (hCG) pregnancy test within 7 days prior to first 5-ALA administration",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Women who are pregnant or breastfeeding",
       "threshold": null
     },
     {
-      "category": "cardiac",
+      "category": "hepatic",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "Any other concurrent severe or uncontrolled concomitant medical condition that could compromise participation in the study (e.g., clinically significant pulmonary disease, cardiac disease, clinically significant psychiatric or neurological disorder, active or uncontrolled infection).",
+      "source_text": "Known active hepatitis B or C (Note: testing is not required).",
       "threshold": null
     }
   ]

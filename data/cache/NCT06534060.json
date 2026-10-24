@@ -1,14 +1,8 @@
 {
   "nct_id": "NCT06534060",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
-    {
-      "category": "age",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Male or female \u2265 18 years of age.",
-      "threshold": null
-    },
     {
       "category": "performance_status",
       "absolute": true,
@@ -32,10 +26,10 @@
     },
     {
       "category": "hepatic",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
       "source_text": "Aspartate aminotransferase / alanine aminotransferase \\< 3 \u00d7 ULN (5 x ULN if liver involvement).",
-      "threshold": "AST/ALT < 3 \u00d7 ULN (5 \u00d7 ULN if liver involvement)"
+      "threshold": "AST/ALT < 3 \u00d7 ULN"
     },
     {
       "category": "hiv",
@@ -66,17 +60,24 @@
       "threshold": null
     },
     {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "For females of childbearing potential (defined as \\< 24 months of amenorrhea or not surgically sterile \\[absence of ovaries and/or uterus\\]), a negative serum pregnancy test must be documented at screening, and prior to lymphodepletion (conditioning).",
+      "threshold": null
+    },
+    {
       "category": "cardiac",
       "absolute": true,
       "section": "exclusion",
       "source_text": "History of cardio- or cerebrovascular disease including myocardial infarction, unstable angina, or congestive heart failure (NYHA class III-IV) within 6 months or cerebrovascular accident (CVA; stroke) within 12 months prior to informed consent.",
-      "threshold": "within 6 months (MI/CHF); within 12 months (CVA)"
+      "threshold": "MI/CHF NYHA III-IV within 6 months"
     },
     {
-      "category": "pregnancy",
+      "category": "diabetes",
       "absolute": true,
-      "section": "inclusion",
-      "source_text": "For females of childbearing potential (defined as \\< 24 months of amenorrhea or not surgically sterile \\[absence of ovaries and/or uterus\\]), a negative serum pregnancy test must be documented at screening, and prior to lymphodepletion (conditioning).",
+      "section": "exclusion",
+      "source_text": "Received bendamustine prior to enrollment (unless received an allo-HSCT in the interim).",
       "threshold": null
     }
   ]

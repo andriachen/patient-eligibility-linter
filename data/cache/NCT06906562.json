@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06906562",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "brain_mets",
@@ -11,7 +12,7 @@
     },
     {
       "category": "age",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "Patients \u2265 18 years of age of either gender",
       "threshold": null
@@ -25,10 +26,24 @@
     },
     {
       "category": "prior_malignancy",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "History of another primary malignancy except adequately treated in situ carcinoma of the cervix or non-melanoma carcinoma of the skin or any other curatively treated malignancy that is not expected to require treatment for recurrence during the course of the study or affect survival",
       "threshold": null
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Total bilirubin \u2265 1.5x upper limit of normal (ULN) unless associated with patient's primary cancer and/or metastases and with principal investigator's approval",
+      "threshold": "total bilirubin \u2265 1.5x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Aspartate aminotransferase (AST) and alanine aminotransferase (ALT) \u2265 3x ULN unless associated with patient's primary cancer and/or metastases and with principal investigator's approval",
+      "threshold": "AST/ALT \u2265 3x ULN"
     },
     {
       "category": "renal",
@@ -36,20 +51,6 @@
       "section": "exclusion",
       "source_text": "Calculated or measured creatinine clearance of \\< 40 mL/min",
       "threshold": "CrCl < 40 mL/min"
-    },
-    {
-      "category": "hepatic",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Total bilirubin \u2265 1.5x upper limit of normal (ULN) unless associated with patient's primary cancer and/or metastases and with principal investigator's approval",
-      "threshold": "bilirubin >= 1.5x ULN"
-    },
-    {
-      "category": "hepatic",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Aspartate aminotransferase (AST) and alanine aminotransferase (ALT) \u2265 3x ULN unless associated with patient's primary cancer and/or metastases and with principal investigator's approval",
-      "threshold": "AST/ALT >= 3x ULN"
     },
     {
       "category": "cardiac",

@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT04104776",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -10,10 +11,10 @@
       "threshold": "ECOG 0-1"
     },
     {
-      "category": "brain_mets",
+      "category": "pregnancy",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Active or untreated symptomatic CNS metastases (with limited exceptions)",
+      "source_text": "Pregnancy, breastfeeding, or inability to comply with protocol requirements",
       "threshold": null
     },
     {
@@ -21,7 +22,14 @@
       "absolute": false,
       "section": "exclusion",
       "source_text": "Clinically significant cardiovascular disease, including uncontrolled arrhythmias or prolonged QTc",
-      "threshold": "prolonged QTc"
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Active or untreated symptomatic CNS metastases (with limited exceptions)",
+      "threshold": null
     },
     {
       "category": "hiv",
@@ -38,10 +46,10 @@
       "threshold": null
     },
     {
-      "category": "pregnancy",
+      "category": "smoking",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Pregnancy, breastfeeding, or inability to comply with protocol requirements",
+      "source_text": "Use of strong CYP3A4/5 inhibitors or inducers",
       "threshold": null
     }
   ]

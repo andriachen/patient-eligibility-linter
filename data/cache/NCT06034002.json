@@ -1,17 +1,18 @@
 {
   "nct_id": "NCT06034002",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "prior_malignancy",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Presence of any hematological malignancy other than ET, PMF, or post-ET MF.",
       "threshold": null
     },
     {
       "category": "prior_malignancy",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Active invasive malignancy over the previous 2 years.",
       "threshold": "within 2 years"
@@ -27,7 +28,7 @@
       "category": "hiv",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "known history of HIV.",
+      "source_text": "Active or chronic HBV or active HCV or known history of HIV.",
       "threshold": null
     }
   ]

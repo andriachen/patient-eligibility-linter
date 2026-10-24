@@ -1,14 +1,8 @@
 {
   "nct_id": "NCT06810544",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
-    {
-      "category": "age",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Is \u226518 years of age at the time of signature of the main study ICF",
-      "threshold": null
-    },
     {
       "category": "performance_status",
       "absolute": true,
@@ -28,13 +22,6 @@
       "absolute": true,
       "section": "exclusion",
       "source_text": "A female patient is who is pregnant or breastfeeding",
-      "threshold": null
-    },
-    {
-      "category": "cardiac",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Clinically relevant cardiovascular disease",
       "threshold": null
     }
   ]

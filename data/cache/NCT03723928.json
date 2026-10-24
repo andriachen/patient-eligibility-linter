@@ -1,40 +1,13 @@
 {
   "nct_id": "NCT03723928",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "cardiac",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Patients with known cirrhosis, untreated B12 deficiency, thalassemia, or sickle cell anemia are not eligible as these could cause falsely elevated STM levels",
-      "threshold": null
-    },
-    {
-      "category": "brain_mets",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Patients with known brain leptomeningeal metastases are not eligible as they may require regular radiographic monitoring to assess treatment response",
-      "threshold": null
-    },
-    {
-      "category": "pregnancy",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Patients must not be pregnant due to the potential harm to the fetus from radiation exposure from radiographic imaging",
-      "threshold": null
-    },
-    {
-      "category": "prior_malignancy",
       "absolute": false,
       "section": "inclusion",
-      "source_text": "Except for breast cancer (and previous history of breast cancer), no other prior malignancy is allowed with the following exceptions:",
-      "threshold": null
-    },
-    {
-      "category": "language",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Patients who are able to complete questionnaires in English or Spanish must participate in patient-reported outcome (PRO) assessments",
+      "source_text": "",
       "threshold": null
     }
   ]

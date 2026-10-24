@@ -1,17 +1,18 @@
 {
   "nct_id": "NCT06140524",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status \u22641",
       "threshold": "ECOG \u22641"
     },
     {
       "category": "renal",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "Estimated glomerular filtration rate (GFR) \u226530 mL/min/1.73 m\\^2 by the Modification of Diet in Renal Disease (MDRD) equation",
       "threshold": "GFR \u226530 mL/min/1.73 m^2"
@@ -21,13 +22,13 @@
       "absolute": false,
       "section": "exclusion",
       "source_text": "Clinically significant cardiac or vascular disease within 3 months of study enrollment, as described in the protocol",
-      "threshold": "within 3 months of study enrollment"
+      "threshold": null
     },
     {
       "category": "hiv",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "Uncontrolled Human Immunodeficiency Virus (HIV), Hepatitis B Virus (HBV), or Hepatitis C Virus (HCV) infection; or other uncontrolled infection or unexplained signs of infection, as described in the protocol",
+      "source_text": "Uncontrolled Human Immunodeficiency Virus (HIV), Hepatitis B Virus (HBV), or Hepatitis C Virus (HCV) infection",
       "threshold": null
     }
   ]

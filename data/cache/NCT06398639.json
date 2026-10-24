@@ -1,20 +1,21 @@
 {
   "nct_id": "NCT06398639",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
-    {
-      "category": "prior_malignancy",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "No history of prostate cancer.",
-      "threshold": null
-    },
     {
       "category": "age",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Participants must be between 40-69 years of age.",
       "threshold": "age 40-69"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "No history of prostate cancer.",
+      "threshold": null
     },
     {
       "category": "cardiac",

@@ -1,13 +1,14 @@
 {
   "nct_id": "NCT06172296",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
       "absolute": true,
       "section": "inclusion",
       "source_text": "\u2264 30 years at the time of initial diagnosis with high-risk disease",
-      "threshold": "age <= 30 years"
+      "threshold": "age <= 30 years at diagnosis"
     },
     {
       "category": "hiv",
@@ -18,7 +19,7 @@
     },
     {
       "category": "renal",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "or a GFR \u2265 70 mL/min/1.73 m\\^2. GFR must be performed using direct measurement with a nuclear blood sampling method or direct small molecule clearance method (iothalamate or other molecule per institutional standard)",
       "threshold": "GFR >= 70 mL/min/1.73 m^2"
@@ -49,20 +50,27 @@
       "absolute": true,
       "section": "inclusion",
       "source_text": "Ejection fraction of \u2265 50% by echocardiogram or radionuclide angiogram",
-      "threshold": "LVEF >= 50%"
+      "threshold": "EF >= 50%"
     },
     {
       "category": "cardiac",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Shortening fraction of \u2265 27% by echocardiogram, or",
-      "threshold": "shortening fraction >= 27%"
+      "threshold": "SF >= 27%"
+    },
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Patients \u2265 547 days of age with INRG Stage L2, MYCN non-amplified NBL, regardless of additional biologic features",
+      "threshold": "age < 547 days for INRG L2 MYCN non-amplified"
     },
     {
       "category": "pregnancy",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
-      "source_text": "Female patients who are pregnant since fetal toxicities and teratogenic effects have been noted for several of the study drugs. A pregnancy test is required prior to enrollment for female patients of childbearing potential",
+      "source_text": "Female patients who are pregnant since fetal toxicities and teratogenic effects have been noted for several of the study drugs.",
       "threshold": null
     },
     {

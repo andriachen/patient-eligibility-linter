@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06993844",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -14,7 +15,7 @@
       "absolute": true,
       "section": "exclusion",
       "source_text": "Has history (within \u22642 years before screening) of a solid tumor or hematological malignancy that is histologically distinct from the cancers being studied.",
-      "threshold": "within 2 years"
+      "threshold": "within \u22642 years"
     },
     {
       "category": "brain_mets",

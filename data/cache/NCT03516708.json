@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT03516708",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -10,24 +11,10 @@
       "threshold": "ECOG 0-2"
     },
     {
-      "category": "age",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "At least 18 years of age.",
-      "threshold": null
-    },
-    {
-      "category": "cardiac",
-      "absolute": false,
+      "category": "brain_mets",
+      "absolute": true,
       "section": "exclusion",
-      "source_text": "Uncontrolled intercurrent illness including, but not limited to active tuberculosis infection, pneumonitis requiring treatment, symptomatic congestive heart failure, unstable angina pectoris, or cardiac arrhythmia.",
-      "threshold": null
-    },
-    {
-      "category": "cardiac",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "An abnormal screening ECG that, in the investigator's opinion, is clinically meaningful.",
+      "source_text": "Presence of metastatic disease or recurrent rectal tumor.",
       "threshold": null
     },
     {
@@ -38,24 +25,10 @@
       "threshold": null
     },
     {
-      "category": "hiv",
+      "category": "smoking",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Known active hepatitis B (e.g. HBsAg reactive or HBV DNA detected) or hepatitis C (e.g. HCV RNA \\[qualitative\\] is detected) infection.",
-      "threshold": null
-    },
-    {
-      "category": "prior_malignancy",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Known or suspected presence of another malignancy that could be mistaken for the malignancy under study during disease assessments.",
-      "threshold": null
-    },
-    {
-      "category": "brain_mets",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Presence of metastatic disease or recurrent rectal tumor.",
+      "source_text": "Any history of serotonin syndrome (SS) after receiving serotonergic drugs.",
       "threshold": null
     }
   ]

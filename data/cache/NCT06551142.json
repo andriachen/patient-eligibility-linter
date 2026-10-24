@@ -1,19 +1,20 @@
 {
   "nct_id": "NCT06551142",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
-      "category": "brain_mets",
+      "category": "performance_status",
       "absolute": true,
-      "section": "exclusion",
-      "source_text": "Primary brain tumor or evidence of brain metastasis (unless meeting the following criteria at the same time: asymptomatic; medically stable for at least 4 weeks prior to initial dosing; no steroid treatment required for at least 4 weeks prior to initial dosing; and no midline shift due to herniation)",
-      "threshold": null
+      "section": "inclusion",
+      "source_text": "Has an ECOG performance status of 0 or 1, with no deterioration in the 2 weeks before first dose.",
+      "threshold": "ECOG 0 or 1"
     },
     {
       "category": "brain_mets",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
-      "source_text": "or evidence of meningeal/brainstem involvement",
+      "source_text": "Primary brain tumor or evidence of brain metastasis (unless meeting the following criteria at the same time: asymptomatic; medically stable for at least 4 weeks prior to initial dosing; no steroid treatment required for at least 4 weeks prior to initial dosing; and no midline shift due to herniation)",
       "threshold": null
     },
     {
@@ -27,21 +28,21 @@
       "category": "cardiac",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Evidence of current clinically significant arrhythmias or ECG abnormalities (e.g., complete left bundle branch block, third-degree atrioventricular [AV] block, second-degree AV block, PR interval >250 msec).",
-      "threshold": "PR interval >250 msec"
-    },
-    {
-      "category": "cardiac",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Left ventricular ejection fraction (LVEF) <50%.",
-      "threshold": "LVEF < 50%"
+      "source_text": "Left ventricular ejection fraction (LVEF) \\<50%.",
+      "threshold": "LVEF <50%"
     },
     {
       "category": "cardiac",
       "absolute": false,
       "section": "exclusion",
       "source_text": "Has severe, uncontrolled or active CV disorders, serious or poorly controlled hypertension, clinically significant bleeding symptoms or serious arteriovenous thromboembolic events",
+      "threshold": null
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participants with evidence of current ILD/non-infectious pneumonitis OR a prior history of ILD/non-infectious pneumonitis requiring high-dose glucocorticoids OR suspected ILD/non-infectious pneumonitis that cannot be ruled out by imaging.",
       "threshold": null
     }
   ]

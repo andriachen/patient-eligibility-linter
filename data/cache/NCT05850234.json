@@ -1,14 +1,8 @@
 {
   "nct_id": "NCT05850234",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
-    {
-      "category": "age",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "\u226518 years of age at the time of consent.",
-      "threshold": null
-    },
     {
       "category": "performance_status",
       "absolute": true,
@@ -20,8 +14,15 @@
       "category": "prior_malignancy",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "Participant has a history of a prior non-hematologic malignancy, unless the participant has been disease-free with no evidence of recurrence for \u2265 2 years. Some exceptions may apply.",
+      "source_text": "Participant has a history of a prior non-hematologic malignancy, unless the participant has been disease-free with no evidence of recurrence for \u2265 2 years.",
       "threshold": "disease-free < 2 years"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participant has significant cardiac, neurological, or psychiatric conditions.",
+      "threshold": null
     },
     {
       "category": "brain_mets",

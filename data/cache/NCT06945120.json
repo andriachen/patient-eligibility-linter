@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06945120",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "language",
@@ -11,7 +12,7 @@
     },
     {
       "category": "smoking",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "Are current smokers (i.e., have smoked at least 100 traditional cigarettes ever and have smoked at least one traditional cigarette within the prior 30 days)",
       "threshold": null
@@ -21,7 +22,7 @@
       "absolute": true,
       "section": "exclusion",
       "source_text": "Adults younger than 50 or older than 80 years",
-      "threshold": "age >= 50 and <= 80"
+      "threshold": "age 50-80"
     },
     {
       "category": "pregnancy",

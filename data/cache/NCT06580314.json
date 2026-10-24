@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06580314",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "pregnancy",
@@ -10,18 +11,11 @@
       "threshold": null
     },
     {
-      "category": "age",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Age \u2265 18",
-      "threshold": null
-    },
-    {
       "category": "performance_status",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status of \u2264 2",
-      "threshold": "ECOG \u2264 2"
+      "threshold": "ECOG <= 2"
     },
     {
       "category": "renal",
@@ -35,14 +29,14 @@
       "absolute": true,
       "section": "inclusion",
       "source_text": "Total bilirubin \u2264 1.5 x institutional upper limit of normal (ULN) (patients with known Gilbert's disease who have bilirubin level \u2264 3 x institutional ULN may be enrolled)",
-      "threshold": "bilirubin \u2264 1.5 x ULN"
+      "threshold": "bilirubin <= 1.5 x ULN"
     },
     {
       "category": "hepatic",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Aspartate aminotransferase (AST) and alanine aminotransferase (ALT) \u2264 3 x institutional ULN",
-      "threshold": "AST/ALT \u2264 3 x ULN"
+      "threshold": "AST/ALT <= 3 x ULN"
     },
     {
       "category": "cardiac",
@@ -56,13 +50,6 @@
       "absolute": false,
       "section": "inclusion",
       "source_text": "Patients with treated brain metastases are eligible if follow up brain imaging after central nervous system (CNS) directed therapy shows no evidence of progression and patients are neurologically stable off steroid therapy",
-      "threshold": null
-    },
-    {
-      "category": "hiv",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "No history of myelodysplastic syndrome and/or acute myeloid leukemia",
       "threshold": null
     }
   ]

@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT07029399",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -11,14 +12,14 @@
     },
     {
       "category": "prior_malignancy",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
-      "source_text": "History of another malignancy except for the following: adequately treated local basal cell or squamous carcinoma of the skin, in situ cervical cancer, adequately treated papillary noninvasive bladder cancer, other adequately treated Stage I or Stage II cancers currently in complete remission",
+      "source_text": "History of another malignancy except for the following",
       "threshold": null
     },
     {
       "category": "cardiac",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Clinically significant cardiovascular event, including myocardial infarction, arterial thromboembolism, or cerebrovascular thromboembolism, within 6 months",
       "threshold": "within 6 months"
@@ -32,7 +33,7 @@
     },
     {
       "category": "hepatic",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Significant liver disease (Child Pugh class B or C)",
       "threshold": "Child Pugh class B or C"

@@ -1,12 +1,13 @@
 {
   "nct_id": "NCT06563596",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
       "absolute": true,
       "section": "inclusion",
-      "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status of 0-2. (Appendix A)",
+      "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status of 0-2.",
       "threshold": "ECOG 0-2"
     },
     {
@@ -21,20 +22,20 @@
       "absolute": true,
       "section": "inclusion",
       "source_text": "Total bilirubin \\< 1.5 X ULN, unless Gilbert syndrome, in which case direct bilirubin must be \\< 1.5 x ULN",
-      "threshold": "bilirubin < 1.5 x ULN"
+      "threshold": "Total bilirubin < 1.5 x ULN"
     },
     {
       "category": "hepatic",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
       "source_text": "AST/ALT \\< 2.5 X ULN, unless documented liver involvement by lymphoma, in which case AST/ALT must be \\<5 x ULN",
       "threshold": "AST/ALT < 2.5 x ULN"
     },
     {
-      "category": "hiv",
+      "category": "pregnancy",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Presence of HCV antibody.",
+      "source_text": "Patients who are pregnant, breast-feeding, or intending to become pregnant during the study.",
       "threshold": null
     },
     {
@@ -45,27 +46,6 @@
       "threshold": "disease free for at least 2 years"
     },
     {
-      "category": "cardiac",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Patients with any one of the following currently on or in the previous 6 months will be excluded: myocardial infarction, congenital long QT syndrome, torsade de pointes, unstable angina, coronary/peripheral artery bypass graft, cardiac arrhythmia (CTCAE grade 3 or higher), or cerebrovascular accident.",
-      "threshold": "within 6 months"
-    },
-    {
-      "category": "cardiac",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Patients with 1) New York Heart Association Class III or IV heart failure or known ejection fraction of \\<45%, 2) MI within 6 months prior to screening, 3) unstable angina within 3 months before screening, or 4) history of clinically significant arrhythmias within 6 months of screening (eg sustained Vtach, Vfib, torsades de pointes).",
-      "threshold": "NYHA III/IV; LVEF < 45%; MI within 6 months"
-    },
-    {
-      "category": "pregnancy",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Patients who are pregnant, breast-feeding, or intending to become pregnant during the study.",
-      "threshold": null
-    },
-    {
       "category": "brain_mets",
       "absolute": true,
       "section": "exclusion",
@@ -73,11 +53,32 @@
       "threshold": null
     },
     {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Presence of hepatitis B surface antigen (HBsAg) or hepatitis B core antibody (HBcAb).",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Patients with 1) New York Heart Association Class III or IV heart failure or known ejection fraction of \\<45%, 2) MI within 6 months prior to screening, 3) unstable angina within 3 months before screening, or 4) history of clinically significant arrhythmias within 6 months of screening (eg sustained Vtach, Vfib, torsades de pointes).",
+      "threshold": "NYHA III/IV; EF < 45%; MI within 6 months"
+    },
+    {
       "category": "cardiac",
       "absolute": true,
       "section": "exclusion",
       "source_text": "Screening 12-lead ECG showing a baseline QTcF (Fridericia's correction) \\> 480 msec.",
       "threshold": "QTcF > 480 msec"
+    },
+    {
+      "category": "smoking",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Inability to comply with protocol mandated restrictions.",
+      "threshold": null
     }
   ]
 }

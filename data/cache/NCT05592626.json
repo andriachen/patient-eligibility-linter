@@ -1,13 +1,14 @@
 {
   "nct_id": "NCT05592626",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "brain_mets",
       "absolute": false,
       "section": "inclusion",
       "source_text": "Symptomatic central nervous system (CNS) metastases must have been treated, be asymptomatic for \u2265 14 days, and meet the following at the time of enrollment:",
-      "threshold": "asymptomatic for \u2265 14 days"
+      "threshold": null
     },
     {
       "category": "brain_mets",
@@ -42,7 +43,14 @@
       "absolute": false,
       "section": "exclusion",
       "source_text": "Hepatic metastases unless adequately treated, either locally (e.g., by surgery, radiofrequency ablation, or chemoembolization) or systemically or both, and stable for 3 months.",
-      "threshold": "stable for 3 months"
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Participants should not have received more than three regimens of prior therapies for their advanced or metastatic diseases.",
+      "threshold": null
     }
   ]
 }

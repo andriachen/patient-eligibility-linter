@@ -1,41 +1,35 @@
 {
   "nct_id": "NCT07355335",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
-    {
-      "category": "age",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Age \u226516 years during dose escalation portion of study, patients must weigh \u226540 kg.",
-      "threshold": "age >= 16 (dose escalation)"
-    },
     {
       "category": "performance_status",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status must be 0, 1, or 2; Karnofsky \u226550 for patients \u226516 years of age; and Lansky \u226550 for patients \u226512 to 16 years of age.",
-      "threshold": "ECOG 0-2; Karnofsky >= 50"
-    },
-    {
-      "category": "cardiac",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Cardiac LVEF of \u226540%, as measured by echocardiogram or MUGA scan",
-      "threshold": "LVEF >= 40%"
+      "threshold": "ECOG 0, 1, or 2"
     },
     {
       "category": "renal",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Glomerular filtration rate (GFR)\u226530 mL/min/1.73 m2",
-      "threshold": "GFR >= 30 mL/min/1.73 m2"
+      "threshold": "GFR \u226530 mL/min/1.73 m2"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Cardiac LVEF of \u226540%, as measured by echocardiogram or MUGA scan",
+      "threshold": "LVEF \u226540%"
     },
     {
       "category": "hepatic",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "AST(SGOT)/ALT(SGPT) \u22645 \u00d7 institutional ULN and total bilirubin \u2264 2x institutional ULN unless related to leukemic involvement or known Gilbert's syndrome (for bilirubin).",
-      "threshold": "AST/ALT <= 5x ULN; total bilirubin <= 2x ULN"
+      "threshold": "AST/ALT \u22645 \u00d7 ULN; total bilirubin \u22642 \u00d7 ULN"
     },
     {
       "category": "prior_malignancy",
@@ -48,7 +42,7 @@
       "category": "brain_mets",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "Active central nervous system (CNS) involvement by AML (i.e., CNS-2 or CNS-3 disease).",
+      "source_text": "Active central nervous system (CNS) involvement by AML (i.e., CNS-2 or CNS-3 disease). Previously treated CNS disease or those receiving prophylactic intrathecal chemotherapy per institutional standard is allowed.",
       "threshold": null
     },
     {
@@ -59,18 +53,25 @@
       "threshold": null
     },
     {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Patients of childbearing potential are eligible for the study but must comply with the pregnancy prevention plan for study drugs.",
+      "threshold": null
+    },
+    {
       "category": "cardiac",
       "absolute": true,
       "section": "exclusion",
       "source_text": "symptomatic congestive heart failure (NYHA class 3 or higher)",
-      "threshold": "NYHA class >= 3"
+      "threshold": "NYHA class \u22653"
     },
     {
       "category": "cardiac",
       "absolute": true,
       "section": "exclusion",
       "source_text": "Mean corrected QT interval corrected for heart rate by Frederica's formula (QTcF)>480ms.",
-      "threshold": "QTcF > 480 ms"
+      "threshold": "QTcF >480 ms"
     },
     {
       "category": "renal",
@@ -80,11 +81,18 @@
       "threshold": null
     },
     {
-      "category": "pregnancy",
+      "category": "smoking",
       "absolute": false,
-      "section": "inclusion",
-      "source_text": "Patients of childbearing potential are eligible for the study but must comply with the pregnancy prevention plan for study drugs.",
+      "section": "exclusion",
+      "source_text": "Proton pump inhibitors and potassium-competitive acid blockers are not permitted",
       "threshold": null
+    },
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age \u226516 years during dose escalation portion of study, patients must weigh \u226540 kg.",
+      "threshold": "age \u226516 years"
     }
   ]
 }

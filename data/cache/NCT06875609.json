@@ -1,13 +1,6 @@
 {
   "nct_id": "NCT06875609",
   "model": "claude-haiku-5-5",
-  "exclusions": [
-    {
-      "category": "performance_status",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Patients receiving or undergoing systemic therapies.",
-      "threshold": null
-    }
-  ]
+  "prompt_version": "v2-2026-10-24",
+  "exclusions": []
 }

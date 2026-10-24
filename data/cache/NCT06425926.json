@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06425926",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -62,15 +63,15 @@
       "category": "hiv",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "human immunodeficiency virus (HIV)",
+      "source_text": "including known hepatitis B virus (HBV), hepatitis C virus (HCV), or human immunodeficiency virus (HIV)",
       "threshold": null
     },
     {
-      "category": "performance_status",
+      "category": "pregnancy",
       "absolute": true,
-      "section": "inclusion",
-      "source_text": "ECOG performance status 0-1",
-      "threshold": "ECOG > 1"
+      "section": "exclusion",
+      "source_text": "Non pregnant participants",
+      "threshold": null
     }
   ]
 }

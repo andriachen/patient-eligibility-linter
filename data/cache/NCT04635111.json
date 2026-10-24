@@ -1,13 +1,35 @@
 {
   "nct_id": "NCT04635111",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
-      "category": "age",
-      "absolute": true,
+      "category": "hepatic",
+      "absolute": false,
       "section": "inclusion",
-      "source_text": "Age \u226518 years old",
-      "threshold": null
+      "source_text": "Aspartate aminotransferase (AST) or alanine aminotransferase (ALT) \\>3 \u00d7 upper limit of normal (ULN) with concurrent total bilirubin (TBIL) \\>2 \u00d7 ULN",
+      "threshold": "AST or ALT >3 x ULN with TBIL >2 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Isolated TBIL \\>2 \u00d7 ULN (excluding patients with Gilbert's syndrome)",
+      "threshold": "TBIL >2 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Isolated AST or ALT \\>10 \u00d7 ULN",
+      "threshold": "AST or ALT >10 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Alkaline phosphatase (ALP) \\>2 x ULN with gamma-glutamyl transferase (GGT) \\>2 x ULN",
+      "threshold": "ALP >2 x ULN with GGT >2 x ULN"
     }
   ]
 }

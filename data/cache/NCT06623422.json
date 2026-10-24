@@ -1,13 +1,14 @@
 {
   "nct_id": "NCT06623422",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Has an Eastern Cooperative Oncology Group (ECOG) performance status of 0 or 1 within 7 days before the first dose of study intervention",
-      "threshold": "ECOG > 1"
+      "threshold": "ECOG 0 or 1"
     },
     {
       "category": "hiv",

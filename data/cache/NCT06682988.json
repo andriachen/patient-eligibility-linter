@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06682988",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -8,13 +9,6 @@
       "section": "inclusion",
       "source_text": "Participants with an Eastern Cooperative Oncology Group Performance Status (ECOG PS) of 0 or 1.",
       "threshold": "ECOG PS 0 or 1"
-    },
-    {
-      "category": "cardiac",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Participants with a history of hemorrhagic or ischemic stroke within 6 months prior to randomization.",
-      "threshold": "within 6 months"
     }
   ]
 }

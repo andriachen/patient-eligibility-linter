@@ -1,10 +1,11 @@
 {
   "nct_id": "NCT03959085",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "Patients must be \\> 365 days and \\< 25 years of age",
       "threshold": "age < 25 years"
@@ -18,7 +19,7 @@
     },
     {
       "category": "hepatic",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "Alanine aminotransferase (ALT) \u2264 10x upper limit of normal (ULN). For the purposes of this study, the ULN for ALT is defined as 45 U/L",
       "threshold": "ALT <= 10x ULN (45 U/L)"
@@ -32,9 +33,16 @@
     },
     {
       "category": "pregnancy",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Lactating women who plan to breastfeed their infants while on study and for 2 months after the last dose of inotuzumab ozogamicin.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "or for any cancer diagnosed prior to initiation of protocol therapy on AALL1732.",
       "threshold": null
     }
   ]

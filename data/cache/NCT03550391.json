@@ -1,12 +1,13 @@
 {
   "nct_id": "NCT03550391",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
-      "category": "pregnancy",
+      "category": "age",
       "absolute": true,
-      "section": "exclusion",
-      "source_text": "Pregnant or nursing women.",
+      "section": "inclusion",
+      "source_text": "Patient must be \\> 18 years of age.",
       "threshold": null
     },
     {
@@ -24,38 +25,31 @@
       "threshold": "CrCl >= 30 ml/min"
     },
     {
-      "category": "language",
+      "category": "pregnancy",
       "absolute": true,
-      "section": "inclusion",
-      "source_text": "Patient is able (i.e. sufficiently fluent) and willing to complete the quality of life questionnaires in either English or French either alone or with assistance.",
+      "section": "exclusion",
+      "source_text": "Pregnant or nursing women.",
       "threshold": null
     },
     {
       "category": "brain_mets",
       "absolute": true,
-      "section": "inclusion",
-      "source_text": "Patients must have 5 or more brain metastases as counted on a T1 contrast enhanced MRI obtained \u2264 30 days from randomization (maximum 15 brain metastases).",
-      "threshold": "5 to 15 brain metastases"
+      "section": "exclusion",
+      "source_text": "Widespread definitive leptomeningeal metastasis.",
+      "threshold": null
     },
     {
       "category": "hepatic",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Diagnosis of chronic liver disease/cirrhosis of the liver (e.g. Child-Pugh class B or C).",
-      "threshold": "Child-Pugh B or C"
+      "threshold": null
     },
     {
-      "category": "brain_mets",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "More than 15 brain metastases on a volumetric T1 contrast MRI (voxels of 1mm or smaller) performed within the past 14 days, or more than 10 metastases in the case of a non-volumetric MRI.",
-      "threshold": ">15 metastases (volumetric) or >10 (non-volumetric)"
-    },
-    {
-      "category": "smoking",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Current alcohol or drug abuse.",
+      "category": "language",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Patient is able (i.e. sufficiently fluent) and willing to complete the quality of life questionnaires in either English or French either alone or with assistance.",
       "threshold": null
     }
   ]

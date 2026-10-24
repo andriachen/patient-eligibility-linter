@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT05795101",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -17,39 +18,32 @@
       "threshold": "LVEF \u2265 50%"
     },
     {
-      "category": "bmi",
+      "category": "renal",
       "absolute": true,
       "section": "inclusion",
-      "source_text": "Body weight \\>30 kg",
-      "threshold": "body weight > 30 kg"
-    },
-    {
-      "category": "age",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Pre- and postmenopausal women or male patients \u2265 18 years of age",
-      "threshold": null
-    },
-    {
-      "category": "hepatic",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "AST(SGOT)/ALT(SGPT) \u22642.5 \u00d7 institutional ULN",
-      "threshold": "AST/ALT \u2264 2.5 \u00d7 ULN"
+      "source_text": "Serum creatinine \u22641.5 \u00d7 institutional ULN OR creatinine clearance \u2265 30 mL/min/ 1.73m2 for participants with creatinine levels above institutional ULN.",
+      "threshold": "creatinine \u22641.5 \u00d7 ULN or CrCl \u2265 30 mL/min/1.73m2"
     },
     {
       "category": "hepatic",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Total bilirubin \u22641.5 \u00d7 institutional upper limit of normal (ULN)(or \u22642.0 x ULN in patients with documented Gilbert's Syndrome)",
-      "threshold": "bilirubin \u2264 1.5 \u00d7 ULN"
+      "threshold": "bilirubin \u22641.5 \u00d7 ULN"
     },
     {
-      "category": "renal",
+      "category": "hepatic",
       "absolute": true,
       "section": "inclusion",
-      "source_text": "Serum creatinine \u22641.5 \u00d7 institutional ULN OR creatinine clearance \u2265 30 mL/min/ 1.73m2 for participants with creatinine levels above institutional ULN.",
-      "threshold": "creatinine \u2264 1.5 \u00d7 ULN or CrCl \u2265 30 mL/min/1.73m2"
+      "source_text": "AST(SGOT)/ALT(SGPT) \u22642.5 \u00d7 institutional ULN",
+      "threshold": "AST/ALT \u22642.5 \u00d7 ULN"
+    },
+    {
+      "category": "bmi",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Body weight \\>30 kg",
+      "threshold": "body weight > 30 kg"
     },
     {
       "category": "pregnancy",
@@ -60,28 +54,35 @@
     },
     {
       "category": "cardiac",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Corrected QT interval (QTcF) prolongation to \\> 470 msec on screening EKG",
       "threshold": "QTcF > 470 msec"
     },
     {
       "category": "cardiac",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Cardiac ejection fraction outside institutional range of normal or \\<50% (whichever is higher) as measured by echocardiogram (or multiple-gated acquisition \\[MUGA\\] scan if an echocardiogram cannot be performed or is inconclusive).",
       "threshold": "EF < 50%"
     },
     {
       "category": "cardiac",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
-      "source_text": "Any of the following procedures or conditions in the 6 months prior to enrollment: coronary artery bypass graft, angioplasty, vascular stent, myocardial infarction, angina pectoris, congestive heart failure (New York Heart Association Functional Classification Grade \u22652), and stroke.",
-      "threshold": "within 6 months; NYHA \u22652"
+      "source_text": "congestive heart failure (New York Heart Association Functional Classification Grade \u22652)",
+      "threshold": "NYHA \u22652"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "myocardial infarction",
+      "threshold": null
     },
     {
       "category": "prior_malignancy",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "History of another primary malignancy, except for Malignancy treated with curative intent and with no known active disease \u22655 years before the first dose of study treatment and of low potential risk for recurrence.",
       "threshold": "within 5 years"
@@ -90,7 +91,7 @@
       "category": "hiv",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Known to have previously tested positive for human immunodeficiency virus (HIV) (positive HIV 1/2 antibodies)(HIV testing is not required for participation on this study)",
+      "source_text": "Known to have previously tested positive for human immunodeficiency virus (HIV) (positive HIV 1/2 antibodies)",
       "threshold": null
     },
     {

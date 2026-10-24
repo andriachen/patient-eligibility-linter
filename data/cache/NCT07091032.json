@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT07091032",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "pregnancy",
@@ -22,20 +23,6 @@
       "section": "inclusion",
       "source_text": "speaking English or Spanish",
       "threshold": null
-    },
-    {
-      "category": "age",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Patients aged 45-75 who are due for screenings",
-      "threshold": "age 45-75"
-    },
-    {
-      "category": "age",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Women and patients with a cervix aged 30-65 who are due for screening",
-      "threshold": "age 30-65"
     }
   ]
 }

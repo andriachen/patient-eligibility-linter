@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT05922501",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -25,10 +26,24 @@
     },
     {
       "category": "hepatic",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
-      "source_text": "Serum bilirubin values \\< 1.5 \u00d7 ULN.",
+      "source_text": "Serum bilirubin values \\< 1.5 \u00d7 ULN. Isolated bilirubin \u2265 1.5 \u00d7 ULN is acceptable if bilirubin is fractionated and direction bilirubin \\<35%.",
       "threshold": "bilirubin < 1.5 \u00d7 ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Serum aspartate transaminase (ALT) and/or aspartate transaminase (AST) values \\< 2.5 \u00d7 the upper limit of normal (ULN) of the institutional laboratory reference range.",
+      "threshold": "AST/ALT < 2.5 \u00d7 ULN"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Pregnancy or lactation or planned lactation (breastfeeding).",
+      "threshold": null
     },
     {
       "category": "prior_malignancy",
@@ -45,25 +60,11 @@
       "threshold": null
     },
     {
-      "category": "pregnancy",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Pregnancy or lactation or planned lactation (breastfeeding).",
-      "threshold": null
-    },
-    {
       "category": "cardiac",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Congestive heart failure (New York Heart Association \\[NYHA\\] Class 3 or 4)",
       "threshold": "NYHA Class 3 or 4"
-    },
-    {
-      "category": "cardiac",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Recent (within the preceding 6 months) myocardial infarction or stroke",
-      "threshold": "within 6 months"
     },
     {
       "category": "cardiac",
@@ -73,17 +74,24 @@
       "threshold": null
     },
     {
-      "category": "diabetes",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Diabetes mellitus with \\> 2 episodes of ketoacidosis in the preceding 12 months",
-      "threshold": "> 2 episodes of ketoacidosis in preceding 12 months"
-    },
-    {
-      "category": "brain_mets",
+      "category": "cardiac",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Patient has a history of significant cardiovascular, neurological, endocrine, gastrointestinal, respiratory, or inflammatory illness that could preclude study participation",
+      "source_text": "Recent (within the preceding 6 months) myocardial infarction or stroke",
+      "threshold": "within 6 months"
+    },
+    {
+      "category": "diabetes",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Diabetes mellitus with \\> 2 episodes of ketoacidosis in the preceding 12 months",
+      "threshold": "> 2 episodes of ketoacidosis in 12 months"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Unstable liver or biliary disease",
       "threshold": null
     }
   ]

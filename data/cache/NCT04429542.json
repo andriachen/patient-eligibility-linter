@@ -1,7 +1,15 @@
 {
   "nct_id": "NCT04429542",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Patient must have a performance status of \u22641 on the Eastern Cooperative Oncology Group Performance Scale.",
+      "threshold": "ECOG \u2264 1"
+    },
     {
       "category": "pregnancy",
       "absolute": true,

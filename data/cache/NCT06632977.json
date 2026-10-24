@@ -1,131 +1,20 @@
 {
   "nct_id": "NCT06632977",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
       "absolute": true,
       "section": "inclusion",
-      "source_text": "PRE-REGISTRATION: Age \u2265 18 years.",
+      "source_text": "Age \u2265 18 years.",
       "threshold": null
     },
     {
-      "category": "performance_status",
+      "category": "prior_malignancy",
       "absolute": true,
       "section": "inclusion",
-      "source_text": "REGISTRATION: Eastern Cooperative Oncology Group (ECOG) performance status 0-2.",
-      "threshold": "ECOG 0-2"
-    },
-    {
-      "category": "performance_status",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "RE-REGISTRATION: ECOG Performance Status 0-2.",
-      "threshold": "ECOG 0-2"
-    },
-    {
-      "category": "renal",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "REGISTRATION: Creatinine clearance \u2265 30 mL/min as defined by Cockcroft-Gault equation.",
-      "threshold": "CrCl \u2265 30 mL/min"
-    },
-    {
-      "category": "renal",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "RE-REGISTRATION: Creatinine clearance \u2265 30 mL/min as defined by Cockcroft-Gault equation.",
-      "threshold": "CrCl \u2265 30 mL/min"
-    },
-    {
-      "category": "hepatic",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "REGISTRATION: Total bilirubin \u2264 1.5 x ULN (\u2264 3 x upper limit of normal \\[ULN\\] for subjects with documented Gilbert\\'s disease).",
-      "threshold": "bilirubin \u2264 1.5 x ULN"
-    },
-    {
-      "category": "hepatic",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "REGISTRATION: Aspartate aminotransferase (AST) and alanine aminotransferase (ALT) \u2264 3 x ULN.",
-      "threshold": "AST/ALT \u2264 3 x ULN"
-    },
-    {
-      "category": "hepatic",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "RE-REGISTRATION: Total bilirubin \u2264 1.5 x ULN (\u2264 3 x ULN for subjects with documented Gilbert\\'s disease).",
-      "threshold": "bilirubin \u2264 1.5 x ULN"
-    },
-    {
-      "category": "hepatic",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "RE-REGISTRATION: AST and ALT \u2264 3 x ULN.",
-      "threshold": "AST/ALT \u2264 3 x ULN"
-    },
-    {
-      "category": "hepatic",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Moderate to severe hepatic impairment (Child-Pugh Class C)",
-      "threshold": "Child-Pugh Class C"
-    },
-    {
-      "category": "cardiac",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "New York Heart Association Class 3 or 4 congestive heart failure.",
-      "threshold": "NYHA Class 3 or 4"
-    },
-    {
-      "category": "cardiac",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Myocardial infarction within 6 months prior to enrollment.",
-      "threshold": "within 6 months"
-    },
-    {
-      "category": "cardiac",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Uncontrolled angina pectoris within 6 months prior to enrollment.",
-      "threshold": "within 6 months"
-    },
-    {
-      "category": "cardiac",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Corrected QT interval calculated by the Fridericia\\'s formula (QTcF) \u2265 470 ms per electrocardiogram (ECG) within 42 days before randomization in any individual with any history of any cardiac disease or medication which can impact QTcF.",
-      "threshold": "QTcF \u2265 470 ms"
-    },
-    {
-      "category": "cardiac",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Uncontrolled hypertension (resting systolic blood pressure \\>160 mmHg or diastolic blood pressure \\> 100 mmHg).",
-      "threshold": "SBP > 160 mmHg or DBP > 100 mmHg"
-    },
-    {
-      "category": "brain_mets",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Known brain metastases or cranial epidural disease unless adequately treated with radiotherapy and/or surgery (including radiosurgery) and stable for at least 4 weeks prior to registration after radiotherapy or at least 4 weeks prior to registration after major surgery (e.g., removal or biopsy of brain metastasis).",
-      "threshold": null
-    },
-    {
-      "category": "hiv",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "HIV-infected patients on effective anti-retroviral therapy with undetectable viral load within 6 months are eligible for this trial.",
-      "threshold": null
-    },
-    {
-      "category": "pregnancy",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "No freezing or donating sperm \u2264 14 days prior to registration.",
+      "source_text": "Patients with variant histologies including neuroendocrine, small cell and sarcomatoid prostate cancer are allowed to enroll",
       "threshold": null
     }
   ]

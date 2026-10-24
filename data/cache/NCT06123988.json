@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06123988",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "language",
@@ -17,10 +18,17 @@
       "threshold": null
     },
     {
-      "category": "performance_status",
-      "absolute": true,
+      "category": "cardiac",
+      "absolute": false,
       "section": "exclusion",
-      "source_text": "Unable to walk 2 blocks without assistance (excluding canes)",
+      "source_text": "Unstable cardiac disease",
+      "threshold": null
+    },
+    {
+      "category": "diabetes",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Insulin-dependent diabetes",
       "threshold": null
     }
   ]

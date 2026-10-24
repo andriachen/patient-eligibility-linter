@@ -1,7 +1,15 @@
 {
   "nct_id": "NCT05554393",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age 18-59 years at time of induction therapy",
+      "threshold": "age 18-59"
+    },
     {
       "category": "performance_status",
       "absolute": true,
@@ -14,7 +22,7 @@
       "absolute": true,
       "section": "inclusion",
       "source_text": "Total bilirubin =\\< 2 x institutional upper limit of normal (ULN) (must be done within 10 days of enrollment)",
-      "threshold": "bilirubin <= 2 x ULN"
+      "threshold": "total bilirubin <= 2 x ULN"
     },
     {
       "category": "hepatic",
@@ -52,25 +60,11 @@
       "threshold": null
     },
     {
-      "category": "pregnancy",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Because there is an unknown but potential risk for adverse events in nursing infants secondary to treatment of the mother with venetoclax, cytarabine and azacitidine breastfeeding should be discontinued if the mother is treated with venetoclax, cytarabine and azacitidine.",
-      "threshold": null
-    },
-    {
       "category": "hiv",
       "absolute": false,
       "section": "inclusion",
       "source_text": "Patients with known human immunodeficiency virus (HIV) infection who are on effective anti-retroviral therapy and have undetectable viral load within 6 months of enrollment are eligible for this trial",
-      "threshold": "undetectable viral load within 6 months on ART"
-    },
-    {
-      "category": "age",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Age 18-59 years at time of induction therapy",
-      "threshold": "age <= 59"
+      "threshold": null
     }
   ]
 }

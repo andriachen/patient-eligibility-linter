@@ -1,47 +1,20 @@
 {
   "nct_id": "NCT06677190",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
-    {
-      "category": "age",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Age \u226518 years. Because no dosing or adverse event data are currently available on the use of Belzutifan in participants \\<18 years of age, children are excluded from this study.",
-      "threshold": null
-    },
     {
       "category": "performance_status",
       "absolute": true,
       "section": "inclusion",
       "source_text": "ECOG (Eastern Cooperative Oncology Group) performance status of 0 or 1 (Karnofsky performance scale \u226570%, see Appendix A).",
-      "threshold": "ECOG > 1"
-    },
-    {
-      "category": "hepatic",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Total bilirubin \u2264 1.5 x institutional upper limit of normal (ULN) OR direct bilirubin \u2264 ULN for participants with total bilirubin levels \\> 1.5 ULN",
-      "threshold": "total bilirubin > 1.5 x ULN"
-    },
-    {
-      "category": "hepatic",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "AST(SGOT)/ALT(SGPT) \u2264 2.5 \u00d7 institutional upper limit of normal (ULN) (in the absence of liver metastases) or \u2264 5 x institutional ULN (in the presence of liver metastases)",
-      "threshold": "AST/ALT > 2.5 x ULN (or > 5 x ULN with liver metastases)"
-    },
-    {
-      "category": "renal",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Creatinine \u2264 1.5 x institutional upper limit of normal (ULN) OR estimated creatinine clearance (CrCl) by the Cockcroft-Gault formula",
-      "threshold": "creatinine > 1.5 x ULN or CrCl < 51 mL/min"
+      "threshold": "ECOG 0 or 1; Karnofsky \u226570%"
     },
     {
       "category": "brain_mets",
       "absolute": false,
       "section": "inclusion",
-      "source_text": "Participants with known brain metastases are eligible if they have completed primary CNS-directed therapy",
+      "source_text": "Participants with known brain metastases are eligible if they have completed primary CNS-directed therapy (such as surgical resection or radiotherapy) and if they have remained clinically stable, asymptomatic, radiologically stable without evidence of progression for at least 4 weeks by repeat imaging and have been off of steroids for at least 4 weeks prior to starting study treatment.",
       "threshold": null
     },
     {
@@ -52,8 +25,22 @@
       "threshold": null
     },
     {
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Creatinine \u2264 1.5 x institutional upper limit of normal (ULN) OR estimated creatinine clearance (CrCl) by the Cockcroft-Gault formula\n\n    \u226551mL/min if creatinine \\> 1.5 x institutional ULN or institutional standard method",
+      "threshold": "CrCl \u226551 mL/min if creatinine > 1.5 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "AST(SGOT)/ALT(SGPT) \u2264 2.5 \u00d7 institutional upper limit of normal (ULN) (in the absence of liver metastases) or \u2264 5 x institutional ULN (in the presence of liver metastases)",
+      "threshold": "AST/ALT \u2264 2.5 x ULN (\u2264 5 x ULN with liver metastases)"
+    },
+    {
       "category": "pregnancy",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
       "source_text": "women of child-bearing potential\\* must have a negative serum or urine pregnancy test",
       "threshold": null
@@ -66,25 +53,32 @@
       "threshold": null
     },
     {
-      "category": "cardiac",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Participants with significant cardiovascular impairment, including uncontrolled hypertension, congestive heart failure of New York Heart Association Grade II or above, unstable angina, myocardial infarction within the past 6 months, or serious cardiac arrhythmia within the past 6 months.",
-      "threshold": "NYHA Grade II or above; MI within 6 months; arrhythmia within 6 months"
-    },
-    {
-      "category": "hepatic",
+      "category": "pregnancy",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Has moderate to severe hepatic impairment (Child-Pugh B or C).",
-      "threshold": "Child-Pugh B or C"
+      "source_text": "Pregnant women are excluded from this study.",
+      "threshold": null
     },
     {
       "category": "pregnancy",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Pregnant women are excluded from this study. Because there is an unknown but potential risk for adverse events in nursing infants secondary to treatment of the mother with belzutifan, breastfeeding participants are excluded from this study.",
+      "source_text": "breastfeeding participants are excluded from this study.",
       "threshold": null
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Has moderate to severe hepatic impairment (Child-Pugh B or C).",
+      "threshold": "Child-Pugh B or C"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participants with significant cardiovascular impairment, including uncontrolled hypertension, congestive heart failure of New York Heart Association Grade II or above, unstable angina, myocardial infarction within the past 6 months, or serious cardiac arrhythmia within the past 6 months.",
+      "threshold": "NYHA Grade II or above; MI within 6 months; arrhythmia within 6 months"
     }
   ]
 }

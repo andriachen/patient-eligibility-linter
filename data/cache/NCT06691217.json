@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06691217",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "pregnancy",
@@ -21,7 +22,7 @@
       "absolute": false,
       "section": "exclusion",
       "source_text": "known active or recurrent hepatic disease (including cirrhosis or ALT/AST levels \\>3 times the upper limit oof or total bilirubin \\>2 times the upper limits of normal)",
-      "threshold": "ALT/AST > 3x ULN or total bilirubin > 2x ULN"
+      "threshold": "ALT/AST > 3 times ULN; total bilirubin > 2 times ULN"
     }
   ]
 }

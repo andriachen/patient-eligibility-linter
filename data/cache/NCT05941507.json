@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT05941507",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -8,6 +9,13 @@
       "section": "inclusion",
       "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status of 0 or 1",
       "threshold": "ECOG 0 or 1"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Aspartate aminotransferase (AST) \u22642.5 x ULN; alanine aminotransferase (ALT) \u22642.5 x ULN (AST, ALT \u22645 x ULN if liver metastases present)",
+      "threshold": "AST, ALT \u22642.5 x ULN (\u22645 x ULN if liver metastases)"
     },
     {
       "category": "brain_mets",

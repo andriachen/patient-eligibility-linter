@@ -1,68 +1,48 @@
 {
   "nct_id": "NCT03922555",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
-      "category": "age",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Participants must be \u226518 years of age.",
-      "threshold": null
-    },
-    {
       "category": "performance_status",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
       "source_text": "Participants must have KPS \u2265 to 70",
-      "threshold": "KPS >= 70"
+      "threshold": "KPS \u2265 70"
     },
     {
       "category": "hepatic",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
       "source_text": "Serum total bilirubin \u22641.5 x upper limit of normal (ULN), unless considered due to Gilbert's disease",
-      "threshold": "bilirubin <= 1.5 x ULN"
+      "threshold": "bilirubin \u22641.5 x ULN"
     },
     {
       "category": "hepatic",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Aspartate aminotransferase (AST), Alanine Aminotransferase (ALT), and alkaline phosphatase (ALP) \u22643.0 x ULN.",
-      "threshold": "AST/ALT/ALP <= 3.0 x ULN"
+      "threshold": "AST/ALT/ALP \u22643.0 x ULN"
     },
     {
       "category": "renal",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Serum creatinine \u22642.0 x ULN",
-      "threshold": "creatinine <= 2.0 x ULN"
+      "threshold": "creatinine \u22642.0 x ULN"
     },
     {
       "category": "renal",
       "absolute": true,
       "section": "inclusion",
-      "source_text": "Creatinine clearance \\>40 mL/min based on the Cockroft-Gault glomerular filtration rate (GFR) estimation",
+      "source_text": "OR Creatinine clearance \\>40 mL/min based on the Cockroft-Gault glomerular filtration rate (GFR) estimation: (140 - Age) \u00d7 (weight in kg) \u00d7 (0.85 if female)/72 \u00d7 serum creatinine",
       "threshold": "CrCl > 40 mL/min"
-    },
-    {
-      "category": "pregnancy",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Female participants with reproductive potential must have a negative serum pregnancy test within 14 days prior to the first study drug administration.",
-      "threshold": null
     },
     {
       "category": "pregnancy",
       "absolute": true,
       "section": "exclusion",
       "source_text": "Participants who are pregnant or breast-feeding.",
-      "threshold": null
-    },
-    {
-      "category": "brain_mets",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Participants with enhancing disease on brain MRI.",
       "threshold": null
     },
     {
@@ -91,13 +71,20 @@
       "absolute": true,
       "section": "exclusion",
       "source_text": "Participants with QTc interval \u2265450 msec or with other factors that significantly increase the risk of QT prolongation or arrhythmic events (e.g., family history of long QT interval syndrome).",
-      "threshold": "QTc >= 450 msec"
+      "threshold": "QTc \u2265450 msec"
     },
     {
       "category": "hiv",
       "absolute": true,
       "section": "exclusion",
       "source_text": "Participants with known infection with human immunodeficiency virus (HIV) or active hepatitis B or C.",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Participants with enhancing disease on brain MRI.",
       "threshold": null
     }
   ]

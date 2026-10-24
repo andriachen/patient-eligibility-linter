@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT05646862",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -18,16 +19,16 @@
     },
     {
       "category": "brain_mets",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
-      "source_text": "Any history of leptomeningeal disease or carcinomatous meningitis",
+      "source_text": "Known and untreated, or active central nervous system (CNS) metastases. Participants with a history of treated CNS metastases are eligible if they meet specific certain criteria",
       "threshold": null
     },
     {
       "category": "brain_mets",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
-      "source_text": "Known and untreated, or active central nervous system (CNS) metastases. Participants with a history of treated CNS metastases are eligible if they meet specific certain criteria",
+      "source_text": "Any history of leptomeningeal disease or carcinomatous meningitis",
       "threshold": null
     },
     {

@@ -1,10 +1,11 @@
 {
   "nct_id": "NCT06312644",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "pregnancy",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "Female participant must have a medically confirmed qualifying pregnancy (prospectively or retrospectively identified).",
       "threshold": null

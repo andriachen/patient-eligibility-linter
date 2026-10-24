@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT04674267",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
@@ -14,7 +15,7 @@
       "absolute": true,
       "section": "exclusion",
       "source_text": "Patients less than age 65 at time of initial consultation appointment with DF/BWCC.",
-      "threshold": "age < 65"
+      "threshold": "age >= 65"
     },
     {
       "category": "language",

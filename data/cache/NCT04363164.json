@@ -1,20 +1,21 @@
 {
   "nct_id": "NCT04363164",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
       "absolute": true,
       "section": "inclusion",
       "source_text": "ECOG Performance status \u22642.",
-      "threshold": "ECOG \u22642"
+      "threshold": "ECOG \u2264 2"
     },
     {
       "category": "performance_status",
       "absolute": true,
       "section": "exclusion",
       "source_text": "ECOG Performance status \u22653",
-      "threshold": "ECOG \u22653"
+      "threshold": "ECOG \u2265 3"
     },
     {
       "category": "hepatic",
@@ -35,10 +36,17 @@
       "absolute": false,
       "section": "inclusion",
       "source_text": "Serum creatinine \\< 2.5 times ULN",
-      "threshold": "Serum creatinine < 2.5 times ULN"
+      "threshold": "creatinine < 2.5 times ULN"
     },
     {
       "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Active uncontrolled infection, including known history of HIV/AIDS or hepatitis B or C.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
       "absolute": true,
       "section": "exclusion",
       "source_text": "Active uncontrolled infection, including known history of HIV/AIDS or hepatitis B or C.",

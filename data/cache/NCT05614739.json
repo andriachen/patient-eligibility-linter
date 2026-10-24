@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT05614739",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -10,27 +11,6 @@
       "threshold": "ECOG 0 or 1 (Cohorts A1, A2, B5, B6, B7, B8); ECOG <= 2 (Cohorts B1, B2, B4, C1, D1, D2)"
     },
     {
-      "category": "cardiac",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Significant cardiovascular disease.",
-      "threshold": null
-    },
-    {
-      "category": "cardiac",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Prolongation of the QT interval corrected for heart rate using Fridericia's formula (QTcF).",
-      "threshold": "QTcF prolongation"
-    },
-    {
-      "category": "pregnancy",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Participants who are pregnant, lactating, or plan to breastfeed during the study or within 6 months of the last dose of study treatment.",
-      "threshold": null
-    },
-    {
       "category": "brain_mets",
       "absolute": true,
       "section": "exclusion",
@@ -38,10 +18,10 @@
       "threshold": null
     },
     {
-      "category": "prior_malignancy",
+      "category": "pregnancy",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Participants with primary central nervous system (CNS) malignancy.",
+      "source_text": "Participants who are pregnant, lactating, or plan to breastfeed during the study or within 6 months of the last dose of study treatment.",
       "threshold": null
     },
     {
@@ -69,15 +49,15 @@
       "category": "cardiac",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "Have uncontrolled hypertension.",
+      "source_text": "Significant cardiovascular disease.",
       "threshold": null
     },
     {
-      "category": "hepatic",
-      "absolute": false,
+      "category": "cardiac",
+      "absolute": true,
       "section": "exclusion",
-      "source_text": "Active liver disease or clinically significant hepatic impairment.",
-      "threshold": null
+      "source_text": "Prolongation of the QT interval corrected for heart rate using Fridericia's formula (QTcF).",
+      "threshold": "QTcF prolongation"
     },
     {
       "category": "cardiac",
@@ -98,7 +78,14 @@
       "absolute": true,
       "section": "exclusion",
       "source_text": "Heart rate less than (\\<) 50 bpm.",
-      "threshold": "heart rate < 50 bpm"
+      "threshold": "HR < 50 bpm"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Active liver disease or clinically significant hepatic impairment.",
+      "threshold": null
     }
   ]
 }

@@ -1,13 +1,14 @@
 {
   "nct_id": "NCT07358195",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Patient ages 18-70",
-      "threshold": "age 18-70"
+      "threshold": "age <= 70"
     },
     {
       "category": "cardiac",
@@ -21,11 +22,11 @@
       "absolute": false,
       "section": "inclusion",
       "source_text": "Participants should be on dialysis or have a CrCl \u2264 35 ml/min",
-      "threshold": "CrCl \u2264 35 ml/min or on dialysis"
+      "threshold": "CrCl <= 35 ml/min"
     },
     {
       "category": "hepatic",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "Total bilirubin \\< 2.0 (unless diagnosis of Gilbert's or hemolysis is made)",
       "threshold": "Total bilirubin < 2.0"
@@ -35,14 +36,35 @@
       "absolute": true,
       "section": "inclusion",
       "source_text": "AST, ALT, alkaline phosphatase all \\< 5x institutions upper limit of normal",
-      "threshold": "AST, ALT, alkaline phosphatase < 5x ULN"
+      "threshold": "AST/ALT/ALP < 5x ULN"
     },
     {
-      "category": "hiv",
+      "category": "age",
       "absolute": true,
       "section": "inclusion",
-      "source_text": "No positive testing for active viral infection (Hepatitis B, Hepatitis C, HIV)",
-      "threshold": null
+      "source_text": "18-70 years of age",
+      "threshold": "age <= 70"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "liver function \\< 3 times the upper limit of normal and normal creatinine",
+      "threshold": "liver function < 3x ULN"
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "liver function \\< 3 times the upper limit of normal and normal creatinine",
+      "threshold": "normal creatinine"
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ECOG performance status 0 or 1",
+      "threshold": "ECOG > 1"
     },
     {
       "category": "hiv",
@@ -57,13 +79,6 @@
       "section": "inclusion",
       "source_text": "Men and women of reproductive potential must agree to use a reliable method of birth control during the treatment, and women should do so for a period of 1 year following the transplant.",
       "threshold": null
-    },
-    {
-      "category": "performance_status",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "ECOG performance status 0 or 1",
-      "threshold": "ECOG 0 or 1"
     }
   ]
 }

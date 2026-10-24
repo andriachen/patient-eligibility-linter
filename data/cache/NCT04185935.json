@@ -1,10 +1,11 @@
 {
   "nct_id": "NCT04185935",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "language",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "A family may be ineligible for study if the historian will not allow access to anyone within the family and thus, the accuracy of the family history cannot be established",
       "threshold": null

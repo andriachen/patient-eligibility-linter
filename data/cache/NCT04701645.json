@@ -1,19 +1,20 @@
 {
   "nct_id": "NCT04701645",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "symptomatic congestive heart failure, unstable angina pectoris, cardiac arrhythmia",
+      "threshold": null
+    },
     {
       "category": "pregnancy",
       "absolute": true,
       "section": "exclusion",
       "source_text": "Pregnant women are excluded from this study because of the possible increased dose of radiation from imaging associated with the microdevice placement and the potential risk to the pregnancy of the biopsy/device placement in an abdominal lesion.",
-      "threshold": null
-    },
-    {
-      "category": "cardiac",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Uncontrolled intercurrent illness including, but not limited to, ongoing or active infection, symptomatic congestive heart failure, unstable angina pectoris, cardiac arrhythmia, or psychiatric illness/social situations that would limit the safety of a biopsy and/or surgery.",
       "threshold": null
     }
   ]

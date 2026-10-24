@@ -1,13 +1,14 @@
 {
   "nct_id": "NCT06859424",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Age 18 to \\< 66 years (chemotherapy-based conditioning) or \\< 61 years (TBI-based conditioning) at the time of signing informed consent",
-      "threshold": "age < 66 (chemotherapy-based) or < 61 (TBI-based)"
+      "threshold": "age < 66 years (chemotherapy-based conditioning) or < 61 years (TBI-based conditioning)"
     },
     {
       "category": "age",
@@ -66,6 +67,13 @@
       "threshold": "KPS \u2265 60%"
     },
     {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "The presence of prior malignancy will not be used to calculate HCT-CI for this trial, to allow for the inclusion of patients with secondary or therapy-related AML or MDS.",
+      "threshold": null
+    },
+    {
       "category": "pregnancy",
       "absolute": true,
       "section": "exclusion",
@@ -74,16 +82,9 @@
     },
     {
       "category": "hiv",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "Patients who are HIV-positive with persistently positive viral load.",
-      "threshold": null
-    },
-    {
-      "category": "prior_malignancy",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "The presence of prior malignancy will not be used to calculate HCT-CI for this trial",
       "threshold": null
     }
   ]

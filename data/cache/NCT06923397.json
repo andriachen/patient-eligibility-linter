@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06923397",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "language",
@@ -10,15 +11,8 @@
       "threshold": null
     },
     {
-      "category": "age",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Aged \u226518 years; due to the rarity of the disease in those \\<18 years, this age bracket will not be included.",
-      "threshold": null
-    },
-    {
       "category": "prior_malignancy",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Patients receiving treatment for other active malignancies (except basal cell carcinoma).",
       "threshold": null

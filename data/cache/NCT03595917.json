@@ -1,7 +1,36 @@
 {
   "nct_id": "NCT03595917",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "ECOG performance status 0-3 (Appendix A). ECOG value of 3 is allowed after documented discussion with PI, if poor performance status is attributed to underlying disease.",
+      "threshold": "ECOG 0-3"
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Creatinine \u2264 1.5x institutional upper limit of normal.",
+      "threshold": "creatinine \u2264 1.5x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "AST(SGOT)/ALT(SGPT) \u2264 3x institutional upper limit of normal unless felt to be clearly related to disease where \u2264 5x institutional upper limit of normal is permitted, after discussion with the overall PI.",
+      "threshold": "AST/ALT \u2264 3x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Total bilirubin - \u22641.5x institutional upper limit of normal (\u2264 3x upper limit of normal in patients with known or suspected Gilbert's syndrome).",
+      "threshold": "bilirubin \u2264 1.5x ULN"
+    },
     {
       "category": "prior_malignancy",
       "absolute": false,
@@ -25,17 +54,17 @@
     },
     {
       "category": "cardiac",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Corrected QT interval (QTc) of \\> 480 milliseconds (ms) on baseline electrocardiogram (ECG) (using corrected QT interval per institutional standard).",
       "threshold": "QTc > 480 ms"
     },
     {
       "category": "cardiac",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "Unstable cardiovascular condition including symptomatic congestive heart failure (NYHA class 3 or 4), unstable angina pectoris, ongoing clinically significant cardiac arrhythmia uncontrolled by medication, and myocardial infarction or stroke within the past 3 months.",
-      "threshold": "NYHA class 3 or 4; MI within past 3 months"
+      "threshold": "NYHA class 3 or 4; MI within 3 months"
     },
     {
       "category": "pregnancy",
@@ -45,46 +74,11 @@
       "threshold": null
     },
     {
-      "category": "performance_status",
+      "category": "brain_mets",
       "absolute": false,
       "section": "inclusion",
-      "source_text": "ECOG performance status 0-3 (Appendix A). ECOG value of 3 is allowed after documented discussion with PI, if poor performance status is attributed to underlying disease.",
-      "threshold": "ECOG 0-3"
-    },
-    {
-      "category": "age",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Participants who have not received standard intensive induction chemotherapy and are aged \u2265 50 years.",
-      "threshold": "age >= 50"
-    },
-    {
-      "category": "renal",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Creatinine \u2264 1.5x institutional upper limit of normal.",
-      "threshold": "creatinine <= 1.5x ULN"
-    },
-    {
-      "category": "hepatic",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Total bilirubin - \u22641.5x institutional upper limit of normal (\u2264 3x upper limit of normal in patients with known or suspected Gilbert's syndrome).",
-      "threshold": "bilirubin <= 1.5x ULN"
-    },
-    {
-      "category": "hepatic",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "AST(SGOT)/ALT(SGPT) \u2264 3x institutional upper limit of normal unless felt to be clearly related to disease where \u2264 5x institutional upper limit of normal is permitted, after discussion with the overall PI.",
-      "threshold": "AST/ALT <= 3x ULN"
-    },
-    {
-      "category": "cardiac",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Severe cardiac comorbidity (congestive heart failure or documented cardiomyopathy with EF \u226450%).",
-      "threshold": "EF <= 50%"
+      "source_text": "Patients with asymptomatic central nervous system (CNS) disease are eligible and may be treated concurrently with intrathecal chemotherapy.",
+      "threshold": null
     }
   ]
 }

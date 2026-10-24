@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT04305834",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
@@ -24,6 +25,13 @@
       "threshold": null
     },
     {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "In the absence of liver metastases, alanine aminotransferase (ALT) and aspartate aminotransferase (AST) =\\< 3.0 x upper limit of normal (ULN)",
+      "threshold": "ALT/AST <= 3.0 x ULN (<5 x ULN with liver metastases)"
+    },
+    {
       "category": "hiv",
       "absolute": true,
       "section": "exclusion",
@@ -31,25 +39,39 @@
       "threshold": null
     },
     {
-      "category": "prior_malignancy",
-      "absolute": false,
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Creatinine clearance of \\>= 30 mL/min per 24 hour urine test or the Cockcroft-Gault formula",
+      "threshold": "CrCl >= 30 mL/min"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
       "section": "exclusion",
-      "source_text": "Patients with a prior malignancy diagnosed within 2 years and with evidence of disease (except adequately treated, basal or squamous cell carcinoma, non-melanomatous skin cancer or curatively resected cervical cancer",
-      "threshold": "within 2 years"
+      "source_text": "severe renal impairment \\[e.g. estimated creatinine clearance \\< 30 ml/min\\]",
+      "threshold": "CrCl < 30 ml/min"
     },
     {
       "category": "cardiac",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "History of any of the following conditions: syncope of cardiovascular etiology, ventricular arrhythmia of pathological origin (including, but not limited to, ventricular tachycardia and ventricular fibrillation), or sudden cardiac arrest",
       "threshold": null
     },
     {
-      "category": "renal",
+      "category": "prior_malignancy",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "severe renal impairment \\[e.g. estimated creatinine clearance \\< 30 ml/min\\]",
-      "threshold": "estimated creatinine clearance < 30 ml/min"
+      "source_text": "Patients with a prior malignancy diagnosed within 2 years and with evidence of disease",
+      "threshold": "within 2 years"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Inability to swallow oral medications",
+      "threshold": null
     }
   ]
 }

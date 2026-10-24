@@ -1,48 +1,49 @@
 {
   "nct_id": "NCT05467891",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
       "absolute": true,
       "section": "inclusion",
       "source_text": "ECOG Performance Status of 0-1 within 28 days prior to registration.",
-      "threshold": "ECOG > 1"
+      "threshold": "ECOG 0-1"
     },
     {
       "category": "renal",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Estimated glomerular filtration rate (eGFR): \u2265 30 mL/min/1.73m2 according to the Modification of Diet in Renal Disease (MDRD) formula",
-      "threshold": "eGFR < 30 mL/min/1.73m2"
-    },
-    {
-      "category": "hepatic",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Bilirubin: \u2264 upper limit of normal (ULN) except for patients with Gilbert's syndrome who may only be included if the total bilirubin is \u2264 3.0 \u00d7 ULN or direct bilirubin \u2264 1.5 \u00d7 ULN",
-      "threshold": "bilirubin > ULN (Gilbert's: > 3.0 \u00d7 ULN total)"
+      "threshold": "eGFR >= 30 mL/min/1.73m2"
     },
     {
       "category": "hepatic",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Aspartate aminotransferase (AST): \u2264 2.5 \u00d7 ULN except for patients with liver metastasis, who are only included if the AST is < 5 \u00d7 ULN",
-      "threshold": "AST > 2.5 \u00d7 ULN (< 5 \u00d7 ULN if liver metastasis)"
+      "threshold": "AST <= 2.5 x ULN (<5 x ULN with liver metastasis)"
     },
     {
       "category": "hepatic",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Alanine aminotransferase (ALT): \u2264 2.5 \u00d7 ULN except for patients with liver metastasis, who are only included if the ALT is < 5 \u00d7 ULN",
-      "threshold": "ALT > 2.5 \u00d7 ULN (< 5 \u00d7 ULN if liver metastasis)"
+      "threshold": "ALT <= 2.5 x ULN (<5 x ULN with liver metastasis)"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Bilirubin: \u2264 upper limit of normal (ULN) except for patients with Gilbert's syndrome who may only be included if the total bilirubin is \u2264 3.0 \u00d7 ULN or direct bilirubin \u2264 1.5 \u00d7 ULN",
+      "threshold": "Bilirubin <= ULN"
     },
     {
       "category": "cardiac",
       "absolute": true,
       "section": "inclusion",
       "source_text": "QTcF interval at screening < 450 msec (QT interval using Fridericia's correction)",
-      "threshold": "QTcF >= 450 msec"
+      "threshold": "QTcF < 450 msec"
     },
     {
       "category": "pregnancy",
@@ -59,11 +60,18 @@
       "threshold": null
     },
     {
+      "category": "diabetes",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Patient has any other concurrent severe and/or uncontrolled medical condition",
+      "threshold": null
+    },
+    {
       "category": "cardiac",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "History of documented myocardial infarction (MI), angina pectoris, symptomatic pericarditis, or coronary artery bypass graft (CABG) within 6 months prior to study entry",
-      "threshold": "within 6 months"
+      "source_text": "Clinically significant, uncontrolled heart disease and/or cardiac repolarization abnormality, including any of the following:",
+      "threshold": null
     },
     {
       "category": "cardiac",
@@ -76,22 +84,8 @@
       "category": "cardiac",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "Clinically significant cardiac arrhythmias (e.g., ventricular tachycardia), complete left bundle branch block, high-grade AV block (e.g., bifascicular block, Mobitz type II and third-degree AV block)",
-      "threshold": null
-    },
-    {
-      "category": "hiv",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "chronic pancreatitis, chronic active hepatitis, HIV, active untreated or uncontrolled fungal, bacterial or viral infections, etc.",
-      "threshold": null
-    },
-    {
-      "category": "brain_mets",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Patients with distant metastases of breast cancer beyond regional lymph nodes as defined by AJCC (8th edition).",
-      "threshold": null
+      "source_text": "History of documented myocardial infarction (MI), angina pectoris, symptomatic pericarditis, or coronary artery bypass graft (CABG) within 6 months prior to study entry",
+      "threshold": "within 6 months"
     }
   ]
 }

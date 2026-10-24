@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT04293562",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
@@ -20,13 +21,6 @@
       "category": "age",
       "absolute": true,
       "section": "inclusion",
-      "source_text": "ARM D: Patient must be \\>= 2 years of age at the time of Late Callback",
-      "threshold": "age >= 2 years"
-    },
-    {
-      "category": "age",
-      "absolute": true,
-      "section": "inclusion",
       "source_text": "NEUROPSYCHOLOGICAL TESTING: Patient must be 5 years or older at the time of enrollment",
       "threshold": "age >= 5 years"
     },
@@ -38,27 +32,6 @@
       "threshold": null
     },
     {
-      "category": "pregnancy",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "ARM C: Lactating women must agree not to breastfeed during treatment with gilteritinib and for 2 months after the last dose of gilteritinib",
-      "threshold": null
-    },
-    {
-      "category": "pregnancy",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "ARM D: Lactating women must agree not to breastfeed during treatment with gilteritinib and for 2 months after the last dose of gilteritinib",
-      "threshold": null
-    },
-    {
-      "category": "cardiac",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "ARM C: Patient does not have any congenital long QT syndrome or congenital heart block",
-      "threshold": null
-    },
-    {
       "category": "prior_malignancy",
       "absolute": true,
       "section": "exclusion",
@@ -67,7 +40,7 @@
     },
     {
       "category": "cardiac",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Patients with persistent cardiac dysfunction prior to enrollment, defined as ejection fraction (EF) \\< 50% (preferred method Biplane Simpson's EF) or if EF unavailable, shortening fraction (SF) \\< 24%.",
       "threshold": "EF < 50% or SF < 24%"
@@ -81,24 +54,10 @@
     },
     {
       "category": "pregnancy",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Lactating females who plan to breastfeed their infants",
       "threshold": null
-    },
-    {
-      "category": "cardiac",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "ARM D: Patient does not have any congenital long QT syndrome or congenital heart block",
-      "threshold": null
-    },
-    {
-      "category": "bmi",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Patients \\< 8.3 kg at study enrollment are not eligible",
-      "threshold": "weight >= 8.3 kg"
     }
   ]
 }

@@ -47,42 +47,154 @@ def validate_records(records: list[dict], eligibility_text: str) -> list[dict]:
 
 # Any integer age mentioned in the quote. Used to decide if an `age` record is
 # just the standard adult floor (>=18, no upper bound) rather than a real cap.
-_AGE_NUM = re.compile(r"(\d{1,3})\s*(?:years?|yrs?|yo\b|y/o\b|years? old)?", re.I)
-# Words that indicate an UPPER bound / real age restriction in the quote.
+# Standalone 1-3 digit number — NOT embedded in a word/code like "SM08502" (85/727)
+# and NOT a decimal like 1.5. The trailing lookahead rejects a following word char,
+# or a dot ONLY when a digit follows it (so a decimal is skipped but a sentence-final
+# "18." still counts as an age).
+_AGE_NUM = re.compile(
+    r"(?<![\w.])(\d{1,3})(?!\w|\.\d)\s*(?:years?|yrs?|yo\b|y/o\b)?", re.I
+)
+# Words/punctuation that indicate an UPPER bound / real age restriction in the
+# quote. "to N" is intentionally NOT a generic hint ("greater than or equal to 18"
+# falsely matched); explicit numeric ranges are caught by _AGE_RANGE below.
 _AGE_UPPER_HINT = re.compile(
-    r"(<|≤|=<|under|up to|maximum|younger than|no older|between|-\s*\d|to\s+\d)", re.I
+    r"(<|≤|=<|under|up to|maximum|younger than|no older|between|-\s*\d)", re.I
+)
+# An explicit numeric age range "N to N" / "N - N" (optionally with a months/years
+# unit on the first number), e.g. "Ages 2 to 17 years", "6 months to 17 years".
+# A trial capped at 17 is a real age restriction and must be kept.
+_AGE_RANGE = re.compile(
+    r"\d{1,3}\s*(?:months?|years?|yrs?)?\s*(?:to|-|–|—)\s*(\d{1,3})\b", re.I
+)
+
+
+# Boilerplate the model mis-reads as an upper age cap. These sentences explain
+# why CHILDREN are excluded ("no data in patients < 18"); they are NOT a real age
+# restriction on the adult cohort, so they must be dropped like a bare floor.
+_AGE_CHILD_BOILERPLATE = re.compile(
+    r"(because|since).{0,80}(not|no).{0,40}(available|data).{0,80}(patients?|children)"
+    r".{0,40}(<|less than|under)\s*18",
+    re.I,
+)
+_AGE_CHILD_EXCLUDED = re.compile(
+    r"(children|pediatric|patients?\s*(<|less than|under)\s*18).{0,60}(excluded|not eligible)",
+    re.I,
 )
 
 
 def is_bare_adult_floor(source_text: str) -> bool:
-    """True if an age quote is just a standard adult minimum (>=18, no cap).
+    """True if an age quote is really just "adults only" (>=18 floor or child-exclusion
+    boilerplate), not a genuine age restriction on the enrolled cohort.
 
-    Haiku keeps emitting "Age >= 18 years" as an age restriction even though a
-    plain 18 floor is not one. We drop those deterministically. We DO keep quotes
-    that carry an upper bound (<55, 40-80, <=75) or a minimum strictly above 18.
+    Keeps real caps/ranges (<55, 40-80, <=75) and minimums strictly above 18.
     """
     text = normalize(source_text)
     if not text:
         return False
-    # If the quote signals any upper/range bound, it is a real restriction — keep.
-    if _AGE_UPPER_HINT.search(text):
-        return False
     nums = [int(n) for n in _AGE_NUM.findall(text) if n.isdigit()]
     age_nums = [n for n in nums if 0 < n <= 120]
+    # If ANY age above 18 appears, there is a real cap/minimum here — keep it,
+    # even if child-exclusion boilerplate is also present ("18 to 70; children
+    # excluded" must keep the 70 cap).
+    if any(n > 18 for n in age_nums):
+        return False
+    # An explicit numeric range ("2 to 17 years", "6 months to 17 years") is a real
+    # age restriction even when the upper bound is <= 18 (pediatric trials capped at
+    # 17). Keep it.
+    if _AGE_RANGE.search(text):
+        return False
+    # Child-exclusion boilerplate with no adult-range number: "because no data in
+    # patients < 18 ... children are excluded". Not a cohort age restriction.
+    if _AGE_CHILD_BOILERPLATE.search(text) or _AGE_CHILD_EXCLUDED.search(text):
+        return True
+    # Any other upper/range bound signals a real restriction — keep.
+    if _AGE_UPPER_HINT.search(text):
+        return False
     if not age_nums:
         return False
     # Bare floor only when the only plausible age cutoff present is <= 18.
     return max(age_nums) <= 18
 
 
+# Each category's quote must contain at least one of these (normalized, casefolded)
+# keywords, mirroring the prompt's per-category triggers. A quote that lacks them
+# is about something else and the model mis-filed it. Conservative on purpose.
+#
+# Short/ambiguous keywords (ast, alt, mi, ef, gfr, cns, aids, cd4) are matched as
+# WHOLE WORDS so they don't fire inside other words (ast in "breast", mi in
+# "seminoma"). Listed in _WHOLE_WORD_KEYWORDS below.
+_CATEGORY_KEYWORDS: dict[str, tuple[str, ...]] = {
+    "diabetes": ("diabet", "hba1c", "a1c", "glycemic", "glycaemic", "glucose", "insulin"),
+    "bmi": ("bmi", "body mass", "kg/m", "body weight", "weight >", "weight <", "lbs", "kg)"),
+    "smoking": ("smok", "tobacco", "nicotine", "cigarette", "vap"),
+    "renal": ("kidney", "renal", "creatinine", "clearance", "crcl", "egfr", "gfr",
+              "glomerular", "dialysis", "nephr"),
+    "hepatic": ("liver", "hepat", "bilirubin", "ast", "alt", "sgot", "sgpt", "inr",
+                "cirrhosis", "child-pugh", "transaminase", "aminotransferase"),
+    "cardiac": ("cardiac", "heart", "nyha", "myocardial", "mi", "lvef", "ef",
+                "ejection fraction", "qtc", "qt interval", "arrhythmi", "chf",
+                "congestive", "cardiovascular", "angina", "stroke"),
+    "hiv": ("hiv", "human immunodeficiency", "aids", "cd4", "antiretroviral",
+            "anti-retroviral"),
+    # brain_mets must be CNS/brain-specific; plain "metasta" let through any
+    # metastatic-disease sentence, so it's intentionally NOT here.
+    "brain_mets": ("cns", "central nervous", "brain", "leptomening",
+                   "intracranial", "cerebral"),
+    "prior_malignancy": ("malignan", "cancer", "carcinoma", "tumor", "tumour",
+                         "neoplasm"),
+    "performance_status": ("ecog", "karnofsky", "lansky", "performance status",
+                           "performance score", "eastern cooperative", "eastern oncology"),
+    "language": ("english", "spanish", "language", "speak", "read", "fluent",
+                 "interpreter", "literacy"),
+    "pregnancy": ("pregnan", "breastfeed", "breast-feed", "lactat", "nursing"),
+    # age uses the numeric logic above, not a keyword list
+}
+
+# Keywords that must match as whole words (regex \b...\b), to avoid substring
+# false hits like "ast" in "breast" or "mi" in "seminoma".
+_WHOLE_WORD_KEYWORDS = frozenset({"ast", "alt", "mi", "ef", "gfr", "cns", "aids",
+                                  "cd4", "a1c", "bmi", "chf", "hiv", "inr"})
+_WORD_RE_CACHE: dict[str, re.Pattern] = {}
+
+
+def _keyword_in(keyword: str, text: str) -> bool:
+    if keyword in _WHOLE_WORD_KEYWORDS:
+        pat = _WORD_RE_CACHE.get(keyword)
+        if pat is None:
+            pat = re.compile(rf"\b{re.escape(keyword)}\b")
+            _WORD_RE_CACHE[keyword] = pat
+        return pat.search(text) is not None
+    return keyword in text
+
+
+def quote_matches_category(category: str, source_text: str) -> bool:
+    """True if the quote contains a keyword consistent with its category.
+
+    Age is exempt (handled numerically). Short keywords are matched whole-word.
+    """
+    if category == "age":
+        return True  # numeric logic handles age
+    keys = _CATEGORY_KEYWORDS.get(category)
+    if not keys:
+        return True  # unknown category handled elsewhere
+    text = normalize(source_text)
+    return any(_keyword_in(k, text) for k in keys)
+
+
 def drop_noise(records: list[dict]) -> list[dict]:
     """Remove records the model should not have emitted (deterministic guards).
 
-    Currently: `age` records that are just a standard adult floor (>=18, no cap).
+    1. `age` records that are really "adults only" (>=18 floor or child boilerplate).
+    2. Any record whose quote lacks its category's required keyword (mis-filed —
+       e.g. an `hiv` row quoting only hepatitis B/C, a `smoking` row quoting warfarin).
     """
     out = []
     for r in records:
-        if r.get("category") == "age" and is_bare_adult_floor(r.get("source_text", "")):
+        cat = r.get("category")
+        quote = r.get("source_text", "")
+        if cat == "age" and is_bare_adult_floor(quote):
+            continue
+        if not quote_matches_category(cat, quote):
             continue
         out.append(r)
     return out

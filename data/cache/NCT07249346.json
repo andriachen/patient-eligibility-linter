@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT07249346",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "cardiac",
@@ -20,7 +21,7 @@
       "category": "hepatic",
       "absolute": true,
       "section": "inclusion",
-      "source_text": "AST(Aspartate aminotransferase)/ALT(Alanine aminotransferase) \\<3x Upper Limit of Normal (ULN); Total bilirubin \\<2 mg/dL excluding Gilbert's syndrome or hemolysis",
+      "source_text": "Liver function: AST(Aspartate aminotransferase)/ALT(Alanine aminotransferase) \\<3x Upper Limit of Normal (ULN); Total bilirubin \\<2 mg/dL excluding Gilbert's syndrome or hemolysis",
       "threshold": "AST/ALT < 3x ULN; total bilirubin < 2 mg/dL"
     },
     {
@@ -31,25 +32,18 @@
       "threshold": "KPS >= 70%"
     },
     {
-      "category": "brain_mets",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Active CNS (central nervous system) involvement by malignant cells",
-      "threshold": null
-    },
-    {
       "category": "hiv",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
-      "source_text": "Patients seropositive for human immunodeficiency virus (HIV) with detectable viral load.",
+      "source_text": "Patients seropositive for human immunodeficiency virus (HIV) with detectable viral load. HIV+ patients with an undetectable viral load on antiviral therapy are eligible.",
       "threshold": null
     },
     {
       "category": "cardiac",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "New York Heart Association (NYHA) Class III or IV heart failure, uncontrolled angina, severe uncontrolled ventricular arrhythmias, or electrocardiographic evidence of acute ischemia.",
-      "threshold": "NYHA Class III or IV"
+      "threshold": "NYHA class III or IV"
     },
     {
       "category": "pregnancy",
@@ -64,6 +58,13 @@
       "section": "exclusion",
       "source_text": "Patients with prior malignancies except resected non-melanoma skin cancer or treated cervical carcinoma in situ. Cancer treated with curative intent \u2265 5 years previously will be allowed.",
       "threshold": "within 5 years"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Active CNS (central nervous system) involvement by malignant cells",
+      "threshold": null
     },
     {
       "category": "cardiac",

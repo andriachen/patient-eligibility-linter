@@ -1,17 +1,39 @@
 {
   "nct_id": "NCT05019703",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Eastern Cooperative Oncology Group (ECOG) of 0, 1 or 2. Use Karnofsky \\>= 50 for patients \\> 16 years of age and Lansky \\>= 50 for patients =\\< 16 years of age",
-      "threshold": "ECOG 0, 1 or 2"
+      "threshold": "ECOG 0-2"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Creatinine clearance \\>= 50 mL/min (adults \\> 18 years of age, calculated using the Cockcroft-Gault formula) or \\>= 50 mL/min/1.73m\\^2 (pediatrics patients age 12 - 17, calculated using the Bedside Schwartz equation)",
+      "threshold": "CrCl >= 50 mL/min"
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Negative human immunodeficiency virus (HIV) test at screening",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Women of childbearing potential must not be pregnant at screening.",
+      "threshold": null
     },
     {
       "category": "brain_mets",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "Known brain metastases or cranial epidural disease unless adequately treated with radiotherapy and/or surgery (including radiosurgery) and stable for at least 4 weeks prior to first dose of study treatment after radiotherapy or at least 4 weeks prior to first dose of study treatment after major surgery (e.g., removal or biopsy of brain metastasis).",
       "threshold": null
@@ -24,25 +46,18 @@
       "threshold": null
     },
     {
-      "category": "hiv",
+      "category": "hepatic",
       "absolute": true,
-      "section": "inclusion",
-      "source_text": "Negative human immunodeficiency virus (HIV) test at screening",
-      "threshold": null
-    },
-    {
-      "category": "pregnancy",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Women of childbearing potential must not be pregnant at screening.",
-      "threshold": null
+      "section": "exclusion",
+      "source_text": "Moderate to severe hepatic impairment (Child-Pugh B or C)",
+      "threshold": "Child-Pugh B or C"
     },
     {
       "category": "cardiac",
       "absolute": false,
       "section": "exclusion",
       "source_text": "Significant cardiovascular disease (such as New York Heart Association Class II or greater cardiac disease, myocardial infarction, or cerebrovascular accident) within 3 months prior to initiation of study treatment, unstable arrhythmia, or unstable angina",
-      "threshold": "within 3 months"
+      "threshold": "NYHA Class II or greater; MI within 3 months"
     },
     {
       "category": "cardiac",
@@ -52,24 +67,10 @@
       "threshold": "QTcF > 500 ms"
     },
     {
-      "category": "hepatic",
+      "category": "pregnancy",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Moderate to severe hepatic impairment (Child-Pugh B or C)",
-      "threshold": "Child-Pugh B or C"
-    },
-    {
-      "category": "renal",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Creatinine clearance \\>= 50 mL/min (adults \\> 18 years of age, calculated using the Cockcroft-Gault formula) or \\>= 50 mL/min/1.73m\\^2 (pediatrics patients age 12 - 17, calculated using the Bedside Schwartz equation)",
-      "threshold": "CrCl >= 50 mL/min"
-    },
-    {
-      "category": "prior_malignancy",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "History of malign",
+      "source_text": "Prior treatment with cabozantinib",
       "threshold": null
     }
   ]

@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06926868",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "brain_mets",
@@ -20,22 +21,15 @@
       "category": "cardiac",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "Participants with history of severe heart disease including, but not limited to, any of the following:",
-      "threshold": null
+      "source_text": "congestive heart failure with New York Heart Association functional classification II to IV",
+      "threshold": "NYHA II to IV"
     },
     {
       "category": "cardiac",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "congestive heart failure with New York Heart Association functional classification II to IV, pericarditis, or significant pericardial effusion).",
-      "threshold": "NYHA class II to IV"
-    },
-    {
-      "category": "cardiac",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Myocardial infarction, uncontrolled angina, or stroke/transient ischemic attack within the past 6 months.",
-      "threshold": "within past 6 months"
+      "threshold": "MI within 6 months"
     },
     {
       "category": "cardiac",

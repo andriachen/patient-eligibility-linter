@@ -1,19 +1,13 @@
 {
   "nct_id": "NCT05625659",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "pregnancy",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Women must not be pregnant or breast-feeding.",
-      "threshold": null
-    },
-    {
-      "category": "prior_malignancy",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Women currently undergoing treatment for breast cancer, or planning surgery for a high-risk lesion (ADH, ALH, LCIS, papilloma, radial scar).",
       "threshold": null
     },
     {
@@ -31,10 +25,24 @@
       "threshold": null
     },
     {
+      "category": "age",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Age >60 years old",
+      "threshold": "age > 60"
+    },
+    {
       "category": "renal",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "History of renal disease, including dialysis, kidney transplant, single kidney, renal cancer, and renal surgery",
+      "threshold": null
+    },
+    {
+      "category": "diabetes",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "History of diabetes mellitus",
       "threshold": null
     }
   ]

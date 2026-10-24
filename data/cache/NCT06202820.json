@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06202820",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "cardiac",
@@ -8,13 +9,6 @@
       "section": "exclusion",
       "source_text": "History of major adverse cardiac event, including myocardial infarction, new congestive heart failure (CHF) or CHF exacerbation, or stroke, within the past 24 weeks due to complicated comorbidities that necessitate close collaboration between the participant and their cardiologist.",
       "threshold": "within past 24 weeks"
-    },
-    {
-      "category": "age",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Age \u226518 years.",
-      "threshold": null
     }
   ]
 }

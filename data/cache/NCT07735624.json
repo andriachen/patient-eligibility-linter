@@ -1,41 +1,49 @@
 {
   "nct_id": "NCT07735624",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status of 0 or 1.",
-      "threshold": "ECOG > 1"
+      "threshold": "ECOG 0 or 1"
     },
     {
       "category": "renal",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Creatinine clearance \u2265 30 mL/min as measured or calculated per local institutional standards.",
-      "threshold": "CrCl < 30 mL/min"
+      "threshold": "CrCl \u2265 30 mL/min"
     },
     {
       "category": "hepatic",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Aspartate aminotransferase/alanine aminotransferase \u2264 1.5 \u00d7 upper limit of normal (ULN).",
-      "threshold": "AST/ALT > 1.5 \u00d7 ULN"
+      "threshold": "AST/ALT \u2264 1.5 \u00d7 ULN"
     },
     {
       "category": "hepatic",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Total bilirubin \u2264 1.5 \u00d7 ULN (except patients with Gilbert syndrome who must have a total bilirubin level of \u2264 3.0 \u00d7 ULN).",
-      "threshold": "total bilirubin > 1.5 \u00d7 ULN"
+      "threshold": "total bilirubin \u2264 1.5 \u00d7 ULN"
     },
     {
-      "category": "age",
+      "category": "cardiac",
       "absolute": true,
-      "section": "inclusion",
-      "source_text": "Age \u2265 18 years of age.",
-      "threshold": null
+      "section": "exclusion",
+      "source_text": "congestive heart failure (New York Heart Association class \u2265 III)",
+      "threshold": "NYHA class \u2265 III"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "cerebral vascular accident/stroke or myocardial infarction within 6 months of enrollment",
+      "threshold": "within 6 months"
     },
     {
       "category": "prior_malignancy",
@@ -46,17 +54,10 @@
     },
     {
       "category": "hepatic",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Stigmata of hepatic decompensation including a history of variceal bleeding, a history of ascites related to hepatic cirrhosis, or severe portal hypertension.",
       "threshold": null
-    },
-    {
-      "category": "cardiac",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Clinically significant (i.e., active) cardiovascular disease: cerebral vascular accident/stroke or myocardial infarction within 6 months of enrollment, unstable angina, congestive heart failure (New York Heart Association class \u2265 III), or serious uncontrolled cardiac arrhythmia requiring medication.",
-      "threshold": "MI within 6 months; NYHA class >= III"
     },
     {
       "category": "hiv",

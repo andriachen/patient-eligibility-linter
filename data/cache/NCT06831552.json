@@ -1,13 +1,14 @@
 {
   "nct_id": "NCT06831552",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Patient aged 0-17 years at the time of consent",
-      "threshold": "age 0-17 years"
+      "threshold": "age <= 17 years"
     }
   ]
 }

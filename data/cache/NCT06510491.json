@@ -1,47 +1,69 @@
 {
   "nct_id": "NCT06510491",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
-      "category": "performance_status",
+      "category": "age",
       "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age \u226518 years",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": false,
       "section": "inclusion",
       "source_text": "ECOG performance status \u00a3 2",
       "threshold": "ECOG <= 2"
     },
     {
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "creatinine clearance \\>45 ml/min (by Cockcroft-Gault estimate or 24-hr creatinine clearance measurement)",
+      "threshold": "CrCl > 45 ml/min"
+    },
+    {
       "category": "hepatic",
-      "absolute": true,
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "total bilirubin \u2264 1.5 institutional upper limit of normal (ULN).",
+      "threshold": "total bilirubin <= 1.5x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
       "section": "inclusion",
       "source_text": "AST(SGOT)/ALT(SGPT) \u22643\u00d7 institutional ULN",
       "threshold": "AST/ALT <= 3x ULN"
     },
     {
-      "category": "renal",
-      "absolute": true,
+      "category": "prior_malignancy",
+      "absolute": false,
       "section": "inclusion",
-      "source_text": "creatinine clearance \\>45 ml/min (by Cockcroft-Gault estimate or 24-hr creatinine clearance measurement)",
-      "threshold": "CrCl > 45 ml/min"
+      "source_text": "Participants with a history of prior malignancy will be eligible if all treatment of that malignancy was completed at least 2 years before registration",
+      "threshold": "treatment completed at least 2 years before registration"
     },
     {
       "category": "hiv",
       "absolute": false,
       "section": "inclusion",
       "source_text": "Patients with HIV may be enrolled if they are on stable antiretroviral therapy, have an undetectable viral load, and CD4 count \\> 250 cells/mm3.",
-      "threshold": "CD4 > 250 cells/mm3 with stable ART and undetectable viral load"
+      "threshold": "CD4 > 250 cells/mm3"
     },
     {
       "category": "cardiac",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "Uncontrolled underlying cardiac conditions including but not limited to: congestive heart failure grade III or IV (by NYHA) or EF \\< 45%, unstable angina pectoris, acute myocardial infarction \\< 6 months, uncontrolled cardiac arrhythmia",
-      "threshold": "NYHA grade III/IV or EF < 45%; acute MI < 6 months"
+      "threshold": "NYHA grade III or IV; EF < 45%; acute MI < 6 months"
     },
     {
       "category": "brain_mets",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Patients with known or suspected CNS involvement or leptomeningeal disease (i.e. BingNeel Syndrome) are excluded given concern for potentially increased risk of neurologic toxicity with epcoritamab.",
+      "source_text": "Patients with known or suspected CNS involvement or leptomeningeal disease (i.e. BingNeel Syndrome) are excluded",
       "threshold": null
     },
     {
@@ -49,20 +71,6 @@
       "absolute": true,
       "section": "exclusion",
       "source_text": "Pregnant or breastfeeding women or participants unwilling to adhere to institutional guidelines for highly effective contraception for the duration of the therapy are excluded.",
-      "threshold": null
-    },
-    {
-      "category": "prior_malignancy",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Participants with a history of prior malignancy will be eligible if all treatment of that malignancy was completed at least 2 years before registration, the treatment was considered \"curable-intent\", and there is no evidence of disease.",
-      "threshold": "treatment completed at least 2 years before registration"
-    },
-    {
-      "category": "age",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Age \u226518 years",
       "threshold": null
     }
   ]

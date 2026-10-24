@@ -1,14 +1,8 @@
 {
   "nct_id": "NCT02641145",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
-    {
-      "category": "pregnancy",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Pregnant state. For women in child bearing age, a urine pregnancy test will be performed prior to the PET and the cardiac MRI studies",
-      "threshold": null
-    },
     {
       "category": "renal",
       "absolute": false,
@@ -24,38 +18,38 @@
       "threshold": null
     },
     {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant state. For women in child bearing age, a urine pregnancy test will be performed prior to the PET and the cardiac MRI studies",
+      "threshold": null
+    },
+    {
       "category": "hiv",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Additional exclusion criteria for microbiota study: Documented hypertrophic cardiomyopathy, HIV or chronic viral hepatitis",
+      "source_text": "Documented hypertrophic cardiomyopathy, HIV or chronic viral hepatitis",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Concomitant non-ischemic non-amyloid heart disease (valvular heart disease or dilated cardiomyopathy)",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Decompensated heart failure (unable to lie flat for 1 hour)",
       "threshold": null
     },
     {
       "category": "pregnancy",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Additional exclusion criteria for microbiota study: Documented hypertrophic cardiomyopathy, HIV or chronic viral hepatitis, documented inflammatory bowel disease, systemic antibiotics, antivirals, antifungals or antiparasitic agents within 6 months, unable to mail the stool sample in a timely manner, bowel surgery, colon cancer, received chemotherapy, and pregnancy.",
-      "threshold": null
-    },
-    {
-      "category": "prior_malignancy",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "colon cancer, received chemotherapy",
-      "threshold": null
-    },
-    {
-      "category": "cardiac",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Known obstructive epicardial coronary artery disease with stenosis \\> 50% in any single territory",
-      "threshold": "stenosis > 50%"
-    },
-    {
-      "category": "cardiac",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Concomitant non-ischemic non-amyloid heart disease (valvular heart disease or dilated cardiomyopathy)",
+      "source_text": "and pregnancy.",
       "threshold": null
     }
   ]

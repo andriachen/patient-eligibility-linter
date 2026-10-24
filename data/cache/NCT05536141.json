@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT05536141",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -8,13 +9,6 @@
       "section": "inclusion",
       "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status score of \u2264 1",
       "threshold": "ECOG \u2264 1"
-    },
-    {
-      "category": "renal",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Creatinine clearance \u2265 40 mL/min",
-      "threshold": "CrCl \u2265 40 mL/min"
     }
   ]
 }

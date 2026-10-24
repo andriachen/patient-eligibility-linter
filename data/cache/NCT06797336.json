@@ -1,12 +1,13 @@
 {
   "nct_id": "NCT06797336",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "brain_mets",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "Active brain metastasis or carcinomatous meningitis. If participants have had brain metastases resected or have received radiation therapy, they may be eligible if: (1) study treatment begins at least 4 weeks from the end of brain-specific therapy, (2) residual neurological symptoms Grade less than or equal to (\\<=) 2, (3) currently on stable doses of corticosteroids, and (4) pre-study brain magnetic resonance imaging (MRI) documents no new/worsening brain lesions.",
+      "source_text": "Active brain metastasis or carcinomatous meningitis.",
       "threshold": null
     },
     {
@@ -17,39 +18,18 @@
       "threshold": "within 2 years"
     },
     {
-      "category": "hiv",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Known HIV infection with a cluster of differentiation 4+ (CD4+) T-cell count less than (\\<) 200 cells per microliter \\[/mcL\\] and/or a detectable viral load per parameters of assay and/or on an anti-retroviral regimen containing a strong or moderate cytochrome (CY)P3A4/5 inhibitor or inducer and/or on a new anti-retroviral regimen for less than 28 days prior to the initiation of study treatment.",
-      "threshold": "CD4+ < 200 cells/mcL"
-    },
-    {
-      "category": "hepatic",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Known history of drug-induced liver injury; primary biliary cirrhosis; or ongoing extrahepatic obstruction caused by stones, cirrhosis of the liver, or portal hypertension.",
-      "threshold": null
-    },
-    {
-      "category": "cardiac",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Clinically significant abnormalities in rhythm, conduction, or morphology of resting electrocardiogram (ECG) or baseline QT interval corrected for heart rate using Fridericia's formula (QTcF) \\>=450 milliseconds (msec).",
-      "threshold": "QTcF >= 450 msec"
-    },
-    {
       "category": "pregnancy",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Female participants who are pregnant or lactating/breast feeding or who plan to breastfeed while on study through 28 days after receiving the last dose of study drug.",
       "threshold": null
     },
     {
-      "category": "performance_status",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Eastern Cooperative Oncology Group (ECOG) Performance Status 0 or 1.",
-      "threshold": "ECOG 0 or 1"
+      "category": "hiv",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Known HIV infection with a cluster of differentiation 4+ (CD4+) T-cell count less than (\\<) 200 cells per microliter \\[/mcL\\] and/or a detectable viral load per parameters of assay and/or on an anti-retroviral regimen containing a strong or moderate cytochrome (CY)P3A4/5 inhibitor or inducer and/or on a new anti-retroviral regimen for less than 28 days prior to the initiation of study treatment.",
+      "threshold": "CD4+ < 200 cells/mcL"
     }
   ]
 }

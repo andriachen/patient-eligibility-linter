@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT07662239",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
@@ -21,7 +22,7 @@
       "absolute": false,
       "section": "exclusion",
       "source_text": "Unstable cardiovascular disease in the last 6 months",
-      "threshold": "unstable CV disease within 6 months"
+      "threshold": "unstable CV disease within last 6 months"
     },
     {
       "category": "pregnancy",

@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT05061550",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "cardiac",
@@ -11,10 +12,10 @@
     },
     {
       "category": "cardiac",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "QTcF (QT interval corrected by Fridericia's formula) interval \u2265 470 ms.",
-      "threshold": "QTcF \u2265 470 ms"
+      "threshold": "QTcF >= 470 ms"
     },
     {
       "category": "cardiac",

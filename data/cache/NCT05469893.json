@@ -1,41 +1,42 @@
 {
   "nct_id": "NCT05469893",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
       "absolute": false,
       "section": "inclusion",
       "source_text": "Eastern Cooperative Oncology Group (ECOG) Performance Status (PS) 0, 1, or 2",
-      "threshold": "ECOG > 2"
+      "threshold": "ECOG PS 0, 1, or 2"
     },
     {
       "category": "renal",
       "absolute": false,
       "section": "inclusion",
       "source_text": "Estimated creatinine clearance (CLcr) \u226560 mL/min",
-      "threshold": "CrCl < 60 mL/min"
+      "threshold": "CLcr \u226560 mL/min"
     },
     {
       "category": "hepatic",
       "absolute": false,
       "section": "inclusion",
       "source_text": "Total bilirubin \u2264 2.0 mg/dL (If total is elevated check direct and if normal patient is eligible.)",
-      "threshold": "total bilirubin > 2.0 mg/dL"
+      "threshold": "total bilirubin \u2264 2.0 mg/dL"
     },
     {
       "category": "hepatic",
       "absolute": false,
       "section": "inclusion",
       "source_text": "Aspartates Aminotransferase (AST) \\<2.5 x institutional upper limit of normal (ULN)",
-      "threshold": "AST >= 2.5 x ULN"
+      "threshold": "AST < 2.5 x ULN"
     },
     {
       "category": "hepatic",
       "absolute": false,
       "section": "inclusion",
       "source_text": "Alanine Transaminase (ALT) \\<2.5 x institutional upper limit of normal (ULN)",
-      "threshold": "ALT >= 2.5 x ULN"
+      "threshold": "ALT < 2.5 x ULN"
     },
     {
       "category": "pregnancy",
@@ -74,24 +75,17 @@
     },
     {
       "category": "cardiac",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "New York Heart Association stage III or IV congestive heart failure, 2) Myocardial infarction or coronary artery bypass graft \u22646 months prior to randomization,3) History of clinically significant ventricular arrhythmia or unexplained syncope, not believed to be vasovagal in nature or due to dehydration,4) History of severe non-ischemic cardiomyopathy",
-      "threshold": "NYHA III or IV; MI or CABG within 6 months"
+      "threshold": "NYHA III or IV; MI or CABG \u22646 months"
     },
     {
       "category": "diabetes",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Uncontrolled diabetes defined by Hemoglobin A1C \\> 8.5",
-      "threshold": "HbA1c > 8.5%"
-    },
-    {
-      "category": "cardiac",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Uncontrolled intercurrent illness including, but not limited to, ongoing or active infection, symptomatic congestive heart failure, unstable angina pectoris, cardiac arrhythmia, or psychiatric illness/social situations that would limit compliance with study requirements.",
-      "threshold": null
+      "threshold": "HbA1c > 8.5"
     }
   ]
 }

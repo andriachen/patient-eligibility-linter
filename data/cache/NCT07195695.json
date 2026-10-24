@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT07195695",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
@@ -8,34 +9,6 @@
       "section": "inclusion",
       "source_text": "Patients must be \u226518 years old or over the legal age of consent in their country",
       "threshold": null
-    },
-    {
-      "category": "pregnancy",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Women of childbearing potential (WOCBP) must be ready and able to use dual highly effective methods of birth control",
-      "threshold": null
-    },
-    {
-      "category": "performance_status",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Eastern Cooperative Oncology Group (ECOG) score of 0 or 1",
-      "threshold": "ECOG 0 or 1"
-    },
-    {
-      "category": "prior_malignancy",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Previous or concomitant malignancies within the last 3 years, except certain effectively treated cancers",
-      "threshold": "within 3 years"
-    },
-    {
-      "category": "cardiac",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Significant and/or uncontrolled cardiovascular abnormalities, QT interval corrected for heart rate by Fridericia formula (QTcF) \\>470 msec, or ejection fraction \\<50%",
-      "threshold": "QTcF > 470 msec; LVEF < 50%"
     }
   ]
 }

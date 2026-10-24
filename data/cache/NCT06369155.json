@@ -1,17 +1,11 @@
 {
   "nct_id": "NCT06369155",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
-      "category": "age",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Age 18 years or older.",
-      "threshold": null
-    },
-    {
       "category": "performance_status",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "ECOG performance status 0, 1, or 2 (see Appendix A)",
       "threshold": "ECOG 0-2"
@@ -41,19 +35,12 @@
       "category": "hiv",
       "absolute": false,
       "section": "inclusion",
-      "source_text": "HIV-infected participants on effective anti-retroviral therapy with undetectable viral load within 6 months are eligible for this trial. However, participants who are on antiretroviral therapy that includes strong inhibitors or inducers of CYP3A4 are not eligible",
+      "source_text": "participants who are on antiretroviral therapy that includes strong inhibitors or inducers of CYP3A4 are not eligible",
       "threshold": null
     },
     {
       "category": "brain_mets",
       "absolute": false,
-      "section": "inclusion",
-      "source_text": "Participants with new or progressive brain metastases (active brain metastases) are eligible only if the treating physician determines that immediate CNS-specific treatment is not required",
-      "threshold": null
-    },
-    {
-      "category": "brain_mets",
-      "absolute": true,
       "section": "inclusion",
       "source_text": "Participants with known leptomeningeal disease are not eligible.",
       "threshold": null
@@ -67,13 +54,6 @@
     },
     {
       "category": "pregnancy",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "women of child-bearing potential and men must agree to use adequate contraception",
-      "threshold": null
-    },
-    {
-      "category": "pregnancy",
       "absolute": true,
       "section": "exclusion",
       "source_text": "Pregnant women are excluded from this study",
@@ -81,9 +61,9 @@
     },
     {
       "category": "pregnancy",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
-      "source_text": "breastfeeding should be discontinued if the mother is treated with azenosertib.",
+      "source_text": "breastfeeding should be discontinued if the mother is treated with azenosertib",
       "threshold": null
     },
     {
@@ -92,13 +72,6 @@
       "section": "exclusion",
       "source_text": "Patients with known history or current symptoms of cardiac disease, or history of treatment with cardiotoxic agents, should have a clinical risk assessment of cardiac function using the New York Heart Association Functional Classification. To be eligible for this trial, patients should be class 2B or better.",
       "threshold": "NYHA class 2B or better"
-    },
-    {
-      "category": "smoking",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Participants receiving any medications or substances that are strong inhibitors or inducers of CYP3A4 are ineligible.",
-      "threshold": null
     }
   ]
 }

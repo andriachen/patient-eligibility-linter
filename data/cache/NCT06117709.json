@@ -1,7 +1,15 @@
 {
   "nct_id": "NCT06117709",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age \u2265 21 years",
+      "threshold": "age >= 21"
+    },
     {
       "category": "language",
       "absolute": true,

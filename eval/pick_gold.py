@@ -15,6 +15,7 @@ Usage (from repo root):
     python eval/pick_gold.py --targeted      # also add up to 2 trials per category with 0 coverage
     python eval/pick_gold.py --seed 7        # different random draw
     python eval/pick_gold.py --refresh       # refetch the pool instead of using the cache
+    python eval/pick_gold.py --extend 10     # append 10 held-out random trials; keeps the existing set
 """
 from __future__ import annotations
 
@@ -243,6 +244,38 @@ def add_targeted(chosen: list[dict], pool: list[dict], rng: random.Random) -> li
     return chosen + extra
 
 
+def pick_extension(pool: list[dict], existing: set[str], n: int,
+                   rng: random.Random) -> list[dict]:
+    """n random trials not already in the gold set, max 3 per cancer type."""
+    order = [t for t in pool if t["nct_id"] not in existing]
+    rng.shuffle(order)
+    chosen, cancer_n = [], collections.Counter()
+    for t in order:
+        if len(chosen) >= n:
+            break
+        if cancer_n[t["cancer_type"]] < 3:
+            chosen.append({**t, "pick_method": "holdout"})
+            cancer_n[t["cancer_type"]] += 1
+    return chosen
+
+
+def append_outputs(new: list[dict], start: int, seed: int):
+    """Add trials to the gold files without touching existing picks or labels."""
+    with open(EVAL / "gold_ids.txt", "a") as f:
+        f.write("".join(t["nct_id"] + "\n" for t in new))
+    with open(EVAL / "gold_ids_meta.csv", "a", newline="") as f:
+        w = csv.writer(f)
+        for t in new:
+            w.writerow([t["nct_id"], t["phase"], t["cancer_type"], t["sponsor_type"],
+                        t["pick_method"], t["lead_sponsor"], t["title"], seed])
+    for i, t in enumerate(new, start):
+        (EVAL / "criteria" / f"{t['nct_id']}.md").write_text(
+            f"# {i:02d}. {t['nct_id']}: {t['title']}\n\n"
+            f"https://clinicaltrials.gov/study/{t['nct_id']}\n\n"
+            f"- Phase: {t['phase_raw']}\n- Conditions: {t['conditions']}\n"
+            f"- Sponsor: {t['lead_sponsor']}\n\n---\n\n{t['criteria']}\n")
+
+
 # ---------- output ----------
 
 def write_outputs(chosen: list[dict], seed: int):
@@ -304,12 +337,27 @@ def main():
     ap.add_argument("--targeted", action="store_true",
                     help="add up to 2 trials for each category with zero coverage")
     ap.add_argument("--refresh", action="store_true", help="refetch the trial pool")
+    ap.add_argument("--extend", type=int, metavar="N",
+                    help="append N held-out random trials to the existing gold set")
     args = ap.parse_args()
 
     pool = [t for t in (summarize(s) for s in fetch_pool(args.refresh))
             if t and t["nct_id"] and t["criteria"].strip()]
     if len(pool) < TOTAL:
         sys.exit(f"Only {len(pool)} usable trials in the pool.")
+
+    if args.extend:
+        # Only trials P1/P2 already have, so every pick has an extraction to score.
+        with open(ROOT / "data" / "processed" / "trials.csv", newline="") as f:
+            known = {r["nct_id"] for r in csv.DictReader(f)}
+        existing = set((EVAL / "gold_ids.txt").read_text().split())
+        new = pick_extension([t for t in pool if t["nct_id"] in known], existing,
+                             args.extend, random.Random(f"{args.seed}-extend"))
+        append_outputs(new, len(existing) + 1, args.seed)
+        print(f"Added {len(new)} held-out trials (now {len(existing) + len(new)}):")
+        for t in new:
+            print(f"  {t['nct_id']}  {t['phase']:<14}{t['sponsor_type']:<10}{t['cancer_type']}")
+        return
 
     rng = random.Random(args.seed)
     chosen = pick(pool, rng)

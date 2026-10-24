@@ -1,7 +1,15 @@
 {
   "nct_id": "NCT04789486",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age 18 years or older.",
+      "threshold": null
+    },
     {
       "category": "performance_status",
       "absolute": true,
@@ -10,25 +18,11 @@
       "threshold": "ECOG \u22642"
     },
     {
-      "category": "age",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Age 18 years or older.",
-      "threshold": "age >= 18"
-    },
-    {
       "category": "renal",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "Creatinine clearance \u226560 mL/min/1.73 m2 for participants with creatinine levels above institutional normal.",
       "threshold": "CrCl \u226560 mL/min/1.73 m2"
-    },
-    {
-      "category": "hepatic",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "AST(SGOT)/ALT(SGPT) \u22642.5 \u00d7 institutional upper limit of normal",
-      "threshold": "AST/ALT \u22642.5 \u00d7 ULN"
     },
     {
       "category": "pregnancy",
@@ -39,7 +33,7 @@
     },
     {
       "category": "hiv",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "Known HIV-positive participants on combination antiretroviral therapy are ineligible because of the potential for pharmacokinetic interactions with AGuIX.",
       "threshold": null
@@ -48,14 +42,7 @@
       "category": "cardiac",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "symptomatic congestive heart failure, unstable angina pectoris, cardiac arrhythmia, or psychiatric illness/social situations that would limit compliance with study requirements.",
-      "threshold": null
-    },
-    {
-      "category": "pregnancy",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "breastfeeding should be discontinued if the mother is treated with AGuIX.",
+      "source_text": "Uncontrolled intercurrent illness including, but not limited to, ongoing or active infection, symptomatic congestive heart failure, unstable angina pectoris, cardiac arrhythmia, or psychiatric illness/social situations that would limit compliance with study requirements.",
       "threshold": null
     }
   ]

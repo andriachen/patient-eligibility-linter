@@ -1,10 +1,11 @@
 {
   "nct_id": "NCT07291037",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
       "source_text": "Eastern Cooperative Oncology Group (ECOG) Performance Status (PS) of 0 or 1.",
       "threshold": "ECOG PS 0 or 1"
@@ -24,17 +25,17 @@
       "threshold": null
     },
     {
-      "category": "hepatic",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Has active or uncontrolled hepatitis B or C virus infection.",
-      "threshold": null
-    },
-    {
       "category": "hiv",
       "absolute": false,
       "section": "exclusion",
       "source_text": "Known human immunodeficiency virus (HIV) infection that is not well controlled.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Has severe pulmonary function compromise resulting from intercurrent pulmonary illnesses including, but not limited to, any underlying pulmonary disorder (eg, pulmonary emboli within 3 months of the study enrolment, severe asthma, severe COPD, restrictive lung disease, symptomatic pleural effusion, etc).",
       "threshold": null
     }
   ]

@@ -1,17 +1,25 @@
 {
   "nct_id": "NCT05372354",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "Eastern Cooperative Oncology Group Performance Status (ECOG PS) of 0 or 1.",
       "threshold": "ECOG PS 0 or 1"
     },
     {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Agree to follow the CC-92480 Pregnancy Prevention Plan (PPP).",
+      "threshold": null
+    },
+    {
       "category": "brain_mets",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Known active or history of central nervous system (CNS) involvement of MM",
       "threshold": null

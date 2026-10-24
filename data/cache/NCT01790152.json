@@ -1,27 +1,14 @@
 {
   "nct_id": "NCT01790152",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "cardiac",
       "absolute": false,
       "section": "inclusion",
-      "source_text": "Based on echocardiography, must have either left ventricular fractional shortening =\\< 28.0% or ejection fraction =\\< 50.0% on at least two occasions",
-      "threshold": "fractional shortening <= 28.0% or ejection fraction <= 50.0%"
-    },
-    {
-      "category": "cardiac",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "No evidence of poor or low cardiac function at time of initial osteosarcoma diagnosis",
-      "threshold": null
-    },
-    {
-      "category": "prior_malignancy",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Must not have been diagnosed with any subsequent malignancy that required additional cardiotoxic therapies (i.e., radiotherapy to the chest \\[also includes fields directed towards the neck, upper abdomen, or spine\\], or additional anthracyclines or anthraquinones)",
-      "threshold": null
+      "source_text": "No evidence of poor or low cardiac function at time of initial osteosarcoma diagnosis; if reports from the time are available: shortening fraction \\>= 28% by echocardiogram and within the institutional normative range for age, or radionuclide angiogram ejection fraction \\>= 50%",
+      "threshold": "shortening fraction >= 28% or ejection fraction >= 50% at diagnosis"
     },
     {
       "category": "age",
@@ -29,6 +16,27 @@
       "section": "inclusion",
       "source_text": "< 31 years of age at time of initial osteosarcoma diagnosis",
       "threshold": "age < 31 years"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Must not have been diagnosed with any subsequent malignancy that required additional cardiotoxic therapies (i.e., radiotherapy to the chest \\[also includes fields directed towards the neck, upper abdomen, or spine\\], or additional anthracyclines or anthraquinones); patients with history of subsequent malignancy that did not require such therapies remain eligible",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Cannot have a known history of congenital heart disease (patent foramen ovale remain eligible) or underlying genetic syndrome associated with abnormal cardiovascular development or health (e.g., down syndrome)",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Comparison subject must have institutional records",
+      "threshold": null
     }
   ]
 }

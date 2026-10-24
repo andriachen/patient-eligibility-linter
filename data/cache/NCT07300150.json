@@ -1,7 +1,22 @@
 {
   "nct_id": "NCT07300150",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Men or women less than or equal to (\\>=) 18 years of age",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ECOG Performance Status 0 or 1",
+      "threshold": "ECOG 0 or 1"
+    },
     {
       "category": "brain_mets",
       "absolute": false,
@@ -32,23 +47,9 @@
     },
     {
       "category": "hepatic",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "Known history of drug-induced liver injury; primary biliary cirrhosis; or ongoing extrahepatic obstruction caused by stones, cirrhosis of the liver, or portal hypertension",
-      "threshold": null
-    },
-    {
-      "category": "hepatic",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Participants with laboratory values indicating inadequate hematology, hepatic, or renal function",
-      "threshold": null
-    },
-    {
-      "category": "renal",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Participants with laboratory values indicating inadequate hematology, hepatic, or renal function",
       "threshold": null
     },
     {
@@ -63,14 +64,7 @@
       "absolute": true,
       "section": "exclusion",
       "source_text": "Baseline QT interval corrected for heart rate using Fridericia's formula (QTcF) \\>=470 msec",
-      "threshold": "QTcF >= 470 msec"
-    },
-    {
-      "category": "pregnancy",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Female participants of childbearing age with a positive urine or serum test within 7 days of study start or confirmation from Ob/Gyn that any positive bHCG test is not representative of an ongoing pregnancy",
-      "threshold": null
+      "threshold": "QTcF >=470 msec"
     },
     {
       "category": "pregnancy",
@@ -80,10 +74,24 @@
       "threshold": null
     },
     {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Female participants of childbearing age with a positive urine or serum test within 7 days of study start or confirmation from Ob/Gyn that any positive bHCG test is not representative of an ongoing pregnancy",
+      "threshold": null
+    },
+    {
       "category": "hepatic",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "Active HBV infection. Participants with resolved infection or who are on Stable antiviral therapy are eligible",
+      "source_text": "Participants with laboratory values indicating inadequate hematology, hepatic, or renal function",
+      "threshold": null
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participants with laboratory values indicating inadequate hematology, hepatic, or renal function",
       "threshold": null
     }
   ]

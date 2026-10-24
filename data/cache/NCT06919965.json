@@ -1,20 +1,21 @@
 {
   "nct_id": "NCT06919965",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Have an Eastern Cooperative Oncology Group (ECOG) performance status Grade of 0, 1, or 2",
-      "threshold": "ECOG 0, 1, or 2"
+      "threshold": "ECOG 0-2"
     },
     {
       "category": "prior_malignancy",
       "absolute": false,
       "section": "exclusion",
       "source_text": "Active malignancies (i.e., progressing or requiring treatment change in the last 24 months) other than the disease being treated under study.",
-      "threshold": "progressing or requiring treatment change in the last 24 months"
+      "threshold": "within 24 months"
     }
   ]
 }

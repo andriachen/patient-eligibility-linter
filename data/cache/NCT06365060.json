@@ -1,27 +1,14 @@
 {
   "nct_id": "NCT06365060",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
-    {
-      "category": "renal",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "If the patient has an eGFR less than 50 mL/min/1.73m2, the FLC ratio is inconsequential.",
-      "threshold": "eGFR < 50 mL/min/1.73m2"
-    },
     {
       "category": "pregnancy",
       "absolute": true,
       "section": "exclusion",
       "source_text": "Pregnant women, pregnant minors, minors (i.e., individuals who are not yet adults), wards of the state, non-viable neonates, neonates of uncertain viability, and prisoners are not eligible",
       "threshold": null
-    },
-    {
-      "category": "age",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Patients younger than 40 years of age are not eligible",
-      "threshold": "age < 40"
     }
   ]
 }

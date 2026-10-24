@@ -1,10 +1,11 @@
 {
   "nct_id": "NCT07406633",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "prior_malignancy",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "Other active malignancies within the last 2 years.",
       "threshold": "within 2 years"

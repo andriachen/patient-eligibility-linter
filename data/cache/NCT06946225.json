@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06946225",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -11,7 +12,7 @@
     },
     {
       "category": "prior_malignancy",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "History of other malignancies (except for adequately treated basal or squamous cell carcinoma or carcinoma in situ) within the last 3 years",
       "threshold": "within 3 years"

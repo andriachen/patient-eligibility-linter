@@ -1,20 +1,14 @@
 {
   "nct_id": "NCT06899126",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
-    {
-      "category": "age",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Adults \u226518 years of age on the day of signing the ICF.",
-      "threshold": null
-    },
     {
       "category": "cardiac",
       "absolute": false,
       "section": "exclusion",
       "source_text": "Has a medical history of MI within 6 months before randomization/enrollment or symptomatic CHF (NYHA Class II to Class IV).",
-      "threshold": "MI within 6 months; NYHA Class II to Class IV"
+      "threshold": "MI within 6 months; NYHA Class II to IV"
     },
     {
       "category": "cardiac",
@@ -22,13 +16,6 @@
       "section": "exclusion",
       "source_text": "Has a QTc prolongation to \\>480 ms based on the average of the Screening triplicate 12- lead ECG.",
       "threshold": "QTc > 480 ms"
-    },
-    {
-      "category": "pregnancy",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Sign and date the Optional PGx ICF (included in the Main ICF) prior to any PGx procedure, and the Pregnant Partner ICF, if applicable.",
-      "threshold": null
     }
   ]
 }

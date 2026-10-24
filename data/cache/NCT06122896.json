@@ -1,20 +1,35 @@
 {
   "nct_id": "NCT06122896",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Individuals with pathogenic/likely pathogenic germline variants in STK11, and age \u226530 years.",
-      "threshold": "minimum age 30 years"
+      "threshold": "age >= 30"
     },
     {
-      "category": "pregnancy",
+      "category": "age",
       "absolute": true,
-      "section": "exclusion",
-      "source_text": "Pregnant women are unlikely to be undergoing screening procedures and will not be considered eligible but can consent to the study at a later date.",
-      "threshold": null
+      "section": "inclusion",
+      "source_text": "Individuals with pathogenic/likely pathogenic germline variants in CDKN2A, and age \u226540 years (or 10 years younger than the earliest exocrine pancreatic cancer diagnosis in the family, whichever is earlier).",
+      "threshold": "age >= 40"
+    },
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Individuals with pathogenic/likely pathogenic germline variants in one of the other pancreatic cancer susceptibility genes (ATM, BRCA1, BRCA2, MLH1, MSH2, MSH6, EPCAM, PALB2, TP53), and age \u226550 years",
+      "threshold": "age >= 50"
+    },
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Individuals with pathogenic/likely pathogenic variants in PRSS1 AND a clinical phenotype consistent with hereditary pancreatitis, and age \u226540 years (or 20 years after onset of pancreatitis, whichever is earlier).",
+      "threshold": "age >= 40"
     },
     {
       "category": "prior_malignancy",
@@ -28,6 +43,20 @@
       "absolute": true,
       "section": "exclusion",
       "source_text": "Individuals with any active metastatic cancer.",
+      "threshold": null
+    },
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Individuals who are under the age of 18 (infants, children, teenagers).",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Pregnant women are unlikely to be undergoing screening procedures and will not be considered eligible but can consent to the study at a later date.",
       "threshold": null
     }
   ]

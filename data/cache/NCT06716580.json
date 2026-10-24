@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06716580",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "smoking",
@@ -24,32 +25,32 @@
       "threshold": null
     },
     {
-      "category": "smoking",
+      "category": "age",
       "absolute": true,
       "section": "inclusion",
-      "source_text": "Non-tobacco using (currently)",
-      "threshold": null
+      "source_text": "Group 1 (50 through 80 years of age)",
+      "threshold": "age 50-80"
+    },
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Group 2 (40 through 49 years of age)",
+      "threshold": "age 40-49"
+    },
+    {
+      "category": "smoking",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "More than 400 lifetime cigarettes (i.e., 20 packs) of smoking or tobacco use",
+      "threshold": ">400 lifetime cigarettes"
     },
     {
       "category": "age",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Individuals <40 years of age",
+      "source_text": "Individuals \\<40 years of age",
       "threshold": "age < 40"
-    },
-    {
-      "category": "prior_malignancy",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Having a current cancer or history of cancer within the last 5 years, excluding localized non-melanoma skin cancer and breast ductal carcinoma in situ.",
-      "threshold": "within 5 years"
-    },
-    {
-      "category": "smoking",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "More than 400 lifetime cigarettes (i.e., 20 packs) of smoking or tobacco use",
-      "threshold": "> 400 lifetime cigarettes"
     },
     {
       "category": "pregnancy",
@@ -57,6 +58,13 @@
       "section": "exclusion",
       "source_text": "Pregnant women",
       "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Having a current cancer or history of cancer within the last 5 years, excluding localized non-melanoma skin cancer and breast ductal carcinoma in situ.",
+      "threshold": "within 5 years"
     },
     {
       "category": "prior_malignancy",

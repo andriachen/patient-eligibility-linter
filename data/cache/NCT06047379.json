@@ -1,13 +1,14 @@
 {
   "nct_id": "NCT06047379",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Patient with Astrocytoma IDH-mutant, Glioblastoma IDH-wildtype must have a Karnofsky Performance Status (KPS) of \u2265 60.",
-      "threshold": "KPS >= 60"
+      "threshold": "KPS \u2265 60"
     },
     {
       "category": "performance_status",
@@ -20,33 +21,54 @@
       "category": "renal",
       "absolute": true,
       "section": "inclusion",
-      "source_text": "Creatinine clearance (CrCl) of \\>60 mL/min (using the Cockcroft-Gault formula or 24-hour urine collection).",
+      "source_text": "Creatinine clearance (CrCl) of \\>60 mL/min (using the Cockcroft-Gault formula or 24- hour urine collection).",
       "threshold": "CrCl > 60 mL/min"
     },
     {
       "category": "hepatic",
       "absolute": true,
       "section": "inclusion",
+      "source_text": "Total bilirubin within normal institutional limits",
+      "threshold": "within normal institutional limits"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
       "source_text": "AST (SGOT) / ALT (SPGT) \u2264 2.5 x institutional upper limit of normal",
-      "threshold": "AST/ALT <= 2.5 x ULN"
+      "threshold": "\u2264 2.5 x ULN"
     },
     {
       "category": "renal",
       "absolute": true,
       "section": "inclusion",
-      "source_text": "Creatinine clearance (CrCl) of \\>60 mL/min (using the Cockcroft-Gault formula or 24-hour urine collection). Female patients of child-bearing potential and male patients must agree to use adequate contraception (hormonal or barrier method of birth control; abstinence) for 30 days prior to the first dose of NEO212, for the duration of study participation, and for 90 days following completion of therapy.",
+      "source_text": "Creatinine clearance (CrCl) of \\>60 mL/min (using the Cockcroft-Gault formula or 24-hour urine collection). Female patients",
       "threshold": "CrCl > 60 mL/min"
     },
     {
       "category": "pregnancy",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
       "source_text": "A negative serum pregnancy test will be required of all female patients of child-bearing potential within seven days prior to the receipt of NEO212.",
       "threshold": null
     },
     {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Patient has prior history or new diagnosis of secondary cancer within five years prior to the date of informed consent, except for basal cell carcinoma or squamous cell carcinoma of the skin.",
+      "threshold": "within five years"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Patient has a corrected QT interval (using Fridericia's correction formula) (QTcF) of \\>470 msec, a history of additional risk factors for TdP (e.g. heart failure, hypokalemia), and/or the use of concomitant medications that prolong QT/QTc interval.",
+      "threshold": "QTcF > 470 msec"
+    },
+    {
       "category": "brain_mets",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Patients with metastases to the spinal cord parenchyma.",
       "threshold": null
@@ -57,20 +79,6 @@
       "section": "exclusion",
       "source_text": "Patient with history of known leptomeningeal involvement.",
       "threshold": null
-    },
-    {
-      "category": "prior_malignancy",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Patient has prior history or new diagnosis of secondary cancer within five years prior to the date of informed consent, except for basal cell carcinoma or squamous cell carcinoma of the skin.",
-      "threshold": "within 5 years"
-    },
-    {
-      "category": "cardiac",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Patient has a corrected QT interval (using Fridericia's correction formula) (QTcF) of \\>470 msec, a history of additional risk factors for TdP (e.g. heart failure, hypokalemia), and/or the use of concomitant medications that prolong QT/QTc interval.",
-      "threshold": "QTcF > 470 msec"
     }
   ]
 }

@@ -1,13 +1,14 @@
 {
   "nct_id": "NCT04511806",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Be less than 21 years of age at the time of enrollment",
-      "threshold": "age < 21"
+      "threshold": "age < 21 years"
     }
   ]
 }

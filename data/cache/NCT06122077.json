@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06122077",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "smoking",
@@ -8,13 +9,6 @@
       "section": "inclusion",
       "source_text": "Current or former smokers with a cumulative smoking history of \u2265 20 pack-year",
       "threshold": null
-    },
-    {
-      "category": "age",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Age 50 years or older within 30 days of enrollment",
-      "threshold": "age >= 50"
     },
     {
       "category": "prior_malignancy",

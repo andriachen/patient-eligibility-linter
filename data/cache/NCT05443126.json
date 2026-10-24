@@ -1,7 +1,22 @@
 {
   "nct_id": "NCT05443126",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Must be \u226518 years of age, with documented RET-altered NSCLC",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ECOG performance status of 0 or 1 and life expectancy \\>3 months at screening",
+      "threshold": "ECOG 0 or 1"
+    },
     {
       "category": "brain_mets",
       "absolute": false,
@@ -24,25 +39,32 @@
       "threshold": null
     },
     {
-      "category": "hepatic",
-      "absolute": true,
+      "category": "renal",
+      "absolute": false,
       "section": "exclusion",
-      "source_text": "Participants with active hepatitis B infection or active hepatitis C",
+      "source_text": "Impaired hepatic or renal function, inadequate bone marrow reserve or organ function",
+      "threshold": null
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Impaired hepatic or renal function, inadequate bone marrow reserve or organ function",
       "threshold": null
     },
     {
       "category": "cardiac",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "congestive heart failure Grade III-IV according to the New York Heart Association, myocardial infarction, or unstable angina within the previous 6 months",
       "threshold": "NYHA Grade III-IV; MI or unstable angina within 6 months"
     },
     {
-      "category": "performance_status",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "ECOG performance status of 0 or 1 and life expectancy \\>3 months at screening",
-      "threshold": "ECOG 0 or 1"
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Any clinically important abnormalities in rhythm, conduction, or morphology on resting ECG or any factor that increases the risk of QTc prolongation or of arrhythmic events",
+      "threshold": null
     }
   ]
 }

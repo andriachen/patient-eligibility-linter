@@ -1,34 +1,14 @@
 {
   "nct_id": "NCT06026410",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
-      "category": "performance_status",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Karnofsky Performance Status of 70 or higher with no clinically significant deterioration over the previous 2 weeks.",
-      "threshold": "KPS < 70"
-    },
-    {
-      "category": "brain_mets",
+      "category": "age",
       "absolute": true,
-      "section": "exclusion",
-      "source_text": "Spinal cord compression, leptomeningeal disease, or clinically active CNS metastases.",
+      "section": "inclusion",
+      "source_text": "At least 18 years of age.",
       "threshold": null
-    },
-    {
-      "category": "cardiac",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Inadequate cardiac and/or vascular function, including receipt of treatment for unstable angina, myocardial infarction, and/or cerebrovascular attack within the prior 6 months, mean QTcF \u2265470 ms, or Class II or greater congestive heart failure.",
-      "threshold": "MI within prior 6 months; mean QTcF \u2265470 ms; NYHA Class II or greater CHF"
-    },
-    {
-      "category": "prior_malignancy",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Other invasive malignancy within 2 years.",
-      "threshold": "within 2 years"
     }
   ]
 }

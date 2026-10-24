@@ -1,34 +1,14 @@
 {
   "nct_id": "NCT02584244",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
-      "category": "cardiac",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Subjects with QTc interval \\> 480ms.",
-      "threshold": "QTc > 480 ms"
-    },
-    {
-      "category": "pregnancy",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Pregnant women or lactating women",
-      "threshold": null
-    },
-    {
-      "category": "hiv",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "HIV-positive individuals on combination antiretroviral therapy.",
-      "threshold": null
-    },
-    {
-      "category": "performance_status",
+      "category": "age",
       "absolute": true,
       "section": "inclusion",
-      "source_text": "Subjects with ECOG performance status of 0 or 1.",
-      "threshold": "ECOG 0 or 1"
+      "source_text": "Age of 18 years or older.",
+      "threshold": null
     }
   ]
 }

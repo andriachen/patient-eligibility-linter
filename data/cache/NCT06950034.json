@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06950034",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -21,7 +22,7 @@
       "absolute": false,
       "section": "exclusion",
       "source_text": "Clinically significant cardiovascular disease (e.g., uncontrolled or any New York Heart Association class 3 or 4 congestive heart failure, uncontrolled or unstable chest pain, history of heart attack(s), or stroke within 6 months prior to consent, uncontrolled high blood pressure, or clinically significant arrhythmias not controlled by medication).",
-      "threshold": "NYHA class 3 or 4; history of heart attack within 6 months prior to consent"
+      "threshold": "NYHA class 3 or 4"
     },
     {
       "category": "cardiac",
@@ -42,13 +43,6 @@
       "absolute": true,
       "section": "exclusion",
       "source_text": "Known human immunodeficiency virus (HIV).",
-      "threshold": null
-    },
-    {
-      "category": "pregnancy",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Both females of child-bearing potential and males must agree to use acceptable contraceptive methods for the duration of time in the study and to continue to use acceptable contraceptive methods for 90 days after last STX-0712 infusion.",
       "threshold": null
     }
   ]

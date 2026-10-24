@@ -1,26 +1,20 @@
 {
   "nct_id": "NCT04033497",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "renal",
       "absolute": true,
       "section": "exclusion",
       "source_text": "Participants who have chronic kidney disease stage IV-V or end stage renal disease.",
-      "threshold": "CKD stage IV-V or ESRD"
+      "threshold": "chronic kidney disease stage IV-V or end stage renal disease"
     },
     {
       "category": "pregnancy",
       "absolute": true,
       "section": "exclusion",
       "source_text": "Pregnant women are excluded from this study because gadolinium-based agents have not been proven to be safe to administer to a developing fetus. Similarly, breastfeeding women will be excluded from this study.",
-      "threshold": null
-    },
-    {
-      "category": "age",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Participants must be age 18 years or older.",
       "threshold": null
     }
   ]

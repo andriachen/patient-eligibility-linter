@@ -1,58 +1,50 @@
 # Evaluation Results (P4, Phase 2)
 
-Extractor (`data/processed/exclusions.csv`) vs. human gold labels (`eval/gold_labels.csv`), scored at the (trial, category) level over **32 labeled trials**.
+Extractor (`data/processed/exclusions.csv`) vs. human gold labels (`eval/gold_labels.csv`), scored at the (trial, category) level over **42 labeled trials**.
 
 | category | precision | recall | F1 | TP | FP | FN | gold support |
 |----------|-----------|--------|----|----|----|----|--------------|
-| diabetes | 1.00 | 1.00 | 1.00 | 1 | 0 | 0 | 1 |
+| diabetes | 1.00 | 1.00 | 1.00 | 2 | 0 | 0 | 2 |
 | bmi | 1.00 | 1.00 | 1.00 | 2 | 0 | 0 | 2 |
-| smoking | 0.33 | 0.50 | 0.40 | 1 | 2 | 1 | 2 |
-| age | 0.57 | 1.00 | 0.73 | 4 | 3 | 0 | 4 |
-| renal | 1.00 | 0.80 | 0.89 | 8 | 0 | 2 | 10 |
-| hepatic | 1.00 | 0.67 | 0.80 | 6 | 0 | 3 | 9 |
-| cardiac | 1.00 | 0.92 | 0.96 | 12 | 0 | 1 | 13 |
-| hiv | 0.86 | 0.86 | 0.86 | 6 | 1 | 1 | 7 |
-| brain_mets | 0.88 | 0.88 | 0.88 | 7 | 1 | 1 | 8 |
-| prior_malignancy | 0.83 | 0.91 | 0.87 | 10 | 2 | 1 | 11 |
-| performance_status | 1.00 | 0.94 | 0.97 | 17 | 0 | 1 | 18 |
+| smoking | 1.00 | 1.00 | 1.00 | 2 | 0 | 0 | 2 |
+| age | 0.80 | 1.00 | 0.89 | 4 | 1 | 0 | 4 |
+| renal | 1.00 | 0.87 | 0.93 | 13 | 0 | 2 | 15 |
+| hepatic | 1.00 | 0.80 | 0.89 | 12 | 0 | 3 | 15 |
+| cardiac | 0.95 | 1.00 | 0.97 | 18 | 1 | 0 | 18 |
+| hiv | 1.00 | 0.82 | 0.90 | 9 | 0 | 2 | 11 |
+| brain_mets | 0.94 | 0.94 | 0.94 | 15 | 1 | 1 | 16 |
+| prior_malignancy | 0.93 | 0.72 | 0.81 | 13 | 1 | 5 | 18 |
+| performance_status | 1.00 | 1.00 | 1.00 | 26 | 0 | 0 | 26 |
 | language | 1.00 | 1.00 | 1.00 | 4 | 0 | 0 | 4 |
-| pregnancy | 0.92 | 0.92 | 0.92 | 12 | 1 | 1 | 13 |
-| **overall (micro)** | **0.90** | **0.88** | **0.89** | 90 | 10 | 12 | 102 |
+| pregnancy | 1.00 | 1.00 | 1.00 | 19 | 0 | 0 | 19 |
+| **overall (micro)** | **0.97** | **0.91** | **0.94** | 139 | 4 | 13 | 152 |
+
+Overall micro F1 **0.94**, bootstrap 95% CI [0.91, 0.97] (2000 resamples over 42 trials).
+
+## By subset (overall micro)
+
+| subset | trials | precision | recall | F1 | F1 95% CI | TP | FP | FN |
+|--------|--------|-----------|--------|----|-----------|----|----|----|
+| random sample (original 30) | 30 | 0.97 | 0.91 | 0.93 | [0.90, 0.97] | 86 | 3 | 9 |
+| targeted (picked for a category) | 2 | 1.00 | 1.00 | 1.00 | [1.00, 1.00] | 7 | 0 | 0 |
+| held-out (prompt never tuned on these) | 10 | 0.98 | 0.92 | 0.95 | [0.89, 0.99] | 46 | 1 | 4 |
+
+Quote the held-out row as the headline accuracy: the extraction prompt was tuned while looking at errors on the original set, so those scores are optimistic. The held-out interval is wide because it is only 10 trials.
 
 - **Precision** = of the categories the extractor flagged, how many the human agreed with.
 - **Recall** = of the categories the human labeled, how many the extractor caught.
 - `-` means no instances (no gold positives and no predictions for that category).
 - Gold labels are human-made, independent of the extractor model (`claude-haiku-5-5`).
 
-## Takeaways
+## Known weak spots (not yet fixed)
 
-- **Overall micro F1 0.89** (precision 0.90, recall 0.88) on 32 human-labeled
-  trials, `claude-haiku-5-5` with forced tool-use. Gold labels are human-made,
-  independent of the extractor, so the comparison is not circular.
-- **Pitch-carrying categories are strong:** performance_status 0.97,
-  cardiac 0.96, pregnancy 0.92, renal 0.89, brain_mets/prior_malignancy ~0.87,
-  and language 1.00 (the equity headline).
-- **Recall gaps** in renal/hepatic (0.80/0.67) are vague "adequate organ function"
-  phrasings the human counted but the extractor skipped — a labeling boundary, not
-  a systematic miss.
-- **smoking 0.40** looks low but has only 2 gold cases, so a single disagreement
-  swings it; not statistically meaningful at this support.
+`prior_malignancy` has the lowest recall and accounts for most of the misses (the model simply never emits the category on those trials). Fixing it needs a **prompt change**, deliberately not done here: tuning against the held-out errors would spend the held-out set. If pursued, label a fresh 10 held-out trials first and quote the new held-out number, not the current one.
 
-### age fix (applied)
-The first eval showed age at precision 0.22 — the extractor flagged a plain
-"Age >= 18" as a restriction. Two-part fix:
-1. Tightened the age rule in `prompts.py` with explicit do-not-emit examples.
-2. Added a deterministic guard `logic.is_bare_adult_floor()` + `drop_noise()` that
-   removes age records whose quote is just a >=18 floor with no upper bound, while
-   keeping real caps ("<55", "40-80", ">=21"). Model stays advisory; code enforces.
+**7 long trials return zero records**, and for 5 the model fails identically every time (retry does not help), despite a clear restriction in the text — e.g. NCT07166406 'ECOG 0-2', NCT07297979 'Karnofsky >= 70%', NCT04628767 'must not be pregnant or breast-feeding'. These are undercounted in the app. A real fix needs a larger model or splitting inclusion/exclusion into separate calls.
 
-Result: **age precision 0.22 -> 0.57, overall F1 0.86 -> 0.89.** The guard also
-cleaned the full dataset (236 bare-floor age false positives dropped from
-exclusions.csv across all 1011 trials). The 2 remaining age "FPs" are genuine
-judgment calls (e.g. "early-onset CRC <55" — a real cutoff the labeler read as a
-disease definition).
+## Reproduce
 
-### How to reproduce
 ```bash
-python eval/run_eval.py   # reads exclusions.csv + gold_labels.csv, rewrites this file
+python eval/run_eval.py   # regenerates this file from exclusions.csv + gold_labels.csv
 ```
+The bootstrap CI uses a fixed seed (0), so these numbers are stable across runs.

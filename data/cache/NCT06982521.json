@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06982521",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -35,6 +36,13 @@
       "absolute": false,
       "section": "exclusion",
       "source_text": "Known active uncontrolled or symptomatic CNS metastases associated with progressive neurological symptoms or requiring ongoing corticosteroids or anticonvulsants for symptomatic control",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Pre-menopausal (and peri-menopausal) women can be enrolled if amenable to treatment with a gonadotropin-releasing hormone (GnRH) agonist.",
       "threshold": null
     }
   ]

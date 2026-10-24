@@ -1,14 +1,8 @@
 {
   "nct_id": "NCT05706766",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
-    {
-      "category": "age",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Over 18 years old.",
-      "threshold": null
-    },
     {
       "category": "language",
       "absolute": true,
@@ -20,21 +14,21 @@
       "category": "cardiac",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "History of unstable angina, abnormal resting ECG and/or unstable angina or a heart attack in the previous month to allow safe completion of the cardiopulmonary exercise test (CPET) or VO2peak test.",
+      "source_text": "History of unstable angina, abnormal resting ECG and/or unstable angina or a heart attack in the previous month",
       "threshold": "heart attack in the previous month"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "women of child-bearing potential must agree to undergo a pregnancy test and to use adequate contraception",
+      "threshold": null
     },
     {
       "category": "prior_malignancy",
       "absolute": false,
       "section": "exclusion",
       "source_text": "Patients with other active malignancies requiring active therapy.",
-      "threshold": null
-    },
-    {
-      "category": "pregnancy",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "The effects of exercise on the developing fetus are unknown. For this reason, women of child-bearing potential must agree to undergo a pregnancy test and to use adequate contraception (hormonal or barrier method of birth control or abstinence) prior to study entry and for six months following duration of study participation.",
       "threshold": null
     }
   ]

@@ -1,13 +1,56 @@
 {
   "nct_id": "NCT05592015",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
-      "category": "hiv",
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Renal impairment is defined as creatinine clearance (CrCl) \\< 90 mL/min.",
+      "threshold": "CrCl < 90 mL/min"
+    },
+    {
+      "category": "renal",
       "absolute": true,
-      "section": "exclusion",
-      "source_text": "Patients with human immunodeficiency virus (HIV), positive hepatitis B surface antigen or hepatitis C antibody will be excluded.",
-      "threshold": null
+      "section": "inclusion",
+      "source_text": "Serum creatinine =\\< 2 x the upper limit of normal (ULN)",
+      "threshold": "creatinine <= 2 x ULN"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Estimated glomerular filtration rate (eGFR) =\\> 30 mL/min using the Modification of Diet in Renal Disease (MDRD) equation (multiplying eGFR by each subjects Body Surface Area \\[BSA\\])",
+      "threshold": "eGFR >= 30 mL/min"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Total bilirubin =\\< 1.5 x ULN (patients with Gilbert's syndrome with a bilirubin \\> 1.5 x ULN permitted)",
+      "threshold": "bilirubin <= 1.5 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Aspartate aminotransferase (AST) and alanine aminotransferase (ALT) =\\< 2.5 x ULN",
+      "threshold": "AST/ALT <= 2.5 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Alkaline phosphatase (ALP) =\\< 2.5 x ULN",
+      "threshold": "ALP <= 2.5 x ULN"
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Eastern cooperative oncology group (ECOG) performance status =\\< 2",
+      "threshold": "ECOG <= 2"
     },
     {
       "category": "pregnancy",
@@ -21,7 +64,7 @@
       "absolute": false,
       "section": "exclusion",
       "source_text": "Unstable angina or myocardial infarction within the past 2 months",
-      "threshold": "within 2 months"
+      "threshold": "MI within 2 months"
     },
     {
       "category": "hepatic",
@@ -31,18 +74,25 @@
       "threshold": null
     },
     {
-      "category": "performance_status",
+      "category": "hiv",
       "absolute": true,
-      "section": "inclusion",
-      "source_text": "Eastern cooperative oncology group (ECOG) performance status =\\< 2",
-      "threshold": "ECOG <= 2"
+      "section": "exclusion",
+      "source_text": "Patients with human immunodeficiency virus (HIV), positive hepatitis B surface antigen or hepatitis C antibody will be excluded.",
+      "threshold": null
     },
     {
-      "category": "renal",
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Active, concurrent malignancy unless deemed related to T-LGLL by principal investigator (PI). Early stage skin cancers, prostate cancer, permitted if under no active therapy",
+      "threshold": null
+    },
+    {
+      "category": "smoking",
       "absolute": true,
-      "section": "inclusion",
-      "source_text": "Estimated glomerular filtration rate (eGFR) =\\> 30 mL/min using the Modification of Diet in Renal Disease (MDRD) equation (multiplying eGFR by each subjects Body Surface Area \\[BSA\\])",
-      "threshold": "eGFR >= 30 mL/min"
+      "section": "exclusion",
+      "source_text": "Given the CYP3A4 inhibition potential of grapefruit, grapefruit juice, Seville orange juice, pomelos, and starfruits, patients will need to refrain from these foods/drinks for 14 days prior to initiation of therapy, and throughout the study period",
+      "threshold": null
     }
   ]
 }

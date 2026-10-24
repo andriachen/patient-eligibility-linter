@@ -16,6 +16,10 @@ export default function LandscapePage() {
   const focus =
     getCategoryStat(stats, stats.defaultCategory) ?? stats.categories[0];
   const statsAreMock = stats.source === "mock";
+  const pctPrefix = `${focus.pctExcluded}%`;
+  const headlineRest = stats.headline?.startsWith(pctPrefix)
+    ? stats.headline.slice(pctPrefix.length).trim()
+    : stats.headline;
 
   return (
     <div className="flex flex-col gap-8">
@@ -41,12 +45,19 @@ export default function LandscapePage() {
         </p>
         <div className="sm:border-l sm:border-line sm:pl-8">
           <p className="text-[clamp(1.25rem,1rem+0.8vw,1.625rem)] font-semibold leading-snug tracking-[-0.015em] text-ink">
-            of trials exclude <span className="text-rose-deep">{focus.label.toLowerCase()}</span>
+            {headlineRest ?? (
+              <>
+                of trials exclude <span className="text-rose-deep">{focus.label.toLowerCase()}</span>
+              </>
+            )}
           </p>
           <p className="mt-1.5 text-sm leading-relaxed text-ink-soft">
             {focus.trialCount} of {stats.totalTrials} Massachusetts-linked trials
             {statsAreMock ? " in the mock dataset" : ""}.
           </p>
+          {stats.headlineNote ? (
+            <p className="mt-1 text-xs leading-relaxed text-ink-faint">{stats.headlineNote}</p>
+          ) : null}
         </div>
         {statsAreMock ? (
           <div className="sm:self-start">

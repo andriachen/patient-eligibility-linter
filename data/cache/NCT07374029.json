@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT07374029",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -33,15 +34,15 @@
     {
       "category": "pregnancy",
       "absolute": true,
-      "section": "inclusion",
-      "source_text": "Should a woman become pregnant or suspect she is pregnant while participating in this study, she should inform her treating physician immediately.",
+      "section": "exclusion",
+      "source_text": "Patients must not be pregnant.",
       "threshold": null
     },
     {
       "category": "hiv",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "patients who have active human immunodeficiency virus (HIV)",
+      "source_text": "Because of compromised cellular immunity, patients who have active human immunodeficiency virus (HIV), untreated hepatitis C virus (HCV) or evidence of active hepatitis B virus (HBV).",
       "threshold": null
     },
     {
@@ -49,13 +50,6 @@
       "absolute": false,
       "section": "exclusion",
       "source_text": "Patients must not have active significant cardiac disease characterized by symptomatic congestive heart failure, unstable angina pectoris, clinically significant cardiac arrhythmia.",
-      "threshold": null
-    },
-    {
-      "category": "pregnancy",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Patients must not be pregnant.",
       "threshold": null
     },
     {
@@ -80,10 +74,10 @@
       "threshold": "AST/ALT \u2264 3.0 x ULN"
     },
     {
-      "category": "hiv",
-      "absolute": true,
+      "category": "cardiac",
+      "absolute": false,
       "section": "exclusion",
-      "source_text": "Known human immunodeficiency virus (HIV)",
+      "source_text": "significant cardiac disease characterized by significant arrhythmia, ischemic coronary disease or congestive heart failure",
       "threshold": null
     },
     {
@@ -94,10 +88,10 @@
       "threshold": null
     },
     {
-      "category": "cardiac",
-      "absolute": false,
+      "category": "hiv",
+      "absolute": true,
       "section": "exclusion",
-      "source_text": "significant cardiac disease characterized by significant arrhythmia, ischemic coronary disease or congestive heart failure",
+      "source_text": "Known human immunodeficiency virus (HIV), untreated hepatitis C virus (HCV) or evidence of active hepatitis B virus (HBV).",
       "threshold": null
     }
   ]

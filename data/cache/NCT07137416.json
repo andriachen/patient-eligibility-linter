@@ -1,27 +1,21 @@
 {
   "nct_id": "NCT07137416",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age \u2265 18 years. Because no dosing or adverse event data are currently available on the use of CX-5461 (pidnarulex) in combination with T-DXd in patients \\< 18 years of age, children are excluded from this study",
+      "threshold": null
+    },
     {
       "category": "performance_status",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status \u2264 2 (Karnofsky \u2265 60%)",
-      "threshold": "ECOG \u2264 2 (Karnofsky \u2265 60%)"
-    },
-    {
-      "category": "hepatic",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Total bilirubin \u2264 1.5 \u00d7 institutional upper limit of normal (ULN) (or \u2264 2 \u00d7 institutional ULN in patients with documented Gilbert's syndrome)",
-      "threshold": "bilirubin \u2264 1.5 \u00d7 ULN (\u2264 2 \u00d7 ULN Gilbert's)"
-    },
-    {
-      "category": "hepatic",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Aspartate aminotransferase (AST) (serum glutamic-oxaloacetic transaminase \\[SGOT\\])/alanine aminotransferase (ALT) (serum glutamate pyruvate transaminase \\[SGPT\\]) \u2264 3 \u00d7 institutional ULN (or \u2264 5 \u00d7 ULN in patients with liver metastases)",
-      "threshold": "AST/ALT \u2264 3 \u00d7 ULN (\u2264 5 \u00d7 ULN with liver metastases)"
+      "threshold": "ECOG \u2264 2"
     },
     {
       "category": "renal",
@@ -38,6 +32,20 @@
       "threshold": "LVEF \u2265 50%"
     },
     {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Patients with known history or current symptoms of cardiac disease, or history of treatment with cardiotoxic agents, should have a clinical risk assessment of cardiac function using the New York Heart Association Functional Classification. To be eligible for this trial, patients should be class II or better",
+      "threshold": "NYHA class II or better"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Patients with a corrected QT interval (QTc) prolongation to \\> 470 ms (females) or \\> 450 ms (males) based on average of the screening triplicate 12-lead electrocardiogram (ECG)",
+      "threshold": "QTc > 470 ms (females) or > 450 ms (males)"
+    },
+    {
       "category": "hiv",
       "absolute": false,
       "section": "inclusion",
@@ -52,11 +60,25 @@
       "threshold": null
     },
     {
-      "category": "cardiac",
-      "absolute": false,
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant women are excluded from this study because CX-5461 (pidnarulex) and T-DXd are agents with the potential for teratogenic or abortifacient effects.",
+      "threshold": null
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
       "section": "inclusion",
-      "source_text": "Patients with known history or current symptoms of cardiac disease, or history of treatment with cardiotoxic agents, should have a clinical risk assessment of cardiac function using the New York Heart Association Functional Classification. To be eligible for this trial, patients should be class II or better",
-      "threshold": "NYHA class II or better"
+      "source_text": "Total bilirubin \u2264 1.5 \u00d7 institutional upper limit of normal (ULN) (or \u2264 2 \u00d7 institutional ULN in patients with documented Gilbert's syndrome)",
+      "threshold": "bilirubin \u2264 1.5 \u00d7 ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Aspartate aminotransferase (AST) (serum glutamic-oxaloacetic transaminase \\[SGOT\\])/alanine aminotransferase (ALT) (serum glutamate pyruvate transaminase \\[SGPT\\]) \u2264 3 \u00d7 institutional ULN (or \u2264 5 \u00d7 ULN in patients with liver metastases)",
+      "threshold": "AST/ALT \u2264 3 \u00d7 ULN (\u2264 5 \u00d7 ULN with liver metastases)"
     },
     {
       "category": "prior_malignancy",
@@ -66,38 +88,10 @@
       "threshold": null
     },
     {
-      "category": "pregnancy",
+      "category": "diabetes",
       "absolute": false,
       "section": "inclusion",
-      "source_text": "Women should not breastfeed while taking CX-5461 (pidnarulex) and T-DXd and for 7 months after cessation of treatment",
-      "threshold": null
-    },
-    {
-      "category": "age",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Because no dosing or adverse event data are currently available on the use of CX-5461 (pidnarulex) in combination with T-DXd in patients \\< 18 years of age, children are excluded from this study",
-      "threshold": "age \u2265 18 years"
-    },
-    {
-      "category": "cardiac",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Patients with a corrected QT interval (QTc) prolongation to \\> 470 ms (females) or \\> 450 ms (males) based on average of the screening triplicate 12-lead electrocardiogram (ECG)",
-      "threshold": "QTc > 470 ms (female) / > 450 ms (male)"
-    },
-    {
-      "category": "pregnancy",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Pregnant women are excluded from this study because CX-5461 (pidnarulex) and T-DXd are agents with the potential for teratogenic or abortifacient effects.",
-      "threshold": null
-    },
-    {
-      "category": "pregnancy",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "breastfeeding should be discontinued if the mother is treated with CX-5461 (pidnarulex) and T-DXd and avoided for 7 months after the last dose",
+      "source_text": "Patients with uncontrolled intercurrent illness",
       "threshold": null
     }
   ]

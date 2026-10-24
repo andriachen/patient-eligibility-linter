@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT06150664",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
@@ -24,15 +25,8 @@
       "threshold": "CrCl \u2265 30 mL/min"
     },
     {
-      "category": "hepatic",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Adequate hepatic function defined as serum total bilirubin \u2264 1.5 \u00d7 ULN, AST/ALT \u2264 2.5 \u00d7 ULN (or \u2264 5 \u00d7 ULN in patients with liver metastases)",
-      "threshold": "bilirubin \u2264 1.5 \u00d7 ULN; AST/ALT \u2264 2.5 \u00d7 ULN (\u2264 5 \u00d7 ULN with liver metastases)"
-    },
-    {
       "category": "pregnancy",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "Patient is a pregnant or lactating WOCBP",
       "threshold": null
@@ -71,6 +65,13 @@
       "section": "exclusion",
       "source_text": "QTc interval (using Fridericia correction calculation) > 480 msec",
       "threshold": "QTc > 480 msec"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Adequate hepatic function defined as serum total bilirubin \u2264 1.5 \u00d7 ULN, AST/ALT \u2264 2.5 \u00d7 ULN (or \u2264 5 \u00d7 ULN in patients with liver metastases)",
+      "threshold": "bilirubin \u2264 1.5 \u00d7 ULN; AST/ALT \u2264 2.5 \u00d7 ULN"
     }
   ]
 }

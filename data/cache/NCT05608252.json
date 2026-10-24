@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT05608252",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -10,39 +11,25 @@
       "threshold": "ECOG < 2"
     },
     {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Adequate renal function with a creatinine clearance rate of \u2265 50 mL/min as calculated by the Cockcroft-Gault formula.",
+      "threshold": "CrCl \u2265 50 mL/min"
+    },
+    {
       "category": "cardiac",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Adequate cardiac function with left ventricular ejection fraction \u2265 50% by echocardiography (ECHO) or multiple-gated acquisition (MUGA) scan.",
-      "threshold": "LVEF < 50%"
+      "threshold": "LVEF \u2265 50%"
     },
     {
       "category": "cardiac",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Baseline QTc interval \\< 480 ms (average of triplicate readings) using Fredericia's QT correction formula.",
-      "threshold": "QTc >= 480 ms"
-    },
-    {
-      "category": "renal",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Adequate renal function with a creatinine clearance rate of \u2265 50 mL/min as calculated by the Cockcroft-Gault formula.",
-      "threshold": "CrCl < 50 mL/min"
-    },
-    {
-      "category": "hepatic",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "total bilirubin \u22641.5mg/dL (\u22643.0mg/dL in patients with known Gilbert syndrome and direct bilirubin within normal limits)",
-      "threshold": "total bilirubin > 1.5 mg/dL"
-    },
-    {
-      "category": "hepatic",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "AST(SGOT)/ALT(SGPT) \u22642.5 \u00d7 institutional ULN.",
-      "threshold": "AST/ALT > 2.5 x ULN"
+      "threshold": "QTc < 480 ms"
     },
     {
       "category": "age",
@@ -52,13 +39,6 @@
       "threshold": "age > 18"
     },
     {
-      "category": "pregnancy",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Pregnant women are excluded from this study because effect of combination VS-766, abemaciclib, and fulvestrant on a developing fetus is unknown. Breastfeeding should be discontinued prior to entry onto the study.",
-      "threshold": null
-    },
-    {
       "category": "brain_mets",
       "absolute": false,
       "section": "exclusion",
@@ -66,18 +46,11 @@
       "threshold": null
     },
     {
-      "category": "hiv",
+      "category": "cardiac",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "Known history of testing positive for HIV with history of an AIDS-defining opportunistic infection within the past 12 months, or need to receive combination antiretroviral therapy for HIV that are strong CYP3A4 inhibitors or inducers.",
-      "threshold": null
-    },
-    {
-      "category": "prior_malignancy",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Individuals with a history of a second malignancy are ineligible except for the following circumstances.",
-      "threshold": "within 5 years"
+      "source_text": "congestive heart failure (New York Heart Association Class III or IV), active ischemic heart disease, myocardial infarction within the previous six months",
+      "threshold": "NYHA Class III or IV; MI within 6 months"
     },
     {
       "category": "diabetes",
@@ -87,31 +60,38 @@
       "threshold": null
     },
     {
-      "category": "cardiac",
+      "category": "prior_malignancy",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "congestive heart failure (New York Heart Association Class III or IV), active ischemic heart disease, myocardial infarction within the previous six months",
-      "threshold": "MI within 6 months; NYHA class III or IV"
-    },
-    {
-      "category": "renal",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "severe chronic liver or renal disease",
+      "source_text": "Individuals with a history of a second malignancy are ineligible except for the following circumstances.",
       "threshold": null
     },
     {
-      "category": "hepatic",
+      "category": "hiv",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "severe chronic liver or renal disease",
+      "source_text": "Known history of testing positive for HIV with history of an AIDS-defining opportunistic infection within the past 12 months",
+      "threshold": "AIDS-defining infection within 12 months"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant women are excluded from this study because effect of combination VS-766, abemaciclib, and fulvestrant on a developing fetus is unknown.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Breastfeeding should be discontinued prior to entry onto the study.",
       "threshold": null
     },
     {
       "category": "smoking",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "",
+      "source_text": "Patients with the inability to swallow oral medications",
       "threshold": null
     }
   ]

@@ -1,13 +1,14 @@
 {
   "nct_id": "NCT05023018",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Patient must be \u2265 12 years of age.",
-      "threshold": null
+      "threshold": "age >= 12"
     },
     {
       "category": "performance_status",
@@ -15,6 +16,27 @@
       "section": "inclusion",
       "source_text": "Patient must have an ECOG performance status of 0-2 or KPS \u2265 60.",
       "threshold": "ECOG 0-2 or KPS >= 60"
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Creatinine clearance (meas or calc) \u226560mL/min for participants with creatinine levels \\>1.5x laboratory upper limit of normal (ULN)",
+      "threshold": "CrCl >= 60 mL/min if creatinine > 1.5x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Total serum bilirubin \u2264 1.5 x laboratory upper limit of normal (ULN) except participants with Gilbert's Syndrome who can have a total serum bilirubin of \\<5 x laboratory upper limit of normal (ULN)",
+      "threshold": "bilirubin <= 1.5 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "AST (SGOT)/ALT (SPGT) \u2264 2.5 \u00d7 laboratory upper limit of normal (ULN)",
+      "threshold": "AST/ALT <= 2.5 x ULN"
     },
     {
       "category": "pregnancy",
@@ -25,10 +47,10 @@
     },
     {
       "category": "prior_malignancy",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Patient has a history of new diagnosis or treatment of cancer other than high-grade meningioma within five years prior to the date of informed consent, except for basal cell carcinoma or squamous cell carcinoma of the skin.",
-      "threshold": "within five years"
+      "threshold": "within 5 years"
     },
     {
       "category": "brain_mets",
@@ -38,32 +60,11 @@
       "threshold": null
     },
     {
-      "category": "cardiac",
+      "category": "hepatic",
       "absolute": false,
       "section": "exclusion",
       "source_text": "Patient has uncontrolled intercurrent illness including, but not limited to, ongoing or active infection, symptomatic congestive heart failure, unstable angina pectoris, cardiac arrhythmia, or psychiatric illness/social situations that would limit compliance with study requirements.",
       "threshold": null
-    },
-    {
-      "category": "renal",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Serum creatinine \u2264 1.5 x laboratory upper limit of normal (ULN) or",
-      "threshold": "creatinine <= 1.5 x ULN"
-    },
-    {
-      "category": "hepatic",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "AST (SGOT)/ALT (SPGT) \u2264 2.5 \u00d7 laboratory upper limit of normal (ULN)",
-      "threshold": "AST/ALT <= 2.5 x ULN"
-    },
-    {
-      "category": "hepatic",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Total serum bilirubin \u2264 1.5 x laboratory upper limit of normal (ULN) except participants with Gilbert's Syndrome who can have a total serum bilirubin of \\<5 x laboratory upper limit of normal (ULN)",
-      "threshold": "bilirubin <= 1.5 x ULN"
     }
   ]
 }

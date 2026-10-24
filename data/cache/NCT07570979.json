@@ -1,26 +1,20 @@
 {
   "nct_id": "NCT07570979",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "An Eastern Cooperative Oncology Group (ECOG) Performance Status (PS) \u22642.",
-      "threshold": "ECOG PS \u22642"
+      "threshold": "ECOG \u22642"
     },
     {
       "category": "hiv",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Patients who are HIV+ or immune compromised.",
-      "threshold": null
-    },
-    {
-      "category": "cardiac",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Use of agents known to prolong QT interval unless they can be permanently discontinued for the duration of the study",
       "threshold": null
     }
   ]

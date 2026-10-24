@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT07130786",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -17,6 +18,13 @@
       "threshold": null
     },
     {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participants with widespread, definitive leptomeningeal disease given that leptomeningeal disease and brain metastases are different entities",
+      "threshold": null
+    },
+    {
       "category": "pregnancy",
       "absolute": true,
       "section": "exclusion",
@@ -28,13 +36,6 @@
       "absolute": true,
       "section": "exclusion",
       "source_text": "Women who are breastfeeding are excluded from this study because levetiracetam enters breast milk.",
-      "threshold": null
-    },
-    {
-      "category": "brain_mets",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Participants with widespread, definitive leptomeningeal disease given that leptomeningeal disease and brain metastases are different entities",
       "threshold": null
     }
   ]

@@ -1,34 +1,49 @@
 {
   "nct_id": "NCT07032714",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
       "absolute": false,
       "section": "inclusion",
       "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status \u22642 (see Appendix).",
-      "threshold": "ECOG > 2"
+      "threshold": "ECOG \u22642"
     },
     {
       "category": "renal",
       "absolute": false,
       "section": "inclusion",
       "source_text": "Calculated creatinine clearance of \u2265 30 mL/min by Modified Diet in Renal Disease (MDRD) formula or Cockcroft-Gault formula",
-      "threshold": "CrCl < 30 mL/min"
+      "threshold": "CrCl \u2265 30 mL/min"
     },
     {
       "category": "hepatic",
       "absolute": false,
       "section": "inclusion",
-      "source_text": "Serum bilirubin values \\< 1.5 x ULN.",
-      "threshold": "bilirubin >= 1.5 x ULN"
+      "source_text": "Serum bilirubin values \\< 1.5 x ULN. Isolated bilirubin x 1.5 x ULN is acceptable if bilirubin is fractionated and direct bilirubin \\<35%. Patients with elevated bilirubin due to Gilbert's syndrome may be permitted with PI approval (e.g. total bilirubin \\<3 mg/dL and normal direct bilirubin); and",
+      "threshold": "bilirubin < 1.5 x ULN"
     },
     {
       "category": "hepatic",
       "absolute": false,
       "section": "inclusion",
       "source_text": "Serum aspartate transaminase (ALT) and aspartate transaminase (AST) values \\< 2.5 \u00d7 the upper limit of normal (ULN) of the institutional laboratory reference range.",
-      "threshold": "AST/ALT >= 2.5 x ULN"
+      "threshold": "AST/ALT < 2.5 x ULN"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Females of childbearing potential (FCBP) must:",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Previously treated relapsed and refractory multiple myeloma:",
+      "threshold": null
     }
   ]
 }

@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT07465276",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -14,14 +15,21 @@
       "absolute": false,
       "section": "inclusion",
       "source_text": "Creatinine \u2264institutional ULN or GFR of \u226530 mL/min/1.73 m2",
-      "threshold": "GFR \u226530 mL/min/1.73 m2"
+      "threshold": "GFR >= 30 mL/min/1.73 m2"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "total serum bilirubin \u22641.5X upper limit of normal (ULN) (except for subjects with documented Gilbert syndrome) and AST (SGOT) and ALT (SGPT) \u22642.5X ULN",
+      "threshold": "bilirubin <= 1.5x ULN; AST/ALT <= 2.5x ULN"
     },
     {
       "category": "performance_status",
       "absolute": true,
       "section": "exclusion",
       "source_text": "ECOG performance status of 2 or greater.",
-      "threshold": "ECOG \u2265 2"
+      "threshold": "ECOG >= 2"
     },
     {
       "category": "hiv",
@@ -31,6 +39,13 @@
       "threshold": null
     },
     {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Known to be diagnosed and/or treated for any other additional malignancy within 2 years prior to registration with the exception of the following:",
+      "threshold": "within 2 years"
+    },
+    {
       "category": "pregnancy",
       "absolute": true,
       "section": "exclusion",
@@ -38,18 +53,11 @@
       "threshold": null
     },
     {
-      "category": "prior_malignancy",
-      "absolute": false,
+      "category": "smoking",
+      "absolute": true,
       "section": "exclusion",
-      "source_text": "Known to be diagnosed and/or treated for any other additional malignancy within 2 years prior to registration with the exception of the following",
-      "threshold": "within 2 years"
-    },
-    {
-      "category": "hepatic",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "total serum bilirubin \u22641.5X upper limit of normal (ULN) (except for subjects with documented Gilbert syndrome) and AST (SGOT) and ALT (SGPT) \u22642.5X ULN",
-      "threshold": "bilirubin \u22641.5X ULN; AST/ALT \u22642.5X ULN"
+      "source_text": "",
+      "threshold": null
     }
   ]
 }

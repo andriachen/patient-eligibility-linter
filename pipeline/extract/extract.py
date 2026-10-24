@@ -20,13 +20,14 @@ from pathlib import Path
 
 from . import llm
 from .logic import dedupe, drop_noise, is_valid, validate_records
+from .prompts import PROMPT_VERSION
 
 ROOT = Path(__file__).resolve().parents[2]
 CACHE_DIR = ROOT / "data" / "cache"
 EXCLUSIONS_OUT = ROOT / "data" / "processed" / "exclusions.csv"
 
 EXCLUSIONS_FIELDS = ["nct_id", "category", "threshold", "absolute", "section", "source_text"]
-MAX_WORKERS = 5
+MAX_WORKERS = 12
 
 
 # --------------------------------------------------------------------------- #
@@ -62,7 +63,9 @@ def _cache_path(nct_id: str) -> Path:
 def extract_one(trial: dict) -> dict:
     """Return the cache record for one trial, calling the model only on a miss.
 
-    Cache record (lossless): {nct_id, model, exclusions:[...raw records...]}.
+    Cache record (lossless): {nct_id, model, prompt_version, exclusions:[...raw...]}.
+    A cache file whose prompt_version != the current PROMPT_VERSION is treated as
+    a MISS and re-extracted, so a prompt change never silently serves stale data.
     Returns a small status dict for the run summary.
     """
     nct_id = trial["nct_id"]
@@ -71,14 +74,21 @@ def extract_one(trial: dict) -> dict:
 
     if path.exists():
         cached = json.loads(path.read_text())
-        records = cached.get("exclusions", [])
-        return {"nct_id": nct_id, "cached": True, "records": records, "text": text}
+        if cached.get("prompt_version") == PROMPT_VERSION:
+            records = cached.get("exclusions", [])
+            return {"nct_id": nct_id, "cached": True, "records": records, "text": text}
+        # else: stale prompt version -> fall through and re-extract
 
     records = llm.extract_raw(text)
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
     path.write_text(
         json.dumps(
-            {"nct_id": nct_id, "model": llm.model_name(), "exclusions": records},
+            {
+                "nct_id": nct_id,
+                "model": llm.model_name(),
+                "prompt_version": PROMPT_VERSION,
+                "exclusions": records,
+            },
             indent=2,
         )
     )
@@ -129,14 +139,19 @@ def report(results: list[dict]) -> int:
 
 def write_exclusions(results: list[dict]) -> None:
     rows: list[dict] = []
-    dropped = 0
+    # Track WHY records are dropped, separately — the two causes are very different:
+    #   - unverifiable: source_text didn't match the trial text (model paraphrase /
+    #     empty quote / garble). These are quote-quality failures.
+    #   - guard: a VALID quote the deterministic guard removed as a known model
+    #     error (bare adult-age floor, or quote lacking its category's keyword).
+    dropped_unverifiable = 0
+    dropped_guard = 0
     for r in results:
-        # Only keep records whose source_text verifies against this trial's text,
-        # so every exclusions.csv row has an auditable quote. Then dedupe.
-        valid = [rec for rec in r["records"] if is_valid(rec.get("source_text", ""), r["text"])]
-        valid = drop_noise(valid)
-        dropped += len(r["records"]) - len(valid)
-        for rec in dedupe(valid):
+        verified = [rec for rec in r["records"] if is_valid(rec.get("source_text", ""), r["text"])]
+        dropped_unverifiable += len(r["records"]) - len(verified)
+        kept = drop_noise(verified)
+        dropped_guard += len(verified) - len(kept)
+        for rec in dedupe(kept):
             rows.append(
                 {
                     "nct_id": r["nct_id"],
@@ -154,9 +169,34 @@ def write_exclusions(results: list[dict]) -> None:
         w.writeheader()
         w.writerows(rows)
     print(
-        f"exclusions.csv: {len(rows)} rows -> {EXCLUSIONS_OUT} "
-        f"(dropped {dropped} unverifiable-quote records)"
+        f"exclusions.csv: {len(rows)} rows -> {EXCLUSIONS_OUT}\n"
+        f"  dropped {dropped_unverifiable} unverifiable-quote records "
+        f"(model paraphrase / empty / garble)\n"
+        f"  dropped {dropped_guard} guard records "
+        f"(bare adult-age floor or category-keyword mismatch — intended)"
     )
+    _rebuild_stats()
+
+
+def _rebuild_stats() -> None:
+    """Rebuild data/processed/stats.json so the app headline can't go stale.
+
+    Run as a subprocess to avoid a pipeline->eval import dependency. Best-effort:
+    a failure here is logged, not fatal (exclusions.csv is already written).
+    """
+    import subprocess
+    import sys
+
+    script = ROOT / "eval" / "build_stats.py"
+    if not script.exists():
+        return
+    try:
+        subprocess.run([sys.executable, str(script)], check=True, cwd=str(ROOT),
+                       capture_output=True, text=True, timeout=60)
+        print("stats.json rebuilt from exclusions.csv")
+    except Exception as err:  # noqa: BLE001 - non-fatal
+        print(f"  WARNING: stats.json rebuild failed ({err}); run eval/build_stats.py manually",
+              file=sys.stderr)
 
 
 # --------------------------------------------------------------------------- #

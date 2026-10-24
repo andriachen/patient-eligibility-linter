@@ -1,10 +1,11 @@
 {
   "nct_id": "NCT07518186",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "Have an eastern cooperative oncology group (ECOG) performance status of 0 to 2 at screening and immediately before the first dose of study medication",
       "threshold": "ECOG 0 to 2"
@@ -27,7 +28,7 @@
       "category": "brain_mets",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "Known active or prior central nervous system (CNS) involvement or exhibits clinical signs of meningeal involvement of MM.",
+      "source_text": "Known active or prior central nervous system (CNS) involvement or exhibits clinical signs of meningeal involvement of MM. If either is suspected, negative whole brain magnetic resonance imaging (MRI) and lumbar cytology are required",
       "threshold": null
     }
   ]

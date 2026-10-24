@@ -1,62 +1,63 @@
 {
   "nct_id": "NCT07397611",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "ECOG performance status of 0-1.",
       "threshold": "ECOG 0-1"
     },
     {
       "category": "renal",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "Calculated creatinine clearance \u2265 40 mL/min (\u2265 0.67 mL/sec) using the Cockcroft-Gault equation:",
       "threshold": "CrCl \u2265 40 mL/min"
     },
     {
       "category": "hepatic",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Alanine aminotransferase (ALT) \u2264 2.5 \u00d7 ULN.",
-      "threshold": "ALT \u2264 2.5 \u00d7 ULN"
-    },
-    {
-      "category": "hepatic",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "Aspartate transaminase (AST) \u2264 2.5 \u00d7 upper limit of normal (ULN)",
       "threshold": "AST \u2264 2.5 \u00d7 ULN"
     },
     {
       "category": "hepatic",
-      "absolute": false,
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Alanine aminotransferase (ALT) \u2264 2.5 \u00d7 ULN.",
+      "threshold": "ALT \u2264 2.5 \u00d7 ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
       "section": "inclusion",
       "source_text": "Bilirubin \u2264 1.5 \u00d7 ULN (except participants with Gilbert syndrome who must have total bilirubin \\< 3.0 mg/dL).",
       "threshold": "Bilirubin \u2264 1.5 \u00d7 ULN"
     },
     {
       "category": "cardiac",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "Screening echocardiogram or MUGA scan must demonstrate a left ventricular ejection fraction (LVEF) greater than the institutional lower limit of normal (LLN).",
       "threshold": "LVEF > institutional LLN"
     },
     {
       "category": "pregnancy",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "Negative serum pregnancy test at screening for women of childbearing potential.",
       "threshold": null
     },
     {
       "category": "prior_malignancy",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Other prior malignancy active within the previous year except for locally curable cancers (\\>90%) that have been apparently cured, such as basal or squamous cell skin cancer, superficial bladder cancer, or carcinoma in situ of the cervix, breast, or Gleason 6 prostate cancer.",
-      "threshold": "active within previous year"
+      "threshold": "within previous year"
     },
     {
       "category": "cardiac",
@@ -67,35 +68,28 @@
     },
     {
       "category": "cardiac",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "New York Heart Association Class III or IV heart failure.",
-      "threshold": "NYHA Class III or IV"
-    },
-    {
-      "category": "cardiac",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Congestive heart failure New York Heart Association Class 2 or greater, unstable angina pectoris, serious cardiac arrhythmias (eg, ventricular flutter, ventricular fibrillation, Torsades de pointes).",
-      "threshold": "NYHA Class 2 or greater"
-    },
-    {
-      "category": "cardiac",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Any history of stroke (including transient ischemic attack \\[TIA\\]), myocardial infarction, or other clinically significant ischemic event within 12 months before first dose of study treatment.",
-      "threshold": "within 12 months"
+      "threshold": "NYHA class III or IV"
     },
     {
       "category": "cardiac",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Any history of myocarditis.",
+      "source_text": "Congestive heart failure New York Heart Association Class 2 or greater, unstable angina pectoris, serious cardiac arrhythmias (eg, ventricular flutter, ventricular fibrillation, Torsades de pointes).",
+      "threshold": "NYHA class 2 or greater"
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "human immunodeficiency virus (HIV) infection with detectable viral load or acquired immunodeficiency syndrome (AIDS)-related illness.",
       "threshold": null
     },
     {
       "category": "hepatic",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Moderate to severe hepatic impairment (Child-Pugh B or C).",
       "threshold": "Child-Pugh B or C"
@@ -108,24 +102,17 @@
       "threshold": null
     },
     {
-      "category": "smoking",
-      "absolute": false,
+      "category": "performance_status",
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Any use of supplemental or intermittent oxygen therapy.",
       "threshold": null
     },
     {
-      "category": "hiv",
+      "category": "smoking",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "human immunodeficiency virus (HIV) infection with detectable viral load or acquired immunodeficiency syndrome (AIDS)-related illness.",
-      "threshold": "detectable viral load"
-    },
-    {
-      "category": "diabetes",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Diabetes mellitus and thyroid auto-immune diseases are excluded.",
+      "source_text": "Any use of supplemental or intermittent oxygen therapy.",
       "threshold": null
     }
   ]

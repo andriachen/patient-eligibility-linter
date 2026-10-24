@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT04134559",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "age",
@@ -17,11 +18,32 @@
       "threshold": "Karnofsky >= 60%"
     },
     {
-      "category": "pregnancy",
+      "category": "hepatic",
       "absolute": false,
       "section": "inclusion",
-      "source_text": "patients of child-bearing and child-fathering potential must agree to use adequate contraception",
-      "threshold": null
+      "source_text": "Total bilirubin \\< 1.5 x institutional upper limit of normal (ULN)",
+      "threshold": "bilirubin < 1.5 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "AST(SGOT) \u2264 2.5 x ULN",
+      "threshold": "AST <= 2.5 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "ALT(SGPT) \u2264 2.5 x ULN",
+      "threshold": "ALT <= 2.5 x ULN"
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Creatinine clearance \u226560 mL/min/1.73 m2 for participants with creatinine levels above institutional normal.",
+      "threshold": "CrCl >= 60 mL/min/1.73 m2"
     },
     {
       "category": "hiv",
@@ -35,6 +57,13 @@
       "absolute": false,
       "section": "inclusion",
       "source_text": "Women of child bearing potential (WOCBP) must have a negative serum or urine pregnancy test within 24 hours of each treatment.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Patients with prior solid organ transplantation are not eligible.",
       "threshold": null
     }
   ]

@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT05918640",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -13,29 +14,29 @@
       "category": "hepatic",
       "absolute": true,
       "section": "inclusion",
-      "source_text": "Alanine aminotransferase (ALT) \u2264 2.5X upper limit of normal.",
+      "source_text": "Alanine aminotransferase (ALT) \u2264 2.5X upper limit of normal. For the purposes of this study the upper limit of normal for ALT is 45 U/L.",
       "threshold": "ALT \u2264 2.5X ULN (45 U/L)"
     },
     {
       "category": "hepatic",
       "absolute": true,
       "section": "inclusion",
-      "source_text": "Aspartate aminotransferase (AST) \u2264 2.5X upper limit of normal.",
+      "source_text": "Aspartate aminotransferase (AST) \u2264 2.5X upper limit of normal. For the purposes of this study the upper limit of normal for AST is 50 U/L.",
       "threshold": "AST \u2264 2.5X ULN (50 U/L)"
     },
     {
       "category": "hepatic",
       "absolute": true,
       "section": "inclusion",
-      "source_text": "Total bilirubin \u2264 1.5X institutional upper limit of normal with the exception of patients with Gilbert's syndrome who must have bilirubin <3X institutional upper limit of normal.",
-      "threshold": "bilirubin \u2264 1.5X ULN"
+      "source_text": "Total bilirubin \u2264 1.5X institutional upper limit of normal with the exception of patients with Gilbert's syndrome who must have bilirubin \\<3X institutional upper limit of normal.",
+      "threshold": "Total bilirubin \u2264 1.5X institutional ULN"
     },
     {
       "category": "renal",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
-      "source_text": "Calculated creatinine clearance (by the Schwartz equation for patients <18 years of age and Cockroft-Gault formula (Appendix B) for patients \u226518 years of age) or radionuclide glomerular filtration rate (GFR) \u2265 50 mL/min /m2 or a serum creatinine less than or equal to the age/gender valued below:",
-      "threshold": "CrCl or GFR \u2265 50 mL/min/m2 or serum creatinine age/gender limits"
+      "source_text": "Creatinine Calculated creatinine clearance (by the Schwartz equation for patients \\<18 years of age and Cockroft-Gault formula (Appendix B) for patients \u226518 years of age) or radionuclide glomerular filtration rate (GFR) \u2265 50 mL/min /m2 or a serum creatinine less than or equal to the age/gender valued below",
+      "threshold": "GFR \u2265 50 mL/min/m2 or age/sex-specific serum creatinine maximum"
     },
     {
       "category": "cardiac",
@@ -62,14 +63,14 @@
       "category": "hepatic",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "Patients receiving over the counter or herbal supplement with significant potential hepatotoxicity in the opinion of the investigator.",
+      "source_text": "Patients with known active viral hepatitis (i.e. Hepatitis A, B, or C)",
       "threshold": null
     },
     {
-      "category": "hepatic",
+      "category": "smoking",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Patients with known active viral hepatitis (i.e. Hepatitis A, B, or C)",
+      "source_text": "Patients receiving over the counter or herbal supplement with significant potential hepatotoxicity in the opinion of the investigator.",
       "threshold": null
     }
   ]

@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT05128825",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -11,7 +12,7 @@
     },
     {
       "category": "pregnancy",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "Pregnant or lactating female subject or female subject of childbearing potential who has a positive serum pregnancy test within 14 days prior to C1D1.",
       "threshold": null

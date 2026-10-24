@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT07305740",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "language",
@@ -14,11 +15,11 @@
       "absolute": true,
       "section": "inclusion",
       "source_text": "A diagnosis of cancer (except non-melanoma skin cancer) \u2265 12 months prior.",
-      "threshold": "diagnosis \u2265 12 months prior"
+      "threshold": "diagnosis >= 12 months prior"
     },
     {
       "category": "smoking",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Any significant marijuana use which could impact anxiety symptoms, as evidenced by one of the following:",
       "threshold": null

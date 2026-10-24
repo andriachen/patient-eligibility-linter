@@ -1,6 +1,7 @@
 {
   "nct_id": "NCT05006716",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
       "category": "performance_status",
@@ -17,17 +18,17 @@
       "threshold": "within 2 years"
     },
     {
-      "category": "pregnancy",
-      "absolute": true,
+      "category": "brain_mets",
+      "absolute": false,
       "section": "exclusion",
-      "source_text": "Requires ongoing systemic (defined as \u2265 10 mg/day of prednisone or equivalent) corticosteroid treatment.",
+      "source_text": "Current or history of central nervous system involvement including the brain, spinal cord, leptomeninges, and cerebrospinal fluid (as documented by imaging, cytology, or biopsy) by B-cell malignancy, regardless of whether participants had received treatment for central nervous system disease",
       "threshold": null
     },
     {
-      "category": "brain_mets",
-      "absolute": true,
+      "category": "pregnancy",
+      "absolute": false,
       "section": "exclusion",
-      "source_text": "Current or history of central nervous system involvement including the brain, spinal cord, leptomeninges, and cerebrospinal fluid (as documented by imaging, cytology, or biopsy) by B-cell malignancy, regardless of whether participants had received treatment for central nervous system disease",
+      "source_text": "",
       "threshold": null
     }
   ]

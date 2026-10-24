@@ -1,61 +1,62 @@
 {
   "nct_id": "NCT06550141",
   "model": "claude-haiku-5-5",
+  "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
-      "category": "performance_status",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status of 0 to 2.",
-      "threshold": "ECOG > 2"
-    },
-    {
       "category": "age",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
       "source_text": "Age 18 or older",
       "threshold": null
     },
     {
+      "category": "performance_status",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status of 0 to 2.",
+      "threshold": "ECOG 0-2"
+    },
+    {
       "category": "renal",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
       "source_text": "Creatinine clearance (as estimated by Cockcroft Gault or CKD-EPI) \u2265 30 mL/min",
-      "threshold": "CrCl < 30 mL/min"
+      "threshold": "CrCl >= 30 mL/min"
     },
     {
       "category": "hepatic",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
       "source_text": "Serum ALT/AST \u22642.5 per institutional ULN",
-      "threshold": "ALT/AST > 2.5 x ULN"
+      "threshold": "ALT/AST <= 2.5x ULN"
     },
     {
       "category": "hepatic",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
       "source_text": "Total bilirubin \u22641.5 mg/dl, except in subjects with Gilbert's syndrome.",
-      "threshold": "bilirubin > 1.5 mg/dL"
+      "threshold": "bilirubin <= 1.5 mg/dl"
     },
     {
       "category": "cardiac",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
       "source_text": "Cardiac ejection fraction \u2265 40%, no clinically significant pericardial effusion, and no clinically significant ECG findings",
-      "threshold": "LVEF < 40%"
+      "threshold": "LVEF >= 40%"
     },
     {
       "category": "prior_malignancy",
-      "absolute": true,
+      "absolute": false,
       "section": "exclusion",
       "source_text": "History of malignancy other than nonmelanoma skin cancer or carcinoma in situ (e.g. cervix, bladder, breast) or follicular lymphoma unless disease free for at least 3 years.",
-      "threshold": "within 3 years"
+      "threshold": "disease free for at least 3 years"
     },
     {
       "category": "hiv",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Patients should also be negative for latent Tb, CMV (NAT), EBV (NAT) and adenovirus (NAT) by PCR testing.",
+      "source_text": "Known history of acute or chronic active hepatitis B or C infection.",
       "threshold": null
     },
     {
@@ -77,13 +78,6 @@
       "absolute": true,
       "section": "exclusion",
       "source_text": "Females who are pregnant or breastfeeding or female or male participants who are not willing to practice birth control from the time of consent through 6 months after the completion of CAR-T",
-      "threshold": null
-    },
-    {
-      "category": "pregnancy",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Females of childbearing potential must have a negative serum or urine pregnancy test",
       "threshold": null
     }
   ]
