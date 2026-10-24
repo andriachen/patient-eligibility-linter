@@ -4,10 +4,10 @@
   "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
-      "category": "age",
+      "category": "brain_mets",
       "absolute": false,
-      "section": "inclusion",
-      "source_text": "Participant is an adult man \u2265 18 years of age.",
+      "section": "exclusion",
+      "source_text": "Participants with a history of CNS metastases must have received therapy (surgery, radiotherapy, gamma knife) and be neurologically stable, asymptomatic, and not receiving corticosteroids for the purpose of maintaining neurologic integrity.",
       "threshold": null
     }
   ]

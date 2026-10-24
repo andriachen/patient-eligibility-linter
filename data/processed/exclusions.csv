@@ -18,6 +18,13 @@ NCT01961713,prior_malignancy,,true,exclusion,"No prior or current diagnosis of e
 NCT02000089,performance_status,,false,exclusion,Poor performance status
 NCT02000089,pregnancy,,true,exclusion,Pregnancy.
 NCT02012699,language,,true,inclusion,English or Spanish speaking individuals
+NCT02172651,cardiac,,false,exclusion,"symptomatic congestive heart failure, unstable angina pectoris, cardiac arrhythmia"
+NCT02172651,hepatic,total bilirubin ≤1.5× ULN,true,inclusion,Total bilirubin ≤1.5× institutional upper limit of normal (ULN)
+NCT02172651,hiv,,true,exclusion,"Known positive test for human immunodeficiency virus (HIV), hepatitis C virus, or acute or chronic hepatitis B infection."
+NCT02172651,performance_status,ECOG ≤ 1,true,inclusion,ECOG performance status ≤ 1 (see Appendix A)
+NCT02172651,pregnancy,,true,inclusion,Non-pregnant and not nursing
+NCT02172651,prior_malignancy,,false,exclusion,History of prior or synchronous malignancy except:
+NCT02172651,renal,creatinine within institutional normal or CrCl ≥60 mL/min/1.73 m2,false,inclusion,Serum creatinine within normal institutional limits or creatinine clearance ≥60 mL/min/1.73 m2 for subjects with creatinine levels above institutional normal.
 NCT02290834,brain_mets,,true,exclusion,Participants with clinical or radiographic evidence of metastatic CNS disease
 NCT02290834,performance_status,KPS ≥ 80,true,inclusion,Karnofsky Performance Score (KPS) ≥ 80
 NCT02290834,pregnancy,,false,inclusion,Serum Pregnancy Testing: STAT quantitative serum hCG pregnancy testing for all women of childbearing potential. Imaging will not start until and unless the test result returns negative.
@@ -153,7 +160,6 @@ NCT03310879,hiv,,true,exclusion,Participants with known HIV-positive status are 
 NCT03310879,performance_status,ECOG 0-1,true,inclusion,ECOG performance status of 0-1 (see APPENDIX A).
 NCT03310879,pregnancy,,true,exclusion,Pregnant women are excluded from this study because abemaciclib is an agent with the potential for teratogenic or abortifacient effects.
 NCT03310879,renal,creatinine <= 1.5 x ULN or CrCl >= 60 mL/min,true,inclusion,Serum Creatinine ≤ 1.5 × institutional ULN -OR-
-NCT03328078,age,,true,inclusion,Males and females greater than or equal to 18 years of age
 NCT03394365,brain_mets,,false,exclusion,Untreated CNS PTLD or CNS PTLD for which the participant is actively receiving CNS-directed chemotherapy (systemic or intrathecal) or radiotherapy at enrollment.
 NCT03394365,hepatic,"ALT, AST, total bilirubin < 5 × ULN (≤ 10 × ULN if due to EBV/PTLD liver involvement)",false,inclusion,"Alanine aminotransferase (ALT), aspartate aminotransferase (AST), and total bilirubin each \< 5 × the upper limit of normal; however, ALT, AST, and total bilirubin each ≤ 10 × upper limit of normal is acceptable if the elevation is considered by the investigator to be due to EBV and/or PTLD involvement of the liver as long as there is no known evidence of significant liver dysfunction."
 NCT03394365,performance_status,ECOG ≤ 3,true,inclusion,Eastern Cooperative Oncology Group performance status ≤ 3 for participants aged ≥ 16 years
@@ -186,7 +192,6 @@ NCT03509961,hiv,,true,exclusion,"Patients with HIV or uncontrolled fungal, bacte
 NCT03509961,performance_status,Karnofsky or Lansky >= 60%,true,inclusion,Karnofsky Index or Lansky Play-Performance Scale ≥ 60 % on pre-transplant evaluation.
 NCT03509961,pregnancy,,true,exclusion,Pregnant or lactating females are ineligible as many of the medications used in this protocol could be harmful to unborn children and infants.
 NCT03509961,renal,CrCl or GFR >= 60 mL/min/1.73 m2,true,inclusion,Renal: Creatinine clearance or radioisotope GFR ≥ 60 mL/min/1.73 m2 or a serum creatinine based on age/gender.
-NCT03516708,brain_mets,,true,exclusion,Presence of metastatic disease or recurrent rectal tumor.
 NCT03516708,performance_status,ECOG 0-2,false,inclusion,"ECOG performance status 0, 1, or 2"
 NCT03516708,pregnancy,,true,exclusion,Pregnant and/or breastfeeding.
 NCT03526835,brain_mets,,true,exclusion,"Central nervous system metastases that are untreated or symptomatic, or require radiation, surgery, or continued steroid therapy to control symptoms within 14 days of study entry."
@@ -216,7 +221,7 @@ NCT03595917,pregnancy,,true,exclusion,Are pregnant or nursing at the time of scr
 NCT03595917,prior_malignancy,,false,exclusion,History of prior or concurrent malignancy requiring current treatment and/or whose natural history has the potential to interfere with the safety or efficacy assessment of the investigational regimen.
 NCT03595917,renal,creatinine ≤ 1.5x ULN,false,inclusion,Creatinine ≤ 1.5x institutional upper limit of normal.
 NCT03623958,pregnancy,,true,exclusion,If participant is a pregnant woman or breast feeding they will not be eligible.
-NCT03659448,hepatic,> 2 times ULN,false,exclusion,Total bilirubin above 2 times the ULN or;
+NCT03659448,hepatic,> 5 times ULN,false,exclusion,"Aspartate AminoTransferase, Alanine AminoTransferase, Gamma Glutamyl Transferase) or Alkaline Phosphatase levels above 5 times the ULN or;"
 NCT03659448,hiv,,true,exclusion,Known positive test for human immunodeficiency virus (HIV)
 NCT03659448,prior_malignancy,within 5 years,true,exclusion,"Other malignancies, either currently active or diagnosed in the last 5 years, except for adequately treated in situ carcinoma of the cervix and basal or squamous cell skin carcinoma;"
 NCT03659448,renal,> 1.5 times ULN,false,exclusion,Serum creatinine above 1.5 times the ULN or;
@@ -639,11 +644,12 @@ NCT04678401,pregnancy,,true,exclusion,Pregnant women are excluded from this stud
 NCT04678401,prior_malignancy,disease-free for at least 5 years,false,exclusion,Participants with a history of another non-hematologic malignancy are ineligible except for the following circumstances: Individuals with a history of other malignancies are eligible if they have been disease-free for at least 5 years
 NCT04678401,renal,CrCl > 50 mL/min/1.73 m2 if creatinine above normal,false,inclusion,Renal: Serum Creatinine within normal institutional limits or creatinine clearance \>50 mL/min/1.73 m2 (see Appendix B) for participants with creatinine levels above institutional normal.
 NCT04684368,age,age < 30 years,true,inclusion,Patients must be \>= 3 years and \< 30 years at the time of study enrollment
-NCT04684368,brain_mets,,true,exclusion,"Patients with metastatic disease (i.e., MRI evaluation, lumbar CSF cytology or intraoperative evidence of dissemination)"
 NCT04684368,hepatic,bilirubin <= 1.5 x ULN,true,inclusion,Total bilirubin =\< 1.5 x upper limit of normal (ULN) for age (within 7 days prior to enrollment)
 NCT04684368,language,,false,inclusion,"English-, Spanish-, or French- speaking"
 NCT04684368,pregnancy,,true,exclusion,"Female patients who are pregnant, since fetal toxicities and teratogenic effects have been noted for several of the study drugs"
 NCT04684368,renal,CrCl or GFR >= 70 mL/min/1.73 m^2; age/sex-based maximum serum creatinine,false,inclusion,Creatinine clearance or radioisotope glomerular filtration rate (GFR) \>= 70 mL/min/1.73 m\^2 or a serum creatinine based on age/sex as follows (within 7 days prior to enrollment):
+NCT04701645,cardiac,,false,exclusion,"symptomatic congestive heart failure, unstable angina pectoris, cardiac arrhythmia"
+NCT04701645,pregnancy,,true,exclusion,Pregnant women are excluded from this study because of the possible increased dose of radiation from imaging associated with the microdevice placement and the potential risk to the pregnancy of the biopsy/device placement in an abdominal lesion.
 NCT04704323,brain_mets,,true,exclusion,Subjects with active known central nervous system (CNS) lymphoma.
 NCT04704323,cardiac,NYHA III-IV; MI within 6 months; EF < 40%,false,exclusion,"New York Heart Association Class (NYHA) III and IV congestive heart failure, myocardial infraction within the previous 6 months, ejection fraction (EF) < 40%, life-threatening arrhythmias, or unstable angina brain metastasis or psychiatric illness that would limit compliance with trial requirement."
 NCT04704323,hepatic,AST/ALT ≤ 2.5 x ULN,false,inclusion,"Adequate liver function as indicated by aspartate transaminase (AST)/ alanine transaminase (ALT) ≤ 2.5 times upper limit of normal (ULN), unless directly attributable to the subject's tumor (in this case, acceptable levels are ≤ 5 x ULN)."
@@ -664,7 +670,6 @@ NCT04724018,renal,GFR < 30 mL/min/1.73 m2,true,inclusion,Glomerular filtration r
 NCT04726241,age,age < 22 years,true,inclusion,Patients must be less than 22 years of age at the time of study enrollment
 NCT04752137,pregnancy,,true,exclusion,Pregnant or nursing patients
 NCT04752137,renal,,false,exclusion,Patients in renal failure who are not cleared for ICG administration by their primary physician or oncologist
-NCT04752722,brain_mets,,true,exclusion,Evidence of metastatic disease.
 NCT04752722,cardiac,MI within 6 months; coronary stenting within 8 weeks,false,exclusion,"Significant cardiovascular risk (e.g., coronary stenting within 8 weeks, myocardial infarction within 6 months)."
 NCT04752722,hepatic,total bilirubin <= 1.5 x ULN,true,inclusion,Total bilirubin must be ≤1.5 x the upper limit of normal (ULN).
 NCT04752722,hiv,,true,exclusion,"Known human immunodeficiency virus, Hepatitis B, or Hepatitis C infection."
@@ -794,6 +799,7 @@ NCT04893109,prior_malignancy,,true,exclusion,Patients with a history of previous
 NCT04893109,renal,,true,exclusion,renal failure requiring dialysis
 NCT04899908,performance_status,Karnofsky >= 70,true,inclusion,"Karnofsky performance status of at least 70 (i.e. at minimum, ""cares for self"" but ""unable to carry on normal activity or do active work"")"
 NCT04899908,pregnancy,,true,exclusion,Pregnant women are excluded from this study because of the potential deleterious effects of gadolinium on the developing fetus.
+NCT04899908,renal,eGFR >= 60 mL/min/1.73m2,true,inclusion,Estimated glomerular filtration rate of ≥ 60 mL/min/1.73m2
 NCT04900623,age,age >= 22,true,inclusion,Age 22 years or older
 NCT04900623,cardiac,,false,exclusion,"symptomatic congestive heart failure, unstable angina pectoris, cardiac arrhythmia"
 NCT04900623,performance_status,ECOG ≤ 2,true,inclusion,ECOG performance status ≤ 2
@@ -840,6 +846,7 @@ NCT04996875,hiv,,true,exclusion,Seropositive for human immunodeficiency virus (H
 NCT04996875,performance_status,ECOG 0 to 3,false,inclusion,ECOG (0 to 3)
 NCT04996875,prior_malignancy,within 3 years,true,exclusion,Diagnosed with or treated for malignancy other than the disease under study within the prior 3 years before enrollment
 NCT04997096,language,,true,inclusion,"Able to read, write, and understand English"
+NCT05006131,diabetes,,false,inclusion,"New-onset diabetes, age \> 50 years with weight loss."
 NCT05006716,brain_mets,,false,exclusion,"Current or history of central nervous system involvement including the brain, spinal cord, leptomeninges, and cerebrospinal fluid (as documented by imaging, cytology, or biopsy) by B-cell malignancy, regardless of whether participants had received treatment for central nervous system disease"
 NCT05006716,performance_status,ECOG 0 to 2,true,inclusion,Eastern Cooperative Oncology Group (ECOG) Performance Status of 0 to 2
 NCT05006716,prior_malignancy,within 2 years,false,exclusion,"Prior malignancy (other than the disease under study) within the past 2 years, except in situ malignancies that have been curatively resected"
@@ -942,7 +949,6 @@ NCT05168930,performance_status,ECOG ≤ 2,true,inclusion,"ECOG performance statu
 NCT05168930,pregnancy,,true,exclusion,Pregnant women are excluded from this study
 NCT05168930,prior_malignancy,,false,exclusion,"History of other malignancies, with the following exceptions:"
 NCT05168930,renal,creatinine ≤ 1.5 × ULN,true,inclusion,"Serum Creatinine ≤ 1.5 × institutional ULN, OR"
-NCT05174169,brain_mets,,true,exclusion,"Pathologic, clinical, or radiologic overt evidence of metastatic disease. This includes isolated, distant, or non-contiguous intra-abdominal metastases, even if resected."
 NCT05174169,cardiac,NYHA class 2B or better,false,exclusion,"Patients with known history or current symptoms of cardiac disease, or history of treatment with cardiotoxic agents, should have a clinical risk assessment of cardiac function using the New York Heart Association Functional Classification. To be eligible for this trial, patients should be class 2B or better."
 NCT05174169,hiv,,false,inclusion,HIV-infected patients on effective anti-retroviral therapy with undetectable viral load within 6 months are eligible for this trial.
 NCT05174169,performance_status,ECOG 0 or 1,true,inclusion,The patient must have an ECOG performance status of 0 or 1.
@@ -953,7 +959,6 @@ NCT05176483,cardiac,QTcF > 460 ms females; > 450 ms males,true,exclusion,Correct
 NCT05176483,pregnancy,,true,exclusion,Pregnant or lactating females.
 NCT05176483,prior_malignancy,within 2 years,false,exclusion,"Any other active malignancy within two years before first dose of study treatment, except for superficial skin cancers, or localized, low-grade tumors deemed cured and not treated with systemic therapy."
 NCT05183035,age,age < 22 years,true,inclusion,Participants must be \>28 days of age and \< 22 years of age at enrollment.
-NCT05183035,brain_mets,,true,exclusion,Participants with isolated CNS3 disease or symptomatic CNS3 disease.
 NCT05183035,cardiac,SF < 25% or EF < 40%,false,inclusion,No pre-treatment diminished left ventricular function on echocardiography (shortening fraction \[SF\] \< 25% or ejection fraction \[EF\] \< 40%)
 NCT05183035,hepatic,direct bilirubin < 1.5 x ULN,false,inclusion,"Direct bilirubin \< 1.5 x upper limit of normal (ULN), and"
 NCT05183035,hiv,,true,exclusion,"Known hepatitis C virus (HCV), hepatitis B virus (HBV) (known positive hepatitis B virus (HBV) surface antigen (HBsAg) results), or human immunodeficiency virus (HIV) infection."
@@ -1020,7 +1025,6 @@ NCT05327686,prior_malignancy,,false,inclusion,Patients with a prior or concurren
 NCT05327686,renal,CrCl >= 30 mL/min,true,inclusion,Calculated (Calc.) creatinine clearance \>= 30 mL/min (within 45 days prior to registration)
 NCT05335928,pregnancy,,true,exclusion,"Female who is pregnant, breastfeeding, or is considering becoming pregnant during the study or for approximately 90 days after the last dose of study drug."
 NCT05349227,language,,true,inclusion,Can read and speak English;
-NCT05356117,brain_mets,,true,exclusion,Patients with metastatic disease.
 NCT05356117,diabetes,,false,exclusion,uncontrolled diabetes
 NCT05356117,language,,true,inclusion,Speak English or Spanish.
 NCT05356117,pregnancy,,true,exclusion,Patients who are pregnant due to the unknown effects of exercise on the developing fetus.
@@ -1216,7 +1220,7 @@ NCT05554406,performance_status,Zubrod PS <= 3,true,inclusion,Participants must h
 NCT05554406,pregnancy,,true,inclusion,Participants must not be pregnant or nursing.
 NCT05554406,prior_malignancy,,false,inclusion,Participants with a prior or concurrent malignancy whose natural history (in the opinion of the treating physician) does not have the potential to interfere with the safety or efficacy assessment of the investigational regimen are eligible for this trial.
 NCT05554406,renal,CrCl >= 30 mL/min,true,inclusion,Participants must have adequate kidney function as evidenced by creatinine clearance \>= 30mL/min (by Cockcroft Gault) within 7 days prior to registration
-NCT05564377,performance_status,ECOG 0-2 OR Lansky/Karnofsky >= 50%,true,inclusion,Patient must have an Eastern Cooperative Oncology Group (ECOG) performance status between 0-2 OR patient must have Lansky performance status of \>= 50% or Karnofsky performance status of \>= 50%
+NCT05564377,performance_status,ECOG 0-2 or Lansky/Karnofsky >= 50%,true,inclusion,Patient must have an Eastern Cooperative Oncology Group (ECOG) performance status between 0-2 OR patient must have Lansky performance status of \>= 50% or Karnofsky performance status of \>= 50%
 NCT05573126,cardiac,NYHA Grade II-IV,true,exclusion,Congestive heart failure Grades II-IV according to the New York Heart Association at the time of screening
 NCT05579366,age,age <= 65,true,inclusion,Age 18 to 65 years (inclusive).
 NCT05579366,performance_status,ECOG 0 or 1,true,inclusion,An Eastern Cooperative Oncology Group (ECOG) Performance Status score of 0 or 1.
@@ -1267,7 +1271,6 @@ NCT05625659,diabetes,,false,exclusion,History of diabetes mellitus
 NCT05625659,pregnancy,,true,inclusion,Women must not be pregnant or breast-feeding.
 NCT05625659,renal,,false,exclusion,Women with known or suspected renal impairment.
 NCT05633654,cardiac,MI within 6 months; LVEF < 50%,true,exclusion,"Myocardial infarction or unstable angina pectoris within 6 months of enrollment or history of serious ventricular arrhythmia (ie, ventricular tachycardia or ventricular fibrillation), high-grade atrioventricular block, or other cardiac arrhythmias or Left ventricular ejection fraction (LVEF) of \< 50%"
-NCT05633654,hepatic,,true,exclusion,Individuals with germline breast cancer gene (BRCA) mutations.
 NCT05633654,performance_status,ECOG 0-1,true,inclusion,Eastern Cooperative Oncology Group (ECOG) performance status 0-1.
 NCT05633654,prior_malignancy,,true,exclusion,history of any prior (ipsi- or contralateral) invasive breast cancer.
 NCT05640999,language,,false,inclusion,"Patient is able (i.e. sufficiently fluent) and willing to complete the patient-reported outcomes (PRO) questionnaires in either English, French or a validated language"
@@ -1491,6 +1494,13 @@ NCT05783609,prior_malignancy,disease free for at least 2 years,false,exclusion,P
 NCT05783609,renal,CrCl >= 45 ml/min,false,inclusion,Estimated CrCl (Cockcroft Gault) ≥ 45ml/min
 NCT05784922,age,age 50-80,true,inclusion,Must be 50-80 years old
 NCT05784922,language,,true,inclusion,Must speak English or Spanish
+NCT05785741,brain_mets,,false,exclusion,"Has clinically active central nervous system (CNS) metastases, defined as untreated, or symptomatic, or requiring therapy with glucocorticoids or anticonvulsants to control associated symptoms."
+NCT05785741,cardiac,LVEF ≥ 50%,true,inclusion,Has LVEF ≥ 50% by either echocardiography (ECHO) or multiple-gated acquisition (MUGA) within 28 days before enrollment.
+NCT05785741,hepatic,,true,exclusion,Subjects have active viral (any etiology) hepatitis are excluded.
+NCT05785741,hiv,,true,exclusion,Know human immunodeficiency virus (HIV) infection.
+NCT05785741,performance_status,ECOG 0-1,true,inclusion,Has an Eastern Cooperative Oncology Group (ECOG) performance status (PS) of 0-1.
+NCT05785741,pregnancy,,true,exclusion,"Is a lactating mother (women who are willing to temporarily interrupt breastfeeding will also be excluded), or pregnant as confirmed by serum pregnancy tests performed within 7 days prior to Cycle 1 Day 1."
+NCT05785741,prior_malignancy,within 5 years,true,exclusion,"Has multiple primary malignancies within 5 years before enrollment, except adequately resected non-melanoma skin cancer (e.g., resected basal or squamous cell skin cancer), curatively treated in-situ disease (e.g., carcinoma in situ of the cervix or breast), other solid tumors curatively treated (e.g., \< T1 urothelial carcinoma), or contralateral breast cancer."
 NCT05786924,brain_mets,,false,inclusion,Part 2A3: Advanced/metastatic NSCLC with KRAS non-G12C or BRAF mutations or alterations and active CNS metastatic disease
 NCT05786924,cardiac,,false,exclusion,Clinically significant cardiovascular disease.
 NCT05786924,pregnancy,,true,exclusion,Females who are pregnant or breastfeeding.
@@ -1557,7 +1567,6 @@ NCT05874921,pregnancy,,true,exclusion,Pregnancy or lactation.
 NCT05877599,brain_mets,,true,exclusion,"Known, active primary central nervous system (CNS) malignancy"
 NCT05877599,cardiac,within 6 months,true,exclusion,History of clinically significant cardiac disease within the 6 months prior to enrollment or heart failure at any time prior to enrollment.
 NCT05877599,prior_malignancy,within 3 years,true,exclusion,Any another primary malignancy within the 3 years prior to enrollment
-NCT05879926,brain_mets,,true,exclusion,Definitive clinical or radiologic evidence of metastatic disease.
 NCT05879926,cardiac,NYHA class 2B or better,false,exclusion,"Patients with known history or current symptoms of cardiac disease, or history of treatment with cardiotoxic agents, should have a clinical risk assessment of cardiac function using the New York Heart Association Functional Classification. To be eligible for this trial, patients should be class 2B or better."
 NCT05879926,hepatic,AST/ALT > 3 x ULN,true,exclusion,AST(aspartate aminotransferase)(SGOT)/ALT (alanine transminase)(SGPT): greater than 3 × institutional ULN;
 NCT05879926,hiv,,false,inclusion,HIV-infected patients on effective anti-retroviral therapy with undetectable viral load within 6 months are eligible for this trial.
@@ -1582,7 +1591,7 @@ NCT05898594,age,age 50-80,true,inclusion,Aged 50-80 years.
 NCT05898594,prior_malignancy,,true,exclusion,Individuals with a history of lung cancer.
 NCT05898594,smoking,,false,inclusion,Have a self-reported history of smoking.
 NCT05901285,brain_mets,,false,exclusion,"Known CNS metastases or leptomeningeal carcinomatosis, unless adequately treated and clinically stable off steroids for ≥ 14 days from the first injection of VAX014"
-NCT05901285,cardiac,"QTcF > 450 msec (male), > 470 msec (female)",true,exclusion,Electrocardiogram (ECG) with QTcF &gt; 450 msec (males) and QTcF &gt; 470 msec (females) based on an average of triplicate ECGs
+NCT05901285,cardiac,within 12 months of MI,true,exclusion,≤ 12 months from prior MI
 NCT05901285,hepatic,bilirubin <= 1.5 x ULN,false,inclusion,Total bilirubin ≤ 1.5 x ULN
 NCT05901285,hiv,,true,exclusion,Known active infection with tuberculosis or HIV
 NCT05901285,performance_status,ECOG 0-2,false,inclusion,"ECOG Performance Status of 0, 1, or 2"
@@ -1716,7 +1725,7 @@ NCT06043674,performance_status,ECOG 0-2,true,inclusion,ECOG performance status o
 NCT06043674,pregnancy,,true,exclusion,"Patients who are pregnant, breast-feeding, or intending to become pregnant during the study."
 NCT06043674,prior_malignancy,,true,exclusion,"History of other malignancies, except:"
 NCT06043674,renal,creatinine < 2.0 x ULN or CrCl > 50 ml/min,true,inclusion,Creatinine \< 2.0 x ULN (upper limit of normal) or estimated CrCl \> 50 ml/min according to Cockcroft/Gault formula
-NCT06047379,brain_mets,,true,exclusion,Patients with metastases to the spinal cord parenchyma.
+NCT06047379,brain_mets,,true,exclusion,Patient with history of known leptomeningeal involvement.
 NCT06047379,cardiac,QTcF > 470 msec,true,exclusion,"Patient has a corrected QT interval (using Fridericia's correction formula) (QTcF) of \>470 msec, a history of additional risk factors for TdP (e.g. heart failure, hypokalemia), and/or the use of concomitant medications that prolong QT/QTc interval."
 NCT06047379,hepatic,within normal institutional limits,true,inclusion,Total bilirubin within normal institutional limits
 NCT06047379,performance_status,KPS ≥ 60,true,inclusion,"Patient with Astrocytoma IDH-mutant, Glioblastoma IDH-wildtype must have a Karnofsky Performance Status (KPS) of ≥ 60."
@@ -1924,6 +1933,19 @@ NCT06167317,hiv,,true,exclusion,"Have active hepatitis B virus (HBV) or hepatiti
 NCT06167317,performance_status,ECOG 0 to 1,true,inclusion,Eastern Cooperative Oncology Group (ECOG) performance status 0 to 1.
 NCT06167317,pregnancy,,true,exclusion,Pregnant or lactating females
 NCT06167317,prior_malignancy,,true,exclusion,Have an active second malignancy
+NCT06171750,brain_mets,,false,exclusion,known active central nervous system (CNS) metastases
+NCT06171750,cardiac,QTc > 460 msec,true,inclusion,baseline electrocardiogram (EKG) without evidence of acute ischemia or prolonged QTc interval \> 460 msec
+NCT06171750,hepatic,,true,inclusion,"adequate bone marrow, hepatic and renal function"
+NCT06171750,hiv,,true,exclusion,HIV-infected participants with a history of Kaposi sarcoma and/or Multicentric Castleman Disease
+NCT06171750,performance_status,ECOG 0-1,true,inclusion,ECOG performance status 0-1
+NCT06171750,pregnancy,,true,exclusion,a woman of childbearing potential (WOCBP) who has a positive serum pregnancy test (within 72 hours) prior to the start of treatment or female participant who is breastfeeding
+NCT06171750,renal,,true,inclusion,"adequate bone marrow, hepatic and renal function"
+NCT06172296,age,age <= 30 years at diagnosis,true,inclusion,≤ 30 years at the time of initial diagnosis with high-risk disease
+NCT06172296,cardiac,EF >= 50%,true,inclusion,Ejection fraction of ≥ 50% by echocardiogram or radionuclide angiogram
+NCT06172296,hepatic,bilirubin <= 1.5 x ULN,true,inclusion,Total bilirubin ≤ 1.5 x upper limit of normal (ULN) for age
+NCT06172296,hiv,,false,inclusion,Human immunodeficiency virus (HIV) -infected patients on effective anti-retroviral therapy with undetectable viral load within 6 months are eligible for this trial
+NCT06172296,pregnancy,,true,exclusion,Female patients who are pregnant since fetal toxicities and teratogenic effects have been noted for several of the study drugs.
+NCT06172296,renal,GFR >= 70 mL/min/1.73 m^2,true,inclusion,or a GFR ≥ 70 mL/min/1.73 m\^2. GFR must be performed using direct measurement with a nuclear blood sampling method or direct small molecule clearance method (iothalamate or other molecule per institutional standard)
 NCT06176261,brain_mets,,false,inclusion,Cohorts A and B: Presence of newly diagnosed brain metastases or brain metastases progressing after prior local and/or systemic therapy.
 NCT06176261,cardiac,LVEF >= 50%,false,inclusion,Left ventricular ejection fraction (LVEF) ≥ 50% by echocardiogram (ECHO) or multigated acquisition (MUGA) scan.
 NCT06176261,diabetes,,false,exclusion,"Note that if a patient has controlled diabetes mellitus, but is unable to monitor blood glucose at home, they will be excluded from the trial."
@@ -2042,6 +2064,14 @@ NCT06284486,prior_malignancy,,false,exclusion,Participants with a concurrent act
 NCT06284486,renal,eGFR ≥ 60 mL/min,true,inclusion,Adequate renal function with an estimated glomerular filtration rate ≥ 60 mL/min based on local institutional practice for age-appropriate determination.
 NCT06292780,cardiac,within 6 months,true,exclusion,Myocardial infarction within the past 6 months prior to the first screening visit
 NCT06292780,performance_status,ECOG ≤2,false,inclusion,Eastern Cooperative Oncology Group (ECOG) performance score ≤2 at screening
+NCT06293898,brain_mets,,false,exclusion,Participants with primary tumors in the central nervous system (CNS) and active or untreated CNS metastases and/or carcinomatous meningitis should be excluded.
+NCT06293898,cardiac,LVEF ≥50%,true,inclusion,"No serious cardiac dysfunction, left ventricular ejection fraction ≥50%"
+NCT06293898,hepatic,TBIL ≤1.5×ULN,true,inclusion,Total bilirubin (TBIL) ≤1.5×upper limit of normal (ULN) (≤3×ULN for participants with Gilbert's syndrome or liver metastasis at baseline)
+NCT06293898,hiv,,false,exclusion,Participants with known human immunodeficiency virus (HIV) infection (HIV antibody positive).
+NCT06293898,performance_status,ECOG PS 0 to 1,true,inclusion,Eastern Cooperative Oncology Group performance status (ECOG PS) of 0 to 1
+NCT06293898,pregnancy,,true,exclusion,"Participants who are pregnant, breastfeeding, or planning to become pregnant during the study"
+NCT06293898,prior_malignancy,disease-free interval at least 3 years,true,exclusion,"Participants with other prior malignancies except for: basal cell carcinoma of the skin, squamous cell carcinoma of the skin and/or carcinoma in situ after adequate resection, or other malignancy treated with curative intent with a disease-free interval of at least 3 years prior to screening"
+NCT06293898,renal,CrCl ≥50 mL/min or eGFR ≥50 mL/min/1.73 m^2,true,inclusion,In dose escalation and dose finding: Creatinine (Cr) clearance ≥50 mL/minute (Cockcroft-Gault equation) or estimated glomerular filtration rate (eGFR) ≥50 mL/min/1.73 m\^2 (Chronic Kidney Disease Epidemiology Collaboration \[CKD-EPI\] equation)
 NCT06297226,brain_mets,,true,exclusion,Active or history of central nervous system involvement with MM.
 NCT06297226,performance_status,ECOG 0 or 1,true,inclusion,Eastern Cooperative Oncology Group (ECOG) performance status of 0 or 1.
 NCT06297941,brain_mets,,true,exclusion,Active central nervous system (CNS) leukemia or a confirmed diagnosis of CNS leukemia.
@@ -2114,6 +2144,14 @@ NCT06359041,cardiac,,false,exclusion,Significant lung or cardiac impairment
 NCT06359041,hepatic,,false,exclusion,"Current symptoms of severe, progressive, or uncontrolled renal, hepatic, hematological, gastrointestinal, pulmonary, psychiatric, cardiac, neurological, or cerebral disease, including severe and uncontrolled infections, such as sepsis and opportunistic infections."
 NCT06359041,renal,,false,exclusion,"Current symptoms of severe, progressive, or uncontrolled renal, hepatic, hematological, gastrointestinal, pulmonary, psychiatric, cardiac, neurological, or cerebral disease, including severe and uncontrolled infections, such as sepsis and opportunistic infections."
 NCT06365060,pregnancy,,true,exclusion,"Pregnant women, pregnant minors, minors (i.e., individuals who are not yet adults), wards of the state, non-viable neonates, neonates of uncertain viability, and prisoners are not eligible"
+NCT06366347,brain_mets,,true,exclusion,"Active brain metastases (e.g., stable for \< 8 weeks, no adequate previous treatment with radiotherapy and/or surgery, symptomatic, requiring treatment with anti-convulsant therapy. Corticoid therapy is allowed if administered as stable dose for at least 1 month before starting study treatment)."
+NCT06366347,cardiac,,true,exclusion,"Participants with personal history of any of the following conditions: syncope of cardiovascular etiology, ventricular arrhythmia of pathological origin (including, but not limited to, ventricular tachycardia and ventricular fibrillation), or sudden cardiac arrest."
+NCT06366347,hepatic,Total bilirubin ≤1.5 × ULN,true,inclusion,Total bilirubin ≤1.5 × ULN Patients with Gilbert's syndrome with a total bilirubin ≤2.0 times ULN and direct bilirubin within normal limits are permitted.
+NCT06366347,hiv,,true,exclusion,such as known human immunodeficiency virus positivity
+NCT06366347,performance_status,ECOG 0-2,true,inclusion,Eastern Cooperative Oncology Group (ECOG) performance status of 0-2 (see Appendix A)
+NCT06366347,pregnancy,,true,exclusion,Females who are pregnant or lactating.
+NCT06366347,prior_malignancy,disease-free ≤ 3 years,true,exclusion,"Other malignant disease with disease-free ≤ 3 years except: curatively treated carcinoma in situ of the cervix, basal cell carcinoma of the skin, or ductal carcinoma in situ (DCIS) of the breast or any other cancer deemed by the investigator to be at low risk for recurrence of that malignancy."
+NCT06366347,renal,Creatinine ≤ 1.5 × institutional ULN,true,inclusion,"Creatinine ≤ 1.5 × institutional ULN, OR"
 NCT06368817,age,age < 30 years,true,inclusion,Patients must be ≥ 3 years and \< 30 years at the time of study enrollment
 NCT06368817,hepatic,bilirubin ≤ 1.5 x ULN,true,inclusion,Total bilirubin ≤ 1.5 x upper limit of normal (ULN) for age
 NCT06368817,performance_status,"ECOG 0, 1 or 2",true,inclusion,"Patients must have a performance status corresponding to Eastern Cooperative Oncology Group (ECOG) scores of 0, 1 or 2."
@@ -2159,7 +2197,6 @@ NCT06398639,age,age 40-69,true,inclusion,Participants must be between 40-69 year
 NCT06398639,cardiac,,false,exclusion,"symptomatic congestive heart failure, unstable angina pectoris, cardiac arrhythmia"
 NCT06398639,prior_malignancy,,true,inclusion,No history of prostate cancer.
 NCT06401330,age,age < 30 years,true,inclusion,Patients must be \< 30 years old at enrollment.
-NCT06401330,brain_mets,,true,exclusion,"Patients with lung metastases as the only metastatic site who already had complete resection of all radiologically evident lung nodules, and have at least one nodule confirmed pathologically as tumor."
 NCT06401330,cardiac,shortening fraction ≥ 27% or EF ≥ 50%,false,inclusion,"Shortening fraction of ≥ 27% by echocardiogram, or ejection fraction of ≥ 50% (within 7 days prior to enrollment)"
 NCT06401330,hepatic,total bilirubin ≤ 1.5 X ULN,false,inclusion,Serum total bilirubin ≤ 1.5 X upper limit of normal (ULN) OR direct bilirubin ≤ 3X ULN for subjects with total bilirubin levels \> 1.5 ULN (within 7 days prior to enrollment).
 NCT06401330,performance_status,Karnofsky ≥ 50,true,inclusion,Karnofsky performance status must be ≥ 50 for patients \> 16 years of age and the Lansky performance status must be ≥ 50 for patients ≤ 16 years of age.
@@ -2817,6 +2854,13 @@ NCT06843447,brain_mets,,false,exclusion,Has known active CNS metastases and/or c
 NCT06843447,hiv,,false,exclusion,HIV-infected participants with a history of Kaposi's sarcoma and/or Multicentric Castleman's Disease
 NCT06843447,performance_status,ECOG 0 to 1,true,inclusion,Has an Eastern Cooperative Oncology Group performance status of 0 to 1
 NCT06843447,prior_malignancy,within 3 years,false,exclusion,Has known additional malignancy that is progressing or has required active treatment within the past 3 years
+NCT06844383,brain_mets,,false,exclusion,Untreated known or suspected brain metastases or spinal cord compression or clinically significant malignant epidural disease.
+NCT06844383,cardiac,,false,exclusion,"cardiac disease that would preclude participation, as determined by the investigator"
+NCT06844383,diabetes,,false,exclusion,uncontrolled diabetes mellitus
+NCT06844383,hepatic,Bilirubin ≤ 1.3 x ULN,false,inclusion,Bilirubin ≤ 1.3 x ULN (unless documented Gilbert's disease)
+NCT06844383,performance_status,ECOG ≤2,false,inclusion,Eastern Cooperative Oncology Group (ECOG) status of ≤2 (Appendix A: Performance Status Criteria).
+NCT06844383,prior_malignancy,within 2 years,false,exclusion,"Any other active malignancy at time of first dose of study treatment or diagnosis of another malignancy within 2 years prior to first dose of study treatment that requires active treatment, except for locally curable cancers that have been apparently cured, such as basal or squamous cell skin cancer or superficial bladder cancer."
+NCT06844383,renal,Creatinine ≤ 1.5 x ULN,false,inclusion,Creatinine ≤ 1.5 x the institutional upper limit of normal (ULN)
 NCT06849713,brain_mets,,false,exclusion,Known central nervous system involvement with CLL or SLL.
 NCT06849713,cardiac,NYHA III/IV,false,exclusion,"Congestive heart failure, New York Heart Association III/IV."
 NCT06849713,hiv,,false,exclusion,History of HIV infection or active hepatitis B (chronic or acute) or hepatitis C infection.
@@ -2942,7 +2986,6 @@ NCT06922591,performance_status,ECOG PS 0 or 1,true,inclusion,Has an ECOG PS of 0
 NCT06922591,pregnancy,,true,inclusion,Negative pregnancy test at screening
 NCT06923397,language,,true,inclusion,Speak English.
 NCT06923397,prior_malignancy,,true,exclusion,Patients receiving treatment for other active malignancies (except basal cell carcinoma).
-NCT06923527,brain_mets,,true,exclusion,Known current metastatic disease.
 NCT06923527,hepatic,ALT/AST < 3 x ULN; bilirubin < 1.5 x ULN,true,inclusion,ALT and AST <3 x ULN and total serum bilirubin <1.5 x ULN.
 NCT06923527,performance_status,ECOG 0 or 1,true,inclusion,ECOG performance status of 0 or 1.
 NCT06923527,pregnancy,,true,exclusion,Participants who are pregnant.
@@ -3000,18 +3043,25 @@ NCT06952803,cardiac,,false,exclusion,"Cardiac criteria, including history of arr
 NCT06952803,hiv,,false,exclusion,Evidence of active and uncontrolled human immunodeficiency virus (HIV) infection.
 NCT06952803,performance_status,ECOG 0 or 1,false,inclusion,Eastern Cooperative Oncology Group (ECOG) performance status of 0 or 1 with no deterioration over the 2 weeks prior to randomization.
 NCT06952803,prior_malignancy,,false,exclusion,"History of another primary malignancy, with exceptions."
-NCT06955169,brain_mets,,true,exclusion,Patients with known intraspinal meningiomas or meningioma metastases outside the skull/spinal column.
 NCT06955169,cardiac,NYHA class ≥ II,false,exclusion,congestive heart failure (≥ NYHA class II)
 NCT06955169,hepatic,AST/ALT ≤ 3 x ULN,true,inclusion,AST (SGOT) and ALT (SGPT) ≤ 3 x the laboratory upper limit of normal (ULN)
 NCT06955169,pregnancy,,false,exclusion,Pregnant and/or breastfeeding patients who are unwilling to discontinue breast feeding.
 NCT06955169,prior_malignancy,within 3 years,true,exclusion,An active malignancy ≤ 3 years.
 NCT06955169,renal,CrCl ≥40 mL/min,true,inclusion,Creatinine clearance (calculated by the Cockroft-Gault method) ≥40mL/min
 NCT06957691,hepatic,,true,exclusion,Liver cirrhosis
+NCT06957691,renal,GFR < 30 mL/min,true,exclusion,Glomerular filtration rate \< 30 mL/min
 NCT06959706,brain_mets,,false,exclusion,Known symptomatic brain metastases.
 NCT06959706,cardiac,within 6 months,false,exclusion,Significant cardiovascular disease within 6 months prior to starting study drug.
 NCT06959706,performance_status,ECOG 0-1,true,inclusion,Eastern Cooperative Oncology Group Performance Status 0-1.
 NCT06959706,pregnancy,,true,exclusion,Pregnant or a breastfeeding postpartum female.
 NCT06959706,prior_malignancy,within 2 years,false,exclusion,Active second malignancy or history of another malignancy within the last 2 years
+NCT06964009,brain_mets,,false,exclusion,"Known active central nervous system involvement with metastatic cancer, including leptomeningeal disease."
+NCT06964009,cardiac,QTc > 470 msec,true,exclusion,Baseline prolongation of QTc interval (\> 470 msec) using Bazett's formula or history of Long QT Syndrome.
+NCT06964009,hiv,CD4+ count ≥ 300/μL; undetectable viral load; receiving HAART; no AIDS-defining OI in past 12 months,false,inclusion,Participants with known HIV infection should meet the following criteria:
+NCT06964009,performance_status,ECOG 0-2,false,inclusion,ECOG performance status 0-2.
+NCT06964009,pregnancy,,true,exclusion,Pregnant females are excluded from this study because the effects of DT2216 on the developing fetus are unknown.
+NCT06964009,prior_malignancy,,false,inclusion,Participants with a prior or concurrent malignancy whose natural history or treatment does not have the potential to interfere with the safety or efficacy assessment of the investigational regimen are eligible for this trial.
+NCT06964009,renal,eGFR ≥50 mL/min,false,inclusion,eGFR (glomerular filtration rate) ≥50 mL/min\*\*\*\*
 NCT06966024,cardiac,,false,exclusion,Impaired cardiac function
 NCT06966024,pregnancy,,false,inclusion,"If a female is of childbearing potential, must have a negative pregnancy test prior to enrollment and all participants agree to follow the contraception requirements"
 NCT06966700,performance_status,ECOG 0 or 1,true,inclusion,Has Eastern Cooperative Oncology Group (ECOG) performance status of 0 or 1 performed within 28 days before Cycle1 Day 1 (C1D1).
@@ -3051,6 +3101,7 @@ NCT06994676,hiv,,true,exclusion,Known HIV infection.
 NCT06994676,performance_status,ECOG PS 0-1,true,inclusion,ECOG PS score 0-1 (if aged ≥18 years)
 NCT06994676,pregnancy,,true,exclusion,Pregnant or nursing women
 NCT06994676,prior_malignancy,within 2 years,false,exclusion,"Concurrent malignancy in the previous 2 years with the exception of basal cell carcinoma of the skin, squamous cell carcinoma of the skin, or carcinoma in situ (eg, breast carcinoma, cervical cancer in situ, melanoma in situ) treated with potentially curative therapy."
+NCT06994676,renal,eGFR ≥ 45 mL/min/1.73 m2,true,inclusion,Estimated glomerular filtration rate ≥ 45 mL/min/1.73 m2 based on local institutional practice for age-appropriate determination
 NCT06995677,cardiac,QTcF > 470 ms,true,exclusion,History of prolonged QT syndrome or baseline heart rate-corrected QT interval using Fridericia formula (QTcF) interval \>470 ms
 NCT06995677,diabetes,,false,exclusion,"i.e., uncontrolled diabetes"
 NCT06995677,hepatic,total bilirubin <= ULN,true,inclusion,Total bilirubin \< or = ULN
@@ -3136,7 +3187,7 @@ NCT07052695,hiv,,true,exclusion,Patients who have tested positive for HIV are ex
 NCT07052695,performance_status,ECOG ≤ 2,true,inclusion,ECOG performance status ≤ 2
 NCT07052695,pregnancy,,true,exclusion,"Pregnancy, lactation or plan to breastfeed during the study or within 6 months of the last dose of study treatment."
 NCT07052695,prior_malignancy,life expectancy < 2 years,false,exclusion,For patients with history of other malignancies with life expectancy of \< 2 years.
-NCT07059845,performance_status,ECOG 0 or 1,true,inclusion,Participants must have an Eastern Cooperative Oncology Group performance status of 0 or 1.
+NCT07059845,performance_status,ECOG 0 or 1,false,inclusion,Participants must have an Eastern Cooperative Oncology Group performance status of 0 or 1.
 NCT07059884,age,age <= 64,true,inclusion,Age 18-64 years
 NCT07059884,language,,true,inclusion,Eligibility is restricted to individuals who can comprehend and read English given that participation in the study will require the ability to read intervention materials and work with a coach through telehealth sessions
 NCT07059884,pregnancy,,true,inclusion,"Patients cannot be pregnant, because this study involves remotely delivered exercise, and cannot be breast-feeding as patients must be receiving cytotoxic chemotherapy, during which breast-feeding is contraindicated"
@@ -3356,6 +3407,7 @@ NCT07204340,brain_mets,,false,exclusion,Patients must not have active brain meta
 NCT07204340,cardiac,,false,exclusion,Patients must not have clinically significant cardiovascular disease.
 NCT07204340,performance_status,ECOG 0 or 1,false,inclusion,Eastern Cooperative Oncology Group (ECOG) performance status of 0 or 1.
 NCT07204340,pregnancy,,true,exclusion,Pregnant or lactating.
+NCT07206056,brain_mets,,false,exclusion,"Participants with a history of CNS metastases must have received therapy (surgery, radiotherapy, gamma knife) and be neurologically stable, asymptomatic, and not receiving corticosteroids for the purpose of maintaining neurologic integrity."
 NCT07209436,bmi,BMI > 40 kg/m2,true,exclusion,Morbid obesity as defined as a BMI greater than 40 kg/m2
 NCT07209436,renal,,true,exclusion,Renal insufficiency
 NCT07213791,brain_mets,,true,exclusion,Have known active central nervous system (CNS) metastases or carcinomatous meningitis.
@@ -3485,6 +3537,15 @@ NCT07284186,brain_mets,,false,exclusion,Symptomatic CNS disease
 NCT07284186,cardiac,,true,exclusion,Prolongation of QT interval
 NCT07284186,performance_status,ECOG PS 0 or 1,true,inclusion,ECOG PS of 0 or 1
 NCT07284186,prior_malignancy,,true,exclusion,History of other malignancies
+NCT07288073,brain_mets,,false,exclusion,Have symptomatic untreated brain metastases.
+NCT07288073,cardiac,LVEF >= 45%; NYHA class 1 or 2,true,inclusion,Patients must have a left ventricular ejection fraction (LVEF) ≥ 45% and be New York Heart Association (NYHA) Class 1 or 2.
+NCT07288073,hepatic,ALT/AST <= 3x ULN (<= 5x ULN with liver metastases),true,inclusion,Serum alanine aminotransferase (ALT) and aspartate aminotransferase (AST) ≤ 3 times the upper limit of normal (ULN); and for patients with liver metastases ≤ to 5 times ULN.
+NCT07288073,hiv,,true,exclusion,"Have any form of primary immunodeficiency (e.g., severe combined immunodeficiency disease \[SCID\] or acquired immune deficiency syndrome \[AIDS\])."
+NCT07288073,performance_status,ECOG 0 to 2,false,inclusion,Patients must have an Eastern Cooperative Oncology Group (ECOG) performance status of 0 to 2 in the investigator's opinion (Appendix B).
+NCT07288073,pregnancy,,true,exclusion,Are pregnant or breastfeeding.
+NCT07288073,prior_malignancy,within previous 1 year,false,exclusion,"Have had another primary malignancy within the previous 1 year (except for malignancies that do not require treatment or have been curatively treated, and do not pose a significant risk of recurrence including, but not limited to in situ carcinoma of the cervix, early stage skin cancer, including non-melanoma skin cancer; ductal carcinoma in situ (DCIS) or lobular carcinoma in the situ (LCIS) of the breast; intraductal carcinoma of the breast that has been treated with curative intent including patients who are on adjuvant hormonal treatment, prostate cancer with Gleason score ≤ to 6; or superficial bladder cancer)."
+NCT07288073,renal,eCrCl >= 40 mL/min,true,inclusion,Estimated creatinine clearance (eCrCl) ≥ 40 mL/min using the Cockcroft-Gault formula at Screening.
+NCT07288073,smoking,,false,inclusion,History of cigarette smoking of ≥ 20 pack-years
 NCT07288112,brain_mets,,false,inclusion,Brain metastases allowed if stable after prior treatment
 NCT07288112,cardiac,,false,exclusion,uncontrolled or severe cardiac dis-ease
 NCT07288112,hepatic,Total bilirubin ≤ 1.5 times ULN,true,inclusion,Total bilirubin ≤ 1.5 times upper limit of normal (ULN) except in patients with Gilbert's disease for which total bilirubin must be ≤ 3 times ULN
@@ -3597,6 +3658,7 @@ NCT07390539,performance_status,Karnofsky >= 60%,true,inclusion,Performance statu
 NCT07390539,pregnancy,,false,inclusion,Females of childbearing potential must have a negative serum or urine pregnancy test
 NCT07390539,renal,CrCl >= 70 mL/min,true,inclusion,Adequate renal function defined as creatinine within normal limits for age OR creatinine clearance (as estimated by Cockcroft Gault Equation for participants ≥ 18yo and Bedside Schwartz for participants \<18yo) ≥70mL/min
 NCT07393282,performance_status,ECOG <= 1,true,inclusion,Eastern Cooperative Oncology Group performance status score ≤1
+NCT07393867,performance_status,ECOG 0 to 1,false,inclusion,Eastern Oncology Group Status 0 to 1.
 NCT07397611,cardiac,LVEF > institutional LLN,true,inclusion,Screening echocardiogram or MUGA scan must demonstrate a left ventricular ejection fraction (LVEF) greater than the institutional lower limit of normal (LLN).
 NCT07397611,hepatic,AST ≤ 2.5 × ULN,true,inclusion,Aspartate transaminase (AST) ≤ 2.5 × upper limit of normal (ULN)
 NCT07397611,hiv,,false,exclusion,human immunodeficiency virus (HIV) infection with detectable viral load or acquired immunodeficiency syndrome (AIDS)-related illness.
@@ -3752,6 +3814,13 @@ NCT07662239,language,,true,inclusion,Able to read and understand English (to com
 NCT07662239,pregnancy,,true,exclusion,Pregnant
 NCT07671209,language,,false,inclusion,"Ability to complete surveys in English, Spanish, or with assistance of an interpreter."
 NCT07675967,prior_malignancy,,true,exclusion,"Individuals with any prior history of blood cancer (leukemia, myelodysplastic syndrome, lymphoma, multiple myeloma, including smoldering multiple myeloma)."
+NCT07711483,brain_mets,,true,inclusion,Patients with primary CNS lymphoma are not eligible.
+NCT07711483,hepatic,AST/ALT > 3x ULN,false,inclusion,Serum Aspartate Aminotransferase (AST) and Alanine Aminotransferase (ALT) ≤ 3 times the ULN
+NCT07711483,hiv,,false,exclusion,HIV infection with positive viral titer by PCR. HIV with negative viral titer by PCR is not an exclusion as long as CD4 count is ≥200 and patient is taking combination antiretroviral therapy.
+NCT07711483,performance_status,ECOG > 2,false,inclusion,ECOG performance status 0-2
+NCT07711483,pregnancy,,false,exclusion,"Breastfeeding or pregnant: Pregnant women are excluded from this study because glofitamab, gemcitabine, oxaliplatin, fludarabine, and cyclophosphamide are agents with the potential for teratogenic or abortifacient effects."
+NCT07711483,prior_malignancy,,false,exclusion,"History of prior malignancy that could affect compliance with the protocol or interpretation of results, except for the following: Non-melanoma skin cancers, in situ malignancies, prostate cancer followed with watchful waiting, indolent lymphoma, any previously treated malignancy felt at low risk for recurrence."
+NCT07711483,renal,CrCl < 30 mL/min,false,inclusion,"Estimated creatinine clearance of ≥30 mL/min, calculated using the Cockcroft and Gault equation (if male: \[140 - Age\] x Mass \[kg\] / \[72 x creatinine g/dL\]; multiply by 0.85 if female)"
 NCT07718854,brain_mets,,true,inclusion,Participants with known brain metastases are excluded from this clinical trial
 NCT07718854,cardiac,NYHA III/IV; QTcF > 480 ms,true,exclusion,"New York Heart Association Class III or IV congestive heart failure, unstable angina, myocardial infarction, uncontrolled symptomatic arrhythmia, prolongation of QTcF interval to >480 ms"
 NCT07718854,hiv,,false,inclusion,"HIV-infected participants must have well-controlled HIV on ART, defined as:"
@@ -3761,7 +3830,7 @@ NCT07718854,prior_malignancy,within 3 years,false,exclusion,Has a known addition
 NCT07729150,performance_status,ECOG ≤ 2,true,inclusion,ECOG performance status ≤ 2
 NCT07729150,pregnancy,,true,exclusion,Pregnant and nursing women are excluded as prostate cancer is a disease of men.
 NCT07735624,cardiac,NYHA class ≥ III,true,exclusion,congestive heart failure (New York Heart Association class ≥ III)
-NCT07735624,hepatic,total bilirubin ≤ 1.5 × ULN,true,inclusion,Total bilirubin ≤ 1.5 × ULN (except patients with Gilbert syndrome who must have a total bilirubin level of ≤ 3.0 × ULN).
+NCT07735624,hepatic,AST/ALT ≤ 1.5 × ULN,true,inclusion,Aspartate aminotransferase/alanine aminotransferase ≤ 1.5 × upper limit of normal (ULN).
 NCT07735624,hiv,,false,exclusion,Uncontrolled infection with HIV and/or active infection with opportunistic pathogens.
 NCT07735624,performance_status,ECOG 0 or 1,true,inclusion,Eastern Cooperative Oncology Group (ECOG) performance status of 0 or 1.
 NCT07735624,prior_malignancy,within 2 years,false,exclusion,Concurrent malignancy (present during screening) requiring treatment or history of prior malignancy active within 2 years prior to the first dose of study treatment

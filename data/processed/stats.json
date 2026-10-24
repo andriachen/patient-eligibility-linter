@@ -1,14 +1,14 @@
 {
   "totalTrials": 1011,
   "defaultCategory": "hiv",
-  "headline": "33.4% of recruiting MA cancer trials restrict people with HIV, despite FDA guidance to include them",
-  "headlineNote": "16.3% exclude outright; the rest set conditions (e.g. CD4 count, viral load). Sources: ClinicalTrials.gov; FDA 2020 guidance on HIV, HBV and HCV in cancer trials.",
+  "headline": "34.3% of recruiting MA cancer trials restrict people with HIV, despite FDA guidance to include them",
+  "headlineNote": "16.8% exclude outright; the rest set conditions (e.g. CD4 count, viral load). Sources: ClinicalTrials.gov; FDA 2020 guidance on HIV, HBV and HCV in cancer trials.",
   "categories": [
     {
       "category": "diabetes",
       "label": "Diabetes",
-      "pctExcluded": 6.2,
-      "trialCount": 63,
+      "pctExcluded": 6.4,
+      "trialCount": 65,
       "pctAbsolute": 1.8
     },
     {
@@ -21,8 +21,8 @@
     {
       "category": "smoking",
       "label": "Smoking",
-      "pctExcluded": 1.6,
-      "trialCount": 16,
+      "pctExcluded": 1.7,
+      "trialCount": 17,
       "pctAbsolute": 0.5
     },
     {
@@ -35,51 +35,51 @@
     {
       "category": "renal",
       "label": "Renal",
-      "pctExcluded": 31.6,
-      "trialCount": 319,
-      "pctAbsolute": 19.1
+      "pctExcluded": 32.7,
+      "trialCount": 331,
+      "pctAbsolute": 19.9
     },
     {
       "category": "hepatic",
       "label": "Hepatic",
-      "pctExcluded": 32.7,
-      "trialCount": 331,
-      "pctAbsolute": 19.1
+      "pctExcluded": 33.5,
+      "trialCount": 339,
+      "pctAbsolute": 19.7
     },
     {
       "category": "cardiac",
       "label": "Cardiac",
-      "pctExcluded": 42.0,
-      "trialCount": 425,
-      "pctAbsolute": 21.6
+      "pctExcluded": 43.0,
+      "trialCount": 435,
+      "pctAbsolute": 22.3
     },
     {
       "category": "hiv",
       "label": "HIV",
-      "pctExcluded": 33.4,
-      "trialCount": 338,
-      "pctAbsolute": 16.3
+      "pctExcluded": 34.3,
+      "trialCount": 347,
+      "pctAbsolute": 16.8
     },
     {
       "category": "brain_mets",
       "label": "Brain metastases",
-      "pctExcluded": 42.6,
-      "trialCount": 431,
-      "pctAbsolute": 19.8
+      "pctExcluded": 42.5,
+      "trialCount": 430,
+      "pctAbsolute": 19.0
     },
     {
       "category": "prior_malignancy",
       "label": "Prior malignancy",
-      "pctExcluded": 47.4,
-      "trialCount": 479,
-      "pctAbsolute": 16.8
+      "pctExcluded": 48.2,
+      "trialCount": 487,
+      "pctAbsolute": 17.1
     },
     {
       "category": "performance_status",
       "label": "Performance status",
-      "pctExcluded": 57.9,
-      "trialCount": 585,
-      "pctAbsolute": 46.5
+      "pctExcluded": 58.9,
+      "trialCount": 595,
+      "pctAbsolute": 46.9
     },
     {
       "category": "language",
@@ -91,9 +91,9 @@
     {
       "category": "pregnancy",
       "label": "Pregnancy",
-      "pctExcluded": 47.3,
-      "trialCount": 478,
-      "pctAbsolute": 39.2
+      "pctExcluded": 48.3,
+      "trialCount": 488,
+      "pctAbsolute": 40.1
     }
   ]
 }

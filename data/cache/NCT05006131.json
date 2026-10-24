@@ -2,5 +2,13 @@
   "nct_id": "NCT05006131",
   "model": "claude-haiku-5-5",
   "prompt_version": "v2-2026-10-24",
-  "exclusions": []
+  "exclusions": [
+    {
+      "category": "diabetes",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "New-onset diabetes, age \\> 50 years with weight loss.",
+      "threshold": null
+    }
+  ]
 }

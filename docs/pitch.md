@@ -21,8 +21,8 @@ If the data changes again: `python eval/build_stats.py && python eval/run_eval.p
 > We read the eligibility criteria of every recruiting cancer trial with a Massachusetts site:
 > **1,011 trials**.
 >
-> - **1 in 3** restrict people with HIV, and in phase 1–3 drug trials it's **44%**. That's despite
->   FDA guidance since 2020 saying people with well-controlled HIV should generally be eligible.
+> - **34.3%** restrict people with HIV, and **16.8%** exclude them outright, even though
+>   FDA guidance since 2020 says people with well-controlled HIV should generally be eligible.
 > - **About 3 in 10** supportive-care, behavioral, and quality-of-life studies require a specific
 >   language, usually English. In Suffolk County's environmental-justice
 >   neighborhoods, about **1 in 7 households** has limited English.
@@ -80,7 +80,7 @@ Exclusion Criteria:
 
 > An LLM that flags medical criteria has to be checked. We hand-labeled 42 trials. We tuned our
 > prompt on 32 of them, so we held 10 back that the AI never saw. On those 10, it matched our
-> labels with **98% precision and 92% recall**. Every flag quotes its source
+> labels with **98% precision and 92% recall** (F1 0.95, 95% CI 0.89–0.99). Every flag quotes its source
 > sentence, and we show the categories where we don't have enough examples to score.
 
 Show the "By subset" table in `eval/results.md`, or a one-slide version of it.

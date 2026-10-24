@@ -17,6 +17,9 @@ DEFAULT_MODEL = "claude-haiku-5-5"
 MAX_TOKENS = 4096
 MAX_RETRIES = 5
 BACKOFF_BASE = 2.0
+# A trial with at least this much criteria text that returns ZERO records is
+# treated as suspicious (model read failure) and retried once.
+LONG_CRITERIA_CHARS = 3000
 # HTTP status codes worth retrying (transient). Everything else (400/401/403/404)
 # is a permanent error we must NOT retry — doing so just burns time and hides the
 # real cause (bad key, bad model id, malformed request).
@@ -83,7 +86,19 @@ def extract_raw(text: str) -> list[dict]:
                 # are not permitted"). Determinism here comes from forced tool_choice
                 # + a tightly-constrained schema, not a sampling temperature.
             )
-            return _parse(resp)
+            records, stop_reason, had_tool = _parse(resp)
+            # A long trial that returns NOTHING is suspicious — the model almost
+            # always finds >=1 restriction in dense oncology criteria. Retry once
+            # (one more attempt) and log why it came back thin.
+            if not records and len(text) >= LONG_CRITERIA_CHARS and attempt == 0:
+                import sys
+                print(
+                    f"  WARNING: empty result on {len(text)}-char criteria "
+                    f"(stop_reason={stop_reason!r}, tool_block={had_tool}); retrying once.",
+                    file=sys.stderr,
+                )
+                continue  # re-call
+            return records
         except anthropic.APIConnectionError as err:
             last_err = err  # network blip — retry
         except anthropic.APIStatusError as err:
@@ -96,8 +111,11 @@ def extract_raw(text: str) -> list[dict]:
     raise RuntimeError(f"extract_raw failed after {MAX_RETRIES} attempts: {last_err}")
 
 
-def _parse(resp) -> list[dict]:
-    """Pull the exclusions list out of the tool-use block.
+def _parse(resp) -> tuple[list[dict], str | None, bool]:
+    """Pull exclusions out of the tool-use block.
+
+    Returns (records, stop_reason, had_tool_block) so the caller can tell a
+    genuinely-empty extraction from a read failure.
 
     Handles a quirk where the model occasionally returns `exclusions` as a JSON
     STRING (the whole array serialized) instead of a native list. Warns if the
@@ -106,7 +124,8 @@ def _parse(resp) -> list[dict]:
     import json
     import sys
 
-    if getattr(resp, "stop_reason", None) == "max_tokens":
+    stop_reason = getattr(resp, "stop_reason", None)
+    if stop_reason == "max_tokens":
         print(
             "  WARNING: response hit max_tokens; tool output may be truncated.",
             file=sys.stderr,
@@ -121,9 +140,9 @@ def _parse(resp) -> list[dict]:
             try:
                 items = json.loads(items)
             except (ValueError, TypeError):
-                return []
+                return [], stop_reason, True
         if not isinstance(items, list):
-            return []
+            return [], stop_reason, True
         # Keep only well-formed dict records with a VALID category. The model
         # occasionally invents one (e.g. "bilirubin_placeholder") — drop it here.
         clean = []
@@ -137,8 +156,9 @@ def _parse(resp) -> list[dict]:
                 )
                 continue
             clean.append(dict(it))
-        return clean
-    return []
+        return clean, stop_reason, True
+    # No tool_use block at all.
+    return [], stop_reason, False
 
 
 def model_name() -> str:

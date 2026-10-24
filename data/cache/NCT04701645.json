@@ -4,10 +4,17 @@
   "prompt_version": "v2-2026-10-24",
   "exclusions": [
     {
-      "category": "age",
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "symptomatic congestive heart failure, unstable angina pectoris, cardiac arrhythmia",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
       "absolute": true,
-      "section": "inclusion",
-      "source_text": "Participants must be 18 years of age or older.",
+      "section": "exclusion",
+      "source_text": "Pregnant women are excluded from this study because of the possible increased dose of radiation from imaging associated with the microdevice placement and the potential risk to the pregnancy of the biopsy/device placement in an abdominal lesion.",
       "threshold": null
     }
   ]

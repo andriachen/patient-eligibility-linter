@@ -2,5 +2,90 @@
   "nct_id": "NCT06293898",
   "model": "claude-haiku-5-5",
   "prompt_version": "v2-2026-10-24",
-  "exclusions": []
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group performance status (ECOG PS) of 0 to 1",
+      "threshold": "ECOG PS 0 to 1"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "In dose escalation and dose finding: Creatinine (Cr) clearance \u226550 mL/minute (Cockcroft-Gault equation) or estimated glomerular filtration rate (eGFR) \u226550 mL/min/1.73 m\\^2 (Chronic Kidney Disease Epidemiology Collaboration \\[CKD-EPI\\] equation)",
+      "threshold": "CrCl \u226550 mL/min or eGFR \u226550 mL/min/1.73 m^2"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "No serious cardiac dysfunction, left ventricular ejection fraction \u226550%",
+      "threshold": "LVEF \u226550%"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Total bilirubin (TBIL) \u22641.5\u00d7upper limit of normal (ULN) (\u22643\u00d7ULN for participants with Gilbert's syndrome or liver metastasis at baseline)",
+      "threshold": "TBIL \u22641.5\u00d7ULN"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participants with history of severe heart disease, such as symptomatic congestive heart failure (CHF) \u2265 Grade 2 (CTCAE 5.0), New York Heart Association (NYHA)",
+      "threshold": "CHF \u2265 Grade 2; NYHA \u2265 Grade 2"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "or history of myocardial infarction or unstable angina pectoris within 6 months before enrollment.",
+      "threshold": "within 6 months"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Participants with prolonged QT interval corrected Fridericia formula (\\[QTcF\\]\\>470 msec)",
+      "threshold": "QTcF > 470 msec"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Participants with other prior malignancies except for: basal cell carcinoma of the skin, squamous cell carcinoma of the skin and/or carcinoma in situ after adequate resection, or other malignancy treated with curative intent with a disease-free interval of at least 3 years prior to screening",
+      "threshold": "disease-free interval at least 3 years"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participants with primary tumors in the central nervous system (CNS) and active or untreated CNS metastases and/or carcinomatous meningitis should be excluded.",
+      "threshold": null
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participants with known human immunodeficiency virus (HIV) infection (HIV antibody positive).",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Participants who are pregnant, breastfeeding, or planning to become pregnant during the study",
+      "threshold": null
+    },
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age: \u226518 years",
+      "threshold": null
+    }
+  ]
 }
