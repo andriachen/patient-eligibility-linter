@@ -43,3 +43,8 @@ Add a line whenever you hit something the table doesn't cover. Mark anything tha
 
 | Time | Trial | Situation | Decision | → P2? |
 | 11:38 | NCT07349537 | "Primary CNS tumors" in exclusions | Tumor-type restriction, not prior_malignancy or brain_mets. Skip. | Yes |
+| 12:05 | NCT07128303 | "Adequate organ function" with no organs named | Skip (too vague); label renal/hepatic only when the organ or lab is named | Yes |
+| 12:14 | NCT04242095 | "endocrine (except diabetes/hyperglycemia)" in qualifying AE list | Not a diabetes exclusion; it defines qualifying side effects. Label none. | Yes |
+| 12:29 | NCT06849713 | "CNS involvement" by leukemia | Count as brain_mets (CNS spread, same idea) | Yes |
+| 12:29 | NCT06691217 | Cardiac disease is the study's own population | Skip cardiac when the condition IS the inclusion target | Yes |
+| 12:29 | NCT06791057 | "English or Spanish" | Still language (restricts to named languages) | Yes |
