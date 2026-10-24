@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# build-time copy of pipeline outputs (scripts/copy-data.mjs); source of truth is
+# repo-root data/processed/. Regenerated on every build (prebuild).
+/data/processed/

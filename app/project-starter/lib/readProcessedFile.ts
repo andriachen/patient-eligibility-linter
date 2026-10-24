@@ -1,10 +1,15 @@
 import fs from "fs";
 import path from "path";
 
-const PROCESSED_DIR = path.join(process.cwd(), "..", "..", "data", "processed");
+// Prefer the in-app copy (bundled by Vercel via scripts/copy-data.mjs); fall back
+// to the repo-root path for local dev before the copy has run.
+const IN_APP_DIR = path.join(process.cwd(), "data", "processed");
+const REPO_ROOT_DIR = path.join(process.cwd(), "..", "..", "data", "processed");
 
 export function processedFilePath(filename: string): string {
-  return path.join(PROCESSED_DIR, filename);
+  const inApp = path.join(IN_APP_DIR, filename);
+  if (fs.existsSync(inApp)) return inApp;
+  return path.join(REPO_ROOT_DIR, filename);
 }
 
 export function readProcessedText(filename: string): string | null {

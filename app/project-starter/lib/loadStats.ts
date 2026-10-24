@@ -22,20 +22,20 @@ export type LandscapeStats = {
 
 type StatsFile = Omit<LandscapeStats, "source">;
 
-const PROCESSED_STATS_PATH = path.join(
-  process.cwd(),
-  "..",
-  "..",
-  "data",
-  "processed",
-  "stats.json",
-);
+// Prefer the in-app copy (bundled by Vercel via scripts/copy-data.mjs); fall back
+// to the repo-root path for local dev before the copy has run.
+function resolveStatsPath(): string {
+  const inApp = path.join(process.cwd(), "data", "processed", "stats.json");
+  if (fs.existsSync(inApp)) return inApp;
+  return path.join(process.cwd(), "..", "..", "data", "processed", "stats.json");
+}
 
 function readProcessedStats(): StatsFile | null {
-  if (!fs.existsSync(PROCESSED_STATS_PATH)) {
+  const p = resolveStatsPath();
+  if (!fs.existsSync(p)) {
     return null;
   }
-  const raw = fs.readFileSync(PROCESSED_STATS_PATH, "utf-8");
+  const raw = fs.readFileSync(p, "utf-8");
   return JSON.parse(raw) as StatsFile;
 }
 
