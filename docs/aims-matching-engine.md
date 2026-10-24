@@ -56,8 +56,13 @@ Join on `nct_id`:
   `write_exclusions()`, same pattern as stats.json).
 - AC3: 1,011 trial records; counts reconcile with the source CSVs.
 
-## Sub-Aim 3 — The matcher (vector × index → buckets)
+## Sub-Aim 3 — The matcher (vector × index → buckets)  ✅ DONE (logic)
 Owner: P3 — **implemented in TypeScript, inside the Next.js app.**
+Files: `app/project-starter/lib/{patientVector,loadTrialsIndex,matchTrials}.ts`.
+Verified functionally against the real `trials_enriched.json` (all-unknown → all
+worth_reaching_out; persona cases bucket sensibly). NOTE: not yet compiled by the
+app's build in this env (tsc wasn't installed) — P3 should `npm run build` to confirm
+types, and this needs the UI (Sub-Aim 4) to be user-visible.
 
 Decision: the matcher runs NO inference (it filters the precomputed
 `trials_enriched.json`), so it is written in TS and deploys Vercel-native — no Python
@@ -74,8 +79,14 @@ hard/soft/none, plus the numeric age rule against min/max. Bucket by worst hit.
   → every trial lands in bucket 1).
 - AC5: deterministic + fast: same input → same output; full run <1s.
 
-## Sub-Aim 4 — Results view + CTA + geography
+## Sub-Aim 4 — Results view + CTA + geography  ✅ DONE (needs build verify)
 Owner: P3
+Files: `app/project-starter/app/(app)/matches/page.tsx`, `components/MatchPanel.tsx`,
+`lib/matchAction.ts` (server action). Added "Find trials" to NAV_LINKS. Questionnaire
+(one coarse GlassSelect per category + age + county) → server action `runMatch` →
+three bucket tabs with quoted criterion + per-bucket CTA (Contact / Ask / view only).
+NOTE: not build-verified in this env (node_modules not installed); P3 run
+`npm run build`. Component contracts + import paths + data path statically checked OK.
 
 Render the three buckets. Each bucket-1/2 card: trial title/phase/sponsor, the
 tripped category + verbatim `source_text`, the `suggest.py` note on soft hits, and a
