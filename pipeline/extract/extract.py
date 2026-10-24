@@ -179,30 +179,34 @@ def write_exclusions(results: list[dict]) -> None:
 
 
 def _rebuild_derived() -> None:
-    """Rebuild app-facing artifacts derived from exclusions.csv so they can't go stale:
-      - stats.json          (Landscape headline / per-category bars)
-      - trials_enriched.json (the matcher's runtime index, Sub-Aim 2)
+    """Rebuild app-facing artifacts so they can't go stale after an extraction:
+      1. trial tags (tag_trials, cache-first — only NEW trials hit the API) so new
+         trials never fall back to the "unknown" cancer tag unnoticed (#5).
+      2. stats.json          (Landscape headline / per-category bars)
+      3. trials_enriched.json (the matcher index — folds in tags + exclusions)
 
-    Each runs as a subprocess (no pipeline->eval import dependency). Best-effort:
-    a failure is logged, not fatal (exclusions.csv is already written).
+    Order matters: tag BEFORE building the enriched index. Each runs as a subprocess;
+    best-effort — a failure is logged, not fatal (exclusions.csv is already written).
+    Tagging is skipped if no ANTHROPIC_API_KEY (keeps offline rebuilds working).
     """
+    import os
     import subprocess
     import sys
 
-    for script_name, label in (
-        ("build_stats.py", "stats.json"),
-        ("build_trials_enriched.py", "trials_enriched.json"),
-    ):
-        script = ROOT / "eval" / script_name
-        if not script.exists():
-            continue
+    steps: list[tuple[list[str], str]] = []
+    if os.environ.get("ANTHROPIC_API_KEY"):
+        steps.append(([sys.executable, "-m", "pipeline.extract.tag_trials"], "trial tags"))
+    steps += [
+        ([sys.executable, str(ROOT / "eval" / "build_stats.py")], "stats.json"),
+        ([sys.executable, str(ROOT / "eval" / "build_trials_enriched.py")], "trials_enriched.json"),
+    ]
+    for cmd, label in steps:
         try:
-            subprocess.run([sys.executable, str(script)], check=True, cwd=str(ROOT),
-                           capture_output=True, text=True, timeout=120)
-            print(f"{label} rebuilt from exclusions.csv")
+            subprocess.run(cmd, check=True, cwd=str(ROOT), capture_output=True,
+                           text=True, timeout=600)
+            print(f"{label} rebuilt")
         except Exception as err:  # noqa: BLE001 - non-fatal
-            print(f"  WARNING: {label} rebuild failed ({err}); run eval/{script_name} manually",
-                  file=sys.stderr)
+            print(f"  WARNING: {label} rebuild failed ({err})", file=sys.stderr)
 
 
 # --------------------------------------------------------------------------- #

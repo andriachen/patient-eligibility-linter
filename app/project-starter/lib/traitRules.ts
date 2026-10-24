@@ -56,13 +56,11 @@ export function barsTreatedBrainMets(rule: { absolute: boolean; source_text: str
   return rule.absolute && (BARS_TREATED.test(rule.source_text) || !ACTIVE_OR_CARVE_OUT.test(rule.source_text));
 }
 
-const BRAIN_TUMOR =
-  /glioma|glioblastoma|astrocytoma|meningioma|ependymoma|medulloblastoma|primary (?:cns|brain|central nervous)|brain (?:tumou?r|neoplasm|metasta)|cns metasta/i;
-
 /**
- * Is this a trial for brain tumors or brain metastases? There a brain-mets row
- * describes the disease being studied, not a barrier, so neither tool counts it.
+ * Is this a trial for primary brain cancer (cancer-type tag "brain", from
+ * pipeline/extract/tag_trials.py)? There a brain-mets row describes the disease being
+ * studied, not a barrier, so neither tool counts it.
  */
-export function isBrainTumorTrial(trial: { conditions: string[]; title: string }): boolean {
-  return BRAIN_TUMOR.test(`${trial.conditions.join(" ")} ${trial.title}`);
+export function isPrimaryBrainTrial(trial: { cancer_types?: string[] }): boolean {
+  return (trial.cancer_types ?? []).includes("brain");
 }

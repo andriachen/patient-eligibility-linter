@@ -111,6 +111,41 @@ def extract_raw(text: str) -> list[dict]:
     raise RuntimeError(f"extract_raw failed after {MAX_RETRIES} attempts: {last_err}")
 
 
+def call_tool(system: str, tool: dict, user_text: str) -> dict:
+    """Generic forced-tool call: returns the tool's input dict (or {} on no call).
+
+    Reuses the client + retry/backoff + fail-fast-on-4xx logic. Used by the trial
+    tagger (tag_trials.py); the extraction path keeps its own _parse for its
+    substring/dedupe quirks.
+    """
+    import anthropic
+
+    client = _get_client()
+    last_err: Exception | None = None
+    for attempt in range(MAX_RETRIES):
+        try:
+            resp = client.messages.create(
+                model=_model(),
+                max_tokens=MAX_TOKENS,
+                system=system,
+                tools=[tool],
+                tool_choice={"type": "tool", "name": tool["name"]},
+                messages=[{"role": "user", "content": user_text}],
+            )
+            for block in resp.content:
+                if getattr(block, "type", None) == "tool_use":
+                    return dict(block.input or {})
+            return {}
+        except anthropic.APIConnectionError as err:
+            last_err = err
+        except anthropic.APIStatusError as err:
+            if getattr(err, "status_code", None) not in RETRYABLE_STATUS:
+                raise
+            last_err = err
+        time.sleep(BACKOFF_BASE**attempt)
+    raise RuntimeError(f"call_tool failed after {MAX_RETRIES} attempts: {last_err}")
+
+
 def _parse(resp) -> tuple[list[dict], str | None, bool]:
     """Pull exclusions out of the tool-use block.
 

@@ -25,7 +25,7 @@ export type MatchResponse = {
   askAboutThis: MatchCard[];
   likelyNotAFit: MatchCard[];
   // `shown` = how many cards returned per bucket; `counts` = true totals (#2).
-  counts: { worth: number; ask: number; notFit: number; otherCancer: number; total: number };
+  counts: { worth: number; ask: number; notFit: number; total: number };
   shown: { worth: number; ask: number; notFit: number };
   source: "mock" | "processed";
 };

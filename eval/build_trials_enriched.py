@@ -45,8 +45,26 @@ def _num(s: str):
         return None
 
 
+def _age_cap(s: str):
+    """Max-age as a real cap, or None when it's a >=130y 'no limit' placeholder.
+    Keeps genuine caps including sub-year (e.g. 0.25 = 3-month-olds)."""
+    v = _num(s)
+    if v is None or v >= 130:
+        return None
+    return v
+
+
+def _load_tags() -> dict:
+    """Load trial_tags.json (cancer_types + normalized age) if present."""
+    p = PROCESSED / "trial_tags.json"
+    if not p.exists():
+        return {}
+    return json.loads(p.read_text())
+
+
 def build() -> list[dict]:
     trials = _read("trials.csv")
+    tags = _load_tags()
 
     # group exclusions + sites by nct_id
     excl_by: dict[str, list[dict]] = defaultdict(list)
@@ -77,6 +95,9 @@ def build() -> list[dict]:
     for t in trials:
         nct = t["nct_id"]
         exclusions = excl_by.get(nct, [])
+        tag = tags.get(nct, {})
+        # LLM-tagged cancer types + age range (tag_trials.py). Prefer tagged age
+        # (normalizes compound rules); fall back to the raw trials.csv age.
         records.append(
             {
                 "nct_id": nct,
@@ -84,8 +105,12 @@ def build() -> list[dict]:
                 "phase": t.get("phase", ""),
                 "lead_sponsor": t.get("lead_sponsor", ""),
                 "conditions": [c for c in (t.get("conditions") or "").split(";") if c],
+                "cancer_types": tag.get("cancer_types") or ["unknown"],
+                # Age comes from the REGISTRY (authoritative), not the tag: the tagger
+                # never saw the criteria text so it can't improve on it, and must not
+                # drop a real sub-year cap. A >=130y "max" is a placeholder for no cap.
                 "min_age": _num(t.get("min_age")),
-                "max_age": _num(t.get("max_age")),
+                "max_age": _age_cap(t.get("max_age")),
                 "exclusions": exclusions,
                 "exclusion_categories": sorted({e["category"] for e in exclusions}),
                 "sites": sites_by.get(nct, []),

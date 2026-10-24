@@ -3,7 +3,7 @@
 // the Map's funnel live in ./traitRules.
 
 import { categoryLabel } from "./categories";
-import { ECOG_LEVEL, barsTreatedBrainMets, ecogCap, isBrainTumorTrial } from "./traitRules";
+import { ECOG_LEVEL, barsTreatedBrainMets, ecogCap, isPrimaryBrainTrial } from "./traitRules";
 
 /** One exclusion row from trials_enriched.json. */
 export type Exclusion = {
@@ -29,6 +29,9 @@ export type EnrichedTrial = {
   phase: string;
   lead_sponsor: string;
   conditions: string[];
+  /** LLM-tagged fixed cancer categories (tag_trials.py), e.g. ["breast"] or
+   *  ["solid_tumor_basket"]. Drives deterministic cancer matching. */
+  cancer_types: string[];
   min_age: number | null;
   max_age: number | null;
   exclusions: Exclusion[];
@@ -58,85 +61,67 @@ export type PatientVector = {
   language?: "english_ok" | "english_limited" | "unknown";
   pregnancy?: "no" | "yes" | "unknown";
   county?: string;
-  /** Free-text cancer type (e.g. "breast", "lung"). Used to filter + to spare a
-   *  trial's own target condition from a matching barrier (e.g. brain_mets on a
-   *  brain-cancer trial). Empty/undefined = don't filter by condition. */
+  /** One of the fixed cancer-type codes below (a dropdown, same list as the accounts
+   *  wizard). Empty/undefined = don't filter by cancer type. */
   cancer_type?: string;
 };
 
-/**
- * Cancer types: the names a patient might type (or an accounts-wizard code) and the
- * words that identify a trial for it. Single cancers come before the accounts wizard's
- * combined groups, so "multiple myeloma" stays myeloma instead of all blood cancers;
- * exact codes such as "kidney_bladder" are looked up by name first.
- */
-const CANCER_TYPES: { names: string[]; keywords: string[] }[] = [
-  { names: ["breast"], keywords: ["breast"] },
-  { names: ["lung"], keywords: ["lung", "nsclc", "sclc"] },
-  { names: ["prostate"], keywords: ["prostate"] },
-  { names: ["colorectal"], keywords: ["colorectal", "colon", "rectal", "crc"] },
-  { names: ["lymphoma"], keywords: ["lymphoma"] },
-  // "ALL" (acute lymphoblastic leukemia) is matched by name; as a word it would match "all".
-  { names: ["leukemia", "all"], keywords: ["leukemia", "leukaemia", "lymphoblastic", "aml", "cml", "cll"] },
-  { names: ["melanoma"], keywords: ["melanoma"] },
-  { names: ["brain"], keywords: ["brain", "glioma", "glioblastoma", "cns", "central nervous", "astrocytoma"] },
-  { names: ["pancreatic"], keywords: ["pancrea"] },
-  { names: ["ovarian"], keywords: ["ovarian", "ovary"] },
-  { names: ["myeloma"], keywords: ["myeloma"] },
-  { names: ["kidney"], keywords: ["kidney", "renal cell", "rcc"] },
-  { names: ["bladder"], keywords: ["bladder", "urothelial"] },
-  { names: ["liver"], keywords: ["liver", "hepatocellular", "hcc"] },
-  { names: ["kidney_bladder"], keywords: ["kidney", "renal cell", "rcc", "bladder", "urothelial"] },
-  {
-    names: ["liver_stomach"],
-    keywords: ["liver", "hepatocellular", "hcc", "stomach", "gastric", "gastroesophageal", "esophag"],
-  },
-  {
-    names: ["head_neck", "head and neck"],
-    keywords: ["head and neck", "hnscc", "oropharyn", "laryn", "nasophar", "oral cavity"],
-  },
-  {
-    names: ["blood"],
-    keywords: [
-      "leukemia", "leukaemia", "lymphoma", "myeloma", "myelodysplastic", "lymphoblastic", "aml", "cml", "cll",
-    ],
-  },
-  { names: ["skin"], keywords: ["melanoma", "skin", "merkel", "cutaneous", "basal cell"] },
-  {
-    names: ["gynecologic"],
-    keywords: ["ovarian", "ovary", "uterine", "endometri", "cervical cancer", "cervix", "fallopian", "vulva"],
-  },
-];
+// Cancer matching uses the LLM-tagged `trial.cancer_types` (fixed vocabulary from
+// tag_trials.py / the accounts wizard) — NOT keyword guessing. The patient picks a
+// type from the same fixed list (a dropdown), so matching is a deterministic set test.
+//
+// Patient-facing types: breast, lung, colorectal, prostate, blood, skin, pancreatic,
+// gynecologic, brain, kidney_bladder, head_neck, liver_stomach, other.
+// Trial-only baskets: solid_tumor_basket, blood_cancer_basket, any_cancer.
 
-/** Answers that name no cancer type, so nothing is filtered. */
-const NO_CANCER_TYPE = new Set(["", "other", "not_sure", "not sure", "unknown"]);
+/** Human labels for the fixed cancer-type codes (for "this trial is for X" copy). */
+const CANCER_TYPE_LABELS: Record<string, string> = {
+  breast: "breast cancer",
+  lung: "lung cancer",
+  colorectal: "colon/rectal cancer",
+  prostate: "prostate cancer",
+  blood: "blood cancer",
+  skin: "melanoma/skin cancer",
+  pancreatic: "pancreatic cancer",
+  gynecologic: "ovarian/uterine/cervical cancer",
+  brain: "brain/spinal cancer",
+  kidney_bladder: "kidney/bladder cancer",
+  head_neck: "head & neck cancer",
+  liver_stomach: "liver/stomach/esophageal cancer",
+  other: "another cancer type",
+};
 
-const escapeRegExp = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+export type CancerFit = "exact" | "basket" | "none";
 
-/** `keyword` at the start of a word: "pancrea" matches "pancreatic", "all" won't match "small". */
-const wordHit = (text: string, keyword: string) => new RegExp(`(?<![a-z])${escapeRegExp(keyword)}`).test(text);
-
-/**
- * Keywords for the patient's cancer type (free text or an accounts code). A term we
- * don't recognise is matched anywhere in a word, so "sarcoma" finds "osteosarcoma".
- */
-function cancerKeywords(cancerType?: string): { keywords: string[]; anywhere: boolean } {
-  const t = (cancerType ?? "").toLowerCase().trim();
-  if (NO_CANCER_TYPE.has(t)) return { keywords: [], anywhere: false };
-  const exact = CANCER_TYPES.find((c) => c.names.includes(t));
-  if (exact) return { keywords: exact.keywords, anywhere: false };
-  const loose = CANCER_TYPES.find(
-    (c) => c.names.some((n) => wordHit(t, n)) || c.keywords.some((k) => wordHit(t, k)),
-  );
-  return loose ? { keywords: loose.keywords, anywhere: false } : { keywords: [t], anywhere: true };
+/** How well a trial's tagged types fit the patient's chosen cancer type.
+ *  "exact"  = the trial names this specific cancer
+ *  "basket" = a solid/blood-tumor basket, OR "any_cancer"/"unknown" — likely but
+ *             unconfirmed, so surfaced as "ask about it", NOT a clean match
+ *  "none"   = a different, named cancer */
+export function cancerFit(trial: EnrichedTrial, cancerType?: string): CancerFit {
+  if (!cancerType) return "exact"; // no type chosen -> don't filter
+  const tags = trial.cancer_types ?? [];
+  if (tags.includes(cancerType)) return "exact"; // trial NAMES this cancer
+  // any_cancer / unknown (missing or failed tag) = "ask", never an exact match for
+  // everyone — a depression study tagged any_cancer shouldn't read as "worth it"
+  // for a breast patient without a caveat.
+  if (tags.includes("any_cancer") || tags.includes("unknown")) return "basket";
+  const patientIsBlood = cancerType === "blood";
+  if (patientIsBlood && tags.includes("blood_cancer_basket")) return "basket";
+  if (!patientIsBlood && tags.includes("solid_tumor_basket")) return "basket";
+  return "none";
 }
 
-/** Does this trial target the patient's cancer type? (conditions + title) */
+/** Convenience: does the trial plausibly fit the patient's cancer type at all? */
 export function trialMatchesCancer(trial: EnrichedTrial, cancerType?: string): boolean {
-  const { keywords, anywhere } = cancerKeywords(cancerType);
-  if (keywords.length === 0) return true; // no cancer type given -> don't filter
-  const hay = (trial.conditions.join(" ") + " " + trial.title).toLowerCase();
-  return keywords.some((k) => (anywhere ? hay.includes(k) : wordHit(hay, k)));
+  return cancerFit(trial, cancerType) !== "none";
+}
+
+/** Is `category` the trial's OWN target disease? A brain_mets exclusion on a PRIMARY
+ *  brain-cancer trial (tagged "brain") is a disease definition, not a barrier. The
+ *  Map's funnel skips the same rows. */
+function categoryIsTrialTarget(category: string, trial: EnrichedTrial): boolean {
+  return category === "brain_mets" && isPrimaryBrainTrial(trial);
 }
 
 export type Severity = "hard" | "soft" | null;
@@ -266,7 +251,34 @@ export function classifyTrial(
   trial: EnrichedTrial,
 ): MatchedTrial {
   const hits: Hit[] = [];
-  const cancerMatch = trialMatchesCancer(trial, patient.cancer_type);
+  const fit = cancerFit(trial, patient.cancer_type);
+  const cancerMatch = fit !== "none";
+  if (fit === "none") {
+    // #4: explain WHY a trial is ruled out — it's for a different cancer.
+    const named = (trial.cancer_types ?? [])
+      .filter((c) => !["unknown", "any_cancer", "solid_tumor_basket", "blood_cancer_basket"].includes(c))
+      .map((c) => CANCER_TYPE_LABELS[c] ?? c);
+    hits.push({
+      category: "cancer_type",
+      label: "Cancer type",
+      severity: "hard",
+      source_text: named.length
+        ? `This trial is for ${named.join(", ")}, not your cancer type.`
+        : "This trial is for a different cancer type.",
+      threshold: null,
+    });
+  } else if (fit === "basket") {
+    // A basket trial (e.g. "advanced solid tumors") likely includes this patient's
+    // cancer but doesn't name it — surface it as "ask", not a clean match.
+    hits.push({
+      category: "cancer_type",
+      label: "Cancer type",
+      severity: "soft",
+      source_text:
+        "This trial enrolls several tumor types rather than naming yours — confirm yours is included.",
+      threshold: null,
+    });
+  }
   // #4: 112 trials have no extracted rows. Mostly none of the 13 barriers were found,
   // plus the few long trials the model misreads (eval/results.md), so we say so.
   const notScreened = trial.exclusions.length === 0;
@@ -290,9 +302,9 @@ export function classifyTrial(
 
   // the 13 categories against the trial's exclusion rows
   for (const ex of trial.exclusions) {
-    // #3: a brain_mets row on a brain-tumor trial describes the disease being
-    // studied, not a barrier for this patient.
-    if (ex.category === "brain_mets" && isBrainTumorTrial(trial)) continue;
+    // #3: a row describing the trial's OWN target disease (e.g. a brain_mets row on
+    // a brain-cancer trial) is a disease definition, not a barrier for this patient.
+    if (categoryIsTrialTarget(ex.category, trial)) continue;
     const value = (patient as Record<string, string | number | undefined>)[
       ex.category
     ] as string | undefined;

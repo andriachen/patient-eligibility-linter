@@ -1,0 +1,13 @@
+{
+  "nct_id": "NCT07544589",
+  "prompt_version": "tags-v1-2026-10-24",
+  "tag": {
+    "cancer_types": [
+      "colorectal",
+      "liver_stomach",
+      "other"
+    ],
+    "age_min": 18,
+    "age_max": null
+  }
+}

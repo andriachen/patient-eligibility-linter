@@ -1,0 +1,15 @@
+{
+  "nct_id": "NCT04368702",
+  "prompt_version": "tags-v1-2026-10-24",
+  "tag": {
+    "cancer_types": [
+      "liver_stomach",
+      "breast",
+      "blood",
+      "head_neck",
+      "kidney_bladder"
+    ],
+    "age_min": 18,
+    "age_max": null
+  }
+}

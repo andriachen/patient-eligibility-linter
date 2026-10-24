@@ -1,0 +1,11 @@
+{
+  "nct_id": "NCT06807086",
+  "prompt_version": "tags-v1-2026-10-24",
+  "tag": {
+    "cancer_types": [
+      "any_cancer"
+    ],
+    "age_min": 0,
+    "age_max": null
+  }
+}

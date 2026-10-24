@@ -1,0 +1,11 @@
+{
+  "nct_id": "NCT05898594",
+  "prompt_version": "tags-v1-2026-10-24",
+  "tag": {
+    "cancer_types": [
+      "lung"
+    ],
+    "age_min": 50,
+    "age_max": 80
+  }
+}

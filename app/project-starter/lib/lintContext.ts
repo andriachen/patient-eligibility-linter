@@ -13,8 +13,11 @@ export type LintContext = {
   population: Record<string, { measure: string; source: string; counties: { county: string; pct: number }[] }>;
   /** flagHistogram[n] = how many trials the same keyword rules flag in n categories. */
   flagHistogram: number[];
-  /** modelHistogram[n] = how many trials the model's extraction (exclusions.csv) restricts in n categories. */
+  /** How many trials the same keyword rules flag as conditional (inclusive wording), per category. */
+  peerConditionalCount: Record<string, number>;
+  /** The same two numbers from the model's extraction (exclusions.csv), for Claude runs. */
   modelHistogram: number[];
+  modelPeerConditionalCount: Record<string, number>;
   source: "mock" | "processed";
 };
 
@@ -53,20 +56,32 @@ export function loadLintContext(): LintContext {
   // Compare a draft like for like: keyword flags against the same rules run on every
   // trial, model flags against the model's extraction of every trial.
   const flagHistogram: number[] = [];
+  const peerConditionalCount: Record<string, number> = {};
   for (const text of allEligibilityTexts()) {
-    const n = mockLintCriteria(text).flags.length;
-    flagHistogram[n] = (flagHistogram[n] ?? 0) + 1;
+    const { flags } = mockLintCriteria(text);
+    flagHistogram[flags.length] = (flagHistogram[flags.length] ?? 0) + 1;
+    // Each trial counts at most once per category.
+    for (const category of new Set(flags.filter((f) => !f.absolute).map((f) => f.category))) {
+      peerConditionalCount[category] = (peerConditionalCount[category] ?? 0) + 1;
+    }
   }
+
   const modelHistogram: number[] = [];
+  const modelPeerConditionalCount: Record<string, number> = {};
   for (const trial of loadTrialsIndex().trials) {
     const n = new Set(trial.exclusions.map((e) => e.category)).size;
     modelHistogram[n] = (modelHistogram[n] ?? 0) + 1;
+    for (const category of new Set(trial.exclusions.filter((e) => !e.absolute).map((e) => e.category))) {
+      modelPeerConditionalCount[category] = (modelPeerConditionalCount[category] ?? 0) + 1;
+    }
   }
 
   return {
     totalTrials: stats.totalTrials,
     flagHistogram: Array.from(flagHistogram, (v) => v ?? 0),
+    peerConditionalCount,
     modelHistogram: Array.from(modelHistogram, (v) => v ?? 0),
+    modelPeerConditionalCount,
     trialPctByCategory: Object.fromEntries(stats.categories.map((c) => [c.category, c.pctExcluded])),
     population,
     source: stats.source === "processed" && source === "processed" ? "processed" : "mock",

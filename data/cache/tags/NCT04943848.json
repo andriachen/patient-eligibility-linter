@@ -1,0 +1,11 @@
+{
+  "nct_id": "NCT04943848",
+  "prompt_version": "tags-v1-2026-10-24",
+  "tag": {
+    "cancer_types": [
+      "brain"
+    ],
+    "age_min": 1,
+    "age_max": 18
+  }
+}

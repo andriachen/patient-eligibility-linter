@@ -6,7 +6,7 @@ import { normalizeCriteria } from "./criteriaText";
 import { loadCounties } from "./loadCounties";
 import { loadTrialsIndex } from "./loadTrialsIndex";
 import type { EnrichedTrial } from "./patientVector";
-import { barsTreatedBrainMets, ecogCap, isBrainTumorTrial } from "./traitRules";
+import { barsTreatedBrainMets, ecogCap, isPrimaryBrainTrial } from "./traitRules";
 
 /** One trial, reduced to what the funnel filters on. */
 export type FunnelTrial = {
@@ -54,7 +54,7 @@ function cleanQuote(text: string) {
 function restrictions(trial: EnrichedTrial): Record<string, "a" | "c"> {
   const r: Record<string, "a" | "c"> = {};
   for (const e of trial.exclusions) {
-    if (e.category === "brain_mets" && isBrainTumorTrial(trial)) continue;
+    if (e.category === "brain_mets" && isPrimaryBrainTrial(trial)) continue;
     const outright = e.category === "brain_mets" ? barsTreatedBrainMets(e) : e.absolute;
     if (outright) r[e.category] = "a";
     else if (!r[e.category]) r[e.category] = "c";
@@ -94,7 +94,7 @@ export function loadTurnedAwayData(): TurnedAwayData {
       for (const e of t.exclusions) {
         const outright = e.category === "brain_mets" ? barsTreatedBrainMets(e) : e.absolute;
         if (outright !== pass || !(FUNNEL_CATEGORIES as readonly string[]).includes(e.category)) continue;
-        if (e.category === "brain_mets" && isBrainTumorTrial(t)) continue;
+        if (e.category === "brain_mets" && isPrimaryBrainTrial(t)) continue;
         // Only ECOG rules that turn away ECOG 2 (the funnel's test), not "ECOG ≤ 2".
         if (e.category === "performance_status" && (ecogCap(e.threshold, e.section) ?? 2) >= 2) continue;
         const example = { id: t.nct_id, text: cleanQuote(e.source_text) };

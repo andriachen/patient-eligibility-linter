@@ -106,7 +106,7 @@ MA county FIPS 25001–25027 (odd only), 14 counties — see README.
 | P2 suggest.py | done | template, 13 cats, FDA/ASCO-cited; 5 gap cats say "no guidance" w/ empty source; wired into lint.py |
 | Matcher index (Aim 1 / Sub-Aim 2) | done | `eval/build_trials_enriched.py` -> `trials_enriched.json` (1011 trials + embedded exclusions + MA sites); auto-rebuilt w/ stats.json |
 | Matcher logic (Aim 1 / Sub-Aim 3) | done | `app/project-starter/lib/{patientVector,loadTrialsIndex,matchTrials}.ts`; deterministic, no inference; reads trials_enriched.json; verified vs real data (all-unknown→all "worth reaching out") |
-| Matcher UI (Aim 1 / Sub-Aim 4) | done | `/matches` page + `MatchPanel.tsx` + `matchAction.ts` server action; questionnaire (all 13 categories + cancer type + county) → 3 buckets (worth / ask / not-yet) w/ quoted criterion + CTA; other-cancer trials left out and counted; "Find trials" in nav; builds |
+| Matcher UI (Aim 1 / Sub-Aim 4) | done | `/matches` page + `MatchPanel.tsx` + `matchAction.ts` server action; questionnaire (all 13 categories + cancer-type dropdown + county) → 3 buckets (worth / ask / not-yet) w/ quoted criterion or plain reason + CTA; own-cancer trials first; "Find trials" in nav; builds |
 | P3 app | done | Next.js at `app/project-starter` (NOT Streamlit), live on Vercel as Threshold; Landscape/Map read real CSVs + stats.json (Map: real per-county shares of distinct trials, PLACES, EJ minority + limited-English); Linter = live Claude (same model + prompt as the pipeline) with keyword-rule fallback, FDA/ASCO–Friends suggestions, highlighted draft, copyable report, Impact tab; static `/trial/NCT…` pages with highlighted quotes |
 | P4 eval | done | run_eval.py (42-trial gold, subsets + real bootstrap CI); all-42 F1 **0.94** [0.91,0.97], held-out **0.95** [0.89,0.99]; reproducible |
 | P4 docs | in progress | sources.md done; pitch.md updated (HIV 34.3%, held-out F1 0.95); submission.md TBD |
@@ -262,21 +262,21 @@ so that parity check lives in the Python suite.
   UI files under the Paper & Petrol palette. `npm run build` still green (1020 pages).
   (Superseded: Arush's merge replaced the fs loader with a static JSON import, see §8b.)
 - 2026-10-24: **Merge + consistency pass (Namik), live Linter.** Merged Arush's matcher
-  review (cancer-type filter, static trial index, Not screened, sorting). Audit fixes:
-  cancer types match at word starts (`all` no longer pulls in "small cell"; accounts codes
-  such as `head_neck`, `blood`, `kidney_bladder` map to keywords); other-cancer trials are
-  left out of Find trials and counted. Shared rules in `lib/traitRules.ts` keep the Map
-  funnel and Find trials in step: ECOG caps (activity answers are ECOG 0/1/2/3+, worded
-  like the accounts wizard), "treated and stable" brain mets (turned away only by rules
-  that aren't limited to active/untreated/symptomatic disease and have no carve-out), and
-  brain-tumor trials skipping their brain-mets row. Uncontrolled HIV is hard on every HIV
-  rule; BMI 30+ is turned away only by limits at or below 30 (minimums never apply). ECOG
-  caps ignore age ranges and cohort-split clauses. Checked: funnel and Find trials agree
-  trial for trial on controlled HIV (151), treated-stable brain mets (88) and ECOG 2
-  (307), age 58, all of MA; agreed numbers unchanged (Hampden
-  24 → 20 → 20 → 16 / 18; 58 + controlled HIV 602 / 166 / 243; Hampden nearby 13 / 7 / 4).
-  "Absolute" badges now say "Outright"; phases read "Phase 1/2"; keyword rules treat a
-  same-line carve-out as conditional. Linter now calls Claude live (see §1, §9).
+  review + LLM cancer-type tags (dropdown, wrong-cancer reasons, registry ages) and Andria's
+  Linter wording (fix-first tiers, NCI replacement text, updated citations). Shared rules in
+  `lib/traitRules.ts` keep the Map funnel and Find trials in step: ECOG caps (activity
+  answers are ECOG 0/1/2/3+, worded like the accounts wizard; age ranges and cohort-split
+  caps no longer misread), "treated and stable" brain mets (turned away only by outright
+  rules that aren't limited to active/untreated/symptomatic disease), and primary-brain
+  trials (tag "brain") skipping their brain-mets row. Uncontrolled HIV is hard on every HIV
+  rule; BMI 30+ is turned away only by limits at or below 30. Own-cancer trials sort first
+  in each bucket. Checked (age 58, all of MA): funnel and Find trials agree trial for trial
+  on controlled HIV (151), treated-stable brain mets (90) and ECOG 2 (307); agreed numbers
+  unchanged (Hampden 24 → 20 → 20 → 16 / 18; 58 + controlled HIV 602 / 166 / 243; Hampden
+  nearby 13 / 7 / 4; keyword sample 8 flags, more than 83%). "Absolute" badges now say
+  "Outright"; phases read "Phase 1/2"; keyword rules treat a same-line carve-out as
+  conditional. Linter now calls Claude live (see §1, §9); its replacement wording and peer
+  counts work for both engines.
 
 ## 8b. Vercel data deployment (important)
 

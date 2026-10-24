@@ -1,0 +1,15 @@
+{
+  "nct_id": "NCT07114601",
+  "prompt_version": "tags-v1-2026-10-24",
+  "tag": {
+    "cancer_types": [
+      "breast",
+      "colorectal",
+      "prostate",
+      "gynecologic",
+      "liver_stomach"
+    ],
+    "age_min": 18,
+    "age_max": null
+  }
+}

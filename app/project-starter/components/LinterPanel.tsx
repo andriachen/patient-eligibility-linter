@@ -19,6 +19,33 @@ type ResultTab = "flags" | "draft" | "impact";
 type Engine = "model" | "rules";
 type Run = { flags: LintFlag[]; engine: Engine; model?: string; notice?: string };
 
+/** What to fix first: 1 = blanket rule guidance says to loosen, 2 = drug-dependent, 3 = team's call. */
+type Tier = 1 | 2 | 3;
+const TIERS: Tier[] = [1, 2, 3];
+const TIER1_CATEGORIES = new Set(["hiv", "brain_mets", "prior_malignancy", "age"]);
+const TIER2_CATEGORIES = new Set(["renal", "hepatic", "cardiac", "performance_status"]);
+
+function tierOf(flag: LintFlag): Tier {
+  // A conditional rule in a Tier 1 category already uses inclusive wording.
+  if (TIER1_CATEGORIES.has(flag.category)) return flag.absolute ? 1 : 2;
+  if (TIER2_CATEGORIES.has(flag.category)) return 2;
+  return 3;
+}
+
+const TIER_HEADINGS: Record<Tier, string> = {
+  1: "Fix first: blanket rules that FDA or ASCO–Friends guidance says to loosen",
+  2: "Worth a look: the right cutoff depends on the drug",
+  3: "Team's call: weaker or draft guidance only",
+};
+
+const TEAM_CALL_NOTES: Record<string, string> = {
+  pregnancy: "Often required when the drug may harm a fetus. ICH E21 (draft) encourages informed inclusion where it is safe.",
+  language: "Affects limited-English communities. FDA recommends translated materials and interpreters.",
+  diabetes: "Check whether this is needed for this drug's safety.",
+  bmi: "Check whether this is needed for this drug's safety.",
+  smoking: "Check whether this is needed for this drug's safety.",
+};
+
 // The demo criteria from docs/pitch.md (written for the demo, not from a real trial).
 const SAMPLE = `Inclusion Criteria:
 * Age 18 to 75 years
@@ -77,6 +104,7 @@ function reportText(run: Run, comparison: ReturnType<typeof compare>) {
       `${i + 1}. ${categoryLabel(f.category)}: ${f.absolute ? "outright" : "conditional"}, ${f.section}${f.threshold ? `, ${f.threshold}` : ""}`,
       `   "${f.source_text}"`,
       `   Suggestion: ${f.suggestion}`,
+      ...(f.replacement ? [`   Inclusive wording: "${f.replacement}"`] : []),
       `   Source: ${f.suggestion_source || "no FDA or ASCO-Friends guidance covers this category"}`,
       "",
     );
@@ -95,7 +123,18 @@ export function LinterPanel({ context }: { context: LintContext }) {
   const [pending, setPending] = useState(false);
   const [copied, setCopied] = useState<"" | "done" | "failed">("");
   const [focus, setFocus] = useState<string | null>(null);
+  const [copyStatus, setCopyStatus] = useState<{ category: string; ok: boolean } | null>(null);
   const errorId = useId();
+
+  async function copyReplacement(category: string, replacement: string) {
+    try {
+      await navigator.clipboard.writeText(replacement);
+      setCopyStatus({ category, ok: true });
+    } catch {
+      setCopyStatus({ category, ok: false });
+    }
+    window.setTimeout(() => setCopyStatus((s) => (s?.category === category ? null : s)), 2000);
+  }
 
   // Ask the server whether Claude is available; without a key the Linter uses keyword rules.
   useEffect(() => {
@@ -178,6 +217,12 @@ export function LinterPanel({ context }: { context: LintContext }) {
   // keyword flags against the same rules run on every trial.
   const comparison = compare(run?.engine === "model" ? context.modelHistogram : context.flagHistogram, flagCount);
   const claudeName = live?.model ? modelName(live.model) : "Claude";
+  // Flags sorted by tier, keeping text order within a tier.
+  const tiered = (run?.flags ?? [])
+    .map((flag, i) => ({ flag, i, tier: tierOf(flag) }))
+    .sort((a, b) => a.tier - b.tier || a.i - b.i);
+  const fixFirst = tiered.filter((t) => t.tier === 1).length;
+  const peerCounts = run?.engine === "model" ? context.modelPeerConditionalCount : context.peerConditionalCount;
 
   const tabs: GlassTab<ResultTab>[] = [
     { id: "flags", label: `Flags${run ? ` (${run.flags.length})` : ""}` },
@@ -291,8 +336,8 @@ export function LinterPanel({ context }: { context: LintContext }) {
             ) : (
               <>Flags come from keyword rules for the 13 categories, checked line by line, in your browser.</>
             )}{" "}
-            Suggestions and sources follow FDA guidance (2020, 2024) and the ASCO–Friends recommendations; they are
-            for protocol teams to review, not decisions.
+            Suggestions follow FDA eligibility guidance (2020–2026), ICH E21 (draft), and ASCO–Friends
+            recommendations. They are for protocol teams to review, not decisions.
           </p>
         </section>
       </LiquidGlassPanel>
@@ -322,7 +367,8 @@ export function LinterPanel({ context }: { context: LintContext }) {
               {comparison.total.toLocaleString()} recruiting Massachusetts cancer trials (median: {comparison.median}),{" "}
               {run.engine === "model"
                 ? "using the same model's reading of each trial's criteria."
-                : "using the same keyword rules on each trial's criteria."}
+                : "using the same keyword rules on each trial's criteria."}{" "}
+              <span className="font-semibold">{fixFirst} to fix first.</span>
             </div>
           ) : null}
 
@@ -361,41 +407,83 @@ export function LinterPanel({ context }: { context: LintContext }) {
             </div>
           ) : tab === "flags" ? (
             <div {...tabPanelProps("lint-results", "flags")} className="mt-4 focus:outline-none">
-              <ul className="space-y-3">
-                {run.flags.map((flag, i) => (
-                  <li key={`${flag.category}-${i}`} className="glass-inset p-4">
-                    <div className="flex flex-wrap items-center gap-2">
-                      <GlassBadge tone="cobalt">{categoryLabel(flag.category)}</GlassBadge>
-                      <GlassBadge tone={flag.absolute ? "rose" : "neutral"}>
-                        {flag.absolute ? "Outright" : "Conditional"}
-                      </GlassBadge>
-                      {flag.threshold ? <GlassBadge tone="neutral">{flag.threshold}</GlassBadge> : null}
-                      <span className="text-xs font-medium capitalize text-ink-faint">{flag.section}</span>
-                    </div>
-                    <blockquote className="mt-3 border-l-2 border-periwinkle pl-3 text-sm leading-relaxed text-ink-soft">
-                      {flag.source_text}
-                    </blockquote>
-                    <p className="mt-3 text-sm leading-relaxed text-ink">
-                      <span className="font-semibold">Suggestion:</span> {flag.suggestion}
-                    </p>
-                    <div className="mt-1.5 flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
-                      <p className="text-xs text-ink-faint">
-                        Source: {flag.suggestion_source || "no FDA or ASCO–Friends guidance covers this category"}
-                      </p>
-                      <button
-                        type="button"
-                        onClick={() => {
-                          setFocus(flag.category);
-                          setTab("draft");
-                        }}
-                        className={`text-xs font-semibold text-cobalt hover:underline ${focusRing}`}
-                      >
-                        Show in draft
-                      </button>
-                    </div>
-                  </li>
-                ))}
-              </ul>
+              <div className="space-y-5">
+                {TIERS.map((tier) => {
+                  const group = tiered.filter((t) => t.tier === tier);
+                  if (group.length === 0) return null;
+                  return (
+                    <section key={tier} aria-labelledby={`lint-tier-${tier}`}>
+                      <h3 id={`lint-tier-${tier}`} className="text-sm font-semibold text-ink">
+                        {TIER_HEADINGS[tier]}
+                      </h3>
+                      <ul className="mt-2 space-y-3">
+                        {group.map(({ flag, i }) => {
+                          const replacement = flag.replacement;
+                          const peers = peerCounts[flag.category] ?? 0;
+                          const copiedThis = copyStatus?.category === flag.category ? copyStatus : null;
+                          const note = tier === 3 ? TEAM_CALL_NOTES[flag.category] : undefined;
+                          return (
+                            <li key={`${flag.category}-${i}`} className="glass-inset p-4">
+                              <div className="flex flex-wrap items-center gap-2">
+                                <GlassBadge tone="cobalt">{categoryLabel(flag.category)}</GlassBadge>
+                                <GlassBadge tone={flag.absolute ? "rose" : "neutral"}>
+                                  {flag.absolute ? "Outright" : "Conditional"}
+                                </GlassBadge>
+                                {flag.threshold ? <GlassBadge tone="neutral">{flag.threshold}</GlassBadge> : null}
+                                <span className="text-xs font-medium capitalize text-ink-faint">{flag.section}</span>
+                              </div>
+                              <blockquote className="mt-3 border-l-2 border-periwinkle pl-3 text-sm leading-relaxed text-ink-soft">
+                                {flag.source_text}
+                              </blockquote>
+                              <p className="mt-3 text-sm leading-relaxed text-ink">
+                                <span className="font-semibold">Suggestion:</span> {flag.suggestion}
+                              </p>
+                              <div className="mt-1.5 flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+                                <p className="text-xs text-ink-faint">
+                                  Source: {flag.suggestion_source || "no FDA or ASCO–Friends guidance covers this category"}
+                                </p>
+                                <button
+                                  type="button"
+                                  onClick={() => {
+                                    setFocus(flag.category);
+                                    setTab("draft");
+                                  }}
+                                  className={`text-xs font-semibold text-cobalt hover:underline ${focusRing}`}
+                                >
+                                  Show in draft
+                                </button>
+                              </div>
+                              {replacement ? (
+                                <div className="mt-3">
+                                  <div className="flex flex-wrap items-center justify-between gap-2">
+                                    <p className="text-xs font-medium text-ink-faint">
+                                      {peers > 0
+                                        ? `${peers.toLocaleString()} Massachusetts ${peers === 1 ? "trial sets" : "trials set"} conditions here instead of a ban. Standard NCI wording:`
+                                        : "Standard NCI wording:"}
+                                    </p>
+                                    <GlassButton
+                                      variant="ghost"
+                                      size="sm"
+                                      aria-live="polite"
+                                      onClick={() => copyReplacement(flag.category, replacement)}
+                                    >
+                                      {copiedThis ? (copiedThis.ok ? "Copied" : "Couldn't copy") : "Copy"}
+                                    </GlassButton>
+                                  </div>
+                                  <blockquote className="mt-1.5 border-l-2 border-periwinkle pl-3 text-sm leading-relaxed text-ink-soft">
+                                    {replacement}
+                                  </blockquote>
+                                </div>
+                              ) : null}
+                              {note ? <p className="mt-2 text-xs leading-relaxed text-ink-soft">{note}</p> : null}
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </section>
+                  );
+                })}
+              </div>
               <div className="mt-4 flex flex-wrap items-center gap-3">
                 <GlassButton variant="secondary" size="sm" onClick={copyReport}>
                   Copy report

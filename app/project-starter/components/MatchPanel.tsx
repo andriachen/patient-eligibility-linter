@@ -91,6 +91,24 @@ const MA_COUNTIES = [
   "Hampshire", "Middlesex", "Nantucket", "Norfolk", "Plymouth", "Suffolk", "Worcester",
 ];
 
+// Fixed cancer-type vocabulary — matches tag_trials.py / the accounts wizard, so the
+// patient's choice is a deterministic set test against each trial's tagged types.
+const CANCER_TYPE_OPTIONS = [
+  { value: "breast", label: "Breast" },
+  { value: "lung", label: "Lung" },
+  { value: "colorectal", label: "Colon or rectal" },
+  { value: "prostate", label: "Prostate" },
+  { value: "blood", label: "Blood cancer (leukemia, lymphoma, myeloma)" },
+  { value: "skin", label: "Melanoma or other skin cancer" },
+  { value: "pancreatic", label: "Pancreatic" },
+  { value: "gynecologic", label: "Ovarian, uterine or cervical" },
+  { value: "brain", label: "Brain or spinal cord" },
+  { value: "kidney_bladder", label: "Kidney or bladder" },
+  { value: "head_neck", label: "Head and neck" },
+  { value: "liver_stomach", label: "Liver, stomach or esophagus" },
+  { value: "other", label: "Other" },
+];
+
 type Tab = "worth" | "ask" | "notfit";
 
 export function MatchPanel() {
@@ -99,7 +117,6 @@ export function MatchPanel() {
   const [age, setAge] = useState("");
   const [county, setCounty] = useState("");
   const [result, setResult] = useState<MatchResponse | null>(null);
-  const [searchedCancer, setSearchedCancer] = useState("");
   const [tab, setTab] = useState<Tab>("worth");
   const [ageError, setAgeError] = useState("");
   const [pending, startTransition] = useTransition();
@@ -125,7 +142,6 @@ export function MatchPanel() {
     startTransition(async () => {
       const r = await runMatch(patient);
       setResult(r);
-      setSearchedCancer(patient.cancer_type ?? "");
       setTab("worth");
     });
   }
@@ -158,15 +174,13 @@ export function MatchPanel() {
         </p>
 
         <div className="mt-4 grid gap-3">
-          <GlassField
-            label="Cancer type"
-            hint="e.g. breast, lung, lymphoma. If you enter one, we only show trials for that cancer."
-          >
-            <GlassInput
-              placeholder="e.g. breast"
-              value={cancerType}
-              onChange={(e) => setCancerType(e.target.value)}
-            />
+          <GlassField label="Cancer type" hint="Trials for other cancer types go to Likely not yet, with the reason.">
+            <GlassSelect value={cancerType} onChange={(e) => setCancerType(e.target.value)}>
+              <option value="">Any / not sure</option>
+              {CANCER_TYPE_OPTIONS.map((o) => (
+                <option key={o.value} value={o.value}>{o.label}</option>
+              ))}
+            </GlassSelect>
           </GlassField>
           <div className="grid grid-cols-2 gap-3">
             <GlassField label="Age">
@@ -245,13 +259,6 @@ export function MatchPanel() {
           </p>
         ) : (
           <div {...tabPanelProps("match-results", tab)} className="mt-4 focus:outline-none">
-            {result.counts.otherCancer > 0 ? (
-              <p className="mb-3 text-xs text-ink-soft">
-                {result.counts.otherCancer === result.counts.total
-                  ? `No trials matched "${searchedCancer}". Try a broader name, such as lung or blood cancer.`
-                  : `Not shown: ${result.counts.otherCancer.toLocaleString()} trials for other cancer types.`}
-              </p>
-            ) : null}
             {cards && cards.length > 0 ? (
               <>
                 <p className="mb-3 text-xs text-ink-faint">

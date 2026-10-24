@@ -1,0 +1,11 @@
+{
+  "nct_id": "NCT05292664",
+  "prompt_version": "tags-v1-2026-10-24",
+  "tag": {
+    "cancer_types": [
+      "blood_cancer_basket"
+    ],
+    "age_min": 1,
+    "age_max": 40
+  }
+}

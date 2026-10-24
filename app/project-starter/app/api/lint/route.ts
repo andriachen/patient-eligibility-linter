@@ -10,7 +10,7 @@ import { NextResponse } from "next/server";
 
 import { cleanRecords, normalize, type RawRecord } from "@/lib/extraction/logic";
 import { CATEGORIES, EXTRACT_TOOL, PROMPT_VERSION, SYSTEM_PROMPT } from "@/lib/extraction/prompt";
-import { SUGGESTIONS, type LintFlag } from "@/lib/mockLint";
+import { REPLACEMENT, SUGGESTIONS, type LintFlag } from "@/lib/mockLint";
 
 export const runtime = "nodejs";
 export const maxDuration = 60;
@@ -161,6 +161,8 @@ export async function POST(request: Request) {
         source_text: r.source_text,
         suggestion,
         suggestion_source,
+        // Like the keyword rules: only an outright rule gets inclusive wording to paste in.
+        ...(r.absolute && REPLACEMENT[r.category] ? { replacement: REPLACEMENT[r.category] } : {}),
       };
     }),
   };
