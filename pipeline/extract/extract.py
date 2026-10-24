@@ -175,6 +175,28 @@ def write_exclusions(results: list[dict]) -> None:
         f"  dropped {dropped_guard} guard records "
         f"(bare adult-age floor or category-keyword mismatch — intended)"
     )
+    _rebuild_stats()
+
+
+def _rebuild_stats() -> None:
+    """Rebuild data/processed/stats.json so the app headline can't go stale.
+
+    Run as a subprocess to avoid a pipeline->eval import dependency. Best-effort:
+    a failure here is logged, not fatal (exclusions.csv is already written).
+    """
+    import subprocess
+    import sys
+
+    script = ROOT / "eval" / "build_stats.py"
+    if not script.exists():
+        return
+    try:
+        subprocess.run([sys.executable, str(script)], check=True, cwd=str(ROOT),
+                       capture_output=True, text=True, timeout=60)
+        print("stats.json rebuilt from exclusions.csv")
+    except Exception as err:  # noqa: BLE001 - non-fatal
+        print(f"  WARNING: stats.json rebuild failed ({err}); run eval/build_stats.py manually",
+              file=sys.stderr)
 
 
 # --------------------------------------------------------------------------- #

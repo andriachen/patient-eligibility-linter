@@ -199,6 +199,32 @@ def test_age_equal_to_18_not_a_range():
     assert not is_bare_adult_floor("Age 18 to 70 years")
 
 
+def test_age_trailing_period_still_counts():
+    from pipeline.extract.logic import is_bare_adult_floor
+
+    # a sentence-final "18." must still be read as the bare adult floor -> dropped
+    assert is_bare_adult_floor("Age >= 18.")
+    assert is_bare_adult_floor("Age minimum of age 18.")
+    assert is_bare_adult_floor("Must be at least 18.")
+
+
+def test_age_num_skips_decimals():
+    # a decimal like 1.5 must not yield ages 1 or 5
+    from pipeline.extract.logic import _AGE_NUM, normalize
+
+    nums = _AGE_NUM.findall(normalize("creatinine 1.5; age >= 18"))
+    assert "18" in nums
+    assert "1" not in nums and "5" not in nums
+
+
+def test_age_pediatric_17_cap_range_kept():
+    from pipeline.extract.logic import is_bare_adult_floor
+
+    # pediatric trials capped at 17 ARE an age restriction -> keep
+    assert not is_bare_adult_floor("Ages 2 to 17 years")
+    assert not is_bare_adult_floor("6 months to 17 years of age")
+
+
 def test_keyword_guard_holes_fixed():
     from pipeline.extract.logic import quote_matches_category
 

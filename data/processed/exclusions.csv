@@ -327,7 +327,6 @@ NCT04031677,pregnancy,,true,exclusion,Female patients who are pregnant or breast
 NCT04031677,prior_malignancy,within 5 years,false,exclusion,"Other invasive malignancy within 5 years, with the exception of adequately treated non-melanoma skin cancer, localized cervical cancer, localized and Gleason ≤ 6prostate cancer."
 NCT04033497,pregnancy,,true,exclusion,"Pregnant women are excluded from this study because gadolinium-based agents have not been proven to be safe to administer to a developing fetus. Similarly, breastfeeding women will be excluded from this study."
 NCT04033497,renal,chronic kidney disease stage IV-V or end stage renal disease,true,exclusion,Participants who have chronic kidney disease stage IV-V or end stage renal disease.
-NCT04045470,age,,true,inclusion,Age minimum of age 18.
 NCT04045470,performance_status,ECOG ≤2; Karnofsky ≥60%,true,inclusion,"ECOG performance status ≤2 (Karnofsky ≥60%, see Appendix A)."
 NCT04045470,pregnancy,,false,exclusion,Positive serum pregnancy test at screening visit.
 NCT04049331,age,age <= 54,true,inclusion,Age: 18-54 years

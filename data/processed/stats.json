@@ -28,9 +28,9 @@
     {
       "category": "age",
       "label": "Age",
-      "pctExcluded": 17.2,
-      "trialCount": 174,
-      "pctAbsolute": 16.1
+      "pctExcluded": 17.1,
+      "trialCount": 173,
+      "pctAbsolute": 16.0
     },
     {
       "category": "renal",

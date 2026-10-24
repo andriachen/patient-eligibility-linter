@@ -170,6 +170,20 @@ python -m pipeline.ingest.build_county       # -> county_metrics.csv, county_ej.
   narrative; (6) bootstrap 95% CI on F1. Result: exclusions.csv 4098→3792 rows,
   uniform v2; **eval now describes the shipped data: micro F1 0.93 (P 0.96 / R 0.91),
   CI [0.90, 0.97].** Model `claude-haiku-5-5`; MAX_WORKERS 5→12.
+- 2026-10-24: **Audit round 2+3.** Merged P4's expanded 42-trial gold set + subset
+  eval (held-out vs tuned). Fixed: real bootstrap CI (was claimed, not computed) +
+  deterministic (sorted trials); thin long-trial retry (empty result on >=3000 chars
+  retries once, logs stop_reason) — 33→22; keyword-guard holes (added
+  glomerular/clearance/eastern-cooperative; removed `metasta` from brain_mets;
+  short keys ast/alt/mi/ef matched whole-word); age guard (check >18 before child
+  boilerplate; ignore digits in drug codes like SM08502; don't treat "to 18" as a
+  range; keep pediatric "N to 17" ranges; sentence-final "18." still counts).
+  **stats.json is now auto-rebuilt at the end of write_exclusions()** (subprocess to
+  eval/build_stats.py) so the app headline can't go stale. Current numbers: all-42
+  F1 **0.94** [0.91,0.97], held-out **0.95** [0.89,0.99]; exclusions.csv 3839 rows;
+  HIV headline 34.3% (was stale 37.5%). Known gaps (documented in results.md):
+  prior_malignancy recall; 5 trials the model fails identically (need larger model
+  or split inclusion/exclusion calls). 36 unit tests.
 - 2026-10-24: **Age-unit bug fix in build_trials.** `_age_number` dropped the unit,
   so "6 Months" became 6 (read as 6 years). Now normalizes ALL units to YEARS
   (months/weeks/days/hours/minutes, singular + plural): "6 Months"→0.5, "29 Days"→0.08,

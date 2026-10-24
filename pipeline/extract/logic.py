@@ -47,15 +47,24 @@ def validate_records(records: list[dict], eligibility_text: str) -> list[dict]:
 
 # Any integer age mentioned in the quote. Used to decide if an `age` record is
 # just the standard adult floor (>=18, no upper bound) rather than a real cap.
-# Standalone 1-3 digit number — NOT embedded in a word/code like "SM08502" (which
-# must not read as ages 85/727). Lookarounds reject a leading/trailing word char
-# or dot so drug codes and decimals don't count.
-_AGE_NUM = re.compile(r"(?<![\w.])(\d{1,3})(?![\w.])\s*(?:years?|yrs?|yo\b|y/o\b)?", re.I)
-# Words that indicate an UPPER bound / real age restriction in the quote. Note:
-# "to N" is NOT here — it falsely matched "greater than or equal to 18". A real
-# range still triggers via the "N-N" / "N to N" numeric check in is_bare_adult_floor.
+# Standalone 1-3 digit number — NOT embedded in a word/code like "SM08502" (85/727)
+# and NOT a decimal like 1.5. The trailing lookahead rejects a following word char,
+# or a dot ONLY when a digit follows it (so a decimal is skipped but a sentence-final
+# "18." still counts as an age).
+_AGE_NUM = re.compile(
+    r"(?<![\w.])(\d{1,3})(?!\w|\.\d)\s*(?:years?|yrs?|yo\b|y/o\b)?", re.I
+)
+# Words/punctuation that indicate an UPPER bound / real age restriction in the
+# quote. "to N" is intentionally NOT a generic hint ("greater than or equal to 18"
+# falsely matched); explicit numeric ranges are caught by _AGE_RANGE below.
 _AGE_UPPER_HINT = re.compile(
     r"(<|≤|=<|under|up to|maximum|younger than|no older|between|-\s*\d)", re.I
+)
+# An explicit numeric age range "N to N" / "N - N" (optionally with a months/years
+# unit on the first number), e.g. "Ages 2 to 17 years", "6 months to 17 years".
+# A trial capped at 17 is a real age restriction and must be kept.
+_AGE_RANGE = re.compile(
+    r"\d{1,3}\s*(?:months?|years?|yrs?)?\s*(?:to|-|–|—)\s*(\d{1,3})\b", re.I
 )
 
 
@@ -88,6 +97,11 @@ def is_bare_adult_floor(source_text: str) -> bool:
     # even if child-exclusion boilerplate is also present ("18 to 70; children
     # excluded" must keep the 70 cap).
     if any(n > 18 for n in age_nums):
+        return False
+    # An explicit numeric range ("2 to 17 years", "6 months to 17 years") is a real
+    # age restriction even when the upper bound is <= 18 (pediatric trials capped at
+    # 17). Keep it.
+    if _AGE_RANGE.search(text):
         return False
     # Child-exclusion boilerplate with no adult-range number: "because no data in
     # patients < 18 ... children are excluded". Not a cohort age restriction.
