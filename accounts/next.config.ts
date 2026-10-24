@@ -26,6 +26,9 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  // Served under /account on the shared Vercel domain (see the root vercel.json).
+  // Link, redirect() and revalidatePath add this prefix on their own.
+  basePath: "/account",
   // No Turbopack filesystem cache for `next build`: Vercel restores
   // .next/cache/turbopack between builds, and a build from it can serve the
   // previous build's CSS with the current JavaScript.
