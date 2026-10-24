@@ -47,17 +47,27 @@ const TEAM_CALL_NOTES: Record<string, string> = {
 };
 
 // The demo criteria from docs/pitch.md (written for the demo, not from a real trial).
-const SAMPLE = `Inclusion Criteria:
-* Age 18 to 75 years
+const SAMPLE_INCLUSION = `* Age 18 to 75 years
 * ECOG performance status 0-1
 * Creatinine clearance >= 60 mL/min
-* Must be able to read and speak English
+* Must be able to read and speak English`;
 
-Exclusion Criteria:
-* Known HIV infection
+const SAMPLE_EXCLUSION = `* Known HIV infection
 * Brain metastases, treated or untreated
 * Any prior malignancy within 5 years
 * Pregnant or breastfeeding`;
+
+/**
+ * Compose two user inputs into the format the extraction prompt expects. The model's
+ * `source_text` must come from a sentence that STATES a restriction and the section
+ * is a required field, so we always emit both headers — pasting a bare word like
+ * "hiv" into one box lets the model anchor it to the right section.
+ */
+function compose(inclusion: string, exclusion: string): string {
+  const inc = inclusion.trim();
+  const exc = exclusion.trim();
+  return `Inclusion Criteria:\n\n${inc}\n\nExclusion Criteria:\n\n${exc}`;
+}
 
 // Why a Claude run fell back to keyword rules, keyed by the API's error code.
 const FALLBACK_NOTICE: Record<string, string> = {
@@ -113,7 +123,8 @@ function reportText(run: Run, comparison: ReturnType<typeof compare>) {
 }
 
 export function LinterPanel({ context }: { context: LintContext }) {
-  const [text, setText] = useState(SAMPLE);
+  const [inclusion, setInclusion] = useState(SAMPLE_INCLUSION);
+  const [exclusion, setExclusion] = useState(SAMPLE_EXCLUSION);
   const [run, setRun] = useState<Run | null>(null);
   const [lastRunText, setLastRunText] = useState("");
   const [error, setError] = useState("");
@@ -166,12 +177,12 @@ export function LinterPanel({ context }: { context: LintContext }) {
   }
 
   async function runLint() {
-    if (!text.trim()) {
-      setError("Paste eligibility criteria before running the linter.");
+    if (!inclusion.trim() && !exclusion.trim()) {
+      setError("Paste inclusion or exclusion criteria before running the linter.");
       return;
     }
     setError("");
-    const draft = text;
+    const draft = compose(inclusion, exclusion);
     if (engine === "rules") {
       finish({ ...mockLintCriteria(draft), engine: "rules" }, draft);
       return;
@@ -211,7 +222,7 @@ export function LinterPanel({ context }: { context: LintContext }) {
     }
   }
 
-  const stale = run !== null && text !== lastRunText;
+  const stale = run !== null && compose(inclusion, exclusion) !== lastRunText;
   const flagCount = run?.flags.length ?? 0;
   // Compare like for like: model flags against the model's extraction of every trial,
   // keyword flags against the same rules run on every trial.
@@ -242,7 +253,9 @@ export function LinterPanel({ context }: { context: LintContext }) {
               <h2 id="criteria-title" className="text-lg font-semibold text-ink">
                 Eligibility criteria
               </h2>
-              <p className="mt-1 text-sm text-ink-soft">Paste inclusion or exclusion text.</p>
+              <p className="mt-1 text-sm text-ink-soft">
+                Paste the inclusion and exclusion sections of a draft protocol — one or both.
+              </p>
             </div>
             {engine === "model" ? (
               <GlassBadge tone="cobalt">
@@ -254,30 +267,61 @@ export function LinterPanel({ context }: { context: LintContext }) {
             )}
           </div>
 
-          <label htmlFor="criteria" className="sr-only">
-            Paste eligibility criteria
-          </label>
-          <GlassTextarea
-            id="criteria"
-            className="mt-4 min-h-64 lg:min-h-80"
-            value={text}
-            onChange={(e) => {
-              setText(e.target.value);
-              if (error) setError("");
-            }}
-            aria-invalid={error ? true : undefined}
-            aria-describedby={error ? errorId : undefined}
-          />
+          <div className="mt-4 grid gap-4 sm:grid-cols-2">
+            <div>
+              <label htmlFor="inclusion" className="text-[0.8rem] font-semibold text-ink-soft">
+                Inclusion criteria
+              </label>
+              <p className="text-xs text-ink-faint">Who the trial accepts.</p>
+              <GlassTextarea
+                id="inclusion"
+                className="mt-2 min-h-48 lg:min-h-56"
+                placeholder={"* Age 18 to 75 years\n* ECOG performance status 0-1"}
+                value={inclusion}
+                onChange={(e) => {
+                  setInclusion(e.target.value);
+                  if (error) setError("");
+                }}
+                aria-invalid={error ? true : undefined}
+                aria-describedby={error ? errorId : undefined}
+              />
+            </div>
+            <div>
+              <label htmlFor="exclusion" className="text-[0.8rem] font-semibold text-ink-soft">
+                Exclusion criteria
+              </label>
+              <p className="text-xs text-ink-faint">Who the trial turns away.</p>
+              <GlassTextarea
+                id="exclusion"
+                className="mt-2 min-h-48 lg:min-h-56"
+                placeholder={"* Known HIV infection\n* Brain metastases, treated or untreated"}
+                value={exclusion}
+                onChange={(e) => {
+                  setExclusion(e.target.value);
+                  if (error) setError("");
+                }}
+                aria-invalid={error ? true : undefined}
+                aria-describedby={error ? errorId : undefined}
+              />
+            </div>
+          </div>
 
           <div className="mt-4 flex flex-wrap items-center gap-3">
             <GlassButton onClick={runLint} disabled={pending}>
               {pending ? "Reading the criteria…" : "Run linter"}
             </GlassButton>
-            <GlassButton variant="ghost" onClick={() => setText("")} disabled={!text || pending}>
+            <GlassButton
+              variant="ghost"
+              onClick={() => {
+                setInclusion("");
+                setExclusion("");
+              }}
+              disabled={(!inclusion && !exclusion) || pending}
+            >
               Clear
             </GlassButton>
             <span className="ml-auto text-xs tabular-nums text-ink-faint">
-              {text.length.toLocaleString()} characters
+              {(inclusion.length + exclusion.length).toLocaleString()} characters
             </span>
           </div>
 
