@@ -108,7 +108,7 @@ export function ExclusionTable({ rows, isMock }: Props) {
 
       <div className="glass-inset mt-3 max-h-[36rem] overflow-auto">
         <table className="min-w-full text-left text-sm">
-          <thead className="sticky top-0 z-10 bg-white/90 text-xs uppercase tracking-[0.08em] text-ink-soft backdrop-blur-sm">
+          <thead className="sticky top-0 z-10 bg-sunken text-xs uppercase tracking-[0.08em] text-ink-soft">
             <tr>
               <th scope="col" className="px-4 py-3 font-semibold">Category</th>
               <th scope="col" className="px-4 py-3 font-semibold">Phase</th>

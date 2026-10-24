@@ -7,7 +7,6 @@ import { useEffect, useId, useState } from "react";
 import { ThresholdLogo } from "@/components/ThresholdLogo";
 import { controlTransition, focusRing } from "@/components/styles";
 import { glassButtonClass } from "@/components/ui/GlassButton";
-import { LiquidGlassPanel } from "@/components/ui/LiquidGlassPanel";
 import { ACCOUNTS_URL, LOGIN_URL } from "@/lib/accounts";
 import { useAccountSession } from "@/lib/useAccountSession";
 
@@ -23,15 +22,15 @@ function isActive(pathname: string, href: string) {
   return href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
 }
 
+// The current page gets a petrol underline, not a pill.
 const linkClass =
-  `rounded-full px-4 py-2 text-sm font-medium text-ink/70 hover:bg-white/55 hover:text-ink ${focusRing} ${controlTransition} ` +
-  "aria-[current=page]:bg-white/75 aria-[current=page]:font-semibold aria-[current=page]:text-ink " +
-  "aria-[current=page]:shadow-[inset_0_1px_2px_rgb(23_36_71/0.08),inset_0_0_0_1px_rgb(23_36_71/0.06),0_1px_0_rgb(255_255_255/0.9)]";
+  `rounded-control px-3 py-2 text-sm font-medium text-ink-soft hover:bg-sunken hover:text-ink ${focusRing} ${controlTransition} ` +
+  "aria-[current=page]:font-semibold aria-[current=page]:text-ink aria-[current=page]:shadow-[inset_0_-2px_0_var(--accent)]";
 
 /** Log in or Account, based on the accounts app's session cookie. */
 function AccountAction({ className = "", onNavigate }: { className?: string; onNavigate?: () => void }) {
   const signedIn = useAccountSession();
-  const cls = glassButtonClass("primary", "sm", `min-w-[5.5rem] ${className}`);
+  const cls = glassButtonClass("secondary", "sm", `min-w-[5.5rem] ${className}`);
 
   if (signedIn === null) {
     // Same footprint while the cookie is read, so the header never shifts.
@@ -65,13 +64,9 @@ export function AppHeader() {
   }, [open]);
 
   return (
-    <header className="pointer-events-none fixed inset-x-0 top-[var(--header-top)] z-50 px-3 sm:px-6">
-      <LiquidGlassPanel
-        level="float"
-        reflect
-        className="enter-nav pointer-events-auto mx-auto flex h-[var(--header-height)] max-w-[68rem] items-center justify-between gap-3 pl-2 pr-2"
-      >
-        <Link href="/" aria-label="Threshold home" className={`rounded-full px-1.5 py-1 ${focusRing}`}>
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-line bg-page">
+      <div className="mx-auto flex h-[var(--header-height)] max-w-6xl items-center justify-between gap-3 px-[var(--page-gutter)]">
+        <Link href="/" aria-label="Threshold home" className={`rounded-control px-1 py-1 ${focusRing}`}>
           <ThresholdLogo />
         </Link>
 
@@ -95,18 +90,13 @@ export function AppHeader() {
           aria-controls={menuId}
           aria-label={open ? "Close menu" : "Open menu"}
           onClick={() => setOpen((value) => !value)}
-          className={`grid size-11 place-items-center rounded-full text-ink hover:bg-white/60 md:hidden ${focusRing} ${controlTransition}`}
+          className={`grid size-11 place-items-center rounded-control text-ink hover:bg-sunken md:hidden ${focusRing} ${controlTransition}`}
         >
           <MenuIcon open={open} />
         </button>
-      </LiquidGlassPanel>
+      </div>
 
-      <LiquidGlassPanel
-        id={menuId}
-        hidden={!open}
-        level="panel"
-        className="pointer-events-auto mx-auto mt-2 max-w-[68rem] rounded-[1.5rem] bg-white/80 p-2 md:hidden"
-      >
+      <div id={menuId} hidden={!open} className="border-t border-line bg-surface px-[var(--page-gutter)] py-2 md:hidden">
         <nav aria-label="Mobile">
           <ul className="flex flex-col gap-0.5">
             {NAV_LINKS.map(({ href, label }) => (
@@ -126,7 +116,7 @@ export function AppHeader() {
             </li>
           </ul>
         </nav>
-      </LiquidGlassPanel>
+      </div>
     </header>
   );
 }

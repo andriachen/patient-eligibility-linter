@@ -4,36 +4,36 @@
    Threshold design tokens
    ============================================================ */
 :root {
-  /* Color */
-  --page: #f7f9ff;
-  --ink: #172447;
-  --ink-soft: #4a5675;
-  --ink-faint: #67718c;
-  --cobalt: #3565f5;
-  --cobalt-deep: #284fd8;
-  --periwinkle: #8ea6f7;
-  --ice: #dcebff;
-  --lavender: #e8e1fa;
-  --blush: #f8e5ef;
-  --rose: #d6457f;
-  --rose-deep: #b8306a;
-  --line: rgb(23 36 71 / 0.1);
-
-  /* Glass material */
-  --glass-float-fill: rgb(255 255 255 / 0.38);
-  --glass-panel-fill: rgb(255 255 255 / 0.62);
-  --glass-inset-fill: rgb(255 255 255 / 0.55);
-  --glass-edge: rgb(255 255 255 / 0.85);
-  --glass-edge-soft: rgb(255 255 255 / 0.5);
-  --glass-tint: rgb(232 225 250 / 0.28);
-  --glass-shadow-color: 53 101 245;
-  --glass-blur-float: 14px;
-  --glass-blur-panel: 20px;
+  /* Color: "Paper & Petrol". Warm paper, near-black ink, one petrol accent, brick for alerts.
+     The old names (cobalt, rose...) are kept so existing classes compile; read them as:
+     cobalt = accent, periwinkle = neutral rule/bar, ice = accent tint, lavender = sunken,
+     blush = alert tint, rose = alert. */
+  --page: #f7f5f0;
+  --surface: #ffffff;
+  --sunken: #f1eee8;
+  --ink: #1b1a17;
+  --ink-soft: #4a463f;
+  --ink-faint: #6b665c;
+  --line: #dcd7cc;
+  --line-strong: #8e887c;
+  --accent: #1f5c6b;
+  --accent-strong: #16454f;
+  --accent-tint: #e2edef;
+  --alert: #a23a22;
+  --alert-tint: #f6e6e0;
+  --cobalt: var(--accent);
+  --cobalt-deep: var(--accent-strong);
+  --periwinkle: var(--line-strong);
+  --ice: var(--accent-tint);
+  --lavender: var(--sunken);
+  --blush: var(--alert-tint);
+  --rose: var(--alert);
+  --rose-deep: var(--alert);
 
   /* Layout */
   --header-height: 3.5rem;
-  --header-top: 1rem;
-  --header-offset: 6.25rem;
+  --header-top: 0rem;
+  --header-offset: 4.75rem;
   --page-gutter: 1.25rem;
 
   /* Motion */
@@ -41,10 +41,11 @@
   --duration-reveal: 500ms;
   --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
 
-  /* Chart */
-  --chart-bar: var(--cobalt);
-  --chart-bar-soft: var(--periwinkle);
-  --chart-bar-highlight: var(--rose);
+  /* Chart: flat warm-grey bars, one petrol highlight */
+  --chart-bar: var(--line-strong);
+  --chart-bar-soft: var(--line-strong);
+  --chart-bar-highlight: var(--accent);
+  --chart-track: var(--sunken);
 }
 
 @media (min-width: 640px) {
@@ -56,7 +57,7 @@
 @media (min-width: 1024px) {
   :root {
     --page-gutter: clamp(2rem, 4vw, 4rem);
-    --header-offset: 6.75rem;
+    --header-offset: 5.25rem;
   }
 }
 
@@ -74,21 +75,30 @@
   --color-rose: var(--rose);
   --color-rose-deep: var(--rose-deep);
   --color-line: var(--line);
+  --color-surface: var(--surface);
+  --color-sunken: var(--sunken);
+  --color-line-strong: var(--line-strong);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-tint: var(--accent-tint);
+  --color-alert: var(--alert);
+  --color-alert-tint: var(--alert-tint);
 
-  --radius-control: 0.875rem;
-  --radius-panel: 1.75rem;
-  --radius-inset: 1.125rem;
+  --radius-control: 0.25rem;
+  --radius-panel: 0.375rem;
+  --radius-inset: 0.25rem;
 
   --text-display: clamp(2.6rem, 9.6vw, 3.75rem);
   --text-display--line-height: 0.98;
-  --text-display--letter-spacing: -0.04em;
+  --text-display--letter-spacing: -0.015em;
   --text-title: clamp(2rem, 1.4rem + 2.4vw, 3rem);
   --text-title--line-height: 1.05;
-  --text-title--letter-spacing: -0.032em;
+  --text-title--letter-spacing: -0.01em;
   --text-lead: clamp(1.0625rem, 0.95rem + 0.45vw, 1.3125rem);
   --text-lead--line-height: 1.55;
 
-  --font-sans: var(--font-manrope);
+  --font-sans: var(--font-public-sans);
+  --font-serif: var(--font-source-serif);
   --font-mono: var(--font-geist-mono);
 
   --ease-soft: var(--ease-out-soft);
@@ -101,174 +111,42 @@ html {
 body {
   background: var(--page);
   color: var(--ink);
-  font-family: var(--font-manrope), system-ui, sans-serif;
+  font-family: var(--font-public-sans), system-ui, sans-serif;
 }
 
 ::selection {
-  background: rgb(53 101 245 / 0.18);
+  background: rgb(31 92 107 / 0.16);
 }
 
 @layer components {
   /* ============================================================
-     Liquid glass. Three material levels share one structure:
-       .glass-float  navigation + small floating controls
+     Surfaces (class names kept from the old "glass" look; now flat):
+       .glass-float  header + small floating controls
        .glass-panel  main content surfaces
-       .glass-inset  inputs + nested surfaces (no backdrop blur)
+       .glass-inset  inputs + nested surfaces
      ============================================================ */
   .glass-float,
   .glass-panel {
     position: relative;
-    isolation: isolate;
   }
 
   .glass-float {
-    border-radius: 9999px;
-    background:
-      radial-gradient(120% 80% at 20% -20%, rgb(255 255 255 / 0.55), transparent 60%),
-      linear-gradient(165deg, var(--glass-float-fill), rgb(255 255 255 / 0.12) 55%, var(--glass-tint));
-    -webkit-backdrop-filter: blur(var(--glass-blur-float)) saturate(1.4);
-    backdrop-filter: blur(var(--glass-blur-float)) saturate(1.4);
-    box-shadow:
-      inset 0 1px 0.5px var(--glass-edge),
-      inset 0 -1px 0.5px rgb(23 36 71 / 0.08),
-      inset 0 10px 18px -14px rgb(255 255 255 / 0.95),
-      0 1px 2px rgb(23 36 71 / 0.05),
-      0 14px 36px -20px rgb(var(--glass-shadow-color) / 0.32);
+    border-radius: var(--radius-control);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    box-shadow: 0 1px 2px rgb(27 26 23 / 0.06);
   }
 
   .glass-panel {
     border-radius: var(--radius-panel);
-    background:
-      radial-gradient(110% 60% at 15% -10%, rgb(255 255 255 / 0.6), transparent 55%),
-      linear-gradient(170deg, var(--glass-panel-fill), rgb(255 255 255 / 0.46) 60%, var(--glass-tint));
-    -webkit-backdrop-filter: blur(var(--glass-blur-panel)) saturate(1.25);
-    backdrop-filter: blur(var(--glass-blur-panel)) saturate(1.25);
-    box-shadow:
-      inset 0 1px 0.5px var(--glass-edge),
-      inset 0 -1px 0.5px rgb(23 36 71 / 0.06),
-      inset 0 14px 24px -20px rgb(255 255 255 / 0.9),
-      0 1px 2px rgb(23 36 71 / 0.04),
-      0 22px 54px -30px rgb(var(--glass-shadow-color) / 0.3),
-      0 34px 80px -50px rgb(23 36 71 / 0.22);
-  }
-
-  /* Uneven reflective rim: bright upper-left, cool lower edges. */
-  .glass-float::before,
-  .glass-panel::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    border-radius: inherit;
-    padding: 1px;
-    background: conic-gradient(
-      from 215deg at 30% 20%,
-      var(--glass-edge),
-      rgb(255 255 255 / 0.28) 16%,
-      rgb(196 181 253 / 0.45) 32%,
-      rgb(255 255 255 / 0.08) 50%,
-      rgb(147 197 253 / 0.42) 68%,
-      var(--glass-edge-soft) 84%,
-      var(--glass-edge)
-    );
-    -webkit-mask:
-      linear-gradient(#000 0 0) content-box,
-      linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-    mask:
-      linear-gradient(#000 0 0) content-box,
-      linear-gradient(#000 0 0);
-    mask-composite: exclude;
-    pointer-events: none;
-  }
-
-  .glass-panel::before {
-    opacity: 0.75;
-  }
-
-  /* Pointer-following reflection; opt-in via data-reflect. */
-  .glass-float::after,
-  .glass-panel::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    border-radius: inherit;
-    background: radial-gradient(
-      14rem circle at var(--glass-x, 30%) var(--glass-y, 0%),
-      rgb(255 255 255 / 0.38),
-      transparent 70%
-    );
-    opacity: 0;
-    transition: opacity var(--duration-reveal) var(--ease-out-soft);
-    pointer-events: none;
-  }
-
-  @media (hover: hover) and (pointer: fine) {
-    .glass-float[data-reflect]:hover::after,
-    .glass-panel[data-reflect]:hover::after {
-      opacity: 1;
-    }
-  }
-
-  .glass-float > *,
-  .glass-panel > * {
-    position: relative;
-    z-index: 1;
+    background: var(--surface);
+    border: 1px solid var(--line);
   }
 
   .glass-inset {
     border-radius: var(--radius-inset);
-    background: var(--glass-inset-fill);
-    box-shadow:
-      inset 0 1px 2px rgb(23 36 71 / 0.07),
-      inset 0 0 0 1px rgb(23 36 71 / 0.07),
-      0 1px 0 rgb(255 255 255 / 0.85);
-  }
-
-  /* ---------- Ambient background ---------- */
-  .ambient-layer {
-    position: absolute;
-    inset: -8%;
-    transform: translate3d(
-      calc(var(--px, 0) * var(--depth, 4) * 1px),
-      calc(var(--py, 0) * var(--depth, 4) * 1px),
-      0
-    );
-    transition: transform 1.4s var(--ease-out-soft);
-  }
-
-  .ambient-blob {
-    position: absolute;
-    border-radius: 9999px;
-    will-change: transform;
-  }
-
-  .ambient-blob--ice {
-    left: -14vmax;
-    top: -20vmax;
-    width: 64vmax;
-    height: 64vmax;
-    background: radial-gradient(closest-side, rgb(220 235 255 / 0.95), rgb(220 235 255 / 0));
-    animation: ambient-drift-a 60s ease-in-out infinite alternate;
-  }
-
-  .ambient-blob--lavender {
-    right: -16vmax;
-    top: 2vmax;
-    width: 58vmax;
-    height: 58vmax;
-    background: radial-gradient(closest-side, rgb(232 225 250 / 0.95), rgb(232 225 250 / 0));
-    animation: ambient-drift-b 72s ease-in-out infinite alternate;
-  }
-
-  .ambient-blob--blush {
-    left: 16vmax;
-    bottom: -28vmax;
-    width: 64vmax;
-    height: 50vmax;
-    background: radial-gradient(closest-side, rgb(248 229 239 / 0.95), rgb(248 229 239 / 0));
-    animation: ambient-drift-c 84s ease-in-out infinite alternate;
+    background: var(--sunken);
+    box-shadow: inset 0 0 0 1px var(--line);
   }
 
   /* ---------- Entrance + reveal ---------- */
@@ -330,41 +208,12 @@ body {
   }
 }
 
-@keyframes ambient-drift-a {
-  to {
-    transform: translate3d(6vmax, 4vmax, 0) scale(1.06);
-  }
-}
-
-@keyframes ambient-drift-b {
-  to {
-    transform: translate3d(-5vmax, 6vmax, 0) scale(0.95);
-  }
-}
-
-@keyframes ambient-drift-c {
-  to {
-    transform: translate3d(-7vmax, -4vmax, 0) scale(1.05);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .enter-bg,
   .enter-nav,
   .enter-model,
-  .enter-up,
-  .ambient-blob {
+  .enter-up {
     animation: none;
-  }
-
-  .ambient-layer {
-    transform: none;
-    transition: none;
-  }
-
-  .glass-float::after,
-  .glass-panel::after {
-    display: none;
   }
 
   .reveal {

@@ -41,45 +41,32 @@ const EJ_LABELS = {
 } as const;
 type EjMeasure = keyof typeof EJ_LABELS;
 
-/** Light ice → cobalt → deep navy-blue. */
-const SCALE: [number, number, number][] = [
-  [214, 225, 255], // light, but clearly blue next to the grey no-data tiles
-  [159, 180, 248],
-  [53, 101, 245],
-  [35, 55, 158],
+/**
+ * Five equal-interval classes of one petrol hue. Only lightness changes, so the order
+ * still reads for colorblind viewers; ink text on the light three, white on the dark two.
+ */
+const CLASSES = [
+  { bg: "#e6f0f0", dark: false },
+  { bg: "#b9d5d8", dark: false },
+  { bg: "#7dafb8", dark: false },
+  { bg: "#3a7786", dark: true },
+  { bg: "#1b4f5c", dark: true },
 ];
 
-/** Position of value between the lowest and highest county, mapped onto SCALE. */
-function colorForValue(value: number, min: number, max: number): [number, number, number] {
-  const t = max > min ? Math.min(1, Math.max(0, (value - min) / (max - min))) : 0;
-  const scaled = t * (SCALE.length - 1);
-  const i = Math.min(SCALE.length - 2, Math.floor(scaled));
-  const f = scaled - i;
-  return [0, 1, 2].map((c) => Math.round(SCALE[i][c] + (SCALE[i + 1][c] - SCALE[i][c]) * f)) as [
-    number,
-    number,
-    number,
-  ];
-}
+const classFor = (value: number, min: number, max: number) =>
+  CLASSES[max > min ? Math.min(CLASSES.length - 1, Math.floor(((value - min) / (max - min)) * CLASSES.length)) : 0];
 
-function isDark([r, g, b]: [number, number, number]) {
-  const lin = (v: number) => {
-    const s = v / 255;
-    return s <= 0.03928 ? s / 12.92 : ((s + 0.055) / 1.055) ** 2.4;
-  };
-  return 0.2126 * lin(r) + 0.7152 * lin(g) + 0.0722 * lin(b) < 0.28;
-}
-
-const rgb = (c: [number, number, number]) => `rgb(${c[0]} ${c[1]} ${c[2]})`;
+/** Counties left off the scale are hatched, so they never read as the lightest class. */
+const NO_DATA_STYLE = {
+  backgroundColor: "#ece9e3",
+  backgroundImage: "repeating-linear-gradient(135deg, transparent 0 5px, #d6d1c6 5px 6px)",
+};
 
 /**
  * Counties with fewer recruiting trials than this are too small for a fair percentage:
  * at 6 trials (Plymouth) one trial moves the number by 17 points.
  */
 const MIN_TRIALS_FOR_PCT = 10;
-
-/** Tile color for counties left off the scale (too few trials for a percentage). */
-const NO_DATA: [number, number, number] = [236, 238, 243];
 
 const trialCount = (n: number) => (n === 0 ? "No trials" : `${n} trial${n === 1 ? "" : "s"}`);
 
@@ -194,14 +181,14 @@ export function CountyMapPanel({ counties, dataSource, defaultCategory = "hiv" }
             </div>
             <div className="w-full max-w-56">
               <p className="sr-only">
-                Color scale from {minVal}% (lightest) to {maxVal}% (darkest).
+                Five equal-interval classes from {minVal}% (lightest) to {maxVal}% (darkest); hatched counties
+                have too few trials.
               </p>
-              <div
-                className="h-2.5 rounded-full shadow-[inset_0_0_0_1px_rgb(23_36_71/0.08)]"
-                style={{
-                  background: `linear-gradient(90deg, ${SCALE.map((c) => rgb(c)).join(", ")})`,
-                }}
-              />
+              <div className="flex gap-px" aria-hidden>
+                {CLASSES.map((c) => (
+                  <span key={c.bg} className="h-3 flex-1 first:rounded-l-[2px] last:rounded-r-[2px]" style={{ backgroundColor: c.bg }} />
+                ))}
+              </div>
               <div className="mt-1.5 flex justify-between text-xs font-medium tabular-nums text-ink-soft">
                 <span>{minVal}%</span>
                 <span>{maxVal}%</span>
@@ -216,18 +203,20 @@ export function CountyMapPanel({ counties, dataSource, defaultCategory = "hiv" }
           >
             {counties.map((c, idx) => {
               const value = values[idx];
-              const color = value === null ? NO_DATA : colorForValue(value, minVal, maxVal);
-              const dark = isDark(color);
+              const cls = value === null ? null : classFor(value, minVal, maxVal);
+              const dark = cls?.dark ?? false;
               const selected = displayCounty?.county_fips === c.county_fips;
               return (
                 <button
                   key={c.county_fips}
                   type="button"
                   aria-pressed={selected}
-                  className={`flex min-h-16 flex-col justify-between rounded-xl px-3 py-2.5 text-left shadow-[inset_0_1px_0_rgb(255_255_255/0.45),0_6px_16px_-12px_rgb(23_36_71/0.5)] ${focusRing} ${controlTransition} ${
-                    selected ? "ring-2 ring-rose ring-offset-2 ring-offset-white/60" : "ring-1 ring-ink/[0.06] hover:ring-2 hover:ring-cobalt/50"
+                  className={`flex min-h-16 flex-col justify-between rounded-sm px-3 py-2.5 text-left ${focusRing} ${controlTransition} ${
+                    selected
+                      ? "ring-2 ring-ink ring-offset-2 ring-offset-surface"
+                      : `hover:ring-2 hover:ring-ink/40 ${cls ? "ring-1 ring-ink/10" : "border border-dashed border-line-strong"}`
                   } ${dark ? "text-white" : "text-ink"}`}
-                  style={{ backgroundColor: rgb(color) }}
+                  style={cls ? { backgroundColor: cls.bg } : NO_DATA_STYLE}
                   onMouseEnter={() => setHovered(c)}
                   onFocus={() => setHovered(c)}
                   onClick={() => setHovered(c)}
@@ -248,7 +237,7 @@ export function CountyMapPanel({ counties, dataSource, defaultCategory = "hiv" }
           </div>
           {metricMode === "trial_pct" && values.some((v) => v === null) ? (
             <p className="mt-3 text-xs text-ink-faint">
-              Grey counties have fewer than {MIN_TRIALS_FOR_PCT} recruiting trials, too few for a fair
+              Hatched counties have fewer than {MIN_TRIALS_FOR_PCT} recruiting trials, too few for a fair
               percentage.
             </p>
           ) : null}

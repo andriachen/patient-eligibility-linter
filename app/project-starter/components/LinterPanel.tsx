@@ -103,7 +103,7 @@ export function LinterPanel({ context }: { context: LintContext }) {
             <p
               id={errorId}
               role="alert"
-              className="mt-3 rounded-xl bg-blush/80 px-3.5 py-2.5 text-sm font-medium text-rose-deep ring-1 ring-rose/20"
+              className="mt-3 rounded-control bg-alert-tint px-3.5 py-2.5 text-sm font-medium text-alert ring-1 ring-alert/20"
             >
               {error}
             </p>

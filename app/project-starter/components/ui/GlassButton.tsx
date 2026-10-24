@@ -14,10 +14,10 @@ const SIZE: Record<GlassButtonSize, string> = {
 
 const VARIANT: Record<GlassButtonVariant, string> = {
   primary:
-    "bg-cobalt text-white shadow-[inset_0_1px_0_rgb(255_255_255/0.35),0_12px_28px_-14px_rgb(53_101_245/0.8)] hover:bg-cobalt-deep",
+    "bg-accent text-white hover:bg-accent-strong",
   secondary:
-    "bg-white/80 text-ink shadow-[inset_0_1px_0_rgb(255_255_255),0_8px_20px_-14px_rgb(23_36_71/0.45)] ring-1 ring-ink/10 hover:bg-white",
-  ghost: "text-ink-soft hover:bg-white/70 hover:text-ink",
+    "bg-surface text-ink ring-1 ring-line-strong hover:bg-sunken",
+  ghost: "text-ink-soft hover:bg-sunken hover:text-ink",
 };
 
 /** Class string for any element that should look like a glass button. */
@@ -27,7 +27,7 @@ export function glassButtonClass(
   className = "",
 ) {
   return (
-    `group inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full font-semibold ` +
+    `group inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-control font-semibold ` +
     `${SIZE[size]} ${VARIANT[variant]} ${focusRing} ${controlTransition} ` +
     "active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50 motion-reduce:active:scale-100 " +
     className

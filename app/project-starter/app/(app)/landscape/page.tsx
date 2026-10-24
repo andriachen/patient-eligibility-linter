@@ -40,14 +40,14 @@ export default function LandscapePage() {
         style={delay(140)}
       >
         <h2 className="sr-only">Headline metric</h2>
-        <p className="text-[clamp(4rem,3rem+4vw,6rem)] font-semibold leading-none tracking-[-0.045em] text-ink tabular-nums">
+        <p className="font-serif text-[clamp(4rem,3rem+4vw,6rem)] font-semibold leading-none tracking-[-0.02em] text-ink tabular-nums">
           {focus.pctExcluded}%
         </p>
         <div className="sm:border-l sm:border-line sm:pl-8">
           <p className="text-[clamp(1.25rem,1rem+0.8vw,1.625rem)] font-semibold leading-snug tracking-[-0.015em] text-ink">
             {headlineRest ?? (
               <>
-                of trials exclude <span className="text-rose-deep">{focus.label.toLowerCase()}</span>
+                of trials exclude <span className="text-accent">{focus.label.toLowerCase()}</span>
               </>
             )}
           </p>

@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist_Mono, Public_Sans, Source_Serif_4 } from "next/font/google";
 import Link from "next/link";
-import { HeartPulse, LogOut } from "lucide-react";
+import { LogOut } from "lucide-react";
 
+import { ThresholdLogo } from "@/components/logo";
 import { button } from "@/components/styles";
 import { getCurrentUser } from "@/lib/auth";
 import { webHref } from "@/lib/web";
@@ -10,9 +11,16 @@ import { webHref } from "@/lib/web";
 import { signOut } from "./login/actions";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Same fonts as the web app.
+const publicSans = Public_Sans({
+  variable: "--font-public-sans",
   subsets: ["latin"],
+});
+
+const sourceSerif = Source_Serif_4({
+  variable: "--font-source-serif",
+  subsets: ["latin"],
+  weight: ["400", "600"],
 });
 
 const geistMono = Geist_Mono({
@@ -28,13 +36,12 @@ export const metadata: Metadata = {
 export default async function RootLayout({ children }: LayoutProps<"/">) {
   const user = await getCurrentUser();
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+    <html lang="en" className={`${publicSans.variable} ${sourceSerif.variable} ${geistMono.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col font-sans">
-        <header className="border-b border-border bg-card">
+        <header className="border-b border-border bg-background">
           <div className="mx-auto flex max-w-3xl items-center justify-between gap-4 px-4 py-3">
-            <a href={webHref()} className="flex items-center gap-2 font-semibold">
-              <HeartPulse aria-hidden className="size-5 text-brand" />
-              Threshold
+            <a href={webHref()} aria-label="Threshold home" className="rounded">
+              <ThresholdLogo />
             </a>
             {user ? (
               <div className="flex min-w-0 items-center gap-3">
