@@ -37,7 +37,7 @@ EligibilityCriteria text ─> pipeline/extract (Anthropic tool-use) ┘
 | P2 LLM | `p2-extract` | `pipeline/extract/`, `data/cache/`, `exclusions.csv` |
 | P3 Frontend | `p3-app` | `app/` |
 | P4 PM | `p4-eval` | root files, `eval/`, `docs/` |
-| Accounts (Namik) | `namik` | `accounts/` (login + profile questions, Supabase) |
+| Accounts (Namik) | `namik` | `accounts/` (Next.js app: login + profile questions, Supabase, deployed on Vercel) |
 
 ## 4. Data contracts
 
@@ -81,7 +81,7 @@ MA county FIPS 25001–25027 (odd only), 14 counties — see README.
 | P2 extract | todo | other owner |
 | P3 app | todo | other owner |
 | P4 eval/docs | todo | other owner |
-| accounts/ | done (needs Supabase project) | optional email login + branching profile wizard; see accounts/README.md |
+| accounts/ | done | separate Next.js 16 app (not Streamlit): email login + branching profile wizard, saved to Supabase `profiles`; see accounts/README.md |
 
 ### P1 numbers (actual, from the run)
 - trials: **1170**
@@ -115,9 +115,10 @@ python -m pipeline.ingest.build_county       # -> county_metrics.csv, county_ej.
 
 ## 9. Open questions / blockers
 
-- **Accounts hook (P3):** add `accounts.render_sidebar()` and a "My profile" tab calling
-  `accounts.render_profile()` to `app/main.py` (snippet in `accounts/README.md`). Needs
-  `SUPABASE_URL` / `SUPABASE_ANON_KEY` in `.env` and `accounts/schema.sql` run once.
+- **Accounts is its own Next.js app** in `accounts/`, deployed separately on Vercel (root
+  directory `accounts`). It has its own `package.json` and `.env.local`
+  (`NEXT_PUBLIC_SUPABASE_URL` / `NEXT_PUBLIC_SUPABASE_ANON_KEY`). Nothing in `app/` needs
+  to change; link to its URL from the Streamlit app if wanted.
 
 - **EJ zip (blocker for county_ej.csv):** download the EJ block-group file from the
   MassGIS/EJ portal, unzip into `data/raw/ej/`, then rerun
