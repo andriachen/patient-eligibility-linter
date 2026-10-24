@@ -1,5 +1,6 @@
 import { LinterPanel } from "@/components/LinterPanel";
 import { PageHeader } from "@/components/ui/PageHeader";
+import { loadLintContext } from "@/lib/lintContext";
 
 export default function LinterPage() {
   return (
@@ -9,7 +10,7 @@ export default function LinterPage() {
         title="Criteria linter"
         description="Paste protocol language to flag restrictive exclusions and see alternatives to discuss with your protocol team."
       />
-      <LinterPanel />
+      <LinterPanel context={loadLintContext()} />
     </div>
   );
 }

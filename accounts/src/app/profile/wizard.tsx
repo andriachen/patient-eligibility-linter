@@ -5,6 +5,7 @@ import { CheckCircle2, Loader2, Pencil } from "lucide-react";
 
 import { button, card } from "@/components/styles";
 import { type Answers, PATIENT_ROLES, type Role, answerLabel, visibleQuestions } from "@/lib/questions";
+import { webHref } from "@/lib/web";
 import { type SavedProfile, advance, finalAnswers, initialState } from "@/lib/wizard";
 
 import { saveProfile } from "./actions";
@@ -116,10 +117,18 @@ export function ProfileWizard({ initial, preview = false }: { initial: SavedProf
             {preview ? "Done. In preview mode nothing is saved." : "Your profile is saved."}
           </p>
           <Summary answers={answers} />
-          <button onClick={() => setState((s) => ({ ...s, mode: "review" }))} className={`${button.secondary} mt-6`}>
-            <Pencil aria-hidden className="size-4" />
-            Edit answers
-          </button>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <button onClick={() => setState((s) => ({ ...s, mode: "review" }))} className={button.secondary}>
+              <Pencil aria-hidden className="size-4" />
+              Edit answers
+            </button>
+            <a href={webHref("/landscape")} className={button.secondary}>
+              Explore MA cancer trials
+            </a>
+            <a href={webHref("/linter")} className={button.ghost}>
+              Try the criteria linter
+            </a>
+          </div>
         </div>
       )}
     </div>
@@ -162,7 +171,8 @@ function Review({
             onChange={(e) => setAgreed(e.target.checked)}
             className="mt-0.5 size-4 shrink-0 accent-brand"
           />
-          I understand my answers are saved to my account and used to suggest trials. This isn&apos;t medical advice.
+          I understand my answers are saved to my account and may be used to match me with trials. This
+          isn&apos;t medical advice.
         </label>
       )}
       <button onClick={onSave} disabled={saving || (needsConsent && !agreed)} className={`${button.primary} mt-6`}>

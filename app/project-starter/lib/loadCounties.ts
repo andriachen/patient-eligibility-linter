@@ -20,6 +20,9 @@ export type CountyRecord = {
   county: string;
   county_fips: string;
   trialSites: number;
+  /** Distinct trials with at least one recruiting site in the county. */
+  trials: number;
+  /** Share of those trials with a restriction in each category (exclusions.csv). */
   trialsWithCategoryPct: Record<string, number>;
   places: PlacesMeasures;
   ej: EjMetrics;
@@ -56,9 +59,11 @@ function loadFromProcessed(): CountyRecord[] | null {
     return null;
   }
 
+  const exclusionsText = readProcessedText("exclusions.csv");
   const metrics = parseCsv(metricsText);
   const ejRows = ejText ? parseCsv(ejText) : [];
   const sites = sitesText ? parseCsv(sitesText) : [];
+  const exclusions = exclusionsText ? parseCsv(exclusionsText) : [];
 
   const byCounty = new Map<string, CountyRecord>();
 
@@ -71,6 +76,7 @@ function loadFromProcessed(): CountyRecord[] | null {
         county: row.county,
         county_fips: row.county_fips,
         trialSites: 0,
+        trials: 0,
         trialsWithCategoryPct: Object.fromEntries(
           CATEGORY_KEYS.map((c) => [c, 0]),
         ),
@@ -101,13 +107,39 @@ function loadFromProcessed(): CountyRecord[] | null {
   }
 
   const siteCounts = new Map<string, number>();
+  const trialsByCounty = new Map<string, Set<string>>();
   for (const row of sites) {
     const fips = row.county_fips;
     if (!fips) continue;
     siteCounts.set(fips, (siteCounts.get(fips) ?? 0) + 1);
+    if (row.nct_id) {
+      const trials = trialsByCounty.get(fips) ?? new Set<string>();
+      trials.add(row.nct_id);
+      trialsByCounty.set(fips, trials);
+    }
   }
+
+  const categoriesByTrial = new Map<string, Set<string>>();
+  for (const row of exclusions) {
+    if (!row.nct_id || !row.category) continue;
+    const categories = categoriesByTrial.get(row.nct_id) ?? new Set<string>();
+    categories.add(row.category);
+    categoriesByTrial.set(row.nct_id, categories);
+  }
+
   for (const rec of byCounty.values()) {
     rec.trialSites = siteCounts.get(rec.county_fips) ?? rec.trialSites;
+    // Percentages are of distinct trials, not site rows: a trial with three Boston
+    // sites still counts once for Suffolk.
+    const trials = trialsByCounty.get(rec.county_fips) ?? new Set<string>();
+    rec.trials = trials.size;
+    for (const category of CATEGORY_KEYS) {
+      let hits = 0;
+      for (const id of trials) {
+        if (categoriesByTrial.get(id)?.has(category)) hits++;
+      }
+      rec.trialsWithCategoryPct[category] = trials.size ? Math.round((1000 * hits) / trials.size) / 10 : 0;
+    }
   }
 
   const list = [...byCounty.values()];
@@ -119,8 +151,10 @@ export function loadCounties(): CountiesData {
   if (processed) {
     return { counties: processed, source: "processed" };
   }
+  // The mock file predates the `trials` field; treat each mock site as one trial.
+  const mock = (countiesMock as { counties: Omit<CountyRecord, "trials">[] }).counties;
   return {
-    counties: (countiesMock as { counties: CountyRecord[] }).counties,
+    counties: mock.map((c) => ({ ...c, trials: c.trialSites })),
     source: "mock",
   };
 }

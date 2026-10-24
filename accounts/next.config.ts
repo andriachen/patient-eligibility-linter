@@ -43,7 +43,8 @@ const nextConfig: NextConfig = {
       },
     },
   },
-  headers: async () => [{ source: "/(.*)", headers: securityHeaders }],
+  // "/:path*" also covers the bare /account page; "/(.*)" misses it under basePath.
+  headers: async () => [{ source: "/:path*", headers: securityHeaders }],
 };
 
 export default nextConfig;

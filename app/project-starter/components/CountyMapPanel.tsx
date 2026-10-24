@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, type CSSProperties } from "react";
+import { useState, type CSSProperties } from "react";
 
 import { controlTransition, focusRing } from "@/components/styles";
 import { DemoDataBadge } from "@/components/ui/GlassBadge";
@@ -13,6 +13,7 @@ import type { CountyRecord } from "@/lib/loadCounties";
 type Props = {
   counties: CountyRecord[];
   dataSource: "mock" | "processed";
+  defaultCategory?: string;
 };
 
 const delay = (ms: number) => ({ "--delay": `${ms}ms` }) as CSSProperties;
@@ -35,7 +36,7 @@ const PLACES_LABELS: Record<string, string> = {
 
 /** Light ice → cobalt → deep navy-blue. */
 const SCALE: [number, number, number][] = [
-  [238, 243, 255],
+  [214, 225, 255], // light, but clearly blue next to the grey no-data tiles
   [159, 180, 248],
   [53, 101, 245],
   [35, 55, 158],
@@ -64,40 +65,56 @@ function isDark([r, g, b]: [number, number, number]) {
 
 const rgb = (c: [number, number, number]) => `rgb(${c[0]} ${c[1]} ${c[2]})`;
 
-export function CountyMapPanel({ counties, dataSource }: Props) {
-  const [category, setCategory] = useState("diabetes");
+/**
+ * Counties with fewer recruiting trials than this are too small for a fair percentage:
+ * at 6 trials (Plymouth) one trial moves the number by 17 points.
+ */
+const MIN_TRIALS_FOR_PCT = 10;
+
+/** Tile color for counties left off the scale (too few trials for a percentage). */
+const NO_DATA: [number, number, number] = [236, 238, 243];
+
+const trialCount = (n: number) => (n === 0 ? "No trials" : `${n} trial${n === 1 ? "" : "s"}`);
+
+/** Category label for mid-sentence use; keeps acronyms like HIV and BMI in capitals. */
+const inSentence = (key: string) => {
+  const label = categoryLabel(key);
+  return label === label.toUpperCase() ? label : label.toLowerCase();
+};
+
+export function CountyMapPanel({ counties, dataSource, defaultCategory = "hiv" }: Props) {
+  const [category, setCategory] = useState(
+    CATEGORY_KEYS.includes(defaultCategory) ? defaultCategory : CATEGORY_KEYS[0],
+  );
   const [placesMeasure, setPlacesMeasure] = useState("diabetes");
   const [metricMode, setMetricMode] = useState<MetricMode>("trial_pct");
   const [hovered, setHovered] = useState<CountyRecord | null>(null);
 
-  const values = useMemo(() => {
-    return counties.map((c) => {
-      if (metricMode === "trial_pct") {
-        return c.trialsWithCategoryPct[category] ?? 0;
-      }
-      if (metricMode === "places") {
-        return c.places[placesMeasure as keyof typeof c.places] ?? 0;
-      }
-      return c.ej.ej_minority_pct;
-    });
-  }, [counties, category, metricMode, placesMeasure]);
+  /** null = no fair value for this county (fewer than MIN_TRIALS_FOR_PCT trials). */
+  const valueFor = (c: CountyRecord): number | null => {
+    if (metricMode === "trial_pct") {
+      return c.trials < MIN_TRIALS_FOR_PCT ? null : (c.trialsWithCategoryPct[category] ?? 0);
+    }
+    if (metricMode === "places") {
+      return c.places[placesMeasure as keyof typeof c.places] ?? 0;
+    }
+    return c.ej.ej_minority_pct;
+  };
 
-  const maxVal = values.length ? Math.max(...values) : 0;
-  const minVal = values.length ? Math.min(...values) : 0;
+  const values = counties.map(valueFor);
 
-  const displayCounty = hovered ?? counties[0];
+  const scaled = values.filter((v): v is number => v !== null);
+  const maxVal = scaled.length ? Math.max(...scaled) : 0;
+  const minVal = scaled.length ? Math.min(...scaled) : 0;
 
-  const hoverValue = displayCounty
-    ? metricMode === "trial_pct"
-      ? (displayCounty.trialsWithCategoryPct[category] ?? 0)
-      : metricMode === "places"
-        ? displayCounty.places[placesMeasure as keyof typeof displayCounty.places]
-        : displayCounty.ej.ej_minority_pct
-    : 0;
+  // Until someone picks a county, show the one with the most trials (Suffolk).
+  const displayCounty =
+    hovered ?? counties.reduce<CountyRecord | undefined>((best, c) => (!best || c.trials > best.trials ? c : best), undefined);
+  const hoverValue = displayCounty ? valueFor(displayCounty) : null;
 
   const metricLabel =
     metricMode === "trial_pct"
-      ? `Trials excluding ${categoryLabel(category).toLowerCase()} (%)`
+      ? `Trials restricting ${inSentence(category)} (%)`
       : metricMode === "places"
         ? `PLACES: ${PLACES_LABELS[placesMeasure].toLowerCase()} (%)`
         : "EJ: minority % (EJ areas)";
@@ -180,7 +197,7 @@ export function CountyMapPanel({ counties, dataSource }: Props) {
           >
             {counties.map((c, idx) => {
               const value = values[idx];
-              const color = colorForValue(value, minVal, maxVal);
+              const color = value === null ? NO_DATA : colorForValue(value, minVal, maxVal);
               const dark = isDark(color);
               const selected = displayCounty?.county_fips === c.county_fips;
               return (
@@ -196,14 +213,26 @@ export function CountyMapPanel({ counties, dataSource }: Props) {
                   onFocus={() => setHovered(c)}
                   onClick={() => setHovered(c)}
                 >
-                  <span className="text-sm font-semibold">{c.county}</span>
-                  <span className={`text-xs tabular-nums ${dark ? "text-white/85" : "text-ink-soft"}`}>
-                    {value}%
+                  <span className={`text-sm font-semibold ${value === null ? "text-ink-soft" : ""}`}>
+                    {c.county}
+                  </span>
+                  <span
+                    className={`text-xs tabular-nums ${
+                      value === null ? "text-ink-soft" : dark ? "text-white/85" : "text-ink-soft"
+                    }`}
+                  >
+                    {value === null ? trialCount(c.trials) : `${value}%`}
                   </span>
                 </button>
               );
             })}
           </div>
+          {metricMode === "trial_pct" && values.some((v) => v === null) ? (
+            <p className="mt-3 text-xs text-ink-faint">
+              Grey counties have fewer than {MIN_TRIALS_FOR_PCT} recruiting trials, too few for a fair
+              percentage.
+            </p>
+          ) : null}
         </LiquidGlassPanel>
 
         <LiquidGlassPanel
@@ -219,11 +248,20 @@ export function CountyMapPanel({ counties, dataSource }: Props) {
             </h2>
             {displayCounty ? (
               <dl className="mt-4 divide-y divide-line text-sm">
-                <DetailRow label="Selected metric" value={`${hoverValue}%`} strong />
+                <DetailRow
+                  label="Selected metric"
+                  value={hoverValue === null ? "Too few trials" : `${hoverValue}%`}
+                  strong
+                />
+                <DetailRow label="Trials recruiting here" value={displayCounty.trials} />
                 <DetailRow label="Trial sites" value={displayCounty.trialSites} />
                 <DetailRow
-                  label={`Trials excluding ${categoryLabel(category).toLowerCase()}`}
-                  value={`${displayCounty.trialsWithCategoryPct[category]}%`}
+                  label={`Trials restricting ${inSentence(category)}`}
+                  value={
+                    displayCounty.trials === 0
+                      ? "None"
+                      : `${displayCounty.trialsWithCategoryPct[category]}% of ${displayCounty.trials}`
+                  }
                 />
                 <DetailRow label="PLACES diabetes" value={`${displayCounty.places.diabetes}%`} />
                 <DetailRow label="EJ minority %" value={`${displayCounty.ej.ej_minority_pct}%`} />

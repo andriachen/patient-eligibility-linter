@@ -5,6 +5,7 @@ import { HeartPulse, LogOut } from "lucide-react";
 
 import { button } from "@/components/styles";
 import { getCurrentUser } from "@/lib/auth";
+import { webHref } from "@/lib/web";
 
 import { signOut } from "./login/actions";
 import "./globals.css";
@@ -20,8 +21,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: { default: "Trial Linter", template: "%s · Trial Linter" },
-  description: "Tell us about yourself so we can find Massachusetts cancer trials that fit.",
+  title: { default: "StageShare account", template: "%s · StageShare" },
+  description: "Create a StageShare account and save your trial profile.",
 };
 
 export default async function RootLayout({ children }: LayoutProps<"/">) {
@@ -31,10 +32,10 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
       <body className="flex min-h-full flex-col font-sans">
         <header className="border-b border-border bg-card">
           <div className="mx-auto flex max-w-3xl items-center justify-between gap-4 px-4 py-3">
-            <Link href="/" className="flex items-center gap-2 font-semibold">
+            <a href={webHref()} className="flex items-center gap-2 font-semibold">
               <HeartPulse aria-hidden className="size-5 text-brand" />
-              Trial Linter
-            </Link>
+              StageShare
+            </a>
             {user ? (
               <div className="flex min-w-0 items-center gap-3">
                 <span className="truncate text-sm text-muted">{user.email}</span>
