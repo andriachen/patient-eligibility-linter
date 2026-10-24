@@ -7,14 +7,16 @@ import path from "path";
 
 import type { EnrichedTrial } from "./patientVector";
 
-const PROCESSED_PATH = path.join(
-  process.cwd(),
-  "..",
-  "..",
-  "data",
-  "processed",
-  "trials_enriched.json",
-);
+// The build-time copy (scripts/copy-data.mjs) puts the file INSIDE the app so
+// Vercel bundles it. Prefer that; fall back to the repo-root path for local dev
+// if the copy hasn't run.
+function resolveDataPath(file: string): string {
+  const inApp = path.join(process.cwd(), "data", "processed", file);
+  if (fs.existsSync(inApp)) return inApp;
+  return path.join(process.cwd(), "..", "..", "data", "processed", file);
+}
+
+const PROCESSED_PATH = resolveDataPath("trials_enriched.json");
 
 export type TrialsIndex = {
   trials: EnrichedTrial[];

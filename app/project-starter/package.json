@@ -3,8 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "copy-data": "node scripts/copy-data.mjs",
+    "predev": "node scripts/copy-data.mjs",
     "dev": "next dev -p 3010",
     "dev:clean": "rm -rf .next && next dev -p 3010",
+    "prebuild": "node scripts/copy-data.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
