@@ -7,7 +7,7 @@
       "absolute": true,
       "section": "inclusion",
       "source_text": "Eastern Cooperative Oncology Group (ECOG) Performance Status \u22642.",
-      "threshold": "ECOG \u2264 2"
+      "threshold": "ECOG \u22642"
     },
     {
       "category": "smoking",
@@ -21,13 +21,13 @@
       "absolute": false,
       "section": "exclusion",
       "source_text": "Clinically significant cardiovascular disease (e.g., uncontrolled or any New York Heart Association class 3 or 4 congestive heart failure, uncontrolled or unstable chest pain, history of heart attack(s), or stroke within 6 months prior to consent, uncontrolled high blood pressure, or clinically significant arrhythmias not controlled by medication).",
-      "threshold": "NYHA class 3 or 4"
+      "threshold": "NYHA class 3 or 4; history of heart attack within 6 months prior to consent"
     },
     {
       "category": "cardiac",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "QT interval corrected by Fridericia's formula (QTcF) \u0382470 msec for both men and women on Screening electrocardiogram(s) (ECG).",
+      "source_text": "QT interval corrected by Fridericia's formula (QTcF) &gt;470 msec for both men and women on Screening electrocardiogram(s) (ECG).",
       "threshold": "QTcF > 470 msec"
     },
     {
@@ -42,6 +42,13 @@
       "absolute": true,
       "section": "exclusion",
       "source_text": "Known human immunodeficiency virus (HIV).",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Both females of child-bearing potential and males must agree to use acceptable contraceptive methods for the duration of time in the study and to continue to use acceptable contraceptive methods for 90 days after last STX-0712 infusion.",
       "threshold": null
     }
   ]

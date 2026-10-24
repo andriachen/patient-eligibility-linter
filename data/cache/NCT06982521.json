@@ -4,17 +4,17 @@
   "exclusions": [
     {
       "category": "performance_status",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
       "source_text": "Patient has ECOG performance status of 0-1",
       "threshold": "ECOG 0-1"
     },
     {
       "category": "diabetes",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Type 1 diabetes, or Type 2 diabetes requiring antihyperglycemic medication, or fasting plasma glucose \u2265 140 mg/dL (7.8 mmol/L), or glycosylated hemoglobin (HbA1c) \u22657.0% (\u2265 53 mmol/mol).",
-      "threshold": "HbA1c \u22657.0% or FPG \u2265140 mg/dL"
+      "threshold": "HbA1c \u22657.0%"
     },
     {
       "category": "cardiac",
@@ -35,13 +35,6 @@
       "absolute": false,
       "section": "exclusion",
       "source_text": "Known active uncontrolled or symptomatic CNS metastases associated with progressive neurological symptoms or requiring ongoing corticosteroids or anticonvulsants for symptomatic control",
-      "threshold": null
-    },
-    {
-      "category": "pregnancy",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Pre-menopausal (and peri-menopausal) women can be enrolled if amenable to treatment with a gonadotropin-releasing hormone (GnRH) agonist.",
       "threshold": null
     }
   ]

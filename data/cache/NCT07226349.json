@@ -4,7 +4,7 @@
   "exclusions": [
     {
       "category": "performance_status",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "Participants must have a stable Eastern Cooperative Oncology Group (ECOG) Performance Status of 0 or 1.",
       "threshold": "ECOG 0 or 1"

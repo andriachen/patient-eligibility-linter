@@ -99,6 +99,40 @@ def test_dedupe_all_conditional_keeps_first():
     assert out[0]["source_text"] == "clinically significant arrhythmia"
 
 
+def test_bare_adult_floor_detection():
+    from pipeline.extract.logic import is_bare_adult_floor
+
+    # bare floors -> dropped
+    assert is_bare_adult_floor("Age >= 18 years")
+    assert is_bare_adult_floor("18 years of age or older")
+    assert is_bare_adult_floor("at least 18 years of age")
+    assert is_bare_adult_floor("Participants 18 years of age or older")
+    # real restrictions -> kept
+    assert not is_bare_adult_floor("<= 75 years")
+    assert not is_bare_adult_floor("age 40-80 years")
+    assert not is_bare_adult_floor(">= 21 years")
+    assert not is_bare_adult_floor("early onset CRC (<55 years old)")
+    assert not is_bare_adult_floor("")
+
+
+def test_drop_noise_removes_bare_age_only():
+    from pipeline.extract.logic import drop_noise
+
+    recs = [
+        {"category": "age", "source_text": "Age >= 18 years", "absolute": True,
+         "section": "inclusion", "threshold": None},
+        {"category": "age", "source_text": "<= 75 years", "absolute": True,
+         "section": "inclusion", "threshold": "<=75"},
+        {"category": "renal", "source_text": "CrCl < 60", "absolute": True,
+         "section": "exclusion", "threshold": "CrCl<60"},
+    ]
+    out = drop_noise(recs)
+    cats_quotes = [(r["category"], r["source_text"]) for r in out]
+    assert ("age", "Age >= 18 years") not in cats_quotes  # dropped
+    assert ("age", "<= 75 years") in cats_quotes  # kept
+    assert ("renal", "CrCl < 60") in cats_quotes  # untouched
+
+
 def test_tool_schema_enum_matches_categories():
     enum = EXTRACT_TOOL["input_schema"]["properties"]["exclusions"]["items"][
         "properties"

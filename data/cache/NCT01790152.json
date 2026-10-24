@@ -3,32 +3,32 @@
   "model": "claude-haiku-5-5",
   "exclusions": [
     {
-      "category": "prior_malignancy",
+      "category": "cardiac",
       "absolute": false,
       "section": "inclusion",
-      "source_text": "Must not have been diagnosed with any subsequent malignancy that required additional cardiotoxic therapies (i.e., radiotherapy to the chest \\[also includes fields directed towards the neck, upper abdomen, or spine\\], or additional anthracyclines or anthraquinones); patients with history of subsequent malignancy that did not require such therapies remain eligible",
-      "threshold": null
+      "source_text": "Based on echocardiography, must have either left ventricular fractional shortening =\\< 28.0% or ejection fraction =\\< 50.0% on at least two occasions",
+      "threshold": "fractional shortening <= 28.0% or ejection fraction <= 50.0%"
     },
     {
       "category": "cardiac",
       "absolute": false,
       "section": "inclusion",
       "source_text": "No evidence of poor or low cardiac function at time of initial osteosarcoma diagnosis",
-      "threshold": "shortening fraction >= 28% by echocardiogram or radionuclide ejection fraction >= 50%"
-    },
-    {
-      "category": "cardiac",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Cannot have a known history of congenital heart disease (patent foramen ovale remain eligible)",
       "threshold": null
     },
     {
-      "category": "pregnancy",
+      "category": "prior_malignancy",
       "absolute": false,
       "section": "inclusion",
-      "source_text": "No exposure to DRZ at any point in time",
+      "source_text": "Must not have been diagnosed with any subsequent malignancy that required additional cardiotoxic therapies (i.e., radiotherapy to the chest \\[also includes fields directed towards the neck, upper abdomen, or spine\\], or additional anthracyclines or anthraquinones)",
       "threshold": null
+    },
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "< 31 years of age at time of initial osteosarcoma diagnosis",
+      "threshold": "age < 31 years"
     }
   ]
 }

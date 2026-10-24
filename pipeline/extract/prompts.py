@@ -32,7 +32,8 @@ exclusion section. Use ONLY these 13 categories (ignore anything else):
 - diabetes: diabetes excluded, uncontrolled diabetes, HbA1c cap
 - bmi: BMI or body weight cap
 - smoking: current smoking / tobacco / nicotine use excluded
-- age: maximum age cap, or minimum age above 18
+- age: a MAXIMUM age cap (e.g. "<= 75 years"), or a minimum age STRICTLY ABOVE 18 \
+(e.g. ">= 21 years"). A plain adult floor of 18 is NOT a restriction.
 - renal: creatinine, CrCl, or eGFR threshold; kidney disease
 - hepatic: bilirubin, AST/ALT threshold; liver disease
 - cardiac: NYHA class, recent MI, LVEF or QTc threshold
@@ -64,8 +65,14 @@ CRITICAL — do not force categories:
   - performance_status: must mention ECOG or Karnofsky.
   - language: must mention speaking/reading a language (e.g. English).
   - pregnancy: must mention pregnant, breastfeeding, lactating, or nursing.
-  - age: a maximum age cap, or a minimum age ABOVE 18. A plain minimum of 18 is NOT
-    a restriction and must NOT be emitted.
+  - age: emit ONLY for (a) a maximum age cap, or (b) a minimum age STRICTLY GREATER
+    than 18. A standard adult minimum of 18 is NOT a restriction — do NOT emit it.
+    Specifically, DO NOT emit age for any of these (they all mean "adults only"):
+      "Age >= 18 years", "18 years of age or older", "at least 18 years of age",
+      "18 years or older", ">= 18 years old", "age 18 and over".
+    DO emit age for: "<= 75 years", "age 40-80", ">= 21 years", "< 30 years at
+    diagnosis", "under 65", or any upper bound. When unsure whether a minimum is
+    above 18, do not emit.
 
 Rules:
 - Record a criterion only if it actually limits enrollment.
