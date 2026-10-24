@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { StageShareLogo } from "@/components/StageShareLogo";
+import { ACCOUNTS_URL } from "@/lib/accounts";
 
 const links = [
   { href: "/", label: "Home" },
@@ -43,7 +44,7 @@ export function SiteNav() {
           })}
           {/* Separate app (accounts/), so a plain <a>, not <Link>. */}
           <a
-            href="/account"
+            href={ACCOUNTS_URL}
             className="rounded-md px-3 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100"
           >
             Account

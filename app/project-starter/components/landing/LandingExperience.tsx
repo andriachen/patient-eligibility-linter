@@ -43,12 +43,31 @@ function BackgroundCopy() {
       className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
       aria-hidden
     >
-      <p className="absolute left-[8%] top-[22%] max-w-xs text-4xl font-bold leading-tight text-blue-800/60 sm:text-5xl">
-        Fair eligibility for every community
-      </p>
-      <p className="absolute bottom-[38%] right-[6%] max-w-sm text-right text-3xl font-bold text-pink-700/55 sm:text-4xl">
-        Massachusetts cancer trials, mapped with care
-      </p>
+      <div className="absolute left-[6%] top-[20%] max-w-md">
+        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-blue-900/70">
+          For every patient
+        </p>
+        <p className="font-display text-5xl leading-[0.95] text-blue-950 sm:text-7xl">
+          Fair{" "}
+          <span className="bg-gradient-to-r from-blue-600 to-pink-500 bg-clip-text italic text-transparent">
+            eligibility
+          </span>
+          <br />
+          for every community.
+        </p>
+      </div>
+      <div className="absolute bottom-[34%] right-[6%] max-w-sm text-right">
+        <p className="font-display text-4xl leading-[1] text-pink-900 sm:text-6xl">
+          Cancer trials,
+          <br />
+          <span className="bg-gradient-to-r from-pink-500 to-blue-600 bg-clip-text italic text-transparent">
+            mapped with care.
+          </span>
+        </p>
+        <p className="mt-3 text-xs font-semibold uppercase tracking-[0.3em] text-pink-900/70">
+          Massachusetts
+        </p>
+      </div>
     </div>
   );
 }
@@ -57,7 +76,7 @@ function TabPanel({ tab }: { tab: TabId }) {
   if (tab === "about") {
     return (
       <>
-        <h2 className="text-lg font-semibold text-slate-800">Why StageShare</h2>
+        <h2 className="font-display text-2xl text-slate-900">Why StageShare</h2>
         <p className="mt-2 text-sm leading-relaxed text-slate-700/95">
           Many trials exclude people with diabetes, BMI limits, language needs, and
           other criteria that land unevenly across Massachusetts counties. We connect{" "}
@@ -73,7 +92,7 @@ function TabPanel({ tab }: { tab: TabId }) {
   if (tab === "tools") {
     return (
       <>
-        <h2 className="text-lg font-semibold text-slate-800">Three views</h2>
+        <h2 className="font-display text-2xl text-slate-900">Three views</h2>
         <ul className="mt-3 space-y-3 text-sm text-slate-700/95">
           <li>
             <Link href="/landscape" className="font-semibold text-brand hover:underline">
@@ -101,10 +120,10 @@ function TabPanel({ tab }: { tab: TabId }) {
 
   return (
     <>
-      <h2 className="text-lg font-semibold text-slate-800">Jump in</h2>
+      <h2 className="font-display text-2xl text-slate-900">Jump in</h2>
       <p className="mt-2 text-sm text-slate-700/95">
-        Drag the scene above to rotate · scroll or pinch to zoom. Public data only;
-        suggestions are for protocol teams to review.
+        Drag the scene above to rotate it. Public data only; suggestions are for
+        protocol teams to review.
       </p>
       <div className="mt-4 flex flex-wrap gap-2">
         <Link href="/landscape" className={button.primary}>
@@ -142,12 +161,7 @@ export function LandingExperience() {
           <Suspense fallback={<SceneFallback />}>
             <LandingModel />
           </Suspense>
-          <OrbitControls
-            enablePan={false}
-            autoRotate={false}
-            minDistance={3.2}
-            maxDistance={11}
-          />
+          <OrbitControls enablePan={false} enableZoom={false} autoRotate={false} />
         </Canvas>
       </div>
 
