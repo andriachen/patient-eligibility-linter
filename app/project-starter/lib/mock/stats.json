@@ -1,0 +1,19 @@
+{
+  "totalTrials": 50,
+  "defaultCategory": "diabetes",
+  "categories": [
+    { "category": "diabetes", "label": "Diabetes", "pctExcluded": 36, "trialCount": 18 },
+    { "category": "bmi", "label": "BMI", "pctExcluded": 28, "trialCount": 14 },
+    { "category": "smoking", "label": "Smoking", "pctExcluded": 24, "trialCount": 12 },
+    { "category": "age", "label": "Age", "pctExcluded": 22, "trialCount": 11 },
+    { "category": "renal", "label": "Renal", "pctExcluded": 18, "trialCount": 9 },
+    { "category": "hepatic", "label": "Hepatic", "pctExcluded": 16, "trialCount": 8 },
+    { "category": "cardiac", "label": "Cardiac", "pctExcluded": 14, "trialCount": 7 },
+    { "category": "hiv", "label": "HIV", "pctExcluded": 10, "trialCount": 5 },
+    { "category": "brain_mets", "label": "Brain metastases", "pctExcluded": 12, "trialCount": 6 },
+    { "category": "prior_malignancy", "label": "Prior malignancy", "pctExcluded": 20, "trialCount": 10 },
+    { "category": "performance_status", "label": "Performance status", "pctExcluded": 26, "trialCount": 13 },
+    { "category": "language", "label": "Language", "pctExcluded": 8, "trialCount": 4 },
+    { "category": "pregnancy", "label": "Pregnancy", "pctExcluded": 32, "trialCount": 16 }
+  ]
+}
