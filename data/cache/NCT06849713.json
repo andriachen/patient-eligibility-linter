@@ -3,45 +3,73 @@
   "model": "claude-haiku-5-5",
   "exclusions": [
     {
-      "category": "age",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Age \u226518 years.",
-      "threshold": null
-    },
-    {
       "category": "performance_status",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
       "source_text": "ECOG performance status of 0, 1 or 2.",
-      "threshold": "ECOG 0, 1 or 2"
+      "threshold": "ECOG 0-2"
     },
     {
       "category": "renal",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
       "source_text": "CrCl or GFR \u226530 mL/min as estimated by the Cockcroft-Gault equation, the CKD-EPI equation, or as measured by 24-hour urine collection",
-      "threshold": "CrCl or GFR \u226530 mL/min"
+      "threshold": "CrCl or GFR >= 30 mL/min"
     },
     {
       "category": "hepatic",
       "absolute": false,
       "section": "inclusion",
       "source_text": "total bilirubin \u22642 x institutional upper limit of normal (ULN), or \u22643 x institutional ULN if due to Gilbert's syndrome, or with PI approval if clearly due to disease under study",
-      "threshold": "total bilirubin \u22642 x ULN"
+      "threshold": "total bilirubin <= 2 x ULN"
     },
     {
       "category": "hepatic",
-      "absolute": true,
+      "absolute": false,
       "section": "inclusion",
       "source_text": "AST(SGOT)/ALT(SGPT) \u22642.5 x \u00d7 institutional ULN",
-      "threshold": "AST/ALT \u22642.5 x ULN"
+      "threshold": "AST/ALT <= 2.5 x ULN"
     },
     {
       "category": "pregnancy",
       "absolute": false,
       "section": "inclusion",
       "source_text": "For females of childbearing potential, a serum pregnancy test must be negative within screening period.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Congestive heart failure, New York Heart Association III/IV.",
+      "threshold": "NYHA III/IV"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "myocardial infarction within 6 months before screening.",
+      "threshold": "MI within 6 months"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Heart rate-corrected QT interval \\> 480 milliseconds based on Fridericia's formula corrected for bundle branch block as appropriate.",
+      "threshold": "QTcF > 480 ms"
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "History of HIV infection or active hepatitis B (chronic or acute) or hepatitis C infection.",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Known central nervous system involvement with CLL or SLL.",
       "threshold": null
     },
     {
@@ -52,60 +80,11 @@
       "threshold": "within 2 years"
     },
     {
-      "category": "brain_mets",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Known central nervous system involvement with CLL or SLL.",
-      "threshold": null
-    },
-    {
-      "category": "cardiac",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Congestive heart failure, New York Heart Association III/IV.",
-      "threshold": "NYHA III/IV"
-    },
-    {
-      "category": "cardiac",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "myocardial infarction within 6 months before screening.",
-      "threshold": "within 6 months"
-    },
-    {
-      "category": "cardiac",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Heart rate-corrected QT interval \\> 480 milliseconds based on Fridericia's formula corrected for bundle branch block as appropriate.",
-      "threshold": "QTc > 480 ms"
-    },
-    {
-      "category": "hiv",
+      "category": "smoking",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "History of HIV infection or active hepatitis B (chronic or acute) or hepatitis C infection.",
+      "source_text": "Known psychiatric illness or social situation that would interfere with study adherence.",
       "threshold": null
-    },
-    {
-      "category": "pregnancy",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Pregnant women are excluded from this study given potential for teratogenic or abortifacient effects.",
-      "threshold": null
-    },
-    {
-      "category": "pregnancy",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "breastfeeding should be discontinued prior to the first dose of study drug if the mother is treated.",
-      "threshold": null
-    },
-    {
-      "category": "cardiac",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Known CNS hemorrhage or stroke within 6 months of the study.",
-      "threshold": "within 6 months"
     }
   ]
 }

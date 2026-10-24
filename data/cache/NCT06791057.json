@@ -4,14 +4,14 @@
   "exclusions": [
     {
       "category": "performance_status",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "Functioning independently per an Eastern Cooperative Oncology Group Performance Status \u22642",
       "threshold": "ECOG \u22642"
     },
     {
       "category": "language",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "Ability to read and respond to questions in English or Spanish",
       "threshold": null

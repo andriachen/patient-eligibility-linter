@@ -18,7 +18,7 @@
     },
     {
       "category": "brain_mets",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Central nervous system metastases that are untreated or symptomatic, or require radiation, surgery, or continued steroid therapy to control symptoms within 14 days of study entry.",
       "threshold": null
@@ -46,7 +46,7 @@
     },
     {
       "category": "cardiac",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "History of myocardial infarction within 6 months of study entry.",
       "threshold": "within 6 months"
@@ -62,14 +62,14 @@
       "category": "hiv",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Patients with known infectious diseases:",
+      "source_text": "Positive test for hepatitis C ribonucleic acid (HCV) RNA).",
       "threshold": null
     },
     {
       "category": "pregnancy",
       "absolute": true,
       "section": "exclusion",
-      "source_text": "Pregnant or breastfeeding patients;",
+      "source_text": "Pregnant or breastfeeding patients; patients of childbearing potential must use highly effective contraception methods prior to study entry, for the duration of study participation, and for 6 months after the last dose of MCLA-158.",
       "threshold": null
     }
   ]

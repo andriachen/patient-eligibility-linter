@@ -10,18 +10,11 @@
       "threshold": "ECOG 0 to 1"
     },
     {
-      "category": "age",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Age \u2265 18yrs old ( \u2265 19 years old for patients in South Korea)",
-      "threshold": "age >= 19 in South Korea"
-    },
-    {
       "category": "prior_malignancy",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "Active second malignancy.",
-      "threshold": null
+      "source_text": "Active second malignancy. Participants with a history of malignancy who have been completely treated, with no evidence of active cancer for 3 years prior to enrollment, or participants with surgically cured tumors with low risk of recurrence may be enrolled.",
+      "threshold": "no evidence of active cancer for 3 years"
     },
     {
       "category": "pregnancy",

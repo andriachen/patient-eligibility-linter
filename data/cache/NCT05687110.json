@@ -24,11 +24,32 @@
       "threshold": "GFR >= 60 mL/min"
     },
     {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Total bilirubin =\\< 1.5 \u00d7 institutional upper limit of normal (ULN)",
+      "threshold": "bilirubin <= 1.5 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Aspartate transaminase (AST) (serum glutamic-oxaloacetic transaminase \\[SGOT\\])/alanine transferase (ALT)(serum glutamate pyruvate transaminase \\[SGPT\\]) =\\< 1.5 \u00d7 institutional ULN",
+      "threshold": "AST/ALT <= 1.5 x ULN"
+    },
+    {
       "category": "cardiac",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Fridericia's formula-corrected QT interval (QTcF) =\\< 480 ms",
       "threshold": "QTcF <= 480 ms"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Patients should be New York Heart Association Functional Classification of class 2B or better",
+      "threshold": "NYHA class 2B or better"
     },
     {
       "category": "hiv",
@@ -52,13 +73,6 @@
       "threshold": null
     },
     {
-      "category": "cardiac",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Patients should be New York Heart Association Functional Classification of class 2B or better",
-      "threshold": "NYHA class 2B or better"
-    },
-    {
       "category": "pregnancy",
       "absolute": true,
       "section": "exclusion",
@@ -66,24 +80,10 @@
       "threshold": null
     },
     {
-      "category": "pregnancy",
+      "category": "smoking",
       "absolute": false,
       "section": "exclusion",
-      "source_text": "Because there is an unknown but potential risk for adverse events in nursing infants secondary to treatment of the mother with novobiocin, breastfeeding should be discontinued if the mother is treated with novobiocin",
-      "threshold": null
-    },
-    {
-      "category": "hepatic",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Patients with uncontrolled intercurrent illness. Additionally, patients with acute liver disease, poorly controlled liver disease, or cirrhosis are excluded",
-      "threshold": null
-    },
-    {
-      "category": "bmi",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "Total bilirubin =\\< 1.5 \u00d7 institutional upper limit of normal (ULN)",
+      "source_text": "Patients with (known) active or poorly controlled alcohol use disorder are excluded",
       "threshold": null
     }
   ]

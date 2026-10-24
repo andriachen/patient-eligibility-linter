@@ -10,7 +10,7 @@ the app still renders.
 from __future__ import annotations
 
 from . import llm
-from .logic import dedupe, is_valid
+from .logic import dedupe, drop_noise, is_valid
 
 _SUGGESTION = ""
 _SUGGESTION_SOURCE = ""
@@ -68,5 +68,5 @@ def lint_criteria(text: str) -> list[dict]:
     except llm.MissingKeyError:
         return _mock(text)
     # keep only records with a verifiable quote, then dedupe per category
-    valid = [r for r in raw if is_valid(r.get("source_text", ""), text)]
+    valid = drop_noise([r for r in raw if is_valid(r.get("source_text", ""), text)])
     return [_shape(r) for r in dedupe(valid)]

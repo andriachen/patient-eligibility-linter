@@ -7,14 +7,14 @@
       "absolute": true,
       "section": "inclusion",
       "source_text": "Standard risk 1: Patients must be \\< 11 years of age at enrollment",
-      "threshold": "age < 11"
+      "threshold": "age < 11 years"
     },
     {
       "category": "age",
       "absolute": true,
       "section": "inclusion",
       "source_text": "Standard risk 2: Patients must be \\>= 11 and \\< 25 years of age at enrollment",
-      "threshold": "age >= 11 and < 25"
+      "threshold": "age >= 11 and < 25 years"
     },
     {
       "category": "performance_status",
@@ -48,8 +48,8 @@
       "category": "age",
       "absolute": true,
       "section": "inclusion",
-      "source_text": "\\>= 11 and \\< 25 years old at enrollment",
-      "threshold": "age >= 11 and < 25"
+      "source_text": ">= 11 and < 25 years old at enrollment",
+      "threshold": "age >= 11 and < 25 years"
     },
     {
       "category": "language",
@@ -59,31 +59,24 @@
       "threshold": null
     },
     {
-      "category": "prior_malignancy",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Primary central nervous system (CNS) germ cell tumor",
-      "threshold": null
-    },
-    {
-      "category": "brain_mets",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Patients must have had no prior radiation therapy with the exception of CNS irradiation of brain metastases",
-      "threshold": null
-    },
-    {
       "category": "pregnancy",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Female patients who are pregnant since fetal toxicities and teratogenic effects have been noted for several of the study drugs; a pregnancy test is required for female patients of childbearing potential; (this criteria applies ONLY to patients who will receive chemotherapy \\[SR1 and SR2 patients\\])",
       "threshold": null
     },
     {
       "category": "pregnancy",
-      "absolute": false,
+      "absolute": true,
       "section": "exclusion",
       "source_text": "Lactating females who plan to breastfeed their infants; (this criteria applies ONLY to patients who will receive chemotherapy \\[SR1 and SR2 patients\\])",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Primary central nervous system (CNS) germ cell tumor",
       "threshold": null
     }
   ]
