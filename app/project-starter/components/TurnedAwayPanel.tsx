@@ -13,9 +13,9 @@ type Trait = "hiv" | "language" | "brain_mets" | "prior_malignancy" | "performan
 
 /** Funnel steps, in order. `label` finishes "don't restrict ..."; `trait` is the checkbox text. */
 const TRAITS: { key: Trait; trait: string; label: string }[] = [
-  { key: "hiv", trait: "HIV, controlled on treatment", label: "HIV" },
-  { key: "language", trait: "Speaks a language other than English", label: "language (e.g. English only)" },
-  { key: "brain_mets", trait: "Brain metastases, treated and stable", label: "brain metastases" },
+  { key: "hiv", trait: "HIV", label: "HIV (including conditions like viral load)" },
+  { key: "language", trait: "Limited English", label: "language (e.g. English only)" },
+  { key: "brain_mets", trait: "Brain metastases", label: "brain metastases" },
   { key: "prior_malignancy", trait: "Another cancer in the last 5 years", label: "a prior cancer" },
   { key: "performance_status", trait: "ECOG 2 (up and about, can't work)", label: "ECOG 2 (cap at 0–1)" },
   { key: "renal", trait: "Kidney condition", label: "kidney function" },
@@ -46,7 +46,7 @@ export function TurnedAwayPanel({ data }: { data: TurnedAwayData }) {
   const examples = data.examples[county] ?? {};
 
   let pool = data.trials.filter((t) => county === "all" || t.fips.includes(county));
-  const steps: { label: string; count: number; removed: number; trait?: Trait }[] = [
+  const steps: { label: string; count: number; removed: number; trait?: Trait; removedIds?: Set<string> }[] = [
     { label: `Recruiting cancer trials in ${county === "all" ? "Massachusetts" : `${countyName} County`}`, count: pool.length, removed: 0 },
   ];
   if (validAge) {
@@ -56,9 +56,9 @@ export function TurnedAwayPanel({ data }: { data: TurnedAwayData }) {
   }
   for (const { key, label } of TRAITS) {
     if (!traits.includes(key)) continue;
-    const before = pool.length;
-    pool = pool.filter((t) => !restricts(t, key, outrightOnly));
-    steps.push({ label: `Don't restrict ${label}`, count: pool.length, removed: before - pool.length, trait: key });
+    const removedIds = new Set(pool.filter((t) => restricts(t, key, outrightOnly)).map((t) => t.id));
+    pool = pool.filter((t) => !removedIds.has(t.id));
+    steps.push({ label: `Don't restrict ${label}`, count: pool.length, removed: removedIds.size, trait: key, removedIds });
   }
   const start = steps[0].count || 1;
 
@@ -81,6 +81,7 @@ export function TurnedAwayPanel({ data }: { data: TurnedAwayData }) {
           <GlassButton
             variant="secondary"
             size="sm"
+            className="max-w-full whitespace-normal! text-left"
             onClick={() => {
               setCounty(PITCH_PATIENT.county);
               setAge(PITCH_PATIENT.age);
@@ -88,7 +89,7 @@ export function TurnedAwayPanel({ data }: { data: TurnedAwayData }) {
               setOutrightOnly(false);
             }}
           >
-            Example: 58, controlled HIV, Spanish at home, Hampden
+            Example: 58, HIV, limited English, Hampden
           </GlassButton>
         </div>
 
@@ -156,9 +157,12 @@ export function TurnedAwayPanel({ data }: { data: TurnedAwayData }) {
                       style={{ width: `${(step.count / start) * 100}%`, background: "var(--accent)" }}
                     />
                   </div>
-                  {step.trait && step.removed > 0 && examples[step.trait]?.length ? (
-                    <ul className="mt-2.5 space-y-1.5">
-                      {examples[step.trait].map((ex) => (
+                  {step.trait && step.removedIds ? (
+                    <ul className="mt-2.5 space-y-1.5 empty:hidden">
+                      {(examples[step.trait] ?? [])
+                        .filter((ex) => step.removedIds?.has(ex.id))
+                        .slice(0, 2)
+                        .map((ex) => (
                         <li key={ex.id} className="border-l-2 border-line-strong pl-2.5 text-xs leading-relaxed text-ink-soft">
                           &ldquo;{ex.text}&rdquo;{" "}
                           <Link

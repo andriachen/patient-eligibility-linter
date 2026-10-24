@@ -24,7 +24,7 @@ export type FunnelExample = { id: string; text: string };
 export type TurnedAwayData = {
   trials: FunnelTrial[];
   counties: { fips: string; name: string }[];
-  /** A few real quotes per county ("all" = statewide) and category, absolute rules first. */
+  /** Real quotes per county ("all" = statewide) and category, absolute rules first. */
   examples: Record<string, Record<string, FunnelExample[]>>;
 };
 
@@ -107,12 +107,15 @@ export function loadTurnedAwayData(): TurnedAwayData {
   const add = (key: string, category: string, example: FunnelExample) => {
     const byCategory = (examples[key] ??= {});
     const list = (byCategory[category] ??= []);
-    if (list.length < 2 && !list.some((e) => e.id === example.id)) list.push(example);
+    // Several candidates, so the panel can show quotes from the trials each step actually drops.
+    if (list.length < 8 && !list.some((e) => e.id === example.id)) list.push(example);
   };
   for (const pass of [true, false]) {
     for (const t of trials) {
       for (const e of t.exclusions) {
         if (e.absolute !== pass || !(FUNNEL_CATEGORIES as readonly string[]).includes(e.category)) continue;
+        // Only ECOG rules that turn away ECOG 2 (the funnel's test), not "ECOG ≤ 2".
+        if (e.category === "performance_status" && (ecogCap(e.threshold, e.section) ?? 2) >= 2) continue;
         const example = { id: t.nct_id, text: cleanQuote(e.source_text) };
         add("all", e.category, example);
         for (const fips of new Set(t.sites.map((s) => s.county_fips))) add(fips, e.category, example);

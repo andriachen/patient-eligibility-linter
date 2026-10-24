@@ -16,6 +16,11 @@ export type TrialsIndex = {
 
 const trials = trialsData as unknown as EnrichedTrial[];
 
+// Resolved vs origin/main's fs-based version: the STATIC IMPORT above is the real
+// fix for the Vercel "shows nothing" bug — a computed fs path can be dropped from
+// the serverless bundle, whereas an imported JSON is always included. With a static
+// import the data is present whenever the module loads, so there is no runtime-miss
+// path to warn about (a missing file fails the build instead).
 export function loadTrialsIndex(): TrialsIndex {
   return {
     trials,

@@ -1,0 +1,9 @@
+# Test tooling for the Python suite (tests/). Install into the project venv:
+#   pip install -r requirements-dev.txt
+# Then run:
+#   python -m pytest
+#
+# The pipeline deps are also needed because the P1 tests import build()/logic:
+#   pip install -r pipeline/ingest/requirements.txt -r pipeline/extract/requirements.txt
+pytest==8.3.3
+hypothesis==6.112.1

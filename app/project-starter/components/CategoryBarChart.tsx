@@ -19,7 +19,7 @@ export function CategoryBarChart({ categories, totalTrials, highlightCategory, i
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
           <h2 id="category-chart-title" className="text-lg font-semibold text-ink">
-            Trials excluding each category
+            Trials restricting each category
           </h2>
           <p className="mt-1 text-sm text-ink-soft">
             Share of {totalTrials} trials. Bars are scaled to the largest category.
