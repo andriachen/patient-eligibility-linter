@@ -6,6 +6,8 @@ export type KeyInfo = {
   length: number;
   hasWhitespace: boolean;
   hasQuotes: boolean;
+  hasVariableName: boolean; // the value itself starts with "SOME_NAME=", e.g. a pasted .env line
+  partLengths?: number[]; // JWT header, payload and signature lengths (a valid anon key is about 36/127/43)
   projectRef?: string; // legacy JWT keys name their project
   role?: string;
 };
@@ -16,6 +18,7 @@ export type UrlInfo = {
   projectRef?: string;
   hasWhitespace: boolean;
   hasQuotes: boolean;
+  hasVariableName: boolean;
 };
 
 export type HealthReport = {
@@ -27,6 +30,7 @@ export type HealthReport = {
 };
 
 const QUOTED = /^["']|["']$/;
+const VARIABLE_NAME = /^[A-Z][A-Z0-9_]*=/;
 
 export function describeKey(key: string | undefined): KeyInfo {
   const value = key ?? "";
@@ -35,8 +39,9 @@ export function describeKey(key: string | undefined): KeyInfo {
     length: value.length,
     hasWhitespace: /\s/.test(value),
     hasQuotes: QUOTED.test(value),
+    hasVariableName: VARIABLE_NAME.test(value.trim()),
   };
-  const bare = value.trim().replace(/^["']|["']$/g, "");
+  const bare = value.trim().replace(VARIABLE_NAME, "").replace(/^["']|["']$/g, "");
   if (!bare) return { ...info, kind: "missing" };
   if (bare.startsWith("sb_publishable_")) return { ...info, kind: "publishable" };
   if (bare.startsWith("sb_secret_")) return { ...info, kind: "secret" };
@@ -44,7 +49,13 @@ export function describeKey(key: string | undefined): KeyInfo {
   if (parts.length === 3) {
     try {
       const payload = JSON.parse(Buffer.from(parts[1], "base64url").toString("utf8"));
-      return { ...info, kind: "legacy-jwt", projectRef: payload.ref, role: payload.role };
+      return {
+        ...info,
+        kind: "legacy-jwt",
+        partLengths: parts.map((p) => p.length),
+        projectRef: payload.ref,
+        role: payload.role,
+      };
     } catch {
       // Three dot-separated parts but not a JWT: leave it as "unknown".
     }
@@ -54,7 +65,12 @@ export function describeKey(key: string | undefined): KeyInfo {
 
 export function describeUrl(url: string | undefined): UrlInfo {
   const value = url ?? "";
-  const info: UrlInfo = { valid: false, hasWhitespace: /\s/.test(value), hasQuotes: QUOTED.test(value) };
+  const info: UrlInfo = {
+    valid: false,
+    hasWhitespace: /\s/.test(value),
+    hasQuotes: QUOTED.test(value),
+    hasVariableName: VARIABLE_NAME.test(value.trim()),
+  };
   try {
     const { protocol, host } = new URL(value);
     if (protocol !== "https:" && protocol !== "http:") return info;
@@ -75,6 +91,11 @@ export async function checkSupabase(url: string | undefined, key: string | undef
   if (keyInfo.kind === "missing") problems.push("NEXT_PUBLIC_SUPABASE_ANON_KEY is missing.");
   if (urlInfo.hasWhitespace || urlInfo.hasQuotes || keyInfo.hasWhitespace || keyInfo.hasQuotes) {
     problems.push("A value has spaces, line breaks or quotes in it. Paste the bare value.");
+  }
+  if (urlInfo.hasVariableName || keyInfo.hasVariableName) {
+    problems.push(
+      "A value starts with its variable name (like NEXT_PUBLIC_SUPABASE_ANON_KEY=...). Paste only the part after the =.",
+    );
   }
   if (keyInfo.kind === "secret" || keyInfo.role === "service_role") {
     problems.push("The key is a secret (service_role) key. Use the anon / publishable key.");

@@ -24,6 +24,13 @@ describe("describeKey", () => {
     expect(describeKey(`"${ANON}"`)).toMatchObject({ kind: "legacy-jwt", hasQuotes: true });
     expect(describeKey(`${ANON}\n`).hasWhitespace).toBe(true);
   });
+
+  it("spots a pasted .env line, where the value starts with the variable name", () => {
+    const info = describeKey(`NEXT_PUBLIC_SUPABASE_ANON_KEY=${ANON}`);
+    expect(info).toMatchObject({ kind: "legacy-jwt", hasVariableName: true, projectRef: "abcdefgh" });
+    expect(info.length).toBe(ANON.length + "NEXT_PUBLIC_SUPABASE_ANON_KEY=".length);
+    expect(describeKey(ANON).hasVariableName).toBe(false);
+  });
 });
 
 describe("describeUrl", () => {
@@ -56,6 +63,12 @@ describe("checkSupabase", () => {
     expect(report.ok).toBe(false);
     expect(report.problems.join(" ")).toMatch(/belongs to project abcdefgh, but the URL points to zzzzzzzz/);
     expect(report.supabase).toEqual({ status: 401, message: "Invalid API key" });
+  });
+
+  it("tells you to paste only the part after the =", async () => {
+    respond(401, { message: "Invalid API key" });
+    const report = await checkSupabase(URL_OK, `NEXT_PUBLIC_SUPABASE_ANON_KEY=${ANON}`);
+    expect(report.problems.join(" ")).toMatch(/starts with its variable name/);
   });
 
   it("warns about a service_role key and doesn't call Supabase without a key", async () => {
