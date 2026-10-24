@@ -41,6 +41,13 @@ export function SiteNav() {
               </Link>
             );
           })}
+          {/* Separate app (accounts/), so a plain <a>, not <Link>. */}
+          <a
+            href="/account"
+            className="rounded-md px-3 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100"
+          >
+            Account
+          </a>
         </nav>
       </div>
     </header>
