@@ -25,13 +25,25 @@ export type TrialsIndex = {
 
 let _cache: TrialsIndex | null = null;
 
-/** Load + memoize the enriched trial index. Falls back to an empty set. */
+/**
+ * Load + memoize the enriched trial index.
+ *
+ * There is no mock index to fall back to, so a missing file yields an EMPTY set
+ * (source: "mock"). That would make the matcher silently return "no trials" as
+ * if nothing matched, so we warn loudly: it almost always means copy-data.mjs
+ * didn't run (prebuild/predev) or trials_enriched.json wasn't generated.
+ */
 export function loadTrialsIndex(): TrialsIndex {
   if (_cache) return _cache;
   if (fs.existsSync(PROCESSED_PATH)) {
     const raw = fs.readFileSync(PROCESSED_PATH, "utf-8");
     _cache = { trials: JSON.parse(raw) as EnrichedTrial[], source: "processed" };
   } else {
+    console.warn(
+      `[loadTrialsIndex] trials_enriched.json not found (looked at ${PROCESSED_PATH}). ` +
+        "The matcher will return zero trials. Run scripts/copy-data.mjs " +
+        "(npm run copy-data) or rebuild the index with eval/build_trials_enriched.py.",
+    );
     _cache = { trials: [], source: "mock" };
   }
   return _cache;

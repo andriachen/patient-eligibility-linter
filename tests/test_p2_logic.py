@@ -1,6 +1,6 @@
 """Unit tests for P2 pure helpers (validation + dedupe)."""
 
-from pipeline.extract.logic import dedupe, is_valid, normalize, validate_records
+from pipeline.extract.logic import dedupe, invalid_records, is_valid, normalize
 from pipeline.extract.prompts import CATEGORIES, EXTRACT_TOOL
 
 
@@ -47,14 +47,14 @@ def test_is_valid_handles_html_entities():
     assert is_valid("myocardial infarction < 6 months ago", elig)
 
 
-def test_validate_records_reports_only_failures():
+def test_invalid_records_reports_only_failures():
     elig = "ECOG <= 2 and no active HIV infection."
     recs = [
         {"source_text": "ECOG <= 2"},
         {"source_text": "no active HIV infection"},
         {"source_text": "something the model hallucinated"},
     ]
-    bad = validate_records(recs, elig)
+    bad = invalid_records(recs, elig)
     assert len(bad) == 1
     assert bad[0]["source_text"] == "something the model hallucinated"
 
