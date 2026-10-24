@@ -40,9 +40,9 @@ supportive-care and behavioral studies require a specific language, usually Engl
 
 Features:
 - **Landscape:** how often each restriction appears across all trials, with a filterable table of the exact quoted criteria.
-- **Map:** a Massachusetts county map by restriction type, with local trial counts and county health context.
-- **Linter:** paste draft criteria and get each restriction flagged with its quoted sentence, a suggested rewording, and the FDA or ASCO–Friends of Cancer Research guidance behind it.
-- **Accounts:** an optional profile prototype for patients and trial designers.
+- **Map:** a Massachusetts county map by restriction type, with local trial counts and county health context, and a "who gets turned away" funnel that shows which trials each trait removes.
+- **Linter:** paste a draft protocol's inclusion and exclusion sections and get each restriction flagged with its quoted sentence, a suggested rewording, and the FDA or ASCO–Friends of Cancer Research guidance behind it. Model-backed through `/api/lint` using the same extraction prompt and quote-verification checks that produced the 1,011-trial dataset; falls back to transparent keyword rules if the server has no API key.
+- **Find trials:** a patient-side prototype that answers "which trials would turn me away, which should I ask about, and which are worth reaching out to" from a short questionnaire — deterministic, no inference at query time.
 
 We measure our own AI. A person hand-labeled 42 randomly sampled trials. On 10 trials held
 out from all prompt tuning, the extractor caught 92% of the restrictions the human found
@@ -87,8 +87,8 @@ handling, and the task list broke it into 36 implementation steps.
 
 What this bought us compared to vibe coding: the "verifiable quote" requirement became a
 validation step in the design instead of something we'd remember later. It's why we can tell
-judges that **3,801 of 3,839 flags (99%) quote the protocol word for word**, and why every
-flag in the app links back to a sentence a reviewer can check. The design's thin provider seam (`llm.py`) keeps the model choice in one place.
+judges that **every one of the 3,839 flags in the dataset (100%) quotes the protocol word for
+word**, and why every flag in the app links back to a sentence a reviewer can check. The design's thin provider seam (`llm.py`) keeps the model choice in one place.
 **[Arush: confirm whether we actually switched models through it; add one moment where the
 spec caught a problem before code existed.]**
 

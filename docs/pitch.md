@@ -48,10 +48,10 @@ If over time, cut the access line; it's on the slide.
    Massachusetts cancer trials (median: 4)." (It rounds down so "more than" stays true: 849 of 1,011 is 83.98%.)
    > Eight flags, each quoting its sentence. This draft is more restrictive than 83% of
    > Massachusetts trials.
-3. Open the **HIV** flag: suggestion plus "FDA 2020 (HIV/HBV/HCV); ASCO-Friends 2017". Then point at
-   English or pregnancy, which say no FDA or ASCO–Friends guidance covers them.
-   > For HIV it suggests the FDA wording and cites the guidance. For English, no guidance
-   > exists, and it says so instead of inventing a source.
+3. Open the **HIV** flag: suggestion plus "FDA 2020 (HIV, Hepatitis B, Hepatitis C, final); ASCO–Friends 2017". Then point at
+   English or pregnancy, which cite weaker sources and say so (`general guidance only`, or `draft`).
+   > For HIV it suggests the FDA wording and names the final guidance. For English, we cite the FDA 2020
+   > diversity guidance and mark it as general-only; pregnancy cites ICH E21 and marks it as a draft.
 4. **Map.** Select **language**, hover over **Suffolk**: 10.7% of its 945 trials restrict language; the
    county detail shows 14.4% limited-English households in its EJ block groups.
    > And this is where the English rule lands: 1 in 7 households in Suffolk's EJ neighborhoods.
@@ -74,12 +74,13 @@ Exclusion Criteria:
 * Pregnant or breastfeeding
 ```
 
-**"Who gets turned away" (Map page, below the map) is fixed and safe to show.** The traits are now
-generic ("HIV", "Limited English"), so the counts describe the person on screen: someone with HIV is
-restricted by any HIV rule, including "eligible if on ART with an undetectable viral load". The
-example button (58, HIV, limited English, Hampden) gives 24 → 20 → 13 → 10, and each step quotes
-sentences from the trials it removed. For the story's controlled-HIV patient, tick "Count only rules
-that exclude outright": 24 → 20 → 20 → 18.
+**"Who gets turned away" (Map page, below the map) is fixed and safe to show.** The traits name the
+person on screen (`HIV, controlled on treatment`, `Limited English`), so "controlled HIV" only drops
+trials whose rules exclude HIV outright — a conditional rule like "eligible if on ART with an
+undetectable viral load" admits her and the funnel reflects that honestly. The example button
+(58, controlled HIV, limited English, Hampden) gives **24 → 20 → 20 → 16**, and each step quotes
+sentences from the trials it removed. Tick "Count only rules that exclude outright" to narrow
+language to outright rules too: 24 → 20 → 20 → 18.
 
 **Linter, as built:** keyword rules for the 13 categories, run in the browser so it works live
 with no API key. It is not the model: on stage say "flags", not "AI", and point to the eval for
@@ -98,11 +99,11 @@ the AI part (the offline extraction behind Landscape and Map).
 > By category, it's strong where it matters. Prior malignancy is our weakest at 72%, and we show
 > it. Diabetes, BMI and smoking have too few examples to score, so we don't claim one.
 >
-> And every flag quotes the protocol. 99% match it word for word, so a reviewer can check any
-> flag in seconds.
+> And every flag quotes the protocol word for word, so a reviewer can check any flag in seconds —
+> all 3,839 of them locate as a verbatim substring of their trial's text.
 
 Numbers behind this (`eval/results.md`): held-out F1 0.95, 95% CI 0.89–0.99; tuning set 97% precision,
-91% recall; all 42: 139 of 152 caught. Verbatim quotes: 3,801 of 3,839 flags.
+91% recall; all 42: 139 of 152 caught. Verbatim quotes: 3,839 of 3,839 flags (100%).
 
 Sampling, if asked: seeded random draw (seed 2026) with quotas by phase (6/8/6/4/6) and sponsor
 (12/12/6), max 5 per cancer type; 2 trials added for BMI coverage, marked targeted; 10 held-out
@@ -131,7 +132,7 @@ trials drawn after tuning and labeled blind. Labels are human-written; no AI wro
 | Isn't English needed for validated questionnaires? | Often, yes, and that's most of what we see in supportive-care studies. Many validated instruments have Spanish versions, and several MA studies already accept Spanish, Korean or Mandarin. We flag it; the team decides. |
 | How do you get "% of people affected"? | CDC PLACES county prevalence (diabetes, smoking, obesity) and MassGIS EJ data (limited English, EJ block groups only). These are county estimates. We never add or multiply them across criteria. |
 | Patients travel. Why county? | It's a simplification and we say so. Drive-time catchments are the next step. |
-| What are Account and Find trials? | Prototypes for the patient side: save a profile, then see which criteria you'd hit before asking your oncologist. Optional and separate from the public-data tool. |
+| What is Find trials? | A prototype for the patient side: answer a few questions, then see which trials you'd hit a barrier on before asking your oncologist. Separate from the public-data tool. |
 | Who pays for this? | Sponsors and academic cancer centers, because slow enrollment is one of the costliest delays in drug development, and FDA is pushing for broader eligibility. |
 | What about patient privacy? | The core tool uses only public data. The account prototype is optional and separate. |
 | Why not just use ClinicalTrials.gov search? | Search helps a patient find trials. We help sponsors write criteria that let more people in. |

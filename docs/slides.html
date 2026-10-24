@@ -5,22 +5,22 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400;1,600&family=Public+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
 <style>
 /* Layout: one paper sheet per slide, vertical scroll-snap; left-aligned serif headings, big
-   sans numerals set like the app's headline metric. Single theme by choice: it matches the
-   Threshold app ("Paper & Petrol"), which is light-only, so the deck and the demo look alike. */
+   sans numerals set like the app's headline metric. Single theme by choice: white page +
+   cobalt accent matches the Threshold web app, so the deck and the demo look alike. */
 :root {
-  --page: #e8e4db;
-  --slide: #f7f5f0;
+  --page: #ffffff;
+  --slide: #ffffff;
   --surface: #ffffff;
-  --ink: #1b1a17;
-  --ink-soft: #4a463f;
-  --ink-faint: #6b665c;
-  --line: #dcd7cc;
-  --line-strong: #8e887c;
-  --track: #e9e5dc;
-  --accent: #1f5c6b;
-  --accent-tint: #e2edef;
-  --alert: #a23a22;
-  --alert-tint: #f6e6e0;
+  --ink: #172447;
+  --ink-soft: #4a5675;
+  --ink-faint: #67718c;
+  --line: #e2e6ef;
+  --line-strong: #8891a8;
+  --track: #eef1f7;
+  --accent: #3565f5;
+  --accent-tint: #e3ebfe;
+  --alert: #b8306a;
+  --alert-tint: #f8e5ef;
 
   --serif: "Source Serif 4", "Iowan Old Style", Georgia, serif;
   --sans: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -195,8 +195,8 @@ b { font-weight: 600; }
     <div class="stack">
       <div class="wordmark">
         <svg viewBox="0 0 28 28" aria-hidden="true">
-          <rect x="4" y="3" width="20" height="22" rx="1.5" fill="none" stroke="#1b1a17" stroke-width="2"></rect>
-          <rect x="1" y="15" width="26" height="3" rx="1" fill="#1f5c6b"></rect>
+          <rect x="4" y="3" width="20" height="22" rx="1.5" fill="none" stroke="#172447" stroke-width="2"></rect>
+          <rect x="1" y="15" width="26" height="3" rx="1" fill="#3565f5"></rect>
         </svg>
         <span>Threshold</span>
       </div>
@@ -283,7 +283,7 @@ Exclusion Criteria:
         <div class="big">98%</div>
         <p><b>46 of its 47</b> flags were right.</p>
       </div>
-      <p class="trust-note">We tuned the prompt on 32 labeled trials, then drew 10 new ones at random and labeled them blind. These numbers come only from those 10. On the tuning set: 91% recall, 96% precision.</p>
+      <p class="trust-note">We tuned the prompt on 32 labeled trials, then drew 10 new ones at random and labeled them blind. These numbers come only from those 10. On the tuning set: 91% recall, 97% precision.</p>
     </div>
     <div class="source">eval/results.md · human gold labels vs. LLM extraction, scored per (trial, category)</div>
   </section>
@@ -323,7 +323,7 @@ Exclusion Criteria:
       <div>
         <h3>Every flag shows its receipt</h3>
         <p>Each flag quotes the protocol sentence it came from, so a reviewer can check it in seconds.</p>
-        <span class="stat">3,801 of 3,839 flags match the protocol word for word (99%)</span>
+        <span class="stat">3,839 of 3,839 flags match the protocol word for word (100%)</span>
       </div>
       <div>
         <h3>Humans wrote the answer key</h3>
@@ -337,8 +337,8 @@ Exclusion Criteria:
       </div>
       <div>
         <h3>It suggests. People decide.</h3>
-        <p>Rewordings cite FDA or ASCO–Friends guidance. Where no guidance exists, the tool says so instead of inventing a source.</p>
-        <span class="stat">no source claimed for diabetes, BMI, smoking, language, pregnancy</span>
+        <p>Rewordings cite FDA or ASCO–Friends guidance by name. Each citation names its strength: category-specific, general-only, or draft, so a reviewer can judge how much weight it carries.</p>
+        <span class="stat">8 categories category-specific · 4 general-only · pregnancy cites draft ICH E21</span>
       </div>
     </div>
     <div class="source">eval/pick_gold.py · eval/gold_labels.csv · eval/run_eval.py · docs/sources.md</div>

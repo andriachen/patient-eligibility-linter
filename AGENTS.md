@@ -53,7 +53,6 @@ EligibilityCriteria text ─> pipeline/extract (Anthropic tool-use) ┘
 | P2 LLM | `p2-extract` | `pipeline/extract/`, `data/cache/`, `exclusions.csv` |
 | P3 Frontend | `p3-app` | `app/project-starter/` (Next.js; old `app/main.py` Streamlit is dead) |
 | P4 PM | `p4-eval` | root files, `eval/`, `docs/` |
-| Accounts (Namik) | `namik` | `accounts/` (Next.js app at `/account`: login + profile questions, Supabase) |
 
 ## 4. Data contracts
 
@@ -110,7 +109,6 @@ MA county FIPS 25001–25027 (odd only), 14 counties — see README.
 | P3 app | done | Next.js at `app/project-starter` (NOT Streamlit), live on Vercel as Threshold; Landscape/Map read real CSVs + stats.json (Map: real per-county shares of distinct trials, PLACES, EJ minority + limited-English); Linter = live Claude (same model + prompt as the pipeline) with keyword-rule fallback, FDA/ASCO–Friends suggestions, highlighted draft, copyable report, Impact tab; static `/trial/NCT…` pages with highlighted quotes |
 | P4 eval | done | run_eval.py (42-trial gold, subsets + real bootstrap CI); all-42 F1 **0.94** [0.91,0.97], held-out **0.95** [0.89,0.99]; reproducible |
 | P4 docs | in progress | sources.md done; pitch.md updated (HIV 34.3%, held-out F1 0.95); submission.md TBD |
-| accounts/ | done | separate Next.js 16 app (not Streamlit): email login + branching profile wizard, saved to Supabase `profiles`; see accounts/README.md |
 
 ### P1 numbers (actual, after per-site RECRUITING filter)
 - trials: **1011** (each has >=1 actively recruiting MA site; Option A scoping)
@@ -265,7 +263,7 @@ so that parity check lives in the Python suite.
   review + LLM cancer-type tags (dropdown, wrong-cancer reasons, registry ages) and Andria's
   Linter wording (fix-first tiers, NCI replacement text, updated citations). Shared rules in
   `lib/traitRules.ts` keep the Map funnel and Find trials in step: ECOG caps (activity
-  answers are ECOG 0/1/2/3+, worded like the accounts wizard; age ranges and cohort-split
+  answers are ECOG 0/1/2/3+ in plain-English wording; age ranges and cohort-split
   caps no longer misread), "treated and stable" brain mets (turned away only by outright
   rules that aren't limited to active/untreated/symptomatic disease), and primary-brain
   trials (tag "brain") skipping their brain-mets row. Uncontrolled HIV is hard on every HIV
@@ -277,6 +275,25 @@ so that parity check lives in the Python suite.
   "Outright"; phases read "Phase 1/2"; keyword rules treat a same-line carve-out as
   conditional. Linter now calls Claude live (see §1, §9); its replacement wording and peer
   counts work for both engines.
+
+- 2026-10-24: **Accounts feature removed; palette simplified; Linter UX split; docs refreshed.**
+  (1) Deleted the `accounts/` Next.js app entirely and every reference to it from the web app
+  (`lib/accounts.ts`, `lib/useAccountSession.ts`, the `AccountAction` in `AppHeader.tsx`),
+  from `vercel.json` (one service now, no `/account` rewrite), and from `README.md` /
+  `AGENTS.md` / docs. Historical change-log entries that mention `accounts` are preserved as
+  the record of what the project was. (2) Palette: page background is now plain white
+  (`--page: #ffffff`) with no ambient color blobs; the logo heart is a flat cobalt fill
+  (no gradient, no pink dot). Slides deck is realigned to the same white + cobalt. (3) Linter
+  input is now two labeled textareas, `Inclusion criteria` and `Exclusion criteria`, composed
+  into the format the extraction prompt expects — so pasting a bare "hiv" into the right box
+  now flags it instead of returning an empty list. (4) Docs: `pitch.md` funnel updated to the
+  real sequence `24 → 20 → 20 → 16` and the "traits are generic" narrative rewritten to match
+  `TurnedAwayPanel.tsx`; verbatim-quote claim bumped from "3,801 of 3,839 (99%)" to the
+  measured "3,839 of 3,839 (100%)" in `pitch.md`, `slides.html`, `submission.md`;
+  `sources.md` reconciled with the citations in `suggest.py` (adds FDA 2020 Enhancing
+  Diversity, FDA 2022 Older Adults, FDA 2026 Lab Values + Performance Status final dates,
+  and ICH E21 draft) and the stale "no FDA/ASCO guidance covers these" paragraph replaced
+  with a strength-of-citation summary. `npm run build` clean (1020 pages), 41 py tests pass.
 
 ## 8b. Vercel data deployment (important)
 
@@ -300,15 +317,10 @@ file the app reads, add it to the FILES list in copy-data.mjs.
   says so; on stage say "flags", not "AI", unless the Claude badge shows. The route caps
   input at 25,000 characters, rate-limits 30 runs per 10 minutes per IP, and caches
   repeat texts per server instance.
-- **Vercel env (manual, Andria):** `NEXT_PUBLIC_SUPABASE_ANON_KEY` is stored with its own
-  name in front (`NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJ…`). Login works because
-  `accounts/src/lib/supabase/env.ts` strips it; set the value to only the part after `=`
-  and check `/account/api/health` shows `"warnings": []`.
 - **P1: none.** All six CSVs are populated. (EJ no longer needs a manual download.)
 - **PLACES URL:** using the default CDC SODA endpoint for `swc5-untb`. If the team's
   kit provides a different URL, pass `--places-url`.
-- **Accounts is its own Next.js app** in `accounts/`, served at `/account` by the root
-  `vercel.json` (basePath `/account`; locally http://localhost:3000/account). It has its
-  own `package.json` and `.env.local` (`NEXT_PUBLIC_SUPABASE_URL` /
-  `NEXT_PUBLIC_SUPABASE_ANON_KEY`); set the same two on the Vercel project.
+- **Live Linter env (manual):** set `ANTHROPIC_API_KEY` on the Vercel project (or in
+  `app/project-starter/.env.local` for local dev) so `/api/lint` can call Claude.
+  Without it the Linter falls back to the in-browser keyword rules and says so.
 - Field paths for the trials API were confirmed live via `fetch_trials --probe`.
