@@ -2,14 +2,17 @@
 
 import { useMemo, useState } from "react";
 
+import { DemoDataBadge, GlassBadge } from "@/components/ui/GlassBadge";
+import { GlassField, GlassInput, GlassSelect } from "@/components/ui/GlassField";
 import { categoryLabel } from "@/lib/categories";
 import type { ExclusionRow } from "@/lib/loadExclusionRows";
 
 type Props = {
   rows: ExclusionRow[];
+  isMock?: boolean;
 };
 
-export function ExclusionTable({ rows }: Props) {
+export function ExclusionTable({ rows, isMock }: Props) {
   const [category, setCategory] = useState("");
   const [phase, setPhase] = useState("");
   const [sponsor, setSponsor] = useState("");
@@ -44,92 +47,93 @@ export function ExclusionTable({ rows }: Props) {
   }, [rows, category, phase, sponsor, textQuery]);
 
   return (
-    <section className="mt-10" aria-label="Exclusion criteria table">
-      <h2 className="text-lg font-medium">Exclusion criteria in trials</h2>
+    <section aria-labelledby="exclusion-table-title">
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div>
+          <h2 id="exclusion-table-title" className="text-lg font-semibold text-ink">
+            Exclusion criteria in trials
+          </h2>
+          <p className="mt-1 text-sm text-ink-soft">
+            Quoted criteria text, filterable by category, phase and sponsor.
+          </p>
+        </div>
+        {isMock ? <DemoDataBadge label="Mock rows" /> : null}
+      </div>
 
-      <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-        <label className="text-xs font-medium text-neutral-600">
-          Category
-          <select
-            className="mt-1 w-full rounded-md border border-neutral-300 px-2 py-2 text-sm"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-          >
+      <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <GlassField label="Category">
+          <GlassSelect value={category} onChange={(e) => setCategory(e.target.value)}>
             <option value="">All</option>
             {categories.map((c) => (
               <option key={c} value={c}>
                 {categoryLabel(c)}
               </option>
             ))}
-          </select>
-        </label>
-        <label className="text-xs font-medium text-neutral-600">
-          Phase
-          <select
-            className="mt-1 w-full rounded-md border border-neutral-300 px-2 py-2 text-sm"
-            value={phase}
-            onChange={(e) => setPhase(e.target.value)}
-          >
+          </GlassSelect>
+        </GlassField>
+        <GlassField label="Phase">
+          <GlassSelect value={phase} onChange={(e) => setPhase(e.target.value)}>
             <option value="">All</option>
             {phases.map((p) => (
               <option key={p} value={p}>
                 {p}
               </option>
             ))}
-          </select>
-        </label>
-        <label className="text-xs font-medium text-neutral-600">
-          Sponsor
-          <select
-            className="mt-1 w-full rounded-md border border-neutral-300 px-2 py-2 text-sm"
-            value={sponsor}
-            onChange={(e) => setSponsor(e.target.value)}
-          >
+          </GlassSelect>
+        </GlassField>
+        <GlassField label="Sponsor">
+          <GlassSelect value={sponsor} onChange={(e) => setSponsor(e.target.value)}>
             <option value="">All</option>
             {sponsors.map((s) => (
               <option key={s} value={s}>
                 {s}
               </option>
             ))}
-          </select>
-        </label>
-        <label className="text-xs font-medium text-neutral-600">
-          Search source text
-          <input
+          </GlassSelect>
+        </GlassField>
+        <GlassField label="Search source text">
+          <GlassInput
             type="search"
-            className="mt-1 w-full rounded-md border border-neutral-300 px-2 py-2 text-sm"
             placeholder="e.g. HbA1c"
             value={textQuery}
             onChange={(e) => setTextQuery(e.target.value)}
           />
-        </label>
+        </GlassField>
       </div>
 
-      <p className="mt-3 text-xs text-neutral-500">
-        Showing {filtered.length} of {rows.length} rows
+      <p className="mt-4 text-sm text-ink-soft" aria-live="polite">
+        Showing <span className="font-semibold text-ink tabular-nums">{filtered.length}</span> of{" "}
+        <span className="tabular-nums">{rows.length}</span> rows
       </p>
 
-      <div className="mt-2 overflow-x-auto rounded-lg border border-neutral-200">
+      <div className="glass-inset mt-3 max-h-[36rem] overflow-auto">
         <table className="min-w-full text-left text-sm">
-          <thead className="bg-neutral-50 text-xs uppercase text-neutral-600">
+          <thead className="sticky top-0 z-10 bg-white/90 text-xs uppercase tracking-[0.08em] text-ink-soft backdrop-blur-sm">
             <tr>
-              <th className="px-3 py-2 font-medium">Category</th>
-              <th className="px-3 py-2 font-medium">Phase</th>
-              <th className="px-3 py-2 font-medium">Sponsor</th>
-              <th className="px-3 py-2 font-medium">Source text</th>
+              <th scope="col" className="px-4 py-3 font-semibold">Category</th>
+              <th scope="col" className="px-4 py-3 font-semibold">Phase</th>
+              <th scope="col" className="px-4 py-3 font-semibold">Sponsor</th>
+              <th scope="col" className="px-4 py-3 font-semibold">Source text</th>
             </tr>
           </thead>
           <tbody>
             {filtered.map((row, i) => (
-              <tr key={`${row.category}-${i}`} className="border-t border-neutral-100">
-                <td className="px-3 py-2 whitespace-nowrap">
-                  {categoryLabel(row.category)}
+              <tr key={`${row.category}-${i}`} className="border-t border-line align-top">
+                <td className="whitespace-nowrap px-4 py-3">
+                  <GlassBadge tone="cobalt">{categoryLabel(row.category)}</GlassBadge>
                 </td>
-                <td className="px-3 py-2 whitespace-nowrap">{row.phase}</td>
-                <td className="px-3 py-2 whitespace-nowrap">{row.sponsor}</td>
-                <td className="px-3 py-2 text-neutral-700">{row.source_text}</td>
+                <td className="whitespace-nowrap px-4 py-3 text-ink-soft">{row.phase}</td>
+                <td className="min-w-[9rem] max-w-[14rem] px-4 py-3 leading-snug text-ink-soft">{row.sponsor}</td>
+                <td className="min-w-[18rem] px-4 py-3 leading-relaxed text-ink">{row.source_text}</td>
               </tr>
             ))}
+            {filtered.length === 0 ? (
+              <tr>
+                <td colSpan={4} className="px-4 py-8 text-center text-ink-soft">
+                  No rows match these filters.
+                </td>
+              </tr>
+            ) : null}
           </tbody>
         </table>
       </div>

@@ -1,16 +1,12 @@
-import { SiteFooter } from "@/components/SiteFooter";
-import { SiteNav } from "@/components/SiteNav";
-
-export default function AppShellLayout({
+/** Interior pages: shared width, gutters, and room for the floating header. */
+export default function InteriorLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <div className="flex min-h-screen flex-col">
-      <SiteNav />
-      <div className="flex-1">{children}</div>
-      <SiteFooter />
-    </div>
+    <main className="mx-auto w-full max-w-6xl px-[var(--page-gutter)] pb-20 pt-[calc(var(--header-offset)+0.5rem)]">
+      {children}
+    </main>
   );
 }
