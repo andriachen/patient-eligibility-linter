@@ -116,6 +116,10 @@ b { font-weight: 600; }
   background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 20px; margin: 0; overflow-x: auto;
 }
 .criteria mark { background: var(--alert-tint); color: var(--alert); padding: 0 3px; border-radius: 2px; }
+.criteria-head {
+  display: block; font-family: var(--sans); font-weight: 600; font-size: 0.72rem; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 14px;
+}
 
 /* 5 · trust headline */
 .trust { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(20px, 4vw, 64px); align-content: center; }
@@ -243,31 +247,33 @@ b { font-weight: 600; }
   </section>
 
   <section class="slide" aria-label="Live demo">
-    <div class="slide-head"><span class="eyebrow">Live demo · the Linter</span><span class="count">04 / 09</span></div>
+    <div class="slide-head"><span class="eyebrow">Live demo · the Linter, running Claude Haiku 5.5</span><span class="count">04 / 09</span></div>
     <div class="demo">
       <div class="stack">
         <h2>Our user writes the protocol.</h2>
         <ol>
-          <li>Paste draft criteria.</li>
-          <li>Each flag quotes the exact sentence it came from.</li>
-          <li>Each flag carries a suggested rewording and the guidance behind it.</li>
-          <li>The Map shows where the rule bites, county by county.</li>
+          <li>Paste inclusion criteria into one box and exclusion criteria into another.</li>
+          <li>Claude reads them with the same prompt that extracted all 1,011 trials. Every flag is verified to quote the draft word for word before it is shown.</li>
+          <li>Each flag carries a suggested rewording and names the FDA or ASCO–Friends guidance behind it, in three tiers: fix first, worth a look, team’s call.</li>
+          <li>“In the draft” highlights every flag in place; “Copy report” hands a review-ready note to the team.</li>
+          <li>The Map tab shows where each rule bites, county by county, with CDC PLACES and MassGIS EJ context.</li>
         </ol>
         <p class="lede">The tool suggests. The protocol team decides.</p>
       </div>
-<pre class="criteria">Inclusion Criteria:
-* Age 18 to 75 years
-* ECOG performance status 0-1
-* Creatinine clearance &gt;= 60 mL/min
+<pre class="criteria"><span class="criteria-head">Composed draft · Claude Haiku 5.5 · 8 of 13 categories flagged · more than 83% of 1,011 MA trials restrict fewer</span>
+Inclusion Criteria:
+* <mark>Age 18 to 75 years</mark>
+* <mark>ECOG performance status 0-1</mark>
+* <mark>Creatinine clearance &gt;= 60 mL/min</mark>
 * <mark>Must be able to read and speak English</mark>
 
 Exclusion Criteria:
 * <mark>Known HIV infection</mark>
 * <mark>Brain metastases, treated or untreated</mark>
 * <mark>Any prior malignancy within 5 years</mark>
-* Pregnant or breastfeeding</pre>
+* <mark>Pregnant or breastfeeding</mark></pre>
     </div>
-    <div class="source">Demo criteria written for this demo, not taken from a real trial.</div>
+    <div class="source">Live via <code>POST /api/lint</code> (claude-haiku-5-5). Falls back to in-browser keyword rules when the server has no API key, and says why. Demo criteria written for this demo.</div>
   </section>
 
   <section class="slide" aria-label="Can you trust it">
@@ -322,7 +328,7 @@ Exclusion Criteria:
     <div class="how">
       <div>
         <h3>Every flag shows its receipt</h3>
-        <p>Each flag quotes the protocol sentence it came from, so a reviewer can check it in seconds.</p>
+        <p>The live Linter uses the same Claude model and prompt that extracted the 1,011-trial dataset. Every flag is checked against the draft word for word before it is shown; the Linter won’t return a quote it can’t verify.</p>
         <span class="stat">3,839 of 3,839 flags match the protocol word for word (100%)</span>
       </div>
       <div>
