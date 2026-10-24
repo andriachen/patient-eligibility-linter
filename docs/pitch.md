@@ -1,7 +1,7 @@
 # Pitch (3 minutes)
 
-Numbers marked **[recheck]** come from the 13:30 data (`exclusions.csv` before Arush's full rerun).
-After the rerun: `python eval/build_stats.py && python eval/run_eval.py`, then update them.
+Numbers are from the 13:55 data: Arush's full rerun, all 1011 trials on prompt `v2-2026-10-24`.
+If the data changes again: `python eval/build_stats.py && python eval/run_eval.py`, then update them.
 
 ## 0:00–0:30 · Problem
 
@@ -21,17 +21,19 @@ After the rerun: `python eval/build_stats.py && python eval/run_eval.py`, then u
 > We read the eligibility criteria of every recruiting cancer trial with a Massachusetts site:
 > **1,011 trials**.
 >
-> - **37.5%** restrict people with HIV, and **18%** exclude them outright **[recheck]**, even though
->   FDA guidance since 2020 says people with well-controlled HIV should generally be eligible.
-> - **Nearly 1 in 3** supportive-care, behavioral, and quality-of-life studies require a specific
->   language, usually English **[recheck]**. In Suffolk County's environmental-justice
+> - **1 in 3** restrict people with HIV, and in phase 1–3 drug trials it's **44%**. That's despite
+>   FDA guidance since 2020 saying people with well-controlled HIV should generally be eligible.
+> - **About 3 in 10** supportive-care, behavioral, and quality-of-life studies require a specific
+>   language, usually English. In Suffolk County's environmental-justice
 >   neighborhoods, about **1 in 7 households** has limited English.
 > - And access is concentrated: 945 trials recruit in Suffolk, **24 in Hampden**, **1 in Berkshire**.
 
 Show the Landscape page here (headline is the HIV line, from `data/processed/stats.json`).
 
-Language numbers, for Q&A: 85 of 263 non-drug studies flagged (32%); a 10-trial spot-check found
-9 real, so about 29%. Phase 1–3 drug trials: 21 of 748 (2.8%). See `eval/language_spotcheck.md`.
+Numbers for Q&A:
+- HIV: 33.4% of all 1011 trials restrict (338), 16.3% exclude outright; 44.4% of phase 1–3 drug trials.
+- Language: 82 of 263 non-drug studies flagged (31%); a 10-trial spot-check found 9 real, so about 28–30%.
+  Phase 1–3 drug trials: 27 of 748 (3.6%). See `eval/language_spotcheck.md`.
 
 ## 1:00–2:00 · Live demo: the Linter
 
@@ -78,7 +80,7 @@ Exclusion Criteria:
 
 > An LLM that flags medical criteria has to be checked. We hand-labeled 42 trials. We tuned our
 > prompt on 32 of them, so we held 10 back that the AI never saw. On those 10, it matched our
-> labels with **94% precision and 98% recall** **[recheck]**. Every flag quotes its source
+> labels with **98% precision and 92% recall**. Every flag quotes its source
 > sentence, and we show the categories where we don't have enough examples to score.
 
 Show the "By subset" table in `eval/results.md`, or a one-slide version of it.
@@ -104,7 +106,7 @@ trials drawn afterwards. Labels are human-written; the AI only helped find candi
 | Question | Answer |
 |---|---|
 | Aren't some exclusions necessary? | Yes. Pregnancy with teratogenic drugs, or high blood sugar with PI3K inhibitors, can be justified. We flag and cite; the protocol team decides. That's why the output is a suggestion. |
-| How accurate is the AI? | On 10 held-out trials it never saw: 94% precision, 98% recall **[recheck]**. On the 30-trial random sample we tuned it on: 89% / 88%. Every flag quotes its source sentence. Diabetes, smoking, and BMI have too few examples to score, and we say so. |
+| How accurate is the AI? | On 10 held-out trials it never saw: 98% precision, 92% recall. On the 30-trial random sample we tuned it on: 96% / 91%. Every flag quotes its source sentence. Diabetes, smoking, and BMI have too few examples to score, and we say so. |
 | Did you tune on your test set? | We tuned on the first 32, which is why we drew 10 more afterwards and report those separately. That's the number we quote. |
 | Isn't English needed for validated questionnaires? | Often, yes, and that's most of what we see in supportive-care studies. Many validated instruments have Spanish versions, and several MA studies already accept Spanish, Korean, or Mandarin. We flag it; the team decides. |
 | How do you get "% of people affected"? | CDC PLACES county prevalence (diabetes, smoking, obesity) and MassGIS EJ data (limited English, EJ block groups only). These are county estimates. We never add or multiply them across criteria. |
@@ -115,8 +117,7 @@ trials drawn afterwards. Labels are human-written; the AI only helped find candi
 
 ## Before rehearsal
 
-- [ ] After Arush's rerun: `python eval/build_stats.py && python eval/run_eval.py`, update every **[recheck]**, push `stats.json`
-- [ ] Recompute the language split (non-drug vs drug) on the new `exclusions.csv`
+- [x] After Arush's rerun: rebuilt `stats.json` and `results.md`, updated the numbers, recomputed the language split
 - [ ] Linter shows real sources, not "mock protocol playbook" (P3)
 - [ ] Map shows real per-county percentages, not 0% (P3)
 - [ ] Confirm the demo criteria trigger the expected flags on the deployed site
