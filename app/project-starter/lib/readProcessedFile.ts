@@ -15,18 +15,57 @@ export function readProcessedText(filename: string): string | null {
   return fs.readFileSync(fullPath, "utf-8");
 }
 
-/** Minimal CSV parse: first row = headers, comma-separated (no quoted commas). */
+/** Split CSV text into rows of cells. Handles quoted fields with commas, "" and newlines. */
+function parseCsvRows(text: string): string[][] {
+  const rows: string[][] = [];
+  let row: string[] = [];
+  let cell = "";
+  let inQuotes = false;
+
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i];
+    if (inQuotes) {
+      if (ch === '"' && text[i + 1] === '"') {
+        cell += '"';
+        i++;
+      } else if (ch === '"') {
+        inQuotes = false;
+      } else {
+        cell += ch;
+      }
+    } else if (ch === '"') {
+      inQuotes = true;
+    } else if (ch === ",") {
+      row.push(cell);
+      cell = "";
+    } else if (ch === "\n" || ch === "\r") {
+      if (ch === "\r" && text[i + 1] === "\n") i++;
+      row.push(cell);
+      rows.push(row);
+      row = [];
+      cell = "";
+    } else {
+      cell += ch;
+    }
+  }
+  if (cell !== "" || row.length > 0) {
+    row.push(cell);
+    rows.push(row);
+  }
+  return rows.filter((r) => r.some((c) => c.trim() !== ""));
+}
+
+/** CSV parse: first row = headers. */
 export function parseCsv(text: string): Record<string, string>[] {
-  const lines = text.trim().split(/\r?\n/);
-  if (lines.length < 2) {
+  const rows = parseCsvRows(text.replace(/^﻿/, ""));
+  if (rows.length < 2) {
     return [];
   }
-  const headers = lines[0].split(",").map((h) => h.trim());
-  return lines.slice(1).map((line) => {
-    const cells = line.split(",").map((c) => c.trim());
+  const headers = rows[0].map((h) => h.trim());
+  return rows.slice(1).map((cells) => {
     const row: Record<string, string> = {};
     headers.forEach((header, i) => {
-      row[header] = cells[i] ?? "";
+      row[header] = (cells[i] ?? "").trim();
     });
     return row;
   });
