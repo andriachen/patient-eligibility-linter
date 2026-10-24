@@ -1,6 +1,8 @@
 // Describes this deployment's Supabase settings without revealing the key, and asks
 // Supabase whether it accepts them. Backs GET /account/api/health.
 
+import { cleanEnvValue } from "./env";
+
 export type KeyInfo = {
   kind: "legacy-jwt" | "publishable" | "secret" | "missing" | "unknown";
   length: number;
@@ -23,7 +25,8 @@ export type UrlInfo = {
 
 export type HealthReport = {
   ok: boolean;
-  problems: string[];
+  problems: string[]; // stop the app from working
+  warnings: string[]; // worked around by cleanEnvValue, but worth fixing at the source
   url: UrlInfo;
   key: KeyInfo;
   supabase: { status: number | null; message?: string };
@@ -81,20 +84,27 @@ export function describeUrl(url: string | undefined): UrlInfo {
   }
 }
 
-/** Check the URL and key the app was built with, and whether Supabase accepts them. */
-export async function checkSupabase(url: string | undefined, key: string | undefined): Promise<HealthReport> {
-  const urlInfo = describeUrl(url);
-  const keyInfo = describeKey(key);
+/**
+ * Check the URL and key the app was built with (as set, before cleaning), then ask
+ * Supabase whether it accepts the cleaned values the app actually uses.
+ */
+export async function checkSupabase(rawUrl: string | undefined, rawKey: string | undefined): Promise<HealthReport> {
+  const url = cleanEnvValue(rawUrl);
+  const key = cleanEnvValue(rawKey);
+  const urlInfo = { ...describeUrl(url), ...pasteFlags(rawUrl) };
+  const keyInfo = { ...describeKey(key), ...pasteFlags(rawKey), length: rawKey?.length ?? 0 };
   const problems: string[] = [];
+  const warnings: string[] = [];
 
   if (!urlInfo.valid) problems.push("NEXT_PUBLIC_SUPABASE_URL is missing or isn't a URL.");
   if (keyInfo.kind === "missing") problems.push("NEXT_PUBLIC_SUPABASE_ANON_KEY is missing.");
   if (urlInfo.hasWhitespace || urlInfo.hasQuotes || keyInfo.hasWhitespace || keyInfo.hasQuotes) {
-    problems.push("A value has spaces, line breaks or quotes in it. Paste the bare value.");
+    warnings.push("A value has spaces, line breaks or quotes in it. The app strips them, but paste the bare value.");
   }
   if (urlInfo.hasVariableName || keyInfo.hasVariableName) {
-    problems.push(
-      "A value starts with its variable name (like NEXT_PUBLIC_SUPABASE_ANON_KEY=...). Paste only the part after the =.",
+    warnings.push(
+      "A value starts with its variable name (like NEXT_PUBLIC_SUPABASE_ANON_KEY=...). The app strips it, " +
+        "but set the value to only the part after the =.",
     );
   }
   if (keyInfo.kind === "secret" || keyInfo.role === "service_role") {
@@ -120,5 +130,15 @@ export async function checkSupabase(url: string | undefined, key: string | undef
     }
   }
 
-  return { ok: problems.length === 0, problems, url: urlInfo, key: keyInfo, supabase };
+  return { ok: problems.length === 0, problems, warnings, url: urlInfo, key: keyInfo, supabase };
+}
+
+/** How the value was pasted, judged on the raw value before cleaning. */
+function pasteFlags(raw: string | undefined) {
+  const value = raw ?? "";
+  return {
+    hasWhitespace: /\s/.test(value),
+    hasQuotes: QUOTED.test(value.trim()),
+    hasVariableName: VARIABLE_NAME.test(value.trim()),
+  };
 }

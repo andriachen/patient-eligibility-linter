@@ -1,3 +1,4 @@
+import { cleanEnvValue } from "@/lib/supabase/env";
 import { checkSupabase, describeKey, describeUrl } from "@/lib/supabase/health";
 
 const jwt = (payload: object) =>
@@ -33,6 +34,18 @@ describe("describeKey", () => {
   });
 });
 
+describe("cleanEnvValue", () => {
+  it("strips a pasted variable name, quotes and spaces, and leaves good values alone", () => {
+    expect(cleanEnvValue(`NEXT_PUBLIC_SUPABASE_ANON_KEY=${ANON}`)).toBe(ANON);
+    expect(cleanEnvValue(` "${URL_OK}" \n`)).toBe(URL_OK);
+    expect(cleanEnvValue(`NEXT_PUBLIC_SUPABASE_URL="${URL_OK}"`)).toBe(URL_OK);
+    expect(cleanEnvValue(ANON)).toBe(ANON);
+    expect(cleanEnvValue(URL_OK)).toBe(URL_OK);
+    expect(cleanEnvValue("  ")).toBeUndefined();
+    expect(cleanEnvValue(undefined)).toBeUndefined();
+  });
+});
+
 describe("describeUrl", () => {
   it("pulls the project ref out of a Supabase URL", () => {
     expect(describeUrl(URL_OK)).toMatchObject({ valid: true, host: "abcdefgh.supabase.co", projectRef: "abcdefgh" });
@@ -65,10 +78,13 @@ describe("checkSupabase", () => {
     expect(report.supabase).toEqual({ status: 401, message: "Invalid API key" });
   });
 
-  it("tells you to paste only the part after the =", async () => {
-    respond(401, { message: "Invalid API key" });
+  it("works around a pasted .env line but still warns about it", async () => {
+    respond(200);
     const report = await checkSupabase(URL_OK, `NEXT_PUBLIC_SUPABASE_ANON_KEY=${ANON}`);
-    expect(report.problems.join(" ")).toMatch(/starts with its variable name/);
+    expect(report).toMatchObject({ ok: true, problems: [], key: { hasVariableName: true, projectRef: "abcdefgh" } });
+    expect(report.warnings.join(" ")).toMatch(/starts with its variable name/);
+    // Supabase gets the cleaned key, not the pasted line.
+    expect((global.fetch as jest.Mock).mock.calls[0][1].headers.apikey).toBe(ANON);
   });
 
   it("warns about a service_role key and doesn't call Supabase without a key", async () => {
