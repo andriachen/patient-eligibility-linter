@@ -13,7 +13,9 @@ export function CategoryBarChart({ categories, highlightCategory }: Props) {
 
   return (
     <section className="mt-10" aria-label="Exclusions by category">
-      <h2 className="text-lg font-medium">Trials excluding each category</h2>
+      <h2 className="text-lg font-medium text-[var(--brand-primary)]">
+        Trials excluding each category
+      </h2>
       <ul className="mt-4 space-y-3">
         {sorted.map((row) => {
           const widthPct = maxPct > 0 ? (row.pctExcluded / maxPct) * 100 : 0;
@@ -21,17 +23,28 @@ export function CategoryBarChart({ categories, highlightCategory }: Props) {
 
           return (
             <li key={row.category} className="grid grid-cols-[9rem_1fr_3rem] items-center gap-3 text-sm">
-              <span className={highlighted ? "font-semibold" : "text-neutral-700"}>
+              <span
+                className={
+                  highlighted
+                    ? "font-semibold text-[var(--brand-primary)]"
+                    : "text-[var(--text-muted)]"
+                }
+              >
                 {row.label}
               </span>
-              <div className="h-3 rounded bg-neutral-200">
+              <div className="h-3 rounded-full bg-[var(--border)]">
                 <div
-                  className={`h-3 rounded ${highlighted ? "bg-blue-600" : "bg-blue-400"}`}
-                  style={{ width: `${widthPct}%` }}
+                  className="h-3 rounded-full"
+                  style={{
+                    width: `${widthPct}%`,
+                    backgroundColor: highlighted
+                      ? "var(--chart-bar-highlight)"
+                      : "var(--chart-bar)",
+                  }}
                   role="presentation"
                 />
               </div>
-              <span className="text-right tabular-nums text-neutral-600">
+              <span className="text-right tabular-nums text-[var(--text-muted)]">
                 {row.pctExcluded}%
               </span>
             </li>

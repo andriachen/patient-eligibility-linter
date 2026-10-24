@@ -35,7 +35,7 @@ export function LinterPanel() {
         <button
           type="button"
           onClick={runLint}
-          className="mt-3 rounded-md bg-neutral-900 px-4 py-2 text-sm font-medium text-white hover:bg-neutral-800"
+          className="mt-3 rounded-md bg-[var(--brand-primary)] px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-[var(--brand-primary-dark)]"
         >
           Run linter (mock)
         </button>

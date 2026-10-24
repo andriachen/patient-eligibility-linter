@@ -21,12 +21,15 @@ const PLACES_LABELS: Record<string, string> = {
 };
 
 function colorForValue(value: number, max: number): string {
-  if (max <= 0) return "rgb(229 231 235)";
+  if (max <= 0) return "#e2e8f0";
   const t = Math.min(1, value / max);
-  const r = Math.round(239 - t * 120);
-  const g = Math.round(246 - t * 100);
-  const b = Math.round(255 - t * 40);
-  return `rgb(${r} ${g} ${b})`;
+  const r = Math.round(219 - t * 90);
+  const g = Math.round(234 - t * 120);
+  const b = Math.round(254 - t * 30);
+  const r2 = Math.round(r + t * 40);
+  const g2 = Math.round(g - t * 80);
+  const b2 = Math.round(b - t * 20);
+  return `rgb(${r2} ${g2} ${b2})`;
 }
 
 export function CountyMapPanel({ counties, dataSource }: Props) {
@@ -129,7 +132,7 @@ export function CountyMapPanel({ counties, dataSource }: Props) {
               <button
                 key={c.county_fips}
                 type="button"
-                className="rounded-md border border-neutral-200 px-2 py-3 text-left text-xs font-medium shadow-sm transition hover:ring-2 hover:ring-blue-400"
+                className="rounded-md border border-[var(--border)] px-2 py-3 text-left text-xs font-medium shadow-sm transition hover:ring-2 hover:ring-[var(--brand-secondary)]"
                 style={{ backgroundColor: colorForValue(value, maxVal) }}
                 onMouseEnter={() => setHovered(c)}
                 onFocus={() => setHovered(c)}

@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
-import { SiteFooter } from "@/components/SiteFooter";
-import { SiteNav } from "@/components/SiteNav";
-
 import "./globals.css";
 
 const geistSans = Geist({
@@ -17,8 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Trial Eligibility Linter",
-  description: "Massachusetts clinical trial exclusion landscape, map, and linter",
+  title: "StageShare | Trial eligibility",
+  description:
+    "StageShare — Massachusetts trial exclusion landscape, map, and criteria linter",
 };
 
 export default function RootLayout({
@@ -29,11 +27,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} flex min-h-screen flex-col antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} min-h-screen antialiased`}
       >
-        <SiteNav />
-        <div className="flex-1">{children}</div>
-        <SiteFooter />
+        {children}
       </body>
     </html>
   );
