@@ -1,8 +1,8 @@
 {
   "totalTrials": 1011,
   "defaultCategory": "hiv",
-  "headline": "34.3% of recruiting MA cancer trials restrict people with HIV, despite FDA guidance to include them",
-  "headlineNote": "16.8% exclude outright; the rest set conditions (e.g. CD4 count, viral load). Sources: ClinicalTrials.gov; FDA 2020 guidance on HIV, HBV and HCV in cancer trials.",
+  "headline": "34.3% of recruiting MA cancer trials set rules for people with HIV. 16.8% still exclude them outright, against FDA guidance.",
+  "headlineNote": "The other 17.5% set conditions, most often an undetectable viral load on treatment, which FDA's 2020 guidance recommends. Sources: ClinicalTrials.gov; FDA 2020 guidance on HIV, HBV and HCV in cancer trials.",
   "categories": [
     {
       "category": "diabetes",
