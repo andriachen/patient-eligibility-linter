@@ -95,6 +95,7 @@ MA county FIPS 25001–25027 (odd only), 14 counties — see README.
 | P2 sample (10 trials) | done | 0 substring failures; hand-check clean after prompt tighten |
 | exclusions.csv (full run) | done | **v2 prompt, all 1011 uniform**; 3839 rows; 0 rows fail their own guard |
 | P2 suggest.py | done | template, 13 cats, FDA/ASCO-cited; 5 gap cats say "no guidance" w/ empty source; wired into lint.py |
+| Matcher index (Aim 1 / Sub-Aim 2) | done | `eval/build_trials_enriched.py` -> `trials_enriched.json` (1011 trials + embedded exclusions + MA sites); auto-rebuilt w/ stats.json; the deterministic TS matcher reads this (no inference) |
 | P3 app | done (frontend) | Next.js at `app/project-starter` (NOT Streamlit); Landscape/Map read real CSVs + stats.json; **Linter still uses `mockLint.ts`** (see §9); deploys on Vercel |
 | P4 eval | done | run_eval.py (42-trial gold, subsets + real bootstrap CI); all-42 F1 **0.94** [0.91,0.97], held-out **0.95** [0.89,0.99]; reproducible |
 | P4 docs | in progress | sources.md done; pitch.md updated (HIV 34.3%, held-out F1 0.95); submission.md TBD |
