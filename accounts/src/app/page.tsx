@@ -40,7 +40,7 @@ export default async function Home() {
 
       <ul className="grid gap-4 sm:grid-cols-3">
         {AUDIENCES.map(({ icon: Icon, title, text }) => (
-          <li key={title} className="rounded-md border border-border bg-card p-5">
+          <li key={title} className="rounded-2xl border border-border bg-card p-5">
             <Icon aria-hidden className="size-5 text-brand" />
             <h2 className="mt-3 font-semibold">{title}</h2>
             <p className="mt-1 text-sm text-muted">{text}</p>

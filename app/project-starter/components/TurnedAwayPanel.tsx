@@ -11,11 +11,15 @@ import type { FunnelTrial, TurnedAwayData } from "@/lib/turnedAway";
 
 type Trait = "hiv" | "language" | "brain_mets" | "prior_malignancy" | "performance_status" | "renal" | "hepatic" | "cardiac" | "pregnancy";
 
-/** Funnel steps, in order. `label` finishes "don't restrict ..."; `trait` is the checkbox text. */
-const TRAITS: { key: Trait; trait: string; label: string }[] = [
-  { key: "hiv", trait: "HIV", label: "HIV (including conditions like viral load)" },
+/**
+ * Funnel steps, in order. `label` finishes "don't restrict ..."; `trait` is the checkbox text.
+ * `outright` traits describe a controlled condition, so only outright rules remove the trial:
+ * conditional ones ("eligible if viral load is undetectable", "if treated and stable") admit them.
+ */
+const TRAITS: { key: Trait; trait: string; label: string; outright?: true }[] = [
+  { key: "hiv", trait: "HIV, controlled on treatment", label: "HIV", outright: true },
   { key: "language", trait: "Limited English", label: "language (e.g. English only)" },
-  { key: "brain_mets", trait: "Brain metastases", label: "brain metastases" },
+  { key: "brain_mets", trait: "Brain metastases, treated and stable", label: "brain metastases", outright: true },
   { key: "prior_malignancy", trait: "Another cancer in the last 5 years", label: "a prior cancer" },
   { key: "performance_status", trait: "ECOG 2 (up and about, can't work)", label: "ECOG 2 (cap at 0–1)" },
   { key: "renal", trait: "Kidney condition", label: "kidney function" },
@@ -30,7 +34,7 @@ const PITCH_PATIENT = { county: "25013", age: "58", traits: ["hiv", "language"] 
 function restricts(trial: FunnelTrial, trait: Trait, outrightOnly: boolean) {
   if (trait === "performance_status") return trial.ecogMax !== null && trial.ecogMax < 2;
   const rule = trial.r[trait];
-  return outrightOnly ? rule === "a" : rule !== undefined;
+  return outrightOnly || TRAITS.find((t) => t.key === trait)?.outright ? rule === "a" : rule !== undefined;
 }
 
 /** Interactive funnel: how many recruiting trials are left as a person's traits are added. */
@@ -54,11 +58,17 @@ export function TurnedAwayPanel({ data }: { data: TurnedAwayData }) {
     pool = pool.filter((t) => (t.minAge === null || t.minAge <= ageNum) && (t.maxAge === null || t.maxAge >= ageNum));
     steps.push({ label: `Accept a ${ageNum}-year-old`, count: pool.length, removed: before - pool.length });
   }
-  for (const { key, label } of TRAITS) {
+  for (const { key, label, outright } of TRAITS) {
     if (!traits.includes(key)) continue;
     const removedIds = new Set(pool.filter((t) => restricts(t, key, outrightOnly)).map((t) => t.id));
     pool = pool.filter((t) => !removedIds.has(t.id));
-    steps.push({ label: `Don't restrict ${label}`, count: pool.length, removed: removedIds.size, trait: key, removedIds });
+    steps.push({
+      label: outright ? `Don't exclude ${label} outright` : `Don't restrict ${label}`,
+      count: pool.length,
+      removed: removedIds.size,
+      trait: key,
+      removedIds,
+    });
   }
   const start = steps[0].count || 1;
 
@@ -70,7 +80,7 @@ export function TurnedAwayPanel({ data }: { data: TurnedAwayData }) {
       <section aria-labelledby="turned-away-title">
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div className="max-w-2xl">
-            <h2 id="turned-away-title" className="font-serif text-xl font-semibold text-ink">
+            <h2 id="turned-away-title" className="text-xl font-semibold tracking-[-0.02em] text-ink">
               Who gets turned away
             </h2>
             <p className="mt-1 text-sm text-ink-soft">
@@ -89,7 +99,7 @@ export function TurnedAwayPanel({ data }: { data: TurnedAwayData }) {
               setOutrightOnly(false);
             }}
           >
-            Example: 58, HIV, limited English, Hampden
+            Example: 58, controlled HIV, limited English, Hampden
           </GlassButton>
         </div>
 
@@ -117,7 +127,7 @@ export function TurnedAwayPanel({ data }: { data: TurnedAwayData }) {
                       type="checkbox"
                       checked={traits.includes(key)}
                       onChange={() => toggle(key)}
-                      className="mt-0.5 size-4 shrink-0 accent-[var(--accent)]"
+                      className="mt-0.5 size-4 shrink-0 accent-[var(--cobalt)]"
                     />
                     {trait}
                   </label>
@@ -129,10 +139,10 @@ export function TurnedAwayPanel({ data }: { data: TurnedAwayData }) {
                 type="checkbox"
                 checked={outrightOnly}
                 onChange={(e) => setOutrightOnly(e.target.checked)}
-                className="mt-0.5 size-4 shrink-0 accent-[var(--accent)]"
+                className="mt-0.5 size-4 shrink-0 accent-[var(--cobalt)]"
               />
-              Count only rules that exclude outright (ignore conditional ones, such as &ldquo;eligible if CD4 &gt;
-              350&rdquo;)
+              Count only rules that exclude outright (ignore conditional ones, such as a time window for a prior
+              cancer)
             </label>
           </div>
 
@@ -142,7 +152,7 @@ export function TurnedAwayPanel({ data }: { data: TurnedAwayData }) {
                 <li key={step.label} className="glass-inset p-3.5">
                   <div className="flex items-baseline justify-between gap-3">
                     <span className="text-sm font-semibold text-ink">{step.label}</span>
-                    <span className="shrink-0 font-serif text-lg font-semibold tabular-nums text-ink">
+                    <span className="shrink-0 text-lg font-semibold tabular-nums text-ink">
                       {step.count.toLocaleString()}
                       {i > 0 ? (
                         <span className="ml-2 font-sans text-xs font-medium text-ink-soft">
@@ -151,10 +161,10 @@ export function TurnedAwayPanel({ data }: { data: TurnedAwayData }) {
                       ) : null}
                     </span>
                   </div>
-                  <div className="mt-2 h-2 overflow-hidden rounded-[2px] bg-surface" aria-hidden>
+                  <div className="mt-2 glass-inset h-2 overflow-hidden rounded-full" aria-hidden>
                     <div
-                      className="h-full rounded-[2px]"
-                      style={{ width: `${(step.count / start) * 100}%`, background: "var(--accent)" }}
+                      className="h-full rounded-full"
+                      style={{ width: `${(step.count / start) * 100}%`, background: "linear-gradient(90deg, var(--chart-bar-soft), var(--chart-bar))" }}
                     />
                   </div>
                   {step.trait && step.removedIds ? (
@@ -163,12 +173,12 @@ export function TurnedAwayPanel({ data }: { data: TurnedAwayData }) {
                         .filter((ex) => step.removedIds?.has(ex.id))
                         .slice(0, 2)
                         .map((ex) => (
-                        <li key={ex.id} className="border-l-2 border-line-strong pl-2.5 text-xs leading-relaxed text-ink-soft">
+                        <li key={ex.id} className="border-l-2 border-periwinkle pl-2.5 text-xs leading-relaxed text-ink-soft">
                           &ldquo;{ex.text}&rdquo;{" "}
                           <Link
                             href={`/trial/${ex.id}`}
                             prefetch={false}
-                            className={`font-mono text-[0.7rem] text-accent underline-offset-2 hover:underline ${focusRing}`}
+                            className={`font-mono text-[0.7rem] text-cobalt underline-offset-2 hover:underline ${focusRing}`}
                           >
                             {ex.id}
                           </Link>

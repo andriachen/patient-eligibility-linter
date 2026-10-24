@@ -117,7 +117,7 @@ export function LinterPanel({ context }: { context: LintContext }) {
             <p
               id={errorId}
               role="alert"
-              className="mt-3 rounded-control bg-alert-tint px-3.5 py-2.5 text-sm font-medium text-alert ring-1 ring-alert/20"
+              className="mt-3 rounded-xl bg-blush/80 px-3.5 py-2.5 text-sm font-medium text-rose-deep ring-1 ring-rose/20"
             >
               {error}
             </p>
@@ -149,10 +149,10 @@ export function LinterPanel({ context }: { context: LintContext }) {
           </div>
 
           {result && flagCount > 0 && trialsScored > 0 ? (
-            <div className="mt-4 border-l-2 border-accent bg-accent-tint/60 px-4 py-3 text-sm leading-relaxed text-ink">
+            <div className="mt-4 rounded-2xl bg-ice/70 px-4 py-3 ring-1 ring-cobalt/15 text-sm leading-relaxed text-ink">
               This draft restricts <span className="font-semibold">{flagCount} of 13</span> categories (
               {result.flags.filter((f) => f.absolute).length} outright). That&apos;s more than{" "}
-              <span className="font-serif text-base font-semibold tabular-nums">
+              <span className="text-base font-semibold tabular-nums text-cobalt-deep">
                 {Math.floor((100 * fewer) / trialsScored)}%
               </span>{" "}
               of {trialsScored.toLocaleString()} recruiting Massachusetts cancer trials (median: {median}), using the

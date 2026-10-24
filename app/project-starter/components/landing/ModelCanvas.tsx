@@ -193,7 +193,7 @@ function FramedModel({ controlsRef, frame, onReady }: FramedModelProps) {
         opacity={0.3}
         resolution={512}
         frames={1}
-        color="#1b1a17"
+        color="#172447"
       />
     </>
   );
@@ -234,7 +234,7 @@ export default function ModelCanvas({
     >
       <ambientLight intensity={1.05} />
       <directionalLight position={[6, 8, 5]} intensity={1.35} />
-      <directionalLight position={[-5, 3, -4]} intensity={0.5} color="#fff4e6" />
+      <directionalLight position={[-5, 3, -4]} intensity={0.5} color="#e8e1fa" />
       <OrbitControls
         ref={controlsRef}
         enablePan={false}

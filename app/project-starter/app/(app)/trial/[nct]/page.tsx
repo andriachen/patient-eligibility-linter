@@ -62,12 +62,12 @@ export default async function TrialPage({ params }: Params) {
       <mark
         key={m.anchor}
         id={m.anchor}
-        className={`scroll-mt-[calc(var(--header-offset)+1rem)] rounded-[2px] px-0.5 text-ink ${
-          m.absolute ? "bg-alert-tint" : "bg-accent-tint"
+        className={`scroll-mt-[calc(var(--header-offset)+1rem)] rounded-md px-0.5 text-ink ${
+          m.absolute ? "bg-blush" : "bg-ice"
         }`}
       >
         {text.slice(m.start, m.end)}
-        <span className="ml-1 whitespace-nowrap rounded-sm bg-surface px-1 align-middle text-[0.65rem] font-semibold uppercase tracking-wide text-ink-soft ring-1 ring-line">
+        <span className="ml-1 whitespace-nowrap rounded-full bg-white/80 px-1.5 align-middle text-[0.65rem] font-semibold uppercase tracking-wide text-ink-soft ring-1 ring-line">
           {m.categories.map(categoryLabel).join(" · ")}
         </span>
       </mark>,
@@ -83,7 +83,7 @@ export default async function TrialPage({ params }: Params) {
           ← Landscape
         </Link>
         <p className={`${eyebrow} mt-4`}>Trial {trial.nct_id}</p>
-        <h1 className="mt-2 font-serif text-[clamp(1.6rem,1.2rem+1.4vw,2.4rem)] font-semibold leading-tight text-ink">
+        <h1 className="mt-2 text-[clamp(1.6rem,1.2rem+1.4vw,2.4rem)] font-semibold leading-tight tracking-[-0.03em] text-ink">
           {trial.title}
         </h1>
         <dl className="mt-4 grid gap-x-6 gap-y-1 text-sm sm:grid-cols-[auto_minmax(0,1fr)]">
@@ -100,7 +100,7 @@ export default async function TrialPage({ params }: Params) {
           href={`https://clinicaltrials.gov/study/${trial.nct_id}`}
           target="_blank"
           rel="noreferrer"
-          className={`mt-4 inline-block text-sm font-semibold text-accent underline-offset-2 hover:underline ${focusRing}`}
+          className={`mt-4 inline-block text-sm font-semibold text-cobalt underline-offset-2 hover:underline ${focusRing}`}
         >
           View on ClinicalTrials.gov ↗
         </a>
@@ -110,7 +110,7 @@ export default async function TrialPage({ params }: Params) {
         <LiquidGlassPanel className="p-5 sm:p-6">
           <h2 className="text-lg font-semibold text-ink">Eligibility criteria</h2>
           <p className="mt-1 text-xs text-ink-faint">
-            Highlighted: restrictions our model extracted, each a verbatim quote (brick = excludes outright, petrol =
+            Highlighted: restrictions our model extracted, each a verbatim quote (pink = excludes outright, blue =
             only under conditions).
           </p>
           <div className="mt-4 whitespace-pre-wrap break-words text-sm leading-relaxed text-ink">{parts}</div>
@@ -134,7 +134,7 @@ export default async function TrialPage({ params }: Params) {
                     </div>
                     {e.threshold ? <p className="mt-1 text-ink-soft">{e.threshold}</p> : null}
                     {anchorFor[i] ? (
-                      <a href={`#${anchorFor[i]}`} className={`mt-1 inline-block text-xs text-accent hover:underline ${focusRing}`}>
+                      <a href={`#${anchorFor[i]}`} className={`mt-1 inline-block text-xs text-cobalt hover:underline ${focusRing}`}>
                         Show in the text
                       </a>
                     ) : null}

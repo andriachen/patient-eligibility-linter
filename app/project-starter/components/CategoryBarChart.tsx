@@ -47,19 +47,21 @@ export function CategoryBarChart({ categories, totalTrials, highlightCategory, i
                   {row.label}
                 </span>
                 <div
-                  className="col-span-2 row-start-2 h-3 overflow-hidden rounded-[2px] bg-sunken sm:col-span-1 sm:col-start-2 sm:row-start-1"
+                  className="glass-inset col-span-2 row-start-2 h-3 overflow-hidden rounded-full sm:col-span-1 sm:col-start-2 sm:row-start-1"
                   aria-hidden
                 >
                   <div
-                    className="h-full rounded-[2px]"
+                    className="h-full rounded-full"
                     style={{
                       width: `${widthPct}%`,
-                      background: highlighted ? "var(--chart-bar-highlight)" : "var(--chart-bar)",
+                      background: highlighted
+                        ? "linear-gradient(90deg, #ef8fb5, var(--chart-bar-highlight))"
+                        : "linear-gradient(90deg, var(--chart-bar-soft), var(--chart-bar))",
                     }}
                   />
                 </div>
                 <span
-                  className={`col-start-2 row-start-1 text-right tabular-nums sm:col-start-3 ${highlighted ? "font-semibold text-accent" : "text-ink-soft"}`}
+                  className={`col-start-2 row-start-1 text-right tabular-nums sm:col-start-3 ${highlighted ? "font-semibold text-rose-deep" : "text-ink-soft"}`}
                   aria-hidden
                 >
                   {row.pctExcluded}%
@@ -67,7 +69,7 @@ export function CategoryBarChart({ categories, totalTrials, highlightCategory, i
 
                 <span
                   aria-hidden
-                  className="pointer-events-none absolute bottom-full left-[9.5rem] z-20 mb-1.5 hidden whitespace-nowrap rounded-control border border-line bg-surface shadow-sm px-3 py-1.5 text-xs font-medium text-ink group-hover:block group-focus-visible:block max-sm:left-0"
+                  className="glass-float pointer-events-none absolute bottom-full left-[9.5rem] z-20 mb-1.5 hidden whitespace-nowrap rounded-xl bg-white/80 px-3 py-1.5 text-xs font-medium text-ink group-hover:block group-focus-visible:block max-sm:left-0"
                 >
                   {row.trialCount} of {totalTrials} trials
                 </span>

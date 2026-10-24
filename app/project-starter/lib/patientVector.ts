@@ -128,9 +128,10 @@ export function trips(
   switch (category) {
     case "hiv":
       if (value === "positive_uncontrolled") return hard;
-      // An ABSOLUTE HIV exclusion ("Known HIV infection") has no carve-out, so it
-      // is a hard barrier even for controlled patients. Only a CONDITIONAL row
-      // (absolute=false, e.g. "unless CD4 > 350") is "ask about it".
+      // An ABSOLUTE ("outright") HIV exclusion like "Known HIV infection" has no
+      // carve-out -> hard even for controlled patients. Only a CONDITIONAL row
+      // (absolute=false, e.g. "unless CD4 > 350 / undetectable viral load") is
+      // "ask about it". Matches main's "follow the outright definition" fix.
       if (value === "positive_controlled") return absolute ? "hard" : "soft";
       return null;
     case "diabetes":
