@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useState } from "react";
 
-import { StageShareLogo } from "@/components/StageShareLogo";
+import { ThresholdLogo } from "@/components/ThresholdLogo";
 import { controlTransition, focusRing } from "@/components/styles";
 import { glassButtonClass } from "@/components/ui/GlassButton";
 import { LiquidGlassPanel } from "@/components/ui/LiquidGlassPanel";
@@ -71,8 +71,8 @@ export function AppHeader() {
         reflect
         className="enter-nav pointer-events-auto mx-auto flex h-[var(--header-height)] max-w-[68rem] items-center justify-between gap-3 pl-2 pr-2"
       >
-        <Link href="/" aria-label="StageShare home" className={`rounded-full px-1.5 py-1 ${focusRing}`}>
-          <StageShareLogo />
+        <Link href="/" aria-label="Threshold home" className={`rounded-full px-1.5 py-1 ${focusRing}`}>
+          <ThresholdLogo />
         </Link>
 
         <nav aria-label="Main" className="hidden items-center gap-1 md:flex">

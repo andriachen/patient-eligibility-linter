@@ -6,7 +6,7 @@ export function SiteFooter() {
           Public data: ClinicalTrials.gov, CDC PLACES, MassGIS. Suggestions are for protocol
           teams to review.
         </p>
-        <p>StageShare · Hackachusetts</p>
+        <p>Threshold · Hackachusetts</p>
       </div>
     </footer>
   );

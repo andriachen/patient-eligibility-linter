@@ -111,12 +111,12 @@ function Pathways() {
     >
       <div className="grid gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-20">
         <Reveal>
-          <p className={eyebrow}>How StageShare works</p>
+          <p className={eyebrow}>How Threshold works</p>
           <h2 id="pathways-title" className="mt-4 text-title font-semibold text-ink">
             Public trial data, read with care.
           </h2>
           <p className="mt-5 max-w-md text-base leading-relaxed text-ink-soft">
-            StageShare reads the eligibility criteria of recruiting cancer trials in
+            Threshold reads the eligibility criteria of recruiting cancer trials in
             Massachusetts and sets them beside county health and community data.
           </p>
           <p className="mt-4 max-w-md text-sm leading-relaxed text-ink-soft">
