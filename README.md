@@ -46,7 +46,13 @@ eval/gold_labels.csv
   nct_id, category, threshold, source_text     # one row per category PRESENT
 ```
 
-## Linter function (P2 implements; local/CLI use; the web Linter uses keyword rules in `app/project-starter/lib/mockLint.ts`)
+## Linter function (P2 implements; local/CLI use)
+
+The web Linter does the same thing in TypeScript: `app/project-starter/app/api/lint/route.ts`
+sends the pasted text to Claude with a copy of the pipeline's prompt
+(`lib/extraction/prompt.ts`, guarded by `tests/test_prompt_parity.py`) and applies the
+pipeline's checks (`lib/extraction/logic.ts`). It needs `ANTHROPIC_API_KEY` on the server;
+without it the Linter falls back to keyword rules (`lib/mockLint.ts`).
 
 ```
 pipeline/extract/lint.py
@@ -110,7 +116,7 @@ python -m pipeline.ingest.build_county
 python pipeline/extract/fetch_sample.py
 python -m pipeline.extract.extract --input data/processed/trials.csv
 
-# Web app: http://localhost:3010
+# Web app: http://localhost:3010 (live Linter: put ANTHROPIC_API_KEY in app/project-starter/.env.local)
 cd app/project-starter && npm run dev
 
 # Accounts app: http://localhost:3000/account

@@ -21,11 +21,15 @@ limited-English), **Linter** (paste criteria → flagged list + suggestions + Im
 trials** (matcher, `/matches`).
 
 Status of the data wiring: Landscape + Map read the real processed CSVs / `stats.json`
-(copied into the app at build, see §8b). The Linter tab is keyword rules for the 13
-categories (`lib/mockLint.ts`, client-side; P 0.89 / R 0.96 against exclusions.csv, which
-it was tuned on) with fixed FDA/ASCO–Friends suggestions copied from
-`pipeline/extract/suggest.py` (keep in sync). It does not call the model or `lint.py`; the
-model runs offline only (exclusions.csv, scored in eval/). Don't present the Linter as AI.
+(copied into the app at build, see §8b). The Linter calls Claude live
+(`app/api/lint/route.ts`): same model (`claude-haiku-5-5`) and prompt as the pipeline
+(TS copy in `lib/extraction/prompt.ts`, guarded by `tests/test_prompt_parity.py`), then the
+pipeline's quote check, noise guards and dedupe (`lib/extraction/logic.ts`, replay-checked
+by `scripts/check-extraction-parity.ts`: 1011/1011 trials reproduce exclusions.csv). Its
+benchmark compares a draft with the model's extraction of every trial. Without
+`ANTHROPIC_API_KEY` on the server it falls back to keyword rules for the 13 categories
+(`lib/mockLint.ts`; P 0.89 / R 0.96 against exclusions.csv, which it was tuned on) and says
+so. Suggestions are copied from `pipeline/extract/suggest.py` (`tests/test_suggest_parity.py`).
 
 ## 2. Architecture / data flow
 
@@ -38,7 +42,7 @@ MassGIS EJ (ArcGIS) ───┘                                          │   
 EligibilityCriteria text ─> pipeline/extract (Anthropic tool-use) ┘
       └─> data/cache/{nct_id}.json  +  data/processed/exclusions.csv  (+ auto stats.json)
       └─> lint.py:lint_criteria(text)  — model-backed lint for local/CLI use; the web
-          Linter tab does not call it (keyword rules in lib/mockLint.ts)
+          Linter does the same in TS (app/api/lint, keyword-rule fallback w/o a key)
 ```
 
 ## 3. Ownership (don't touch other folders)
@@ -101,9 +105,9 @@ MA county FIPS 25001–25027 (odd only), 14 counties — see README.
 | exclusions.csv (full run) | done | **v2 prompt, all 1011 uniform**; 3839 rows; 0 rows fail their own guard |
 | P2 suggest.py | done | template, 13 cats, FDA/ASCO-cited; 5 gap cats say "no guidance" w/ empty source; wired into lint.py |
 | Matcher index (Aim 1 / Sub-Aim 2) | done | `eval/build_trials_enriched.py` -> `trials_enriched.json` (1011 trials + embedded exclusions + MA sites); auto-rebuilt w/ stats.json |
-| Matcher logic (Aim 1 / Sub-Aim 3) | done (logic) | `app/project-starter/lib/{patientVector,loadTrialsIndex,matchTrials}.ts`; deterministic, no inference; reads trials_enriched.json; verified vs real data (all-unknown→all "worth reaching out") |
-| Matcher UI (Aim 1 / Sub-Aim 4) | done (needs build) | `/matches` page + `MatchPanel.tsx` + `matchAction.ts` server action; questionnaire → 3 buckets (worth / ask / not-yet) w/ quoted criterion + CTA; "Find trials" in nav. **P3: `npm run build` to verify** (node_modules wasn't installed here; contracts/paths statically checked) |
-| P3 app | done | Next.js at `app/project-starter` (NOT Streamlit), live on Vercel as Threshold; Landscape/Map read real CSVs + stats.json (Map: real per-county shares of distinct trials, PLACES, EJ minority + limited-English); Linter = keyword rules for 13 categories with FDA/ASCO–Friends suggestions + Impact tab, not model-backed |
+| Matcher logic (Aim 1 / Sub-Aim 3) | done | `app/project-starter/lib/{patientVector,loadTrialsIndex,matchTrials}.ts`; deterministic, no inference; reads trials_enriched.json; verified vs real data (all-unknown→all "worth reaching out") |
+| Matcher UI (Aim 1 / Sub-Aim 4) | done | `/matches` page + `MatchPanel.tsx` + `matchAction.ts` server action; questionnaire (all 13 categories + cancer-type dropdown + county) → 3 buckets (worth / ask / not-yet) w/ quoted criterion or plain reason + CTA; own-cancer trials first; "Find trials" in nav; builds |
+| P3 app | done | Next.js at `app/project-starter` (NOT Streamlit), live on Vercel as Threshold; Landscape/Map read real CSVs + stats.json (Map: real per-county shares of distinct trials, PLACES, EJ minority + limited-English); Linter = live Claude (same model + prompt as the pipeline) with keyword-rule fallback, FDA/ASCO–Friends suggestions, highlighted draft, copyable report, Impact tab; static `/trial/NCT…` pages with highlighted quotes |
 | P4 eval | done | run_eval.py (42-trial gold, subsets + real bootstrap CI); all-42 F1 **0.94** [0.91,0.97], held-out **0.95** [0.89,0.99]; reproducible |
 | P4 docs | in progress | sources.md done; pitch.md updated (HIV 34.3%, held-out F1 0.95); submission.md TBD |
 | accounts/ | done | separate Next.js 16 app (not Streamlit): email login + branching profile wizard, saved to Supabase `profiles`; see accounts/README.md |
@@ -229,18 +233,15 @@ so that parity check lives in the Python suite.
 - 2026-10-24: **Threshold pass (Namik).** Renamed StageShare → Threshold (web + accounts).
   Map: tabs "Exclusions / Health / Environmental justice areas" (wrap on phones), EJ measure
   switch (minority / limited-English), county detail row "EJ limited-English households"
-  (Suffolk 14.44%), source caption. New "Paper & Petrol" palette in both apps (no glass,
-  blobs or gradients; 5-class single-hue map scale; Public Sans + Source Serif 4).
-  _Naming note: the palette was restyled but the UI-kit files in
-  `app/project-starter/components/ui/` are still named `Glass*`/`Liquid*`
-  (GlassBadge, LiquidGlassPanel, GlassButton, GlassTabs, …). The names are legacy; the
-  rendered look is Paper & Petrol, not glass. Renaming the files is a cosmetic TODO._
-  Earlier
+  (Suffolk 14.44%), source caption. A "Paper & Petrol" palette was tried here and
+  reverted the same day (next entry); the `Glass*`/`Liquid*` UI-kit names match the
+  current glass look again. Earlier
   the same day: real per-county Map shares (`loadCounties.ts`) and the 13-category keyword
   Linter (`mockLint.ts`) replaced the 0% map and the 8-category mock.
-- 2026-10-24: **Paper & Petrol reverted.** Both apps are back on the original glass look
-  (Manrope, cobalt/rose, heart logo, grey tiles for small counties); the Threshold name,
-  map fixes and new features stay. **HIV fixes:** the funnel's "HIV, controlled on
+- 2026-10-24: **Paper & Petrol reverted.** The web app is back on the original glass look
+  (Manrope, cobalt/rose, heart-tile logo, grey tiles for small counties); accounts is back
+  on its own original look (Geist, #1f6feb, lucide HeartPulse, follows OS dark mode). The
+  Threshold name, map fixes and new features stay. **HIV fixes:** the funnel's "HIV, controlled on
   treatment" and "Brain metastases, treated and stable" traits now drop only trials that
   exclude them outright (Hampden pitch patient 24 → 20 → 20 → 16). Find trials marks an
   outright HIV rule as "hard" for controlled HIV (58, any county: 602 / 166 / 243).
@@ -259,6 +260,23 @@ so that parity check lives in the Python suite.
   final 3839; micro F1 0.93 → all-42 0.94; language 10.5% → 10.8%; top-category shares
   refreshed from stats.json) and added a naming note for the legacy `Glass*`/`Liquid*`
   UI files under the Paper & Petrol palette. `npm run build` still green (1020 pages).
+  (Superseded: Arush's merge replaced the fs loader with a static JSON import, see §8b.)
+- 2026-10-24: **Merge + consistency pass (Namik), live Linter.** Merged Arush's matcher
+  review + LLM cancer-type tags (dropdown, wrong-cancer reasons, registry ages) and Andria's
+  Linter wording (fix-first tiers, NCI replacement text, updated citations). Shared rules in
+  `lib/traitRules.ts` keep the Map funnel and Find trials in step: ECOG caps (activity
+  answers are ECOG 0/1/2/3+, worded like the accounts wizard; age ranges and cohort-split
+  caps no longer misread), "treated and stable" brain mets (turned away only by outright
+  rules that aren't limited to active/untreated/symptomatic disease), and primary-brain
+  trials (tag "brain") skipping their brain-mets row. Uncontrolled HIV is hard on every HIV
+  rule; BMI 30+ is turned away only by limits at or below 30. Own-cancer trials sort first
+  in each bucket. Checked (age 58, all of MA): funnel and Find trials agree trial for trial
+  on controlled HIV (151), treated-stable brain mets (90) and ECOG 2 (307); agreed numbers
+  unchanged (Hampden 24 → 20 → 20 → 16 / 18; 58 + controlled HIV 602 / 166 / 243; Hampden
+  nearby 13 / 7 / 4; keyword sample 8 flags, more than 83%). "Absolute" badges now say
+  "Outright"; phases read "Phase 1/2"; keyword rules treat a same-line carve-out as
+  conditional. Linter now calls Claude live (see §1, §9); its replacement wording and peer
+  counts work for both engines.
 
 ## 8b. Vercel data deployment (important)
 
@@ -267,16 +285,21 @@ pipeline's `data/processed/` at the REPO ROOT is NOT in the bundle at runtime. F
 `app/project-starter/scripts/copy-data.mjs` runs as `prebuild` (and `predev`) and
 copies the needed files (trials_enriched.json, stats.json, trials/exclusions/
 trial_sites/county_metrics/county_ej .csv) into `app/project-starter/data/processed/`
-(gitignored; regenerated every build). Loaders prefer the in-app copy, falling back to
-`../../data/processed` for local dev. This is also why Landscape/Map now show REAL data
+(gitignored; regenerated every build). The CSV/stats loaders prefer the in-app copy,
+falling back to `../../data/processed` for local dev; `lib/loadTrialsIndex.ts` statically
+imports `@/data/processed/trials_enriched.json`, so the build fails (instead of shipping an
+empty matcher) if the copy didn't run. This is also why Landscape/Map now show REAL data
 on Vercel instead of silently falling back to `lib/mock/`. If you add a new processed
 file the app reads, add it to the FILES list in copy-data.mjs.
 
 ## 9. Open questions / blockers
 
-- **Web Linter is keyword rules by design.** A model-backed `lint_criteria()` would need a
-  Python runtime + ANTHROPIC_API_KEY server-side (not on Vercel). On stage say "flags",
-  not "AI"; the AI is the offline extraction, scored in eval/.
+- **Live Linter needs `ANTHROPIC_API_KEY` on Vercel (manual, Andria — project owner).** Add it
+  to the project's environment variables (web service) and redeploy; `GET /api/lint` then
+  returns `"configured": true`. Until then the live site's Linter uses keyword rules and
+  says so; on stage say "flags", not "AI", unless the Claude badge shows. The route caps
+  input at 25,000 characters, rate-limits 30 runs per 10 minutes per IP, and caches
+  repeat texts per server instance.
 - **Vercel env (manual, Andria):** `NEXT_PUBLIC_SUPABASE_ANON_KEY` is stored with its own
   name in front (`NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJ…`). Login works because
   `accounts/src/lib/supabase/env.ts` strips it; set the value to only the part after `=`

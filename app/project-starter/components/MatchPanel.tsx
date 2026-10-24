@@ -12,7 +12,8 @@ import type { PatientVector } from "@/lib/matchTrials";
 
 const delay = (ms: number) => ({ "--delay": `${ms}ms` }) as CSSProperties;
 
-// Questionnaire: one coarse question per category (docs/patient-matching.md §2).
+// Questionnaire: one coarse question per category (docs/patient-matching.md §2). Age is
+// asked separately, so with these 12 the form covers all 13 categories.
 type Opt = { value: string; label: string };
 const Q: { key: keyof PatientVector; label: string; options: Opt[] }[] = [
   { key: "hiv", label: "HIV status", options: [
@@ -21,11 +22,13 @@ const Q: { key: keyof PatientVector; label: string; options: Opt[] }[] = [
     { value: "positive_controlled", label: "Positive, controlled on treatment" },
     { value: "positive_uncontrolled", label: "Positive, not controlled" },
   ]},
-  { key: "performance_status", label: "Day-to-day activity", options: [
+  // ECOG 0, 1, 2 and 3+, in the accounts wizard's words (the Map's funnel uses ECOG 2 too).
+  { key: "performance_status", label: "Your usual day", options: [
     { value: "unknown", label: "Prefer not to say" },
-    { value: "fully_active", label: "Fully active" },
-    { value: "restricted_but_mobile", label: "Restricted but up and about" },
-    { value: "limited", label: "Limited / mostly resting" },
+    { value: "fully_active", label: "Fully active, same as before I got sick" },
+    { value: "restricted_but_mobile", label: "Can't do hard activity, but can do light work" },
+    { value: "limited", label: "Up and about more than half the day, can't work" },
+    { value: "very_limited", label: "In bed or a chair more than half the day" },
   ]},
   { key: "language", label: "English", options: [
     { value: "unknown", label: "Prefer not to say" },
@@ -65,6 +68,11 @@ const Q: { key: keyof PatientVector; label: string; options: Opt[] }[] = [
     { value: "unknown", label: "Prefer not to say" },
     { value: "no", label: "No" },
     { value: "yes", label: "Yes" },
+  ]},
+  { key: "bmi", label: "Body weight", options: [
+    { value: "unknown", label: "Prefer not to say" },
+    { value: "no", label: "BMI under 30" },
+    { value: "yes", label: "BMI 30 or more" },
   ]},
   { key: "smoking", label: "Current tobacco / nicotine use", options: [
     { value: "unknown", label: "Prefer not to say" },
@@ -171,7 +179,7 @@ export function MatchPanel() {
         </p>
 
         <div className="mt-4 grid gap-3">
-          <GlassField label="Cancer type" hint="We only show trials for your cancer type.">
+          <GlassField label="Cancer type" hint="Trials for other cancer types go to Likely not yet, with the reason.">
             <GlassSelect value={cancerType} onChange={(e) => setCancerType(e.target.value)}>
               <option value="">Any / not sure</option>
               {CANCER_TYPE_OPTIONS.map((o) => (
@@ -298,8 +306,8 @@ function MatchResultCard({ card, bucket }: { card: MatchCard; bucket: Tab }) {
     <li className="glass-inset p-4">
       <div className="flex flex-wrap items-center gap-2">
         {card.nearby ? <GlassBadge tone="cobalt">Nearby</GlassBadge> : null}
-        {card.notScreened ? <GlassBadge tone="neutral">Not screened</GlassBadge> : null}
-        {card.phase ? <GlassBadge tone="neutral">{card.phase.replace(/;/g, ", ")}</GlassBadge> : null}
+        {card.notScreened ? <GlassBadge tone="neutral">No barriers extracted</GlassBadge> : null}
+        {card.phase ? <GlassBadge tone="neutral">{card.phase}</GlassBadge> : null}
       </div>
       <p className="mt-2 font-semibold leading-snug text-ink">{card.title}</p>
       {card.site ? (
@@ -327,10 +335,11 @@ function MatchResultCard({ card, bucket }: { card: MatchCard; bucket: Tab }) {
         </ul>
       ) : null}
 
-      {/* #4: be honest when we couldn't extract this trial's criteria */}
+      {/* #4: be honest that an empty extraction isn't a guarantee */}
       {card.notScreened ? (
         <p className="mt-2 text-xs text-ink-faint">
-          We couldn&apos;t read this trial&apos;s criteria automatically — check the listing yourself.
+          Our extraction found none of the 13 common barriers in this trial&apos;s criteria. It can miss some,
+          so check the listing yourself.
         </p>
       ) : null}
 

@@ -122,11 +122,17 @@ export function ProfileWizard({ initial, preview = false }: { initial: SavedProf
               <Pencil aria-hidden className="size-4" />
               Edit answers
             </button>
-            <a href={webHref("/landscape")} className={button.secondary}>
+            {PATIENT_ROLES.includes(answers.role as Role) ? (
+              <a href={webHref("/matches")} className={button.secondary}>
+                Find trials that may fit
+              </a>
+            ) : (
+              <a href={webHref("/linter")} className={button.secondary}>
+                Try the criteria linter
+              </a>
+            )}
+            <a href={webHref("/landscape")} className={button.ghost}>
               Explore MA cancer trials
-            </a>
-            <a href={webHref("/linter")} className={button.ghost}>
-              Try the criteria linter
             </a>
           </div>
         </div>

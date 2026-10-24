@@ -1,10 +1,11 @@
 "use server";
 
-// Server action for Sub-Aim 4. matchTrials() uses fs (reads trials_enriched.json),
-// so it must run on the server; the client MatchPanel calls this. Returns only the
-// data the UI needs (trimmed so we don't ship every exclusion row to the client).
+// Server action for Sub-Aim 4. The trial index (trials_enriched.json) is bundled into
+// the server, so matching runs there; the client MatchPanel calls this. Returns only
+// the data the UI needs (trimmed so we don't ship every exclusion row to the client).
 
 import { matchTrials, type MatchedTrial, type PatientVector } from "./matchTrials";
+import { formatPhase } from "./phase";
 
 export type MatchCardSite = { facility: string; city: string; county: string };
 export type MatchCard = {
@@ -13,7 +14,7 @@ export type MatchCard = {
   phase: string;
   lead_sponsor: string;
   nearby: boolean;
-  notScreened: boolean; // #4: no criteria extracted — we couldn't check it
+  notScreened: boolean; // #4: no restrictions extracted from this trial's criteria
   site: MatchCardSite | null;
   hits: { category: string; label: string; severity: "hard" | "soft"; source_text: string; threshold: string | null }[];
   ctUrl: string;
@@ -31,13 +32,6 @@ export type MatchResponse = {
 
 const LIMIT = 50; // cap cards per bucket so the payload stays small
 
-// #16: "PHASE2;PHASE3" -> "Phase 2/3"; "NA" -> "" (hidden).
-function prettyPhase(raw: string): string {
-  const parts = raw.split(";").map((p) => p.trim()).filter((p) => p && p !== "NA");
-  const nums = parts.map((p) => p.replace(/^PHASE/i, "").replace(/_/g, " ").trim());
-  return nums.length ? `Phase ${nums.join("/")}` : "";
-}
-
 function toCard(m: MatchedTrial, patientCounty?: string): MatchCard {
   const site =
     (patientCounty && m.trial.sites.find((s) => s.county === patientCounty)) ||
@@ -46,7 +40,7 @@ function toCard(m: MatchedTrial, patientCounty?: string): MatchCard {
   return {
     nct_id: m.trial.nct_id,
     title: m.trial.title,
-    phase: prettyPhase(m.trial.phase),
+    phase: formatPhase(m.trial.phase),
     lead_sponsor: m.trial.lead_sponsor,
     nearby: m.nearby,
     notScreened: m.notScreened,

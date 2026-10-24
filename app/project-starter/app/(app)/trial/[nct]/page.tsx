@@ -9,6 +9,7 @@ import { LiquidGlassPanel } from "@/components/ui/LiquidGlassPanel";
 import { categoryLabel } from "@/lib/categories";
 import { locateQuote } from "@/lib/criteriaText";
 import { loadTrialDetails, trialIds } from "@/lib/loadTrialDetails";
+import { formatPhase } from "@/lib/phase";
 
 // One static page per recruiting trial; Vercel never reads the data at request time.
 export const dynamicParams = false;
@@ -88,7 +89,7 @@ export default async function TrialPage({ params }: Params) {
         </h1>
         <dl className="mt-4 grid gap-x-6 gap-y-1 text-sm sm:grid-cols-[auto_minmax(0,1fr)]">
           <dt className="text-ink-faint">Phase</dt>
-          <dd className="text-ink">{trial.phase || "Not given"}</dd>
+          <dd className="text-ink">{formatPhase(trial.phase) || "Not given"}</dd>
           <dt className="text-ink-faint">Sponsor</dt>
           <dd className="text-ink">{trial.lead_sponsor}</dd>
           <dt className="text-ink-faint">Conditions</dt>
@@ -122,14 +123,17 @@ export default async function TrialPage({ params }: Params) {
               Restrictions found <span className="text-ink-faint">({trial.exclusions.length})</span>
             </h2>
             {trial.exclusions.length === 0 ? (
-              <p className="mt-2 text-sm text-ink-soft">None of the 13 categories were found in this trial&apos;s criteria.</p>
+              <p className="mt-2 text-sm text-ink-soft">
+                No restrictions in the 13 categories were extracted for this trial. The model can miss some, so
+                read the criteria in full.
+              </p>
             ) : (
               <ul className="mt-3 divide-y divide-line text-sm">
                 {trial.exclusions.map((e, i) => (
                   <li key={`${e.category}-${i}`} className="py-2.5">
                     <div className="flex flex-wrap items-center gap-1.5">
                       <GlassBadge tone="cobalt">{categoryLabel(e.category)}</GlassBadge>
-                      <GlassBadge tone={e.absolute ? "rose" : "neutral"}>{e.absolute ? "Absolute" : "Conditional"}</GlassBadge>
+                      <GlassBadge tone={e.absolute ? "rose" : "neutral"}>{e.absolute ? "Outright" : "Conditional"}</GlassBadge>
                       <span className="text-xs capitalize text-ink-faint">{e.section}</span>
                     </div>
                     {e.threshold ? <p className="mt-1 text-ink-soft">{e.threshold}</p> : null}

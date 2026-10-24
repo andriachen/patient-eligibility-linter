@@ -1,5 +1,6 @@
 import { type CountyRecord, loadCounties } from "./loadCounties";
 import { allEligibilityTexts } from "./loadTrialDetails";
+import { loadTrialsIndex } from "./loadTrialsIndex";
 import { mockLintCriteria } from "./mockLint";
 import { loadLandscapeStats } from "./loadStats";
 
@@ -14,6 +15,9 @@ export type LintContext = {
   flagHistogram: number[];
   /** How many trials the same keyword rules flag as conditional (inclusive wording), per category. */
   peerConditionalCount: Record<string, number>;
+  /** The same two numbers from the model's extraction (exclusions.csv), for Claude runs. */
+  modelHistogram: number[];
+  modelPeerConditionalCount: Record<string, number>;
   source: "mock" | "processed";
 };
 
@@ -49,7 +53,8 @@ export function loadLintContext(): LintContext {
         .slice(0, 5),
     };
   }
-  // Run the Linter's own rules over every trial so a draft is compared like for like.
+  // Compare a draft like for like: keyword flags against the same rules run on every
+  // trial, model flags against the model's extraction of every trial.
   const flagHistogram: number[] = [];
   const peerConditionalCount: Record<string, number> = {};
   for (const text of allEligibilityTexts()) {
@@ -61,10 +66,22 @@ export function loadLintContext(): LintContext {
     }
   }
 
+  const modelHistogram: number[] = [];
+  const modelPeerConditionalCount: Record<string, number> = {};
+  for (const trial of loadTrialsIndex().trials) {
+    const n = new Set(trial.exclusions.map((e) => e.category)).size;
+    modelHistogram[n] = (modelHistogram[n] ?? 0) + 1;
+    for (const category of new Set(trial.exclusions.filter((e) => !e.absolute).map((e) => e.category))) {
+      modelPeerConditionalCount[category] = (modelPeerConditionalCount[category] ?? 0) + 1;
+    }
+  }
+
   return {
     totalTrials: stats.totalTrials,
     flagHistogram: Array.from(flagHistogram, (v) => v ?? 0),
     peerConditionalCount,
+    modelHistogram: Array.from(modelHistogram, (v) => v ?? 0),
+    modelPeerConditionalCount,
     trialPctByCategory: Object.fromEntries(stats.categories.map((c) => [c.category, c.pctExcluded])),
     population,
     source: stats.source === "processed" && source === "processed" ? "processed" : "mock",

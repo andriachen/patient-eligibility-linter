@@ -1,7 +1,9 @@
 // Aim 1 / Sub-Aim 3 — the deterministic patient matcher (no inference).
-// Mirrors docs/patient-matching.md §8. Pure functions; unit-testable.
+// Design: docs/patient-matching.md. Pure functions; unit-testable. Rules shared with
+// the Map's funnel live in ./traitRules.
 
 import { categoryLabel } from "./categories";
+import { ECOG_LEVEL, barsTreatedBrainMets, ecogCap, isPrimaryBrainTrial } from "./traitRules";
 
 /** One exclusion row from trials_enriched.json. */
 export type Exclusion = {
@@ -54,13 +56,13 @@ export type PatientVector = {
   hiv?: "negative" | "positive_controlled" | "positive_uncontrolled" | "unknown";
   brain_mets?: "no" | "treated_stable" | "active" | "unknown";
   prior_malignancy?: "no" | "yes" | "unknown";
-  performance_status?: "fully_active" | "restricted_but_mobile" | "limited" | "unknown";
+  /** ECOG 0, 1, 2 and 3+ (see ECOG_LEVEL). */
+  performance_status?: "fully_active" | "restricted_but_mobile" | "limited" | "very_limited" | "unknown";
   language?: "english_ok" | "english_limited" | "unknown";
   pregnancy?: "no" | "yes" | "unknown";
   county?: string;
-  /** Free-text cancer type (e.g. "breast", "lung"). Used to filter + to spare a
-   *  trial's own target condition from a matching barrier (e.g. brain_mets on a
-   *  brain-cancer trial). Empty/undefined = don't filter by condition. */
+  /** One of the fixed cancer-type codes below (a dropdown, same list as the accounts
+   *  wizard). Empty/undefined = don't filter by cancer type. */
   cancer_type?: string;
 };
 
@@ -116,12 +118,10 @@ export function trialMatchesCancer(trial: EnrichedTrial, cancerType?: string): b
 }
 
 /** Is `category` the trial's OWN target disease? A brain_mets exclusion on a PRIMARY
- *  brain-cancer trial (tagged "brain") is a disease definition, not a barrier. */
+ *  brain-cancer trial (tagged "brain") is a disease definition, not a barrier. The
+ *  Map's funnel skips the same rows. */
 function categoryIsTrialTarget(category: string, trial: EnrichedTrial): boolean {
-  if (category === "brain_mets") {
-    return (trial.cancer_types ?? []).includes("brain");
-  }
-  return false;
+  return category === "brain_mets" && isPrimaryBrainTrial(trial);
 }
 
 export type Severity = "hard" | "soft" | null;
@@ -129,7 +129,7 @@ export type Severity = "hard" | "soft" | null;
 /**
  * Does the patient's value for `category` conflict with this exclusion row?
  * Returns "hard" (absolute exclusion tripped), "soft" (conditional / discuss), or
- * null (no conflict). See docs/patient-matching.md §8.
+ * null (no conflict). See docs/patient-matching.md §3.
  */
 export function trips(
   category: string,
@@ -141,7 +141,8 @@ export function trips(
 
   switch (category) {
     case "hiv":
-      if (value === "positive_uncontrolled") return hard;
+      // Conditional HIV rules admit only controlled HIV, so uncontrolled is always a barrier.
+      if (value === "positive_uncontrolled") return "hard";
       // An ABSOLUTE ("outright") HIV exclusion like "Known HIV infection" has no
       // carve-out -> hard even for controlled patients. Only a CONDITIONAL row
       // (absolute=false, e.g. "unless CD4 > 350 / undetectable viral load") is
@@ -158,11 +159,13 @@ export function trips(
       if (value === "mild") return "soft";
       return null;
     case "brain_mets":
+      // treated_stable is decided in classifyTrial, which can read the rule's wording.
       if (value === "active") return hard;
       if (value === "treated_stable") return "soft";
       return null;
     case "performance_status":
-      if (value === "limited") return hard;
+      // classifyTrial reads the rule's ECOG cap instead (see severity()).
+      if (value === "limited" || value === "very_limited") return hard;
       if (value === "restricted_but_mobile") return "soft";
       return null;
     case "language":
@@ -198,8 +201,49 @@ export type MatchedTrial = {
   hits: Hit[];
   nearby: boolean; // a site in the patient's county
   cancerMatch: boolean; // trial targets the patient's cancer type (or none given)
-  notScreened: boolean; // trial has NO extracted criteria — we couldn't check it
+  notScreened: boolean; // no extracted rows: none of the 13 found, or (rarely) a misread
 };
+
+/**
+ * A "BMI 30 or more" patient against one BMI/weight rule. Upper limits at or below 30
+ * turn them away; higher limits, lower limits above 30 and weight limits depend on their
+ * exact BMI, so they're worth asking about; lower limits at or below 30 never apply.
+ */
+function bmiSeverity(ex: Exclusion): Severity {
+  const t = (ex.threshold ?? ex.source_text).replace(/\\/g, "").replace(/≥/g, ">=").replace(/≤/g, "<=");
+  const results: Severity[] = [];
+  // In an exclusion "BMI > 40" is an upper limit; in an inclusion "BMI < 35" is.
+  const isUpper = (op: string) => (ex.section === "exclusion" ? op.startsWith(">") : op.startsWith("<"));
+  for (const m of t.matchAll(/\b(BMI|weight)\b[^<>\d]{0,12}(>=|<=|>|<)\s*(\d+(?:\.\d+)?)/gi)) {
+    const [, kind, op, num] = m;
+    const n = Number(num);
+    if (kind.toLowerCase() === "weight") results.push(isUpper(op) ? "soft" : null);
+    else if (isUpper(op)) results.push(n <= 30 ? "hard" : "soft");
+    else results.push(n > 30 ? "soft" : null);
+  }
+  for (const m of t.matchAll(/\bBMI\b[^\d]{0,12}(\d+(?:\.\d+)?)\s*(?:-|–|to|and)\s*(\d+(?:\.\d+)?)/gi)) {
+    if (ex.section === "inclusion") results.push(Number(m[2]) <= 30 ? "hard" : "soft");
+  }
+  if (results.includes("hard")) return "hard";
+  if (results.includes("soft") || results.length === 0) return "soft";
+  return null;
+}
+
+/** How a patient answer meets one rule, for the rules that need more than the absolute flag. */
+function severity(ex: Exclusion, value: string | undefined): Severity {
+  if (ex.category === "bmi" && value === "yes") return bmiSeverity(ex);
+  if (ex.category === "performance_status" && value !== undefined && value in ECOG_LEVEL) {
+    // Same test as the funnel: a readable ECOG cap below the patient's level turns them
+    // away. A cap we can't read is worth asking about, never a firm no.
+    const cap = ecogCap(ex.threshold, ex.section);
+    if (cap !== null) return ECOG_LEVEL[value] > cap ? "hard" : null;
+    return value === "fully_active" ? null : "soft";
+  }
+  if (ex.category === "brain_mets" && value === "treated_stable") {
+    return barsTreatedBrainMets(ex) ? "hard" : "soft";
+  }
+  return trips(ex.category, value, ex.absolute);
+}
 
 /** Classify one trial against the patient vector. */
 export function classifyTrial(
@@ -238,8 +282,8 @@ export function classifyTrial(
       threshold: null,
     });
   }
-  // #4: no extracted rows means we couldn't screen this trial (112 trials, incl.
-  // the 5 known extraction failures) — distinct from "screened, nothing found".
+  // #4: 112 trials have no extracted rows. Mostly none of the 13 barriers were found,
+  // plus the few long trials the model misreads (eval/results.md), so we say so.
   const notScreened = trial.exclusions.length === 0;
 
   // age: numeric, from the trial's own min/max (not an exclusion row)
@@ -267,7 +311,7 @@ export function classifyTrial(
     const value = (patient as Record<string, string | number | undefined>)[
       ex.category
     ] as string | undefined;
-    const sev = trips(ex.category, value, ex.absolute);
+    const sev = severity(ex, value);
     if (sev) {
       hits.push({
         category: ex.category,

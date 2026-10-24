@@ -1,5 +1,6 @@
 import exclusionRowsMock from "./mock/exclusion-rows.json";
 import { normalizeCriteria } from "./criteriaText";
+import { formatPhase } from "./phase";
 import { parseCsv, readProcessedText } from "./readProcessedFile";
 
 export type ExclusionRow = {
@@ -35,7 +36,7 @@ function loadFromProcessed(): ExclusionRow[] | null {
       return {
         nct_id: ex.nct_id,
         category: ex.category,
-        phase: trial.phase || "Unknown",
+        phase: formatPhase(trial.phase) || "Not given",
         sponsor: trial.lead_sponsor || "Unknown",
         source_text: normalizeCriteria(ex.source_text),
       };

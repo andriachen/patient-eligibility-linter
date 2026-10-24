@@ -27,8 +27,9 @@ const BUCKET_ORDER: Record<Bucket, keyof Omit<MatchResult, "counts" | "source">>
 /**
  * Match a patient against every trial in the index.
  *
- * Within each bucket, trials with a site in the patient's county ("nearby") come
- * first, then those with fewer hits (closer to a fit).
+ * Within each bucket, trials for the patient's own cancer type come first (so ruled-out
+ * trials for their cancer aren't buried under other cancers' trials), then trials with
+ * a site in the patient's county ("nearby"), then those with fewer hits (closer to a fit).
  */
 export function matchTrials(patient: PatientVector): MatchResult {
   const { trials, source } = loadTrialsIndex();
@@ -53,7 +54,7 @@ export function matchTrials(patient: PatientVector): MatchResult {
   };
   const sortBucket = (arr: MatchedTrial[]) =>
     arr.sort((a, b) => {
-      // #1: in "Likely not yet", float the patient's OWN-cancer trials (blocked by a
+      // In "Likely not yet", float the patient's OWN-cancer trials (blocked by a
       // real barrier) above the hundreds of other-cancer trials they'd never join.
       if (a.cancerMatch !== b.cancerMatch) return a.cancerMatch ? -1 : 1;
       if (a.nearby !== b.nearby) return a.nearby ? -1 : 1;
