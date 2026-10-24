@@ -1,0 +1,1 @@
+# One NCT id per line for the gold evaluation set.
