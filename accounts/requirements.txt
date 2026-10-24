@@ -1,0 +1,3 @@
+supabase==2.33.0
+python-dotenv==1.0.1
+# streamlit and pandas come from app/requirements.txt
