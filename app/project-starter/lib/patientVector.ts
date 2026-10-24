@@ -75,7 +75,8 @@ export function trips(
   switch (category) {
     case "hiv":
       if (value === "positive_uncontrolled") return hard;
-      if (value === "positive_controlled") return "soft"; // usually allowed w/ CD4/VL
+      // Conditional rules usually admit controlled HIV (CD4/viral load); outright ones don't.
+      if (value === "positive_controlled") return absolute ? "hard" : "soft";
       return null;
     case "diabetes":
       if (value === "uncontrolled") return hard;

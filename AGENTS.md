@@ -214,6 +214,12 @@ python -m pipeline.ingest.build_county       # -> county_metrics.csv, county_ej.
   blobs or gradients; 5-class single-hue map scale; Public Sans + Source Serif 4). Earlier
   the same day: real per-county Map shares (`loadCounties.ts`) and the 13-category keyword
   Linter (`mockLint.ts`) replaced the 0% map and the 8-category mock.
+- 2026-10-24: **Paper & Petrol reverted.** Both apps are back on the original glass look
+  (Manrope, cobalt/rose, heart logo, grey tiles for small counties); the Threshold name,
+  map fixes and new features stay. **HIV fixes:** the funnel's "HIV, controlled on
+  treatment" and "Brain metastases, treated and stable" traits now drop only trials that
+  exclude them outright (Hampden pitch patient 24 → 20 → 20 → 16). Find trials marks an
+  outright HIV rule as "hard" for controlled HIV (58, any county: 602 / 166 / 243).
 
 ## 8b. Vercel data deployment (important)
 
