@@ -2773,7 +2773,7 @@
       "other",
       "lung"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": 50,
     "exclusions": [
       {
@@ -3075,7 +3075,7 @@
     "cancer_types": [
       "blood"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": null,
     "exclusions": [],
     "exclusion_categories": [],
@@ -3190,7 +3190,7 @@
     "cancer_types": [
       "any_cancer"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": 18,
     "exclusions": [
       {
@@ -4738,7 +4738,7 @@
     "cancer_types": [
       "other"
     ],
-    "min_age": 0,
+    "min_age": 0.08,
     "max_age": 99,
     "exclusions": [],
     "exclusion_categories": [],
@@ -5406,7 +5406,7 @@
       "skin",
       "blood"
     ],
-    "min_age": 0,
+    "min_age": 0.5,
     "max_age": 17,
     "exclusions": [
       {
@@ -5795,7 +5795,7 @@
     "cancer_types": [
       "any_cancer"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": null,
     "exclusions": [
       {
@@ -6770,7 +6770,7 @@
     "cancer_types": [
       "any_cancer"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": null,
     "exclusions": [
       {
@@ -6916,7 +6916,7 @@
     "cancer_types": [
       "any_cancer"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": null,
     "exclusions": [],
     "exclusion_categories": [],
@@ -7199,7 +7199,7 @@
       "brain",
       "other"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": null,
     "exclusions": [
       {
@@ -8744,7 +8744,7 @@
       "brain",
       "solid_tumor_basket"
     ],
-    "min_age": 0,
+    "min_age": 0.5,
     "max_age": 25,
     "exclusions": [],
     "exclusion_categories": [],
@@ -9787,7 +9787,7 @@
     "cancer_types": [
       "any_cancer"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": 21,
     "exclusions": [
       {
@@ -11110,7 +11110,7 @@
       "breast",
       "gynecologic"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": null,
     "exclusions": [
       {
@@ -11473,7 +11473,7 @@
       "blood",
       "other"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": null,
     "exclusions": [
       {
@@ -11530,7 +11530,7 @@
     "cancer_types": [
       "any_cancer"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": 17,
     "exclusions": [
       {
@@ -11575,7 +11575,7 @@
     "cancer_types": [
       "other"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": 21,
     "exclusions": [
       {
@@ -14514,7 +14514,7 @@
     "cancer_types": [
       "skin"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": null,
     "exclusions": [
       {
@@ -14972,7 +14972,7 @@
     "cancer_types": [
       "any_cancer"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": null,
     "exclusions": [
       {
@@ -17499,7 +17499,7 @@
     "cancer_types": [
       "brain"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": null,
     "exclusions": [],
     "exclusion_categories": [],
@@ -18139,7 +18139,7 @@
     "cancer_types": [
       "solid_tumor_basket"
     ],
-    "min_age": 0,
+    "min_age": 0.08,
     "max_age": 17,
     "exclusions": [
       {
@@ -19020,7 +19020,7 @@
     "cancer_types": [
       "kidney_bladder"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": 30,
     "exclusions": [
       {
@@ -19697,7 +19697,7 @@
     "cancer_types": [
       "brain"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": 90,
     "exclusions": [
       {
@@ -22422,7 +22422,7 @@
     "cancer_types": [
       "other"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": 17,
     "exclusions": [
       {
@@ -23002,7 +23002,7 @@
       "other",
       "gynecologic"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": null,
     "exclusions": [
       {
@@ -24163,7 +24163,7 @@
     "cancer_types": [
       "blood"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": 39,
     "exclusions": [
       {
@@ -24837,8 +24837,8 @@
     "cancer_types": [
       "other"
     ],
-    "min_age": 0,
-    "max_age": null,
+    "min_age": null,
+    "max_age": 0.25,
     "exclusions": [
       {
         "category": "cardiac",
@@ -26012,7 +26012,7 @@
     "cancer_types": [
       "blood"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": 26,
     "exclusions": [
       {
@@ -26302,7 +26302,7 @@
     "cancer_types": [
       "any_cancer"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": null,
     "exclusions": [],
     "exclusion_categories": [],
@@ -27007,7 +27007,7 @@
     "cancer_types": [
       "any_cancer"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": null,
     "exclusions": [],
     "exclusion_categories": [],
@@ -27295,7 +27295,7 @@
       "blood_cancer_basket",
       "solid_tumor_basket"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": null,
     "exclusions": [],
     "exclusion_categories": [],
@@ -28146,7 +28146,7 @@
     "cancer_types": [
       "blood"
     ],
-    "min_age": 1,
+    "min_age": 0.5,
     "max_age": 21,
     "exclusions": [
       {
@@ -28233,7 +28233,7 @@
     "cancer_types": [
       "pancreatic"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": 17,
     "exclusions": [
       {
@@ -28580,7 +28580,7 @@
     "cancer_types": [
       "any_cancer"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": null,
     "exclusions": [],
     "exclusion_categories": [],
@@ -30363,7 +30363,7 @@
     "cancer_types": [
       "other"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": null,
     "exclusions": [],
     "exclusion_categories": [],
@@ -31150,7 +31150,7 @@
     "cancer_types": [
       "solid_tumor_basket"
     ],
-    "min_age": 0,
+    "min_age": 0.08,
     "max_age": 17,
     "exclusions": [
       {
@@ -31372,7 +31372,7 @@
     "cancer_types": [
       "other"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": 50,
     "exclusions": [
       {
@@ -32302,7 +32302,7 @@
     "cancer_types": [
       "other"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": null,
     "exclusions": [],
     "exclusion_categories": [],
@@ -32586,7 +32586,7 @@
     "cancer_types": [
       "other"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": null,
     "exclusions": [],
     "exclusion_categories": [],
@@ -32614,7 +32614,7 @@
     "cancer_types": [
       "any_cancer"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": null,
     "exclusions": [],
     "exclusion_categories": [],
@@ -34403,7 +34403,7 @@
     "cancer_types": [
       "any_cancer"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": null,
     "exclusions": [
       {
@@ -34982,7 +34982,7 @@
       "solid_tumor_basket",
       "other"
     ],
-    "min_age": 0,
+    "min_age": 0.5,
     "max_age": 30,
     "exclusions": [
       {
@@ -36513,7 +36513,7 @@
     "cancer_types": [
       "any_cancer"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": null,
     "exclusions": [],
     "exclusion_categories": [],
@@ -37068,7 +37068,7 @@
     "cancer_types": [
       "breast"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": null,
     "exclusions": [
       {
@@ -38201,7 +38201,7 @@
     "cancer_types": [
       "any_cancer"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": null,
     "exclusions": [
       {
@@ -39500,7 +39500,7 @@
     "cancer_types": [
       "other"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": 21,
     "exclusions": [
       {
@@ -39586,7 +39586,7 @@
     "cancer_types": [
       "other"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": 30,
     "exclusions": [
       {
@@ -39935,7 +39935,7 @@
     "cancer_types": [
       "brain"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": 21,
     "exclusions": [
       {
@@ -40686,7 +40686,7 @@
     "cancer_types": [
       "blood"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": null,
     "exclusions": [
       {
@@ -42725,7 +42725,7 @@
     "cancer_types": [
       "other"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": null,
     "exclusions": [
       {
@@ -45026,7 +45026,7 @@
     "cancer_types": [
       "any_cancer"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": null,
     "exclusions": [
       {
@@ -45590,7 +45590,7 @@
     "cancer_types": [
       "head_neck"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": 21,
     "exclusions": [
       {
@@ -46015,7 +46015,7 @@
     "cancer_types": [
       "blood_cancer_basket"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": null,
     "exclusions": [],
     "exclusion_categories": [],
@@ -50038,7 +50038,7 @@
     "cancer_types": [
       "blood"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": null,
     "exclusions": [
       {
@@ -50115,7 +50115,7 @@
     "cancer_types": [
       "brain"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": null,
     "exclusions": [],
     "exclusion_categories": [],
@@ -50218,7 +50218,7 @@
     "cancer_types": [
       "other"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": null,
     "exclusions": [],
     "exclusion_categories": [],
@@ -50456,7 +50456,7 @@
       "kidney_bladder",
       "other"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": null,
     "exclusions": [],
     "exclusion_categories": [],
@@ -50918,7 +50918,7 @@
     "cancer_types": [
       "other"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": null,
     "exclusions": [],
     "exclusion_categories": [],
@@ -51821,7 +51821,7 @@
     "cancer_types": [
       "breast"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": null,
     "exclusions": [],
     "exclusion_categories": [],
@@ -52605,7 +52605,7 @@
     "cancer_types": [
       "kidney_bladder"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": 30,
     "exclusions": [
       {
@@ -52945,7 +52945,7 @@
     "cancer_types": [
       "other"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": 30,
     "exclusions": [
       {
@@ -53928,7 +53928,7 @@
       "solid_tumor_basket",
       "other"
     ],
-    "min_age": 1,
+    "min_age": 0.75,
     "max_age": 30,
     "exclusions": [
       {
@@ -54273,7 +54273,7 @@
     "cancer_types": [
       "blood"
     ],
-    "min_age": 0,
+    "min_age": 0.08,
     "max_age": 21,
     "exclusions": [
       {
@@ -55382,7 +55382,7 @@
       "other",
       "solid_tumor_basket"
     ],
-    "min_age": 0,
+    "min_age": 0.5,
     "max_age": 25,
     "exclusions": [
       {
@@ -56135,7 +56135,7 @@
       "brain",
       "kidney_bladder"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": 25,
     "exclusions": [
       {
@@ -56402,7 +56402,7 @@
     "cancer_types": [
       "breast"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": null,
     "exclusions": [],
     "exclusion_categories": [],
@@ -57513,7 +57513,7 @@
     "cancer_types": [
       "blood"
     ],
-    "min_age": 0,
+    "min_age": 0.5,
     "max_age": 30,
     "exclusions": [
       {
@@ -60318,7 +60318,7 @@
     "cancer_types": [
       "blood"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": null,
     "exclusions": [
       {
@@ -61729,7 +61729,7 @@
     "cancer_types": [
       "blood"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": 22,
     "exclusions": [
       {
@@ -62917,7 +62917,7 @@
       "blood",
       "brain"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": 25,
     "exclusions": [
       {
@@ -64445,7 +64445,7 @@
     "cancer_types": [
       "blood"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": 1,
     "exclusions": [
       {
@@ -66472,7 +66472,7 @@
     "cancer_types": [
       "other"
     ],
-    "min_age": 0,
+    "min_age": null,
     "max_age": null,
     "exclusions": [
       {
@@ -66568,7 +66568,7 @@
       "other"
     ],
     "min_age": 0,
-    "max_age": null,
+    "max_age": 0.5,
     "exclusions": [
       {
         "category": "age",

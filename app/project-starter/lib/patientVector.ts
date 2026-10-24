@@ -72,16 +72,38 @@ export type PatientVector = {
 // gynecologic, brain, kidney_bladder, head_neck, liver_stomach, other.
 // Trial-only baskets: solid_tumor_basket, blood_cancer_basket, any_cancer.
 
+/** Human labels for the fixed cancer-type codes (for "this trial is for X" copy). */
+const CANCER_TYPE_LABELS: Record<string, string> = {
+  breast: "breast cancer",
+  lung: "lung cancer",
+  colorectal: "colon/rectal cancer",
+  prostate: "prostate cancer",
+  blood: "blood cancer",
+  skin: "melanoma/skin cancer",
+  pancreatic: "pancreatic cancer",
+  gynecologic: "ovarian/uterine/cervical cancer",
+  brain: "brain/spinal cancer",
+  kidney_bladder: "kidney/bladder cancer",
+  head_neck: "head & neck cancer",
+  liver_stomach: "liver/stomach/esophageal cancer",
+  other: "another cancer type",
+};
+
 export type CancerFit = "exact" | "basket" | "none";
 
 /** How well a trial's tagged types fit the patient's chosen cancer type.
- *  "exact"  = the trial names this cancer (or is open to any cancer)
- *  "basket" = the trial is a solid/blood-tumor basket that likely includes it
- *  "none"   = different cancer */
+ *  "exact"  = the trial names this specific cancer
+ *  "basket" = a solid/blood-tumor basket, OR "any_cancer"/"unknown" — likely but
+ *             unconfirmed, so surfaced as "ask about it", NOT a clean match
+ *  "none"   = a different, named cancer */
 export function cancerFit(trial: EnrichedTrial, cancerType?: string): CancerFit {
   if (!cancerType) return "exact"; // no type chosen -> don't filter
   const tags = trial.cancer_types ?? [];
-  if (tags.includes(cancerType) || tags.includes("any_cancer")) return "exact";
+  if (tags.includes(cancerType)) return "exact"; // trial NAMES this cancer
+  // any_cancer / unknown (missing or failed tag) = "ask", never an exact match for
+  // everyone — a depression study tagged any_cancer shouldn't read as "worth it"
+  // for a breast patient without a caveat.
+  if (tags.includes("any_cancer") || tags.includes("unknown")) return "basket";
   const patientIsBlood = cancerType === "blood";
   if (patientIsBlood && tags.includes("blood_cancer_basket")) return "basket";
   if (!patientIsBlood && tags.includes("solid_tumor_basket")) return "basket";
@@ -187,9 +209,23 @@ export function classifyTrial(
   const hits: Hit[] = [];
   const fit = cancerFit(trial, patient.cancer_type);
   const cancerMatch = fit !== "none";
-  // A basket trial (e.g. "advanced solid tumors") likely includes this patient's
-  // cancer but doesn't name it — surface it as "ask", not a clean match.
-  if (fit === "basket") {
+  if (fit === "none") {
+    // #4: explain WHY a trial is ruled out — it's for a different cancer.
+    const named = (trial.cancer_types ?? [])
+      .filter((c) => !["unknown", "any_cancer", "solid_tumor_basket", "blood_cancer_basket"].includes(c))
+      .map((c) => CANCER_TYPE_LABELS[c] ?? c);
+    hits.push({
+      category: "cancer_type",
+      label: "Cancer type",
+      severity: "hard",
+      source_text: named.length
+        ? `This trial is for ${named.join(", ")}, not your cancer type.`
+        : "This trial is for a different cancer type.",
+      threshold: null,
+    });
+  } else if (fit === "basket") {
+    // A basket trial (e.g. "advanced solid tumors") likely includes this patient's
+    // cancer but doesn't name it — surface it as "ask", not a clean match.
     hits.push({
       category: "cancer_type",
       label: "Cancer type",

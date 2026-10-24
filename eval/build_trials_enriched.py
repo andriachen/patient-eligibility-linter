@@ -45,6 +45,15 @@ def _num(s: str):
         return None
 
 
+def _age_cap(s: str):
+    """Max-age as a real cap, or None when it's a >=130y 'no limit' placeholder.
+    Keeps genuine caps including sub-year (e.g. 0.25 = 3-month-olds)."""
+    v = _num(s)
+    if v is None or v >= 130:
+        return None
+    return v
+
+
 def _load_tags() -> dict:
     """Load trial_tags.json (cancer_types + normalized age) if present."""
     p = PROCESSED / "trial_tags.json"
@@ -96,9 +105,12 @@ def build() -> list[dict]:
                 "phase": t.get("phase", ""),
                 "lead_sponsor": t.get("lead_sponsor", ""),
                 "conditions": [c for c in (t.get("conditions") or "").split(";") if c],
-                "cancer_types": tag.get("cancer_types", ["any_cancer"]),
-                "min_age": tag.get("age_min", _num(t.get("min_age"))),
-                "max_age": tag.get("age_max", _num(t.get("max_age"))),
+                "cancer_types": tag.get("cancer_types") or ["unknown"],
+                # Age comes from the REGISTRY (authoritative), not the tag: the tagger
+                # never saw the criteria text so it can't improve on it, and must not
+                # drop a real sub-year cap. A >=130y "max" is a placeholder for no cap.
+                "min_age": _num(t.get("min_age")),
+                "max_age": _age_cap(t.get("max_age")),
                 "exclusions": exclusions,
                 "exclusion_categories": sorted({e["category"] for e in exclusions}),
                 "sites": sites_by.get(nct, []),

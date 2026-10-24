@@ -65,21 +65,25 @@ def _sanitize(raw: dict, fallback_min: str, fallback_max: str) -> dict:
     """Clamp model output to the fixed vocabulary + sane age ints."""
     types = [c for c in (raw.get("cancer_types") or []) if c in _VALID]
     if not types:
-        types = ["any_cancer"]  # safe default: don't hide a trial by mis-tag
+        types = ["unknown"]  # tag failure -> "ask", never a match for everyone
 
-    def _int(v, default):
+    # Age: the tagger only sees the registry min/max (not criteria text), so prefer
+    # the REGISTRY values and don't let the model drop a real cap. We keep the
+    # registry number verbatim (it may be fractional, e.g. 0.25y = babies) and only
+    # use "130 years" style placeholders as "no cap".
+    def _num(v):
         try:
-            return int(float(v))
+            return float(v)
         except (TypeError, ValueError):
-            return default
+            return None
 
-    amin = _int(raw.get("age_min_years"), _int(fallback_min, 0))
-    amax_raw = raw.get("age_max_years", None)
-    amax = None if amax_raw is None else _int(amax_raw, _int(fallback_max, None))
-    if amin < 0 or amin > 120:
+    rmin = _num(fallback_min)
+    rmax = _num(fallback_max)
+    amin = rmin if rmin is not None else 0
+    # Treat a >=130y "max" as a placeholder for no cap; keep real caps (incl. <1y).
+    amax = None if (rmax is None or rmax >= 130) else rmax
+    if amin < 0 or amin > 130:
         amin = 0
-    if amax is not None and (amax <= 0 or amax > 120):
-        amax = None
     return {"cancer_types": types, "age_min": amin, "age_max": amax}
 
 
