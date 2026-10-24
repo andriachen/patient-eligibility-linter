@@ -1,0 +1,90 @@
+{
+  "nct_id": "NCT07123090",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age \u2265 18 years.",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ECOG performance status \u22642 (Karnofsky \u226560%, see Appendix A).",
+      "threshold": "ECOG \u22642"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Creatinine clearance \u226530 mL/min according to the CKD-EPI equation. (APPENDIX C)",
+      "threshold": "CrCl \u226530 mL/min"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Total bilirubin \u2264 1.5 \u00d7 institutional upper limit of normal (ULN) with the following exception: patients with known Gilbert disease should have a total serum bilirubin \u2264 3 x ULN",
+      "threshold": "bilirubin \u2264 1.5 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "AST(SGOT)/ALT(SGPT) \u22641.5 \u00d7 ULN",
+      "threshold": "AST/ALT \u2264 1.5 x ULN"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participants with untreated brain metastases.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Other malignancy diagnosed within 2 years of treatment start unless negligible risk of metastases or death according to the investigator",
+      "threshold": "within 2 years"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Has had any major cardiovascular event within 6 months prior to treatment start, including but not limited to: myocardial infarction, unstable angina, cerebrovascular accident, transient ischemic event or New York Heart Association Class III or IV heart failure.",
+      "threshold": "within 6 months"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Ongoing cardiac dysrhythmias of NCI CTCAE Grade \u22652 or history of long QTC syndrome. Any history of myocarditis.",
+      "threshold": "dysrhythmia Grade \u22652"
+    },
+    {
+      "category": "smoking",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Current or past tobacco users with a history of cigarette smoking greater than 30 pack-yrs (i.e., # of packs of cigarettes smoked per day \u00d7 # of years patient has smoked > 30).",
+      "threshold": "> 30 pack-years"
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Patients with known viral infection (such as HIV) are excluded given the potential for interactions between antiretroviral agents and palbociclib and axitinib, and the potential for increased risk of life-threatening infection with therapy that is myelosuppressive.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Females that are pregnant or breastfeeding.",
+      "threshold": null
+    }
+  ]
+}

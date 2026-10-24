@@ -1,0 +1,20 @@
+{
+  "nct_id": "NCT06966024",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "If a female is of childbearing potential, must have a negative pregnancy test prior to enrollment and all participants agree to follow the contraception requirements",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Impaired cardiac function",
+      "threshold": null
+    }
+  ]
+}

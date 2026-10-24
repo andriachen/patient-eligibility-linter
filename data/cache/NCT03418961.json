@@ -1,0 +1,55 @@
+{
+  "nct_id": "NCT03418961",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Patients must have a Zubrod Performance status of 0-2",
+      "threshold": "Zubrod 0-2"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Patients must have LVEF \\>= 50% echocardiogram (2D or 3D) within 28 days prior to registration.",
+      "threshold": "LVEF >= 50%"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Serum bilirubin \\< 3.0 x institutional upper limit of normal (IULN)",
+      "threshold": "bilirubin < 3.0 x IULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Serum glutamic oxaloacetic transaminase (SGOT)/aspartate aminotransferase (AST) and serum glutamic pyruvic transaminase (SGPT)/alanine aminotransferase (ALT) \\< 5.0 x IULN",
+      "threshold": "AST/ALT < 5.0 x IULN"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Patients must not be dialysis dependent",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "No other prior malignancy is allowed except for the following: adequately treated basal cell or squamous cell skin cancer, in situ cervical cancer, prostate cancer on active surveillance, adequately treated stage I or II cancer from which the patient is currently in complete remission, or any other cancer from which the patient has been disease free for five years",
+      "threshold": "disease free for five years"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Patients must not be pregnant or nursing due to potential fetal or nursing infant harm",
+      "threshold": null
+    }
+  ]
+}

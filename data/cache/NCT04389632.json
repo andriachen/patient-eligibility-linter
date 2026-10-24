@@ -1,0 +1,41 @@
+{
+  "nct_id": "NCT04389632",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "An Eastern Cooperative Oncology Group (ECOG) Performance Status of 0 or 1",
+      "threshold": "ECOG 0 or 1"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "History of another malignancy within 3 years before first dose of study drug, or any evidence of residual disease from a previously diagnosed malignancy.",
+      "threshold": "within 3 years"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Known active central nervous system metastases.",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Carcinomatous meningitis",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Investigator site staff directly involved in the conduct of the study and their family members",
+      "threshold": null
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "nct_id": "NCT07140900",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Prior history of central nervous system (CNS) metastases.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "De novo (synchronous) mHSPC, defined as metastatic disease with no prior diagnosis of localized prostate cancer",
+      "threshold": null
+    }
+  ]
+}

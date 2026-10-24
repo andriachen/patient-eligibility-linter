@@ -1,0 +1,20 @@
+{
+  "nct_id": "NCT06855277",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Participants must have an ECOG performance status of 0 to 2.",
+      "threshold": "ECOG 0 to 2"
+    },
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Participants must be adults \u2265 18 years of age.",
+      "threshold": null
+    }
+  ]
+}

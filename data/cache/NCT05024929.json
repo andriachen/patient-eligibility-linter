@@ -1,0 +1,13 @@
+{
+  "nct_id": "NCT05024929",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Females who are pregnant or breastfeeding are excluded due to the potential risks of the RAI used in the WBS to the fetus/neonate.",
+      "threshold": null
+    }
+  ]
+}

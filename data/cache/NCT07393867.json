@@ -1,0 +1,13 @@
+{
+  "nct_id": "NCT07393867",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Eastern Oncology Group Status 0 to 1.",
+      "threshold": "ECOG 0 to 1"
+    }
+  ]
+}

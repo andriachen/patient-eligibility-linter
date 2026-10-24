@@ -1,0 +1,104 @@
+{
+  "nct_id": "NCT07426484",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age \u226518 years.",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ECOG performance status 0-2 (see Appendix A for definitions of this and Karnofsky Performance Status).",
+      "threshold": "ECOG 0-2"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Adequate renal function, defined as defined as estimated glomerular filtration rate (eGFR) \u2265 30 mL/min",
+      "threshold": "eGFR >= 30 mL/min"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Serum creatinine \u2264 3.0 x institutional ULN or \u2264 3.0 x baseline (grade \u2264 2 per CTCAE)",
+      "threshold": "creatinine <= 3.0 x ULN or <= 3.0 x baseline"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Total bilirubin \u2264 1.5 institutional upper limit of normal (ULN), except subjects with Gilbert's syndrome, who must have total bilirubin < 3.0 mg/dL",
+      "threshold": "total bilirubin <= 1.5 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "AST(SGOT) \u2264 2.5 \u00d7 institutional ULN",
+      "threshold": "AST <= 2.5 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ALT(SGPT) \u2264 2.5 \u00d7 institutional ULN",
+      "threshold": "ALT <= 2.5 x ULN"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Participants with new or progressive brain metastases (active brain metastases) or leptomeningeal disease are eligible if the treating physician determines that immediate CNS specific treatment is not required and is unlikely to be required during the first cycle of therapy.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant and breastfeeding women are excluded from this study",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participants who have uncontrolled or unstable brain metastases (or other CNS metastases) for whom systemic steroids are required.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Uncontrolled or significant cardiovascular disease.",
+      "threshold": null
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Current need for dialysis (hemodialysis or peritoneal dialysis).",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participants with a prior or concurrent malignancy whose natural history or treatment has the potential to interfere with the safety or efficacy assessment of the study drug are excluded.",
+      "threshold": null
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Participants who have uncontrolled, symptomatic infections, or infections requiring systemic antibiotics",
+      "threshold": null
+    }
+  ]
+}

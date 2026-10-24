@@ -1,0 +1,13 @@
+{
+  "nct_id": "NCT05098132",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Known active central nervous system metastases",
+      "threshold": null
+    }
+  ]
+}

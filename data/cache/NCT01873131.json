@@ -1,0 +1,20 @@
+{
+  "nct_id": "NCT01873131",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Any infant who, in the opinion of his or her pediatrician or the investigators, has a major medical problem (such as cardiac pathology or airway obstruction) that makes participation in the study difficult",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Patients with asthma or a history of asthma, chronic obstructive pulmonary disease or cardiovascular disease, including sinus bradycardia, second or third degree atrioventricular block, overt cardiac failure, and cardiogenic shock",
+      "threshold": null
+    }
+  ]
+}

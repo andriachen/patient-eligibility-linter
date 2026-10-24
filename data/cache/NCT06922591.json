@@ -1,0 +1,55 @@
+{
+  "nct_id": "NCT06922591",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Is \u226518 years of age at the time of signature of the main study ICF.",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Has an ECOG PS of 0 or 1.",
+      "threshold": "ECOG PS 0 or 1"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Is a female patient who is pregnant or lactating",
+      "threshold": null
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Is known to be HIV positive, unless all the following criteria are met:",
+      "threshold": "CD4+ count \u2265300/\u00b5L, undetectable viral load, receiving HAART"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Has known or suspected active or untreated CNS metastases associated with progressive neurological symptoms",
+      "threshold": null
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Has current active liver disease from any cause",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Has clinically relevant cardiovascular disease",
+      "threshold": null
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "nct_id": "NCT07414836",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Active leptomeningeal disease or uncontrolled, untreated brain metastasis.",
+      "threshold": null
+    }
+  ]
+}

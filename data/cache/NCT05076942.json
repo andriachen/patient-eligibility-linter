@@ -1,0 +1,69 @@
+{
+  "nct_id": "NCT05076942",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Creatinine clearance \u2265 40 ml/min measured by the Cockroft Gault formula",
+      "threshold": "CrCl \u2265 40 ml/min"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Total bilirubin \\< 1.25 x ULN Aspartate transaminase (AST) and alanine transaminase (ALT) \u2264 2.5 x ULN",
+      "threshold": "bilirubin < 1.25 x ULN; AST/ALT \u2264 2.5 x ULN"
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Performance status of 0, 1 or 2 on the Eastern Cooperative Oncology Group (ECOG) Scale (Appendix A)",
+      "threshold": "ECOG 0-2"
+    },
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age 18 years or older",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "No other carcinomas, other than basal cell carcinomas, within last 5 years",
+      "threshold": "within 5 years"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant female or nursing mother",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Desire to become pregnant",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Known brain or spinal cord metastases unless adequately treated (surgery or radiotherapy) with no evidence of progression and neurologically stable off anticonvulsants and steroids",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Unstable angina, myocardial infarction, cerebrovascular accident, \\> Class II congestive heart failure according to the New York Heart Association Classification for Congestive Heart Failure (see Appendix B) within 6 months before enrollment",
+      "threshold": "NYHA > Class II; MI within 6 months"
+    }
+  ]
+}

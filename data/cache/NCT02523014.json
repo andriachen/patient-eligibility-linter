@@ -1,0 +1,118 @@
+{
+  "nct_id": "NCT02523014",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Not pregnant and not nursing:",
+      "threshold": null
+    },
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "For patients with NF2/CDKN2A/AKT1/PIK3CA/PTEN mutation, CKDN2A copy number loss, or CDK4/CDK6/CCND1/CCND2/CCND3/CCNE1 copy number gain: Age \\>= 18 years",
+      "threshold": "age >= 18 years"
+    },
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "For patients with SMO/PTCH1 mutation: Age \\>= 30 years",
+      "threshold": "age >= 30 years"
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status =\\< 2",
+      "threshold": "ECOG <= 2"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "No metastatic meningiomas (as defined by extracranial meningiomas outside of CNS) allowed; spinal meningiomas are allowed",
+      "threshold": null
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "No current Child Pugh class B or C liver disease",
+      "threshold": "Child Pugh class B or C"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Experience any of the following procedures or conditions in the preceding 6 months: coronary artery bypass graft, angioplasty, vascular stent, myocardial infarction, angina pectoris, congestive heart failure New York Heart Association (NYHA) class \\>= II",
+      "threshold": "NYHA class >= II"
+    },
+    {
+      "category": "diabetes",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "No uncontrolled diabetes defined as a known diabetic with HBA1C \\> 7.5 OR fasting glucose \\> 140 mg/dL.",
+      "threshold": "HbA1c > 7.5 or fasting glucose > 140 mg/dL"
+    },
+    {
+      "category": "diabetes",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Glycosylated hemoglobin (HbA1C) \\< 8.0% (63.9 mmol/mol)",
+      "threshold": "HbA1c < 8.0%"
+    },
+    {
+      "category": "diabetes",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "No type 1 diabetes mellitus",
+      "threshold": null
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Creatinine OR =\\< 1.5 mg/dl x upper limit of normal (ULN) OR calculated (calc.) creatinine clearance \\> 50 mL/min",
+      "threshold": "creatinine <= 1.5 x ULN or CrCl > 50 mL/min"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Total bilirubin =\\< 1.5 x upper limit of normal (ULN); except in case of Gilbert's disease",
+      "threshold": "bilirubin <= 1.5 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Aspartate aminotransferase (AST)/alanine aminotransferase (ALT) =\\< 2.5 x ULN",
+      "threshold": "AST/ALT <= 2.5 x ULN"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "QTcF \\< 450 msec (QT calculated using Fridericia formula)",
+      "threshold": "QTcF < 450 msec"
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "such as known human immunodeficiency virus positivity",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Not pregnant and not nursing:",
+      "threshold": null
+    }
+  ]
+}

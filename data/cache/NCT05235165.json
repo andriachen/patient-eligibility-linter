@@ -1,0 +1,13 @@
+{
+  "nct_id": "NCT05235165",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Patients must be \\< 50 years at the time of enrollment.",
+      "threshold": "age < 50"
+    }
+  ]
+}

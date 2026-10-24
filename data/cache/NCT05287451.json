@@ -1,0 +1,27 @@
+{
+  "nct_id": "NCT05287451",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age 25-40 years for BRCA1 mutation carriers, 25-45 years for BRCA2 and 30-50 years for BRIP1, RAD51C, RAD51D, and PALB2.",
+      "threshold": "age 25-40 (BRCA1), 25-45 (BRCA2), 30-50 (BRIP1, RAD51C, RAD51D, PALB2)"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Postmenopausal status (natural menopause or due to (cancer) treatment)",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "A personal history of ovarian, fallopian tube, or peritoneal cancer",
+      "threshold": null
+    }
+  ]
+}

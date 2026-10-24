@@ -1,0 +1,104 @@
+{
+  "nct_id": "NCT06188741",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age: \\> 1 (\\>12 months) and \u22648 years of age at the time of study enrollment.",
+      "threshold": "age <= 8 years"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Evidence of an optic pathway or other low-grade glioma, high grade glioma, malignant peripheral nerve sheath tumor, or other cancer/tumor requiring treatment with chemotherapy, biologic therapy or radiation therapy.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Evidence of an optic pathway or other low-grade glioma, high grade glioma, malignant peripheral nerve sheath tumor, or other cancer/tumor requiring treatment with chemotherapy, biologic therapy or radiation therapy.",
+      "threshold": null
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "including any patient known to have hepatitis B, hepatitis C, or human immunodeficiency virus (HIV) will be excluded.",
+      "threshold": null
+    },
+    {
+      "category": "bmi",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Body Surface Area (BSA): BSA \u2265 0.55 m2 \\[pending availability of granule formulation\\].",
+      "threshold": "BSA >= 0.55 m2"
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Performance status: Lansky performance \u226570%.",
+      "threshold": "Lansky >= 70%"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Hepatic Function: Bilirubin within 1.5 x the upper limit of normal for age, with the exception of those with Gilbert syndrome, and AST/ALT within \u2264 3 x upper limit of normal.",
+      "threshold": "bilirubin <= 1.5 x ULN; AST/ALT <= 3 x ULN"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Renal Function: Creatinine clearance or radioisotope GFR \u226560ml/min/1.73 m2 or a normal serum creatinine based on age, described in the table below.",
+      "threshold": "CrCl or GFR >= 60 mL/min/1.73 m2"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Normal ejection fraction (ECHO or cardiac MRI) \u2265 53% (or the institutional normal; if a range is given then the upper value of the range will be used).",
+      "threshold": "EF >= 53%"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "EKG with QTC or QTcF \u2264450 msec.",
+      "threshold": "QTc <= 450 msec"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Symptomatic heart failure (NYHA Class II-IV prior or current cardiomyopathy, or severe valvular heart disease)",
+      "threshold": "NYHA Class II-IV"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "History of atrial fibrillation",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Supplementation with vitamin E greater than 100% of the daily recommended dose.",
+      "threshold": null
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Refractory nausea and vomiting, chronic gastrointestinal diseases (e.g., inflammatory bowel disease), or significant bowel resection that would preclude adequate absorption.",
+      "threshold": null
+    }
+  ]
+}

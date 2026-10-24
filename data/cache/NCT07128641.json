@@ -1,0 +1,83 @@
+{
+  "nct_id": "NCT07128641",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ECOG performance status \\> 2",
+      "threshold": "ECOG > 2"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Calculated creatinine clearance by Cockcroft Gault formula \u226540 mL/min",
+      "threshold": "CrCl < 40 mL/min"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Cardiac ejection fraction \\>40% by echocardiogram or multi-gated acquisition (MUGA) scan",
+      "threshold": "EF > 40%"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Total bilirubin \u22641.5 \u00d7 upper limit of normal (ULN) (\u22643 \u00d7 ULN if attributed to lymphoma infiltration of liver)",
+      "threshold": "total bilirubin > 1.5 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Alanine aminotransferase (ALT) and aspartate aminotransferase (AST) \u22643 \u00d7 ULN (\u22645 \u00d7 ULN if attributed to lymphoma infiltration of liver)",
+      "threshold": "ALT/AST > 3 x ULN"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "WOCBP must have negative serum pregnancy test at screening.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Another active malignancy (aside from B-cell NHL) in the past 2 years, with the following exceptions: non-melanoma skin cancer that has undergone potentially curative therapy, in situ cervical carcinoma, or any other tumor that has been deemed to be effectively treated with definitive local control and with curative intent.",
+      "threshold": "within 2 years"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Uncontrolled underlying cardiac conditions including but not limited to: congestive heart failure grade III or IV (by NYHA) or EF \\< 45%, unstable angina pectoris, acute myocardial infarction \\< 6 months, cardiac arrhythmia",
+      "threshold": "NYHA III/IV or EF < 45%; MI < 6 months"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Patients with known or suspected CNS involvement or leptomeningeal disease are excluded",
+      "threshold": null
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Uncontrolled infection with human immunodeficiency virus (HIV), hepatitis B virus (HBV), or hepatitis C virus (HCV)",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant women or participants unwilling to adhere to institutional guidelines for highly effective contraception during odronextamab treatment and for 12 months after the last dose are excluded from this study",
+      "threshold": null
+    }
+  ]
+}

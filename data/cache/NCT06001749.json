@@ -1,0 +1,76 @@
+{
+  "nct_id": "NCT06001749",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Participants must be 18 year old or older;",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Participants must have an ECOG Performance Status \u2264 2",
+      "threshold": "ECOG \u2264 2"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "AST(SGOT)/ALT(SGPT) \u2264 5 \u00d7 institutional ULN",
+      "threshold": "AST/ALT \u2264 5 \u00d7 institutional ULN"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participants with brain tumors or brain metastases that haven't been successfully treated",
+      "threshold": null
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Participants with a diagnosis of cirrhosis or liver failure",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participants who have uncontrolled hypertension using the standard criteria of the American Heart Association (values of 140/90 milligrams of Mercury \\[mmHg\\] or higher assessed on three separate occasions)",
+      "threshold": "BP \u2265 140/90 mmHg on three occasions"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Participants who have a history of ventricular arrhythmia at any time, other than occasional premature ventricular contractions (PVCs) in the absence of ischemic heart disease.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Participants who have a history of myocardial infarction, coronary artery disease or heart failure",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Participants who have a marked Baseline prolongation of QT/QTc interval. For purposes of eligibility, this is defined as repeated demonstration of a QT interval corrected on the triplicate ECGs performed at screening, using Fridericia's formula \\[QTcF\\] \\> 450 milliseconds \\[ms\\] in males and \\> 460 ms in females.",
+      "threshold": "QTcF > 450 ms males; > 460 ms females"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Women who are pregnant, nursing, or able to become pregnant and are not practicing an effective means of birth control.",
+      "threshold": null
+    }
+  ]
+}

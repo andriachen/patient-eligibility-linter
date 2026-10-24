@@ -1,0 +1,27 @@
+{
+  "nct_id": "NCT06726148",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Clinically significant, uncontrolled heart disease and/or cardiac repolarization abnormality including MI, CABG, long QT syndrome, or risk factors for TdP.",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Presence of symptomatic CNS metastases or CNS metastases that require local therapy or increasing doses of corticosteroids within 2 weeks prior to study entry.",
+      "threshold": "within 2 weeks prior to study entry"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "WOCBP who are unwilling to use highly effective contraception methods, pregnant or nursing women.",
+      "threshold": null
+    }
+  ]
+}

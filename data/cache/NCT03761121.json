@@ -1,0 +1,13 @@
+{
+  "nct_id": "NCT03761121",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Women of childbearing age who are seeking to become pregnant, who are breastfeeding, or who suspect they may be pregnant;",
+      "threshold": null
+    }
+  ]
+}

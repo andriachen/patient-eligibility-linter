@@ -1,0 +1,20 @@
+{
+  "nct_id": "NCT06549465",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Participants with HIV are eligible if they are well-controlled (i.e, an undetectable HIV viral load (\\<50 copies/mL) within 6 months of enrollment and a stable ART regimen for at least 6 months prior to enrollment) and at low risk for HIV-related illness",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "A known malignancy that is progressing or has required active treatment within the past 3 years other than CRPC, which is expected to alter life expectancy or may interfere with CRPC disease assessment",
+      "threshold": "within 3 years"
+    }
+  ]
+}

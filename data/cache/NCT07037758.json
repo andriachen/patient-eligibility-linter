@@ -1,0 +1,20 @@
+{
+  "nct_id": "NCT07037758",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Symptomatic central nervous system (CNS) metastases.",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participants with brain metastases may be eligible if criteria defined in the protocol are met.",
+      "threshold": null
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "nct_id": "NCT06690775",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status (PS) 0-1.",
+      "threshold": "ECOG PS 0-1"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Measured or calculated creatinine clearance with a validated formula\\*: \u226530 mL/min",
+      "threshold": "CrCl \u226530 mL/min"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Serum total bilirubin: \u22641.5 X ULN (participants with known Gilbert disease or liver metastases who have serum bilirubin level \u22643\u00d7ULN may be enrolled",
+      "threshold": "bilirubin \u22641.5 X ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "AST (SGOT) and ALT (SGPT): \u22643 X ULN (participants with active liver metastases who have ALT/AST \u22645 X ULN may be enrolled)",
+      "threshold": "AST/ALT \u22643 X ULN"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "QTcF interval\n\n     * 470 msec and without history of Torsades des Pointes or other symptomatic QTc abnormality.",
+      "threshold": "QTcF \u2265470 msec"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Participants must agree not to donate eggs from the first study drug treatment through 7 months after the last study drug treatment.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Participants must agree to not breastfeed from the first dose of study treatment through 90 days after the last dose of study treatment.",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Progressive or symptomatic brain metastases.",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Leptomeningeal disease is excluded.",
+      "threshold": null
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Measured or calculated creatinine clearance with a validated formula",
+      "threshold": "CrCl \u226530 mL/min"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Congestive heart failure >New York Heart Association class 2 within last year",
+      "threshold": "NYHA >2 within last year"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Myocardial infarction less than 6 months before start of study drug",
+      "threshold": "MI within 6 months"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "History of another cancer within 3 years before Day 1 of study treatment, with the exception of basal or squamous cell carcinoma of the skin that has been definitively treated.",
+      "threshold": "within 3 years"
+    }
+  ]
+}

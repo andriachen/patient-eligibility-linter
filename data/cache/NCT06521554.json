@@ -1,0 +1,13 @@
+{
+  "nct_id": "NCT06521554",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age \u2265 18 years",
+      "threshold": null
+    }
+  ]
+}

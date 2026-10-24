@@ -1,0 +1,76 @@
+{
+  "nct_id": "NCT05386108",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Women or men aged \u226518 years, at the time of informed consent signature.",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participant has leptomeningeal metastases, defined as having positive cerebrospinal fluid (CSF) cytology or unequivocal radiologic and clinical evidence of leptomeningeal involvement.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participant has a concurrent malignancy or malignancy within 3 years of enrollment, with the exception of adequately treated basal or squamous cell skin cancer, superficial bladder cancer, carcinoma in situ of the cervix, or second primary breast cancer; and any other malignancy that is considered in complete remission by the Investigator(s) that is approved by the Medical Monitor.",
+      "threshold": "within 3 years"
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Participant has an Eastern Cooperative Oncology Group (ECOG) performance status of \u22642",
+      "threshold": "ECOG \u22642"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Creatinine clearance (per Cockcroft-Gault formula) \u226550 mL/minute",
+      "threshold": "CrCl \u226550 mL/minute"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "In absence of liver metastases, alanine aminotransferase (ALT) and aspartate aminotransferase (AST) \u22643.0 \u00d7 upper limit of normal (ULN). If the participant has liver metastases, ALT and AST \u22645.0 \u00d7 ULN.",
+      "threshold": "ALT/AST \u22643.0 \u00d7 ULN (\u22645.0 \u00d7 ULN with liver metastases)"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Total serum bilirubin \\<1.5 \u00d7 ULN except for participants with Gilbert's syndrome who may be included if the total serum bilirubin is \u22643.0 \u00d7 ULN or direct bilirubin \u2264 1.5 \u00d7 ULN",
+      "threshold": "bilirubin <1.5 \u00d7 ULN"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "History of pulmonary embolism (PE), cardiovascular accident (CVA), myocardial infarction (MI) in the past 6 months from screening visit.",
+      "threshold": "within 6 months"
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participants known to be human immunodeficiency virus positive (HIV+) are allowed as long as they have undetectable viral load (viral suppression) at baseline.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Females who are pregnant or breastfeeding.",
+      "threshold": null
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "nct_id": "NCT05547321",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Male and female patients aged 18 years and older.",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ECOG performance status 0-1.",
+      "threshold": "ECOG 0-1"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "For Part 1 only: estimated creatinine clearance (CrCL) using the Cockcroft-Gault formula \u226560 mL/minute.",
+      "threshold": "CrCL \u226560 mL/min"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "For Part 2 only:, CrCL should be \u226530 mL/min.",
+      "threshold": "CrCL \u226530 mL/min"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Total bilirubin \u22641.5 times upper limit of normal (ULN).",
+      "threshold": "bilirubin \u22641.5 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Aspartate aminotransferase (AST) and alanine aminotransferase (ALT) \u22643 times ULN, (if liver metastases are present, then \u22645 times ULN is allowed).",
+      "threshold": "AST/ALT \u22643 x ULN (\u22645 x ULN with liver metastases)"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Women who are pregnant or breastfeeding or trying to become pregnant.",
+      "threshold": null
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Patients positive for human immunodeficiency virus (HIV) are NOT excluded from this study, but HIV-positive patients must meet the following criteria:",
+      "threshold": "CD4+ \u2265350 cells/\u03bcL; viral load <400 copies/mL; no opportunistic infection in 12 months"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "History of uncontrolled brain metastasis.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Clinical evidence of an active second invasive malignancy with the exception of stable prostate cancer on watchful waiting, in situ cervical cancer, breast ductal carcinoma in situ or localized non-melanoma skin cancers.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Uncontrolled or significant cardiovascular disease defined by the New York Hearth Association (NYHA) classification III or IV.",
+      "threshold": "NYHA III or IV"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "History of cerebrovascular stroke or myocardial infarction within the previous three months.",
+      "threshold": "within 3 months"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Baseline QTc (using the Fridericia correction calculation) \\> 470 msec (unless pacemaker in place, only for patients in Part 2).",
+      "threshold": "QTc > 470 msec"
+    }
+  ]
+}

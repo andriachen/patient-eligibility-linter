@@ -1,0 +1,13 @@
+{
+  "nct_id": "NCT02402244",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Subjects must be =\\< 25 years of age at time of original diagnosis, except for patients who are being screened specifically for eligibility onto a COG (or COG participating National Clinical Trials Network \\[NCTN\\]) therapeutic study, for which there is a higher upper age limit",
+      "threshold": "age <= 25 at original diagnosis"
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "nct_id": "NCT06533826",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "The subject is \u2265 18 years old.",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ECOG performance status 0-1 (Karnofsky \\> 60%).",
+      "threshold": "ECOG > 1; Karnofsky <= 60%"
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Serum or plasma creatinine \u2264 1.5 \u00d7 institutional ULN OR creatinine clearance (as calculated using the Cockcroft-Gault equation) \u2265 30 mL/min/ 1.73m2 for participants with creatinine levels above institutional ULN.",
+      "threshold": "creatinine > 1.5 x ULN; CrCl < 30 mL/min/1.73m2"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Total bilirubin \u2264 1.5 \u00d7 institutional upper limit of normal (ULN) (or \u2264 3.0 x ULN in patients with documented Gilbert's Syndrome)",
+      "threshold": "bilirubin > 1.5 x ULN (> 3.0 x ULN if Gilbert's)"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "AST(SGOT)/ALT(SGPT) \u2264 2.5 \u00d7 institutional ULN or \u2264 5.0 \u00d7 institutional ULN for participants with documented liver metastases",
+      "threshold": "AST/ALT > 2.5 x ULN (> 5.0 x ULN with liver metastases)"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "For T-DXd cohorts, baseline LVEF \u2265 50% prior to registration, as measured by echocardiogram (or multiple-gated acquisition \\[MUGA\\] scan if an echocardiogram cannot be performed or is inconclusive).",
+      "threshold": "LVEF < 50%"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Women who are pregnant or breastfeeding or planning to become pregnant.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Corrected QT interval (QTcF) prolongation to \\> 470 msec (females) or \\>450 msec (males).",
+      "threshold": "QTcF > 470 msec (female), > 450 msec (male)"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Any of the following procedures or conditions in 6 months prior to enrollment: coronary artery bypass graft, angioplasty, vascular stent, myocardial infarction, angina pectoris, congestive heart failure (New York Heart Association Functional Classification Grade \u22652), and stroke.",
+      "threshold": "within 6 months; NYHA Grade >= 2"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Individuals with a history of other malignancies are eligible if they have been disease-free for at least 3 years or are deemed by the investigator to be at low risk for recurrence of that malignancy.",
+      "threshold": "disease-free less than 3 years"
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Known human immunodeficiency virus (HIV) infection that is not well controlled.",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Patients with new or progressive brain metastases (active brain metastases) or leptomeningeal disease are eligible if the treating physician determines that immediate CNS specific treatment is not required and is unlikely to be required during the first cycle of therapy, there is no requirement for corticosteroids, and the patient is asymptomatic.",
+      "threshold": null
+    }
+  ]
+}

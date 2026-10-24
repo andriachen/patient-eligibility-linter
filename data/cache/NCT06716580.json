@@ -1,0 +1,69 @@
+{
+  "nct_id": "NCT06716580",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "smoking",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Non-tobacco using (currently)",
+      "threshold": null
+    },
+    {
+      "category": "language",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Able to complete and understand the study's informed consent in English, Mandarin, Cantonese, Japanese, Korean, Vietnamese, Spanish, Portuguese, or Cape Verdean",
+      "threshold": null
+    },
+    {
+      "category": "language",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Aim 3: Able to complete and understand the study's informed consent and participate in a focus group in English, Mandarin, Vietnamese, or Spanish.",
+      "threshold": null
+    },
+    {
+      "category": "smoking",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Non-tobacco using (currently)",
+      "threshold": null
+    },
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Individuals <40 years of age",
+      "threshold": "age < 40"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Having a current cancer or history of cancer within the last 5 years, excluding localized non-melanoma skin cancer and breast ductal carcinoma in situ.",
+      "threshold": "within 5 years"
+    },
+    {
+      "category": "smoking",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "More than 400 lifetime cigarettes (i.e., 20 packs) of smoking or tobacco use",
+      "threshold": "> 400 lifetime cigarettes"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant women",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Personal diagnosis of lung cancer",
+      "threshold": null
+    }
+  ]
+}

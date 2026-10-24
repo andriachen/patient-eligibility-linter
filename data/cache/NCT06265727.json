@@ -1,0 +1,41 @@
+{
+  "nct_id": "NCT06265727",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Active of uncontrolled CNS metastases",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "History of solid tumors other than the diseases under study",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "History of and/or current cardiovascular events or conditions in the previous 6 months",
+      "threshold": "within 6 months"
+    },
+    {
+      "category": "diabetes",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Hemoglobin A1C (HbA1C) \\>/= 8%, uncontrolled diabetes mellitus or know diabetic neuropathy",
+      "threshold": "HbA1c >= 8%"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Chronic severe liver disease or live cirrhosis",
+      "threshold": null
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "nct_id": "NCT06324357",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group (ECOG) score of 0 or 1",
+      "threshold": "ECOG 0 or 1"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Presence of uncontrolled and/or symptomatic brain metastases, or leptomeningeal disease",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Mean resting corrected QT interval (QT interval corrected for heart rate by Fridericia\u00b4s formula (QTcF)) \\>470 msec.",
+      "threshold": "QTcF > 470 msec"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Any factors that increase the risk of QT interval corrected for heart rate (QTc) prolongation or risk of arrhythmic events such as heart failure, hypokalemia, congenital long QT syndrome, personal or family history of long QT syndrome or unexplained sudden death under 40 years-of-age.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Ejection fraction \\<50% or the lower limit of normal of the institutional standard within 28 days prior to randomization",
+      "threshold": "EF < 50% or LLN within 28 days"
+    }
+  ]
+}

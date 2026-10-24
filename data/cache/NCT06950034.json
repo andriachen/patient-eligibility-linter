@@ -1,0 +1,48 @@
+{
+  "nct_id": "NCT06950034",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group (ECOG) Performance Status \u22642.",
+      "threshold": "ECOG \u2264 2"
+    },
+    {
+      "category": "smoking",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Current active use of nicotine products including tobacco, nicotine patches or vaping products.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Clinically significant cardiovascular disease (e.g., uncontrolled or any New York Heart Association class 3 or 4 congestive heart failure, uncontrolled or unstable chest pain, history of heart attack(s), or stroke within 6 months prior to consent, uncontrolled high blood pressure, or clinically significant arrhythmias not controlled by medication).",
+      "threshold": "NYHA class 3 or 4"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "QT interval corrected by Fridericia's formula (QTcF) \u0382470 msec for both men and women on Screening electrocardiogram(s) (ECG).",
+      "threshold": "QTcF > 470 msec"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Other than AML or CMML, active malignancy and/or cancer history that requires active therapy.",
+      "threshold": null
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Known human immunodeficiency virus (HIV).",
+      "threshold": null
+    }
+  ]
+}

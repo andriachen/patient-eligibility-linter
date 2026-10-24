@@ -1,0 +1,76 @@
+{
+  "nct_id": "NCT04870944",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Patients must be \\>= 12 months and =\\< 21 years of age at the time of study enrollment",
+      "threshold": "age <= 21 years"
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Patients must have a performance status corresponding to Easter Cooperative Oncology Group (ECOG) scores of 0, 1 or 2.",
+      "threshold": "ECOG 0-2"
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Creatinine clearance or radioisotope glomerular filtration rate (GFR) \\>= 70 mL/min/1.73 m\\^2 or a creatinine based on age/sex as follows (performed within 7 days prior to enrollment unless otherwise indicated):",
+      "threshold": "CrCl or GFR >= 70 mL/min/1.73 m^2"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Bilirubin (sum of conjugated + unconjugated or total) =\\< 1.5 x upper limit of normal (ULN) for age",
+      "threshold": "bilirubin <= 1.5 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Serum glutamate pyruvate transaminase (SGPT) (alanine aminotransferase \\[ALT\\]) =\\< 135 U/L.",
+      "threshold": "ALT <= 135 U/L"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Corrected QT (QTC) \\< 480 msec (performed within 7 days prior to enrollment unless otherwise indicated)",
+      "threshold": "QTc < 480 msec"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Ejection fraction of \\>= 50% by gated radionuclide study (performed within 7 days prior to enrollment unless otherwise indicated)",
+      "threshold": "LVEF >= 50%"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant or breast-feeding women will not be entered on this study",
+      "threshold": null
+    },
+    {
+      "category": "smoking",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "CYP1A2 (e.g., ciprofloxacin, enoxacin, fluvoxamine, smoking) are not eligible",
+      "threshold": null
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Patients with known peripheral vascular disease are excluded",
+      "threshold": null
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "nct_id": "NCT06138275",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status \u2264 1.",
+      "threshold": "ECOG \u2264 1"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "left ventricular ejection fraction (LVEF) \u226540% as determined by a multiple gated acquisition scan (MUGA) scan or echocardiogram (ECHO).",
+      "threshold": "LVEF \u226540%"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Calculated creatinine clearance \u226530 mL/min by Cockcroft-Gault equation.",
+      "threshold": "CrCl \u226530 mL/min"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Serum total bilirubin \\<2 mg/dL; and",
+      "threshold": "total bilirubin <2 mg/dL"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Serum aspartate transaminase (ALT) and/or aspartate transaminase (AST) values \\< 2.5 \u00d7 the upper limit of normal (ULN) of the institutional laboratory reference range.",
+      "threshold": "AST/ALT < 2.5 \u00d7 ULN"
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Active hepatitis B virus, hepatitis C virus, Severe acute respiratory syndrome coronavirus 2 (SARS-CoV2), HIV, or any active, uncontrolled bacterial, fungal, or viral infection.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Impaired cardiovascular function or clinically significant cardiovascular diseases, defined as any of the following within 6 months prior to enrollment:",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Prolonged QT syndrome (or triplicate average QTcF \\>470 msec at screening).",
+      "threshold": "QTcF > 470 msec"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Any other active malignancy within 3 years prior to enrollment, except for adequately treated basal cell or squamous cell skin cancer, or carcinoma in situ.",
+      "threshold": "within 3 years"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant women are excluded from this study because elranatamab is an anti-BCMA bispecific antibody agent with the potential for teratogenic or abortifacient effects.",
+      "threshold": null
+    }
+  ]
+}

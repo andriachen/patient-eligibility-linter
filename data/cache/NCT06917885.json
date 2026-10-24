@@ -1,0 +1,76 @@
+{
+  "nct_id": "NCT06917885",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Have a Karnofsky performance status (KPS) \u2265 70 (Appendix A);",
+      "threshold": "KPS \u2265 70"
+    },
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Be \u2265 18 years of age on day of signing informed consent;",
+      "threshold": "age \u2265 18"
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Measured or calculated creatinine clearance (CrCl) \u226545 mL/min for participant with creatinine levels \\> 1.5 X institutional ULN",
+      "threshold": "CrCl \u226545 mL/min"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "AST (SGOT) and ALT (SGPT) \u2264 3.0 X institutional ULN OR \u2264 5 X institutional ULN for participants with Gilberts syndrome",
+      "threshold": "AST/ALT \u2264 3.0 X ULN (\u2264 5 X ULN Gilbert's)"
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Has a known history of Human Immunodeficiency Virus (HIV) (HIV 1/2 antibodies) and is receiving antiretroviral therapy.",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Presence of multifocal tumor, bi-hemispheric tumor (radiographic evidence of tumor extending from one hemisphere into the other through the corpus callosum), diffuse leptomeningeal or extracranial disease;",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Has a known additional malignancy that is progressing or requires active treatment within 1 year of start of study drug, except for those treated with surgical therapy only (e.g. basal cell carcinoma of the skin, squamous cell carcinoma of the skin, or in situ cervical cancer that has undergone potentially curative therapy);",
+      "threshold": "within 1 year"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Has had clinically significant cardiovascular disease within 12 months of start of study drug, including myocardial infarction, unstable angina, grade 2 or greater peripheral vascular disease, cerebrovascular accident, transient ischemic attack, congestive heart failure, or arrhythmias not controlled by outpatient medication, percutaneous transluminal coronary angioplasty/stent;",
+      "threshold": "within 12 months"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Is pregnant or breastfeeding or expecting to conceive within the projected duration of the trial, starting with the screening visit through 120 days after the last dose of trial treatment or the initiation of other cancer therapy (whichever is shorter).",
+      "threshold": null
+    },
+    {
+      "category": "diabetes",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Has a history of known coagulopathy",
+      "threshold": null
+    }
+  ]
+}

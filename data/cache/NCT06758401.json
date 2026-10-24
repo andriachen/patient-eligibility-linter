@@ -1,0 +1,41 @@
+{
+  "nct_id": "NCT06758401",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participants with any history of another malignancy within 3 years before the first dose of study intervention, or any evidence of residual disease from a previously diagnosed malignancy.",
+      "threshold": "within 3 years"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Known active CNS lesions are excluded.",
+      "threshold": null
+    },
+    {
+      "category": "diabetes",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Uncontrolled diabetes mellitus, defined as HbA1c \u22658.0% or HbA1c between 7.0% and 8.0% with associated diabetes symptoms (polyuria or polydipsia) that are not otherwise explained.",
+      "threshold": "HbA1c \u22658.0%"
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "History of or current ongoing infection, including participants positive for active HIV, HBV, or HCV.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "",
+      "threshold": null
+    }
+  ]
+}

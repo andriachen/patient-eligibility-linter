@@ -1,0 +1,20 @@
+{
+  "nct_id": "NCT07729150",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ECOG performance status \u2264 2",
+      "threshold": "ECOG \u2264 2"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant and nursing women are excluded as prostate cancer is a disease of men.",
+      "threshold": null
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "nct_id": "NCT06623097",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Older adults (\u226565 years of age); cancer survivors who are at higher risk for developing comorbid conditions related to physical and cognitive function due to age declines.",
+      "threshold": "age >= 65"
+    },
+    {
+      "category": "diabetes",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "No history of disordered eating",
+      "threshold": null
+    },
+    {
+      "category": "bmi",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Overweight/obese: BMI \u226525 kg/m2 (calculated using height and weight) or body fat \\>35% for people assigned female at birth and \\>25% for people assigned male at birth (estimated by bioelectrical impedance); higher body weight negatively impacts cognitive and physical function.",
+      "threshold": "BMI >= 25 kg/m2"
+    },
+    {
+      "category": "language",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Speak English or Spanish; the study teams will only be able to accommodate for these two languages at this time.",
+      "threshold": null
+    },
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Adult cancer survivors less than 65 years of age.",
+      "threshold": "age < 65 excluded"
+    },
+    {
+      "category": "bmi",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Survivors with a BMI \\<25 kg/m2 and body fat \\<35% for people assigned female at birth and \\<25% for people assigned male at birth.",
+      "threshold": "BMI < 25 kg/m2"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Survivors receiving treatment for an active malignancy (exceptions are treatment for basal cell carcinoma.",
+      "threshold": null
+    },
+    {
+      "category": "language",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Speak English or Spanish; the study teams will only be able to accommodate for these two languages at this time.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Support persons receiving treatment for an active malignancy or are less than 10 years from the completion of any cancer treatment (exceptions are treatment for basal cell carcinoma).",
+      "threshold": "less than 10 years from completion of cancer treatment"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "people who are pregnant, or plan to become pregnant during study duration will be excluded",
+      "threshold": null
+    }
+  ]
+}

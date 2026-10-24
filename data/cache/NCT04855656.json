@@ -1,0 +1,27 @@
+{
+  "nct_id": "NCT04855656",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Lansky performance status \u226550% for patients \u226416 years of age, or ECOG score of 0, 1, (or 2 for module 1) for patients \\>16 years of age.",
+      "threshold": "Lansky \u226550%; ECOG 0, 1, (or 2 for module 1)"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Patients who are pregnant or breastfeeding.",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Uncontrolled, symptomatic brain metastases.",
+      "threshold": null
+    }
+  ]
+}

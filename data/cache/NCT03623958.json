@@ -1,0 +1,13 @@
+{
+  "nct_id": "NCT03623958",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "If participant is a pregnant woman or breast feeding they will not be eligible.",
+      "threshold": null
+    }
+  ]
+}

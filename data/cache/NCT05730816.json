@@ -1,0 +1,41 @@
+{
+  "nct_id": "NCT05730816",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "eGFR\\<45 ml/min/1.73m2 on either screening labs or preoperative labs, or end-stage kidney disease receiving renal replacement therapy",
+      "threshold": "eGFR < 45 ml/min/1.73m2"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant/breastfeeding",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Coronary artery disease, defined as any of the following in the prior year: a positive stress test; coronary angiogram indicating 1 or more vessels with \\>70% stenosis; percutaneous coronary intervention with stents; or coronary artery bypass graft surgery",
+      "threshold": "coronary stenosis >70% or PCI/CABG in prior year"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Sinus bradycardia, defined as a heart rate (HR) \\<55 beats per minute (bpm) detected on any ECG in the preceding 6 months",
+      "threshold": "HR < 55 bpm in preceding 6 months"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "High grade AV block (2nd degree AV block type II or 3rd degree AV block) without a pacemaker",
+      "threshold": null
+    }
+  ]
+}

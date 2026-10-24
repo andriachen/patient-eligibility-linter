@@ -1,0 +1,111 @@
+{
+  "nct_id": "NCT05174169",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "The patient must have an ECOG performance status of 0 or 1.",
+      "threshold": "ECOG 0 or 1"
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "HIV-infected patients on effective anti-retroviral therapy with undetectable viral load within 6 months are eligible for this trial.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Pregnancy test (urine or serum according to institutional standard) done within 14 days before Step 1/Study entry must be negative (for women of childbearing potential only).",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnancy or lactation at the time of Step 1/Study entry.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnancy or lactation at the time of randomization.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Other invasive malignancy within 5 years before Step 1/Study entry. Exceptions are colonic polyps, non-melanoma skin cancer or any carcinoma-in-situ.",
+      "threshold": "within 5 years"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "History of prior invasive colon malignancy, regardless of disease-free interval.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Patients with known history or current symptoms of cardiac disease, or history of treatment with cardiotoxic agents, should have a clinical risk assessment of cardiac function using the New York Heart Association Functional Classification. To be eligible for this trial, patients should be class 2B or better.",
+      "threshold": "NYHA class 2B or better"
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "The patient must continue to have an ECOG performance status of 0 or 1.",
+      "threshold": "ECOG 0 or 1"
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Adequate renal function within 28 days before Step 1/Study entry defined as serum creatinine less than or equal to 1.5 x ULN for the lab or measured or calculated creatinine clearance greater than or equal to 50 mL/min using the Cockroft-Gault formula for patients with creatinine levels greater than 1.5 x ULN for the lab.",
+      "threshold": "creatinine <= 1.5 x ULN or CrCl >= 50 mL/min"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Adequate hepatic function within 28 days before Step 1/Study entry defined as follows:\n\n* total bilirubin must be less than or equal to ULN (upper limit of normal) for the lab and\n* alkaline phosphatase must be less than 2.5 x ULN for the lab; and\n* AST and ALT must be less than 2.5 x ULN for the lab.",
+      "threshold": "bilirubin <= ULN; ALP and AST/ALT < 2.5 x ULN"
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Adequate renal function within 28 days before second randomization defined as serum creatinine less than or equal to 1.5 x ULN for the lab or measured or calculated creatinine clearance greater than or equal to 50 mL/min using the Cockroft-Gault formula for patients with creatinine levels greater than 1.5 x ULN for the lab.",
+      "threshold": "creatinine <= 1.5 x ULN or CrCl >= 50 mL/min"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Adequate hepatic function within 28 days before second randomization defined as follows:\n\n* total bilirubin must be less than or equal to ULN (upper limit of normal) for the lab and\n* alkaline phosphatase must be less than 2.5 x ULN for the lab; and\n* AST and ALT must be less than 2.5 x ULN for the lab.",
+      "threshold": "bilirubin <= ULN; ALP and AST/ALT < 2.5 x ULN"
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "The patient must continue to have an ECOG performance status of 0 or 1.",
+      "threshold": "ECOG 0 or 1"
+    },
+    {
+      "category": "smoking",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Patients receiving a coumarin-derivative anticoagulant must agree to weekly monitoring of INR if they are randomized to Arm 1 or Arm 3 and receive capecitabine.",
+      "threshold": null
+    }
+  ]
+}

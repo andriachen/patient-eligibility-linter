@@ -1,0 +1,83 @@
+{
+  "nct_id": "NCT03854110",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Subjects age \\> 18 years at the time of trial entry.",
+      "threshold": "age > 18"
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ECOG performance status of 0-1",
+      "threshold": "ECOG 0-1"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Subjects with known central nervous system metastasis must have undergone brain targeted treatment and must be asymptomatic or radiographically and clinically stable (including not requiring steroids or anti-seizure medications) for at least 4 weeks prior to enrollment.",
+      "threshold": null
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Serum creatinine \u2264 1.5 X upper limit of normal (ULN)",
+      "threshold": "creatinine <= 1.5 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Serum total bilirubin \u2264 1.5 \u00d7 ULN",
+      "threshold": "bilirubin <= 1.5 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Aspartate aminotransferase (AST), (Serum glutamic oxaloacetic transaminase \\[SGOT\\]), alanine aminotransferase (ALT), and (Serum glutamic pyruvic transaminase \\[SGPT\\]) \u2264 2.5 \u00d7 ULN OR \u2264 5 \u00d7 ULN for subjects with liver metastasis",
+      "threshold": "AST/ALT <= 2.5 x ULN (<= 5 x ULN with liver metastasis)"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Diagnosis of any active malignancy other than platinum-resistant ovarian cancer within the past 2 years (not including non-melanoma skin carcinoma, ductal carcinoma in situ of the breast, or carcinoma in situ of uterine cervix treated with curative intent).",
+      "threshold": "within 2 years"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "clinically significant cardiovascular disease such as unstable angina, myocardial infarction, or acute coronary syndrome within \\< 6 months prior to the start of study treatment",
+      "threshold": "< 6 months"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "any Class 3 or 4 cardiac disease as defined by the New York Heart Association Functional Classification",
+      "threshold": "NYHA class 3 or 4"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "symptomatic or uncontrolled arrhythmia, congestive heart failure",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Baseline QTc interval \\>480 msec for female subjects or \\>450 msec for male subjects.",
+      "threshold": "QTc > 480 msec (female), > 450 msec (male)"
+    }
+  ]
+}

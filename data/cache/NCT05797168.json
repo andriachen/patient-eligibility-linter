@@ -1,0 +1,62 @@
+{
+  "nct_id": "NCT05797168",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group Performance Status of 0 or 1.",
+      "threshold": "ECOG 0 or 1"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Patients with brain metastases unless, asymptomatic, stable, and not requiring continuous corticosteroids at a dose of > 10 mg prednisone/day or equivalent for at least 4 weeks prior to first dose of study intervention.",
+      "threshold": null
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "or known HIV infection that is not well controlled.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "History of another malignancy except for:",
+      "threshold": "malignancy treated with curative intent and no known active disease for at least 2 years prior to screening"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Symptomatic heart failure (as defined by New York Heart Association class \u2265 2).",
+      "threshold": "NYHA class >= 2"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Mean resting QTcF \\> 470 msec obtained from triplicate electrocardiograms (ECGs) and averaged, recorded within 5 minutes.",
+      "threshold": "QTcF > 470 msec"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "For women only - currently pregnant (confirmed with positive pregnancy test or suspected), lactating, breastfeeding, or intention to become pregnant during the study period.",
+      "threshold": null
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Patients with spinal cord compression or a history of leptomeningeal carcinomatosis.",
+      "threshold": null
+    }
+  ]
+}

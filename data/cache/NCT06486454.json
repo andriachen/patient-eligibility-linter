@@ -1,0 +1,13 @@
+{
+  "nct_id": "NCT06486454",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Subject is pregnant or planning to become pregnant or nursing (lactating) during the study period",
+      "threshold": null
+    }
+  ]
+}

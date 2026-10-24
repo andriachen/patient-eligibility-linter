@@ -1,0 +1,34 @@
+{
+  "nct_id": "NCT06915753",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status of \u22641.",
+      "threshold": "ECOG \u2264 1"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Active, symptomatic, or untreated brain metastases.",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Have a diagnosis of primary CNS malignancies.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Females who are pregnant, breastfeeding, or planning to become pregnant and males who plan to father a child while enrolled in this study.",
+      "threshold": null
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "nct_id": "NCT04656041",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ECOG performance status \u2264 1",
+      "threshold": "ECOG \u2264 1"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant women are excluded from this study because radiation therapy and the chemotherapy agents to be used have the potential for teratogenic or abortifacient effects.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "breastfeeding should be discontinued while the mother is receiving protocol therapy.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Treatment of other invasive carcinomas within the last five years with greater than 5% risk of recurrence at time of eligibility screening.",
+      "threshold": "within 5 years, >5% recurrence risk"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "or myocardial infarction within the last 12 months",
+      "threshold": "MI within 12 months"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "nct_id": "NCT03972657",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Uncontrolled infection with Human Immunodeficiency Virus (HIV), hepatitis B or hepatitis C infection; or diagnosis of immunodeficiency",
+      "threshold": null
+    }
+  ]
+}

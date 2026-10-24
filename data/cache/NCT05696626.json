@@ -1,0 +1,55 @@
+{
+  "nct_id": "NCT05696626",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group (ECOG) performance score of 0 or 1",
+      "threshold": "ECOG 0 or 1"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Brain metastases are allowed only if the following 4 parameters hold:",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "History of malignancy within the past 5 years (excluding breast cancer), except basal cell or squamous cell carcinoma of the skin curatively treated by surgery.",
+      "threshold": "within 5 years"
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Known infection with human immunodeficiency virus (HIV), hepatitis B virus (HBV), or hepatitis C virus (HCV).",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Positive serum pregnancy test (only if premenopausal).",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Women who are breast feeding",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "History of long QTc (Q-T interval corrected for heart rate) syndrome or a QTc of \\>480 msec.",
+      "threshold": "QTc > 480 msec"
+    }
+  ]
+}

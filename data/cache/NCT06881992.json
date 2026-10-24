@@ -1,0 +1,12 @@
+{
+  "nct_id": "NCT06881992",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Evidence of active infection including human immunodeficiency virus, hepatitis B, or hepatitis C (excluding immunization patterns)."
+    }
+  ]
+}

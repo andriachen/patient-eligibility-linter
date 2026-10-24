@@ -1,0 +1,41 @@
+{
+  "nct_id": "NCT07132190",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Karnofsky performance status of at least 60",
+      "threshold": "KPS >= 60"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Participants with end stage renal disease",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participants with widespread, definitive leptomeningeal disease",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant women are excluded from this study because of the potential deleterious effects of gadolinium on the developing fetus.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "women who are breastfeeding are not eligible for this study as well",
+      "threshold": null
+    }
+  ]
+}

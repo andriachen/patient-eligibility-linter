@@ -1,0 +1,27 @@
+{
+  "nct_id": "NCT00843375",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Other active malignancy within 3 years of enrollment except any of the following:",
+      "threshold": "within 3 years"
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Known HIV or chronic active viral hepatitis",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Women who are pregnant",
+      "threshold": null
+    }
+  ]
+}

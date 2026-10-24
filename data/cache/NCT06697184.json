@@ -1,0 +1,20 @@
+{
+  "nct_id": "NCT06697184",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Stable Eastern Cooperative Oncology Group (ECOG) Performance Status \u2264 2.",
+      "threshold": "ECOG \u2264 2"
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Positive HIV serology (HIVAb) status unless certain conditions are met.",
+      "threshold": null
+    }
+  ]
+}
