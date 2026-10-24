@@ -1,6 +1,7 @@
 # accounts/ — login + profile questions (Next.js)
 
-A separate Next.js app, deployed on its own to Vercel. People sign up with email and
+A separate Next.js app, served at `/account` on the team's Vercel domain (the web app is
+at `/`). People sign up with email and
 password (Supabase Auth), then answer one question per screen. The first question picks a
 role and the rest branch:
 
@@ -20,11 +21,14 @@ Supabase (`@supabase/ssr`, cookie sessions), lucide-react, Jest.
 cd accounts
 npm install
 cp .env.example .env.local   # then fill in the two Supabase values
-npm run dev                  # http://localhost:3000
+npm run dev                  # http://localhost:3000/account
 ```
 
-- `/preview` lets you click through every question without logging in. Nothing is saved,
-  and the page only exists under `npm run dev`.
+- `/account/preview` lets you click through every question without logging in. Nothing is
+  saved, and the page only exists under `npm run dev`.
+- `next.config.ts` sets `basePath: "/account"`. `Link`, `redirect()` and `revalidatePath`
+  add the prefix on their own; a raw `<a href>`, a `fetch()` URL or a `public/` asset path
+  needs `/account` added by hand.
 - `npm test` runs the wizard logic tests. `npm run lint` and `npm run build` should pass
   before you push.
 
@@ -40,9 +44,17 @@ npm run dev                  # http://localhost:3000
 
 ## Deploy to Vercel
 
-- Import the repo with **Root Directory** set to `accounts`. Vercel detects Next.js.
+- The root `vercel.json` deploys the whole repo as one Vercel project with two services:
+  `web` (`app/project-starter`) at `/` and `accounts` at `/account`. Leave the project's
+  Root Directory at the repo root. Ask Andria before changing `vercel.json` or the base
+  path, since the web app links to `/account`.
 - Add `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` under
-  **Environment Variables**.
+  **Environment Variables** for Production and Preview. They're built into the app, so
+  redeploy after adding or changing them.
+- In Supabase, **Authentication → URL Configuration**: set Site URL to
+  `https://<vercel-domain>/account` and add `https://<vercel-domain>/account/**` and
+  `http://localhost:3000/account/**` to Redirect URLs. These only matter for emails Supabase
+  sends, so they don't affect password login while Confirm email is off.
 - The repo belongs to `andriachen`, so Vercel's GitHub app has to be installed on her
   account, or you deploy from a fork.
 
