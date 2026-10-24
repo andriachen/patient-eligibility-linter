@@ -57,6 +57,10 @@ npm run dev                  # http://localhost:3000/account
   sends, so they don't affect password login while Confirm email is off.
 - The repo belongs to `andriachen`, so Vercel's GitHub app has to be installed on her
   account, or you deploy from a fork.
+- To check a deployment, open `/account/api/health`. It says whether Supabase accepts the
+  URL and key, which project each belongs to, and whether a value was pasted with quotes,
+  spaces or its variable name (`src/lib/supabase/env.ts` strips those, so they show up as
+  warnings). It never shows the key itself.
 
 ## Saved data (for matching)
 
