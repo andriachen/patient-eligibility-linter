@@ -1,0 +1,62 @@
+{
+  "nct_id": "NCT05465174",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Performance Score: Karnofsky \\>= 50 for participants \\> 16 years of age and Lansky \\>= 50 for participants \\<= 16 years of age.",
+      "threshold": "Karnofsky >= 50"
+    },
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age 1 to 39 years.",
+      "threshold": "age <= 39"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "A serum creatinine \\< 1.5 Upper Limit normal (ULN) based on age and gender.",
+      "threshold": "serum creatinine < 1.5 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Serum glutamic-pyruvic transaminase (SGPT)((alanine aminotransferase (ALT)) \\<= 3 x ULN.",
+      "threshold": "ALT <= 3 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Bilirubin (sum of conjugated + unconjugated) \\<= 1.5 x upper limit of normal (ULN) for age (except in participants with documented Gilbert syndrome).",
+      "threshold": "bilirubin <= 1.5 x ULN"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Clinically significant active cardiovascular disease, or history of myocardial infarction, or deep vein thrombosis/pulmonary embolism within 6 months prior to registration, ongoing cardiomyopathy, or current prolonged QT interval corrected for heart rate by Fridericia's formula (QTcF) interval \\> 440 ms based on triplicate ECG average.",
+      "threshold": "QTcF > 440 ms; recent MI within 6 months (history of MI)"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Women of childbearing potential must not be pregnant or breast-feeding.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Participants should not have undergone any previous tumor-directed therapy.",
+      "threshold": null
+    }
+  ]
+}

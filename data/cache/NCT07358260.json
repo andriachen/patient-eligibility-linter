@@ -1,0 +1,104 @@
+{
+  "nct_id": "NCT07358260",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age \\>=9 months and \\<30 years.",
+      "threshold": "age < 30 years"
+    },
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age \\>=12 months and \\<30 years.",
+      "threshold": "age < 30 years"
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Lansky/Karnofsky performance status \u226550% (see Appendix A)",
+      "threshold": "Lansky/Karnofsky \u226550%"
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Lansky/Karnofsky performance status \u226550% (see APPENDIX A: PERFORMANCE STATUS SCALES/SCORES)",
+      "threshold": "Lansky/Karnofsky \u226550%"
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Adequate renal function defined as creatinine below normal limits for age OR creatinine clearance (as estimated by Cockcroft Gault Equation for participants \u2265 18yo and Bedside Schwartz for participants \\<18yo) \u226570mL/min/1.73m2",
+      "threshold": "creatinine clearance \u226570 mL/min/1.73m2"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Serum ALT/AST \\<3.0X ULN",
+      "threshold": "ALT/AST < 3.0X ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Total bilirubin \\< 3X ULN, except in participants with confirmed Gilbert's syndrome, where direct bilirubin must be \\<3X ULN.",
+      "threshold": "total bilirubin < 3X ULN"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Ejection fraction \u226550% or fractional shortening \u226528%, measured by echocardiography",
+      "threshold": "EF \u226550% or FS \u226528%"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Females of childbearing potential must have a negative serum or urine pregnancy test",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participants with known current brain metastases or leptomeningeal disease.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participants with a known additional malignancy other than non-melanomatous skin cancer or carcinoma in situ, unless not requiring active treatment and stable or disease-free for at least 3 years.",
+      "threshold": "disease-free for at least 3 years"
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "HIV/HBV/HCV infection: Participants are required to be negative for HIV Antibody or HIV viral load, negative for Hepatitis surface antigen (HbsAg) or viral load and negative for HCV antibody or HCV viral load.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Uncontrolled intercurrent illness including, but not limited to, symptomatic congestive heart failure, unstable angina pectoris, cardiac arrhythmia, or psychiatric illness/social situations that would limit compliance with study requirements.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant women are excluded from this study because the effects of B7-H3.CD28Z.CART cells on the developing fetus are unknown and because chemotherapeutic agents with the potential for teratogenic or abortifacient effects are used in this study.",
+      "threshold": null
+    }
+  ]
+}

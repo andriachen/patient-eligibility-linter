@@ -1,0 +1,90 @@
+{
+  "nct_id": "NCT07104331",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ECOG performance status \u22642",
+      "threshold": "ECOG \u2264 2"
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Creatinine \\<1.5 x ULN or measured CrCl of \\>30ml/m2/1.73 m2",
+      "threshold": "creatinine < 1.5 x ULN or CrCl > 30 ml/m2/1.73 m2"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Total bilirubin \\<2 x ULN",
+      "threshold": "total bilirubin < 2 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "AST/ALT \\<3 x ULN",
+      "threshold": "AST/ALT < 3 x ULN"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Female patient of childbearing potential has a negative serum pregnancy test within 7 days of study enrollment.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "NYHA Class III-IV CHF",
+      "threshold": "NYHA class III-IV"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "documented Child's class B-C cirrhosis",
+      "threshold": "Child-Pugh class B-C"
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "HIV+ patients are allowed provided the patient has a CD4 count greater than 200 and is HIV undetectable on antiviral medications, and there are no AIDS-defining illnesses within 12 months.",
+      "threshold": "CD4 > 200 and HIV undetectable; no AIDS-defining illness within 12 months"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Active central nervous system (CNS) disease involvement, or prior history of NCI CTCAE Grade \u22653 drug-related CNS toxicity.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Myocardial infarction within 12 months of screening",
+      "threshold": "within 12 months"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Co-existing malignancies or use of any other concurrent investigational agents or anticancer agents, excluding adjuvant hormonal therapy for breast or prostate cancer.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant women are excluded from this study because there is an unknown but potential risk for adverse events in nursing infants secondary to treatment of the mother with nab-sirolimus, breastfeeding should be discontinued if the mother is treated with nab-sirolimus.",
+      "threshold": null
+    }
+  ]
+}

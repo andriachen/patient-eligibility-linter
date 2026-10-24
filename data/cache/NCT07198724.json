@@ -1,0 +1,97 @@
+{
+  "nct_id": "NCT07198724",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ECOG performance status \u2264 2.",
+      "threshold": "ECOG \u2264 2"
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Calculated creatinine clearance \u2265 45 mL/min via the Cockcroft-Gault formula for participants with creatinine levels above institutional ULN",
+      "threshold": "CrCl \u2265 45 mL/min"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Total bilirubin \u2264 1.5 x institutional upper limit of normal (ULN) (or \u2264 2 x ULN in patients with documented Gilbert's syndrome)",
+      "threshold": "bilirubin \u2264 1.5 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "AST(SGOT)/ALT(SGPT) \u2264 2.5 x institutional ULN (or \\< 5 x ULN in patients with liver metastases)",
+      "threshold": "AST/ALT \u2264 2.5 x ULN"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Baseline LVEF \u2265 50% prior to registration, as measured by echocardiogram",
+      "threshold": "LVEF \u2265 50%"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Participants with a history of central nervous system (CNS) metastases are eligible if: Stable or untreated, asymptomatic brain metastases not needing immediate local therapy.",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Patients with known brain metastases that are symptomatic or that require therapy for symptom control are not eligible.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Patients who are pregnant or breastfeeding, or who expect to become pregnant within the projected duration of the study.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "History of myocardial infarction, acute coronary syndrome or coronary angioplasty/stenting/bypass grafting within the last six months",
+      "threshold": "within 6 months"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "congestive heart failure (CHF) New York Heart Association (NYHA) Class II-IV or history of CHF NYHA Class III or IV.",
+      "threshold": "NYHA Class II-IV"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Moderate or severe hepatic impairment (Child-Pugh B or C).",
+      "threshold": "Child-Pugh B or C"
+    },
+    {
+      "category": "diabetes",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "uncontrolled diabetes mellitus",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Patients with a history of different malignancy are ineligible, except for those who have been disease-free for at least three years and are deemed by the investigator to be at low risk for recurrence of the prior malignancy.",
+      "threshold": "disease-free for at least 3 years"
+    }
+  ]
+}

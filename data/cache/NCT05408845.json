@@ -1,0 +1,97 @@
+{
+  "nct_id": "NCT05408845",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Age \\>= 18",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Myocardial infarction within the last 6 months",
+      "threshold": "within 6 months"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "New York Heart Association Functional Classification III/IV (Note: Patients with known history or current symptoms of cardiac disease, or history of treatment with cardiotoxic agents, should have a clinical risk assessment of cardiac function using the New York Heart Association Functional Classification.)",
+      "threshold": "NYHA class III/IV"
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Known human immunodeficiency virus (HIV) infected patients on effective anti-retroviral therapy with undetectable viral load within 6 months prior to registration are eligible for this trial. Testing is not required for entry into protocol",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnancy and individuals unwilling to discontinue nursing",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Zubrod (Eastern Cooperative Oncology Group \\[ECOG\\]) Performance Status of 0-2 within 14 days prior to registration",
+      "threshold": "ECOG 0-2"
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Serum creatinine =\\< 1.5 x upper limit of normal (ULN) OR calculated creatinine clearance (CrCl) \\>= 30 mL/min by the Cockcroft-Gault formula (within 14 days prior to registration)",
+      "threshold": "creatinine <= 1.5 x ULN or CrCl >= 30 mL/min"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "HER2-positive cohort: Total bilirubin =\\< 1.5 x ULN (within 14 days prior to registration) (Not applicable to patients with known Gilbert's syndrome) (within 14 days prior to registration)",
+      "threshold": "bilirubin <= 1.5 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "HER2-positive cohort: Aspartate aminotransferase (AST) and alanine aminotransferase (ALT) =\\< 1.5 x ULN (within 14 days prior to registration)",
+      "threshold": "AST/ALT <= 1.5 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "HER2-low expressing cohort: Total bilirubin \u2264 1.5 x ULN if no liver metastases; or \\< 3 x ULN in the presence of documented Gilbert's Syndrome or liver metastases (within 14 days prior to registration) (within 14 days prior to registration)",
+      "threshold": "bilirubin <= 1.5 x ULN (no liver mets); < 3 x ULN with Gilbert's or liver mets"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "HER2-low expressing cohort: AST and ALT \u2264 3 x ULN if no liver metastases; or \\< 5 x ULN with liver metastases (within 14 days prior to registration)",
+      "threshold": "AST/ALT <= 3 x ULN (no liver mets); < 5 x ULN with liver mets"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Patients with a prior or concurrent malignancy whose natural history or treatment does not have the potential to interfere with the safety or efficacy assessment of the investigational regimen are eligible for this trial",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Patients with new or progressive brain metastases (active brain metastases) or leptomeningeal disease are eligible if the treating physician determines that immediate CNS specific treatment is not required and is unlikely to be required during the first cycle of therapy",
+      "threshold": null
+    }
+  ]
+}

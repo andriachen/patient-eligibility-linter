@@ -1,0 +1,118 @@
+{
+  "nct_id": "NCT05292664",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "threshold": "age <= 40",
+      "source_text": "Age \u2264 40 years of age, except the following subjects that must be \\<18 years to enroll"
+    },
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "threshold": "age <= 40",
+      "source_text": "Age \u2264 40 years of age"
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "threshold": "Lansky/Karnofsky performance status \u2265 50%",
+      "source_text": "Lansky/Karnofsky performance status \u2265 50%"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "threshold": "ALT \u22645X ULN",
+      "source_text": "Serum alanine aminotransferase (ALT) \u22645X upper limit of normal (ULN)"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "threshold": "Direct bilirubin \u2264 3X",
+      "source_text": "Direct bilirubin \u2264 3X"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "inclusion",
+      "threshold": "Ejection fraction \u2265 50% or shortening fraction \u2265 24%",
+      "source_text": "Ejection fraction \u2265 50% or shortening fraction of \u2265 24% on screening echocardiogram."
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "inclusion",
+      "threshold": null,
+      "source_text": "All females of childbearing potential must refrain from breastfeeding during study participation"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "threshold": "Direct bilirubin \u2264 3X upper limit of normal for age and institution",
+      "source_text": "Direct bilirubin \u2264 3X upper limit of normal for age and institution."
+    },
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "threshold": "age <= 21 (minimum age 1)",
+      "source_text": "Age: \u2265 1 and \u2264 21 years of age"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "threshold": "ALT \u22645X ULN unless secondary to leukemic involvement",
+      "source_text": "Serum alanine aminotransferase (ALT) \u22645X upper limit of normal (ULN), unless deemed secondary to leukemic involvement in discussion with site PI.)"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "threshold": "Serum amylase \u2264 3X institutional ULN",
+      "source_text": "Serum amylase \u2264 3X institutional ULN ."
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "inclusion",
+      "threshold": "Maximum prior cumulative doxorubicin dose \u2264 360 mg/m2",
+      "source_text": "Maximum prior cumulative doxorubicin dose \u2264 360 mg/m2 or equivalent"
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "threshold": null,
+      "source_text": "Patients known to have human immunodeficiency virus (HIV) infection; baseline testing for HIV is not required."
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "threshold": null,
+      "source_text": "Pregnant or nursing women are excluded."
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "threshold": "disease-free for at least 1 year",
+      "source_text": "Individuals with a history of a different malignancy are ineligible except for the following circumstances:"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "threshold": null,
+      "source_text": "Individuals with isolated CNS or testicular relapse."
+    }
+  ]
+}

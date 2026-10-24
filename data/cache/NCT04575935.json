@@ -1,0 +1,27 @@
+{
+  "nct_id": "NCT04575935",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ECOG performance status 0-2",
+      "threshold": "ECOG 0-2"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Disease free of other active malignancies in the previous five years, except basal and squamous cell carcinomas of the skin",
+      "threshold": "within 5 years"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Negative pregnancy test by blood or urine (within 14 days prior to surgery)",
+      "threshold": null
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "nct_id": "NCT06462365",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Subjects \\> 65-year-old receiving MAC conditioning will only be eligible if they have a HSCT-comorbidity index score \\< 5.",
+      "threshold": "age > 65 with HSCT-comorbidity index score < 5 for MAC conditioning"
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Karnofsky performance status \u2265 70 %.",
+      "threshold": "Karnofsky >= 70%"
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "HIV positive.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Subjects that are pregnant, breast feeding or aim to become pregnant during the study period.",
+      "threshold": null
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Any subject with a history of significant renal, hepatic, pulmonary, or cardiac dysfunction, or on treatment to support cardiac dysfunction.",
+      "threshold": null
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Any subject with a history of significant renal, hepatic, pulmonary, or cardiac dysfunction, or on treatment to support cardiac dysfunction.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Any subject with a history of significant renal, hepatic, pulmonary, or cardiac dysfunction, or on treatment to support cardiac dysfunction.",
+      "threshold": null
+    }
+  ]
+}

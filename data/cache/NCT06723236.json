@@ -1,0 +1,27 @@
+{
+  "nct_id": "NCT06723236",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Participants must not be pregnant, planning to be pregnant, or breastfeeding.",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Active brain metastases or leptomeningeal metastases.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Another malignancy that required treatment within the past 2 years, with the exception of those with a negligible risk of metastasis or death such as adequately treated non-melanomatous skin cancer, localized prostate cancer (Gleason Score \\< 6), or carcinoma in situ.",
+      "threshold": "within 2 years"
+    }
+  ]
+}

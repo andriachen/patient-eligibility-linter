@@ -1,0 +1,83 @@
+{
+  "nct_id": "NCT05382559",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Participant has an ECOG performance status of 0, 1 or 2 for dose escalation, and 0 or 1 for dose expansion.",
+      "threshold": "ECOG > 2 (escalation); ECOG > 1 (expansion)"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participant has symptomatic or untreated central nervous system (CNS) metastases. Participants with asymptomatic, treated CNS metastases are eligible.",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Participant has leptomeningeal disease as a manifestation of the current malignancy.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participant has a prior malignancy active (i.e., requiring treatment or intervention) within the previous 2 years, except for local malignancies that have been apparently cured, such as basal or squamous cell skin cancer, superficial bladder cancer or carcinoma in situ of the cervix or breast, which are allowed.",
+      "threshold": "within 2 years"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Participant with active hepatitis B (including acute hepatitis B virus \\[HBV\\] or chronic HBV) or hepatitis C virus \\[HCV\\] (ribonucleic acid \\[RNA\\] detected by qualitative assay). HCV RNA testing is not required in participants with negative HCV antibody testing.",
+      "threshold": null
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Participant has a known history of human immunodeficiency virus \\[HIV\\] infection. No HIV testing is required unless mandated by a local health authority.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Participant has had a myocardial infarction or unstable angina within 6 months prior to the start of study intervention, left ventricular ejection fraction (LVEF) \\< 50% as determined by multigated acquisition (MUGA) scan or echocardiogram (ECHO) or currently has an uncontrolled illness including, but not limited to symptomatic congestive heart failure, clinically significant cardiac disease, unstable angina pectoris, cardiac arrhythmia, obligate use of a cardiac pacemaker, or long QT syndrome.",
+      "threshold": "MI within 6 months; LVEF < 50%"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Participant has a corrected QT interval (single electrocardiogram \\[ECG\\]) using Fridericia's formula (QTcF) \\> 450 milliseconds (msec) (men) or \\>470 msec (women) during screening.",
+      "threshold": "QTcF > 450 msec (men) or > 470 msec (women)"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Female participant is not pregnant, confirmed by pregnancy test and medical evaluation by interview, and at least 1 of the following conditions apply:",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Female participant must agree not to breastfeed starting at screening and throughout the study period and for 6 months after study intervention administration.",
+      "threshold": null
+    },
+    {
+      "category": "diabetes",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Participant has received prior treatment with a specific KRAS G12D inhibitor/degrader or pan-RAS inhibitor/degrader targeting KRAS G12D.",
+      "threshold": null
+    }
+  ]
+}

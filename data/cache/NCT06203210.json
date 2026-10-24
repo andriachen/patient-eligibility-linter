@@ -1,0 +1,27 @@
+{
+  "nct_id": "NCT06203210",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Has ECOG PS of less than or equal to (\u2264)1 within 7 days prior to Cycle 1 Day 1 (C1D1).",
+      "threshold": "ECOG PS \u2264 1"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Participants with brain metastasis/leptomeningeal disease are eligible if protocol specified criteria are met.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Has uncontrolled or significant cardiovascular (CV) disease.",
+      "threshold": null
+    }
+  ]
+}

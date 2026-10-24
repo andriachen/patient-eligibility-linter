@@ -1,0 +1,27 @@
+{
+  "nct_id": "NCT06274788",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Patient has hemodynamic instability due to any major cardiac anomaly.",
+      "threshold": null
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Patient has renal failure and requires renal replacement therapy.",
+      "threshold": null
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Patient has known cirrhosis (liver biopsy is not required under this protocol).",
+      "threshold": null
+    }
+  ]
+}

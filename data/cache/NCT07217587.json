@@ -1,0 +1,13 @@
+{
+  "nct_id": "NCT07217587",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Currently has a malignancy or has a history of malignancy within 3 years before baseline",
+      "threshold": "within 3 years"
+    }
+  ]
+}

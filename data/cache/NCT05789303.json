@@ -1,0 +1,76 @@
+{
+  "nct_id": "NCT05789303",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Subject must be \u2265 18 years of age.",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Subject must have an Eastern Cooperative Oncology Group (ECOG) performance status of \u2264 2",
+      "threshold": "ECOG \u2264 2"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Subjects must not be pregnant or lactating.",
+      "threshold": null
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Subject with HIV infection will be excluded unless certain T-cell count, viral load and clinical qualifications are met as confirmed by the study doctor",
+      "threshold": null
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Subject must not have presence of active renal condition (infection, requirement for dialysis or any other condition that could affect Subject's safety).",
+      "threshold": null
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Subject must not have current unstable liver or biliary disease defined by the presence of ascites, encephalopathy, coagulopathy, hypoalbuminemia, esophageal or gastric varices, persistent jaundice, or cirrhosis.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Class III or IV heart failure as defined by the New York Heart Association functional classification system",
+      "threshold": "NYHA class III or IV"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "History of myocardial infarction, acute coronary syndromes, coronary angioplasty, or stenting or bypass grafting within three (3) months of screening.",
+      "threshold": "within 3 months"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Subject must not have invasive malignancies other than disease under study, unless the second malignancy has been medically stable for at least 2 years",
+      "threshold": "stable for at least 2 years"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Patients with Hepatitis B will be excluded unless certain clinical criteria are met as confirmed by the study doctor.",
+      "threshold": null
+    }
+  ]
+}

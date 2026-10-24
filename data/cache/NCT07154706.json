@@ -1,0 +1,55 @@
+{
+  "nct_id": "NCT07154706",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status of 0 or 1.",
+      "threshold": "ECOG 0 or 1"
+    },
+    {
+      "category": "age",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Age \u226518 years (or \u226520 years as required by local regulations).",
+      "threshold": "age \u226520 years as required by local regulations"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "History of other malignancies except adequately treated non-melanoma skin cancer, curatively treated in situ cancer, or other tumors curatively treated with no evidence of disease for \\>3 years after the end of treatment and which, in the opinion of the treating physician, do not have a substantial risk of recurrence of the prior malignancy.",
+      "threshold": "within 3 years"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Have clinically significant cardiovascular disease within 3 months prior to Randomization.",
+      "threshold": "within 3 months"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Experiencing ongoing cardiac dysrhythmias of \u2265Grade 2 (CTCAE v5.0), uncontrolled atrial fibrillation of any CTCAE grade, a QT interval corrected by Fridericia's formula (QTcF) of \\>470 milliseconds, symptomatic bradycardia \\<45 bpm; undergoing treatment with medication(s) known to be associated with the development of Torsades de Pointes (TdP).",
+      "threshold": "QTcF > 470 ms; dysrhythmia \u2265 Grade 2"
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "or known human immunodeficiency virus (HIV)- or acquired immunodeficiency syndrome-related illness.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Currently have or have a history of interstitial lung disease (ILD), drug-related pneumonitis, or radiation pneumonitis that required steroid treatment.",
+      "threshold": null
+    }
+  ]
+}

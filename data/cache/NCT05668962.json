@@ -1,0 +1,104 @@
+{
+  "nct_id": "NCT05668962",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Participants \u2265 18 years of age must have measurable disease, per Response Evaluation Criteria in Solid Tumors (RECIST) v1.1.",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Participants \u2265 16 years of age must have an Eastern Cooperative Oncology Group (ECOG) performance status \u2264 1.",
+      "threshold": "ECOG \u2264 1"
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Known human immunodeficiency virus (HIV)-infected participants on effective anti- retroviral therapy with an undetectable viral load within 6 months are eligible for this trial.",
+      "threshold": "undetectable viral load within 6 months"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Participants with treated brain metastases are eligible if the patient is asymptomatic AND follow-up brain imaging after central nervous system (CNS)-directed therapy shows no evidence of progression.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Participants with a prior or concurrent malignancy whose natural history or treatment does not have the potential to interfere with the safety or efficacy assessment of the investigational regimen are eligible for this trial.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Participants with known history or current symptoms of cardiac disease or history of treatment with cardiotoxic agents, should have a clinical risk assessment of cardiac function using the New York Heart Association Functional Classification. To be eligible for this trial, participants should be class 2B or better.",
+      "threshold": "NYHA class 2B or better"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "WOCBP must have a negative pregnancy test (serum or urine) within 7 days prior to initiating study treatment, and not be breast-feeding within two months prior to study entry, during treatment, and for \u22651 week after the last dose of study therapy.",
+      "threshold": null
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "creatinine \u2264 institutional ULN OR creatinine clearance \u226530 mL/min",
+      "threshold": "creatinine \u2264 institutional ULN or CrCl \u226530 mL/min"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "total bilirubin \u2264 1.5 \u00d7 institutional upper limit of normal (ULN) OR <3.0 x institutional ULN for participants with Gilbert syndrome",
+      "threshold": "total bilirubin \u2264 1.5 \u00d7 ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "AST(SGOT)/ALT(SGPT) \u22642.5 \u00d7 institutional ULN OR \u22645 \u00d7 institutional ULN if the liver has tumor involvement",
+      "threshold": "AST/ALT \u22642.5 \u00d7 ULN"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "history of myocardial infarction within 6 months prior to planned start of study treatment",
+      "threshold": "MI within 6 months"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "prolongation of the corrected QT interval by Fridericia's formula (QTcF) >470 msec on more than one ECG during Screening",
+      "threshold": "QTcF > 470 msec"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participants with symptomatic CNS metastasis or lesions threatening for spinal cord compression are not eligible.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participants with clinically significant active cardiovascular disease or history of Torsades de pointes",
+      "threshold": null
+    }
+  ]
+}

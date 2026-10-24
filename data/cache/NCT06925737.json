@@ -1,0 +1,13 @@
+{
+  "nct_id": "NCT06925737",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Has clinically severe pulmonary compromise resulting from intercurrent pulmonary illnesses",
+      "threshold": null
+    }
+  ]
+}

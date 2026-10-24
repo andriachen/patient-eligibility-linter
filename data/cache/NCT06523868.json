@@ -1,0 +1,13 @@
+{
+  "nct_id": "NCT06523868",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Individuals diagnosed with invasive malignancy within 3 years of enrollment (non- melanoma skin cancer is acceptable)",
+      "threshold": "within 3 years"
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "nct_id": "NCT06677190",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age \u226518 years. Because no dosing or adverse event data are currently available on the use of Belzutifan in participants \\<18 years of age, children are excluded from this study.",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ECOG (Eastern Cooperative Oncology Group) performance status of 0 or 1 (Karnofsky performance scale \u226570%, see Appendix A).",
+      "threshold": "ECOG > 1"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Total bilirubin \u2264 1.5 x institutional upper limit of normal (ULN) OR direct bilirubin \u2264 ULN for participants with total bilirubin levels \\> 1.5 ULN",
+      "threshold": "total bilirubin > 1.5 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "AST(SGOT)/ALT(SGPT) \u2264 2.5 \u00d7 institutional upper limit of normal (ULN) (in the absence of liver metastases) or \u2264 5 x institutional ULN (in the presence of liver metastases)",
+      "threshold": "AST/ALT > 2.5 x ULN (or > 5 x ULN with liver metastases)"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Creatinine \u2264 1.5 x institutional upper limit of normal (ULN) OR estimated creatinine clearance (CrCl) by the Cockcroft-Gault formula",
+      "threshold": "creatinine > 1.5 x ULN or CrCl < 51 mL/min"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Participants with known brain metastases are eligible if they have completed primary CNS-directed therapy",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Participants with a prior or concurrent malignancy whose natural history or treatment does not have the potential to interfere with the safety or efficacy assessment of the Belzutifan, as determined after discussion with the Sponsor-Investigator, are eligible for this trial.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "women of child-bearing potential\\* must have a negative serum or urine pregnancy test",
+      "threshold": null
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Is known to be positive for Human Immunodeficiency Virus (HIV).",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participants with significant cardiovascular impairment, including uncontrolled hypertension, congestive heart failure of New York Heart Association Grade II or above, unstable angina, myocardial infarction within the past 6 months, or serious cardiac arrhythmia within the past 6 months.",
+      "threshold": "NYHA Grade II or above; MI within 6 months; arrhythmia within 6 months"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Has moderate to severe hepatic impairment (Child-Pugh B or C).",
+      "threshold": "Child-Pugh B or C"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant women are excluded from this study. Because there is an unknown but potential risk for adverse events in nursing infants secondary to treatment of the mother with belzutifan, breastfeeding participants are excluded from this study.",
+      "threshold": null
+    }
+  ]
+}

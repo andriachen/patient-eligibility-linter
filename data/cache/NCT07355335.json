@@ -1,0 +1,90 @@
+{
+  "nct_id": "NCT07355335",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age \u226516 years during dose escalation portion of study, patients must weigh \u226540 kg.",
+      "threshold": "age >= 16 (dose escalation)"
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status must be 0, 1, or 2; Karnofsky \u226550 for patients \u226516 years of age; and Lansky \u226550 for patients \u226512 to 16 years of age.",
+      "threshold": "ECOG 0-2; Karnofsky >= 50"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Cardiac LVEF of \u226540%, as measured by echocardiogram or MUGA scan",
+      "threshold": "LVEF >= 40%"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Glomerular filtration rate (GFR)\u226530 mL/min/1.73 m2",
+      "threshold": "GFR >= 30 mL/min/1.73 m2"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "AST(SGOT)/ALT(SGPT) \u22645 \u00d7 institutional ULN and total bilirubin \u2264 2x institutional ULN unless related to leukemic involvement or known Gilbert's syndrome (for bilirubin).",
+      "threshold": "AST/ALT <= 5x ULN; total bilirubin <= 2x ULN"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Patients with concurrent malignancy who are receiving chemotherapy or whose disease is uncontrolled or progressing are not eligible.",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Active central nervous system (CNS) involvement by AML (i.e., CNS-2 or CNS-3 disease).",
+      "threshold": null
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Clinically active HIV disease.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "symptomatic congestive heart failure (NYHA class 3 or higher)",
+      "threshold": "NYHA class >= 3"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Mean corrected QT interval corrected for heart rate by Frederica's formula (QTcF)>480ms.",
+      "threshold": "QTcF > 480 ms"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Patients on dialysis.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Patients of childbearing potential are eligible for the study but must comply with the pregnancy prevention plan for study drugs.",
+      "threshold": null
+    }
+  ]
+}

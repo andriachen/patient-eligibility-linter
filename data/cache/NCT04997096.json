@@ -1,0 +1,13 @@
+{
+  "nct_id": "NCT04997096",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "language",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Able to read, write, and understand English",
+      "threshold": null
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "nct_id": "NCT06638307",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Active or newly diagnosed central nervous system metastases.",
+      "threshold": null
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "or liver involvement \\>50%.",
+      "threshold": "liver involvement >50%"
+    }
+  ]
+}

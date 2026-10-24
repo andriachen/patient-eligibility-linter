@@ -1,0 +1,20 @@
+{
+  "nct_id": "NCT06244771",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status 0 or 1",
+      "threshold": "ECOG 0 or 1"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Leptomeningeal disease or carcinomatous meningitis",
+      "threshold": null
+    }
+  ]
+}

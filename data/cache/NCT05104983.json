@@ -1,0 +1,34 @@
+{
+  "nct_id": "NCT05104983",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "0-6 months of age at the time of enrollment (subject must be \\<7 months of chronological age at time of randomization and treatment initiation)",
+      "threshold": "age < 7 months"
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Abnormal laboratory values at baseline (i.e., renal function, liver function, or bone marrow production) that are in the opinion of the investigator clinically significant and may jeopardize the safety of the study subject.",
+      "threshold": null
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Abnormal laboratory values at baseline (i.e., renal function, liver function, or bone marrow production) that are in the opinion of the investigator clinically significant and may jeopardize the safety of the study subject.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Has a TSC-associated condition for which mTOR treatment is clinically indicated (i.e. SEGA or AML).",
+      "threshold": null
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "nct_id": "NCT06538376",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Special populations, including women with known pregnancy, prisoners, or institutionalized individuals",
+      "threshold": null
+    }
+  ]
+}

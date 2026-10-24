@@ -1,0 +1,62 @@
+{
+  "nct_id": "NCT06931626",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status \u2264 2.",
+      "threshold": "ECOG \u2264 2"
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Known active, life-threatening or clinically significant uncontrolled systemic infection (bacterial, fungal, viral including Human Immunodeficiency Virus \\[HIV\\] positivity or Hepatitis B Virus \\[HBV\\] or Hepatitis B Virus \\[HCV\\] infections) requiring systemic treatment; HIV or Acquired Immune Deficiency Syndrome (AIDS)-related illness are allowed as long as controlled more than 6 months to undetectable on anti-HIV medications.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Patients with QT interval using Fridericia standard (QTcF) interval \\>450 milliseconds or with risk factors for torsade de pointes (e.g., uncontrolled heart failure, uncontrolled hypokalemia, history of prolonged QTc interval or family history of long QT syndrome).",
+      "threshold": "QTcF > 450 ms"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Any of the following in the previous 6 months: myocardial infarction, unstable angina, coronary/peripheral artery bypass graft, symptomatic congestive heart failure, cerebrovascular accident or transient ischemic attack, pulmonary embolism, deep vein thrombosis, active bleeding disorder and interstitial lung disease.",
+      "threshold": "within 6 months"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "History of long QT disorder or familial sudden death syndromes or related syndromes in the opinion of the Investigator.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Currently active second malignancy, except for adequately treated basal or squamous cell skin cancer and/or cone biopsied or post curative intention in situ carcinoma of the cervix uteri and/or superficial bladder cancer.",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Symptomatic, or untreated central nervous system (CNS) lesions except stable and well controlled with no neurological symptoms; patients receiving corticosteroids to control neurological symptoms should be on stable doses for at least 14 days before study entry.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Breast-feeding women or women planning to breast feed during the study or within 3 months after study treatment.",
+      "threshold": null
+    }
+  ]
+}

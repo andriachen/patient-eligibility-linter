@@ -1,0 +1,48 @@
+{
+  "nct_id": "NCT07216560",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ECOG 0-1",
+      "threshold": "ECOG 0-1"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Other concurrent malignancy in the recent 3 years except for adequately treated carcinoma in situ.",
+      "threshold": "within 3 years"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Active, untreated or symptomatic CNS metastasis",
+      "threshold": null
+    },
+    {
+      "category": "diabetes",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Poorly controlled blood glucose with fasting blood glucose above 10mmol/L",
+      "threshold": "fasting blood glucose > 10 mmol/L"
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Active HIV or hepatitis B/C infection.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant or breastfeeding women",
+      "threshold": null
+    }
+  ]
+}

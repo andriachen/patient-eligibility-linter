@@ -1,0 +1,62 @@
+{
+  "nct_id": "NCT04665206",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ECOG: 0-1.",
+      "threshold": "ECOG 0-1"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Active brain metastases or primary CNS (central nervous system) tumors.",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "History of leptomeningeal metastases",
+      "threshold": null
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Known HIV positive or active Hepatitis B or Hepatitis C",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Clinically significant cardiovascular disease and prior exposure to cardiotoxic agents.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Corrected QT (QTcF) interval \\> 470 msec (using Fridericia's correction formula).",
+      "threshold": "QTcF > 470 msec"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Additional active malignancy that may confound the assessment of the study endpoints",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Women who are pregnant or breastfeeding",
+      "threshold": null
+    }
+  ]
+}

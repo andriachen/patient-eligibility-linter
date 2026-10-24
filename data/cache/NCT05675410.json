@@ -1,0 +1,97 @@
+{
+  "nct_id": "NCT05675410",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Patients must be 5 to 60 years of age at the time of enrollment",
+      "threshold": "age <= 60"
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Patients \\>= 18 years must have a performance status corresponding to Zubrod scores of 0, 1 or 2",
+      "threshold": "ECOG/Zubrod > 2"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Note: Estimated GFR (eGFR) from serum or plasma creatinine, cystatin C or other estimates are not acceptable for determining eligibility",
+      "threshold": null
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Creatinine clearance \\>= 30 mL/min, as estimated by the Cockcroft and Gault formula or a 24-hour urine collection.",
+      "threshold": "CrCl >= 30 mL/min"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Total bilirubin =\\< 2 x upper limit of normal (ULN) (within 28 days prior to enrollment)",
+      "threshold": "bilirubin <= 2 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Aspartate aminotransferase (AST) =\\< 3 x ULN (within 28 days prior to enrollment)",
+      "threshold": "AST <= 3 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Alanine aminotransferase (ALT) =\\< 3 x ULN (within 28 days prior to enrollment)",
+      "threshold": "ALT <= 3 x ULN"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Shortening fraction of \\>= 27% by echocardiogram (ECHO), multigated acquisition scan (MUGA), or functional cardiac imaging scan (within 28 days prior to enrollment) or ejection fraction of \\>= 50% by radionuclide angiogram, ECHO, MUGA, or cardiac imaging scan (within 28 days prior to enrollment)",
+      "threshold": "LVEF >= 50% or SF >= 27%"
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Known human immunodeficiency virus (HIV)-infected patients on effective anti-retroviral therapy with undetectable viral load within 6 months are eligible for this trial",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Patients with any known uncontrolled intercurrent illness that would jeopardize the patient's safety such as infection, autoimmune conditions, cardiac arrhythmias, angina pectoris, and gastrointestinal disorders affecting swallowing and/or absorption of pills",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Patients with a prior or concurrent malignancy whose natural history or treatment has the potential to interfere with the safety or efficacy assessment of the investigational regimen",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Female patients who are pregnant since fetal toxicities and teratogenic effects have been noted for several of the study drugs.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Lactating females who plan to breastfeed their infants starting with the first dose of study therapy and for at least 6 months after the last treatment",
+      "threshold": null
+    }
+  ]
+}

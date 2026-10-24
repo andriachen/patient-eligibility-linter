@@ -1,0 +1,76 @@
+{
+  "nct_id": "NCT03191149",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age \\>= 18 years",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status =\\< 1",
+      "threshold": "ECOG <= 1"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Women must not be pregnant or breast-feeding because osimertinib (AZD9291) has been shown to cause fetal harm in animal models.",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participants may not have clinically symptomatic brain metastases, leptomeningeal disease, or spinal cord compression.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Symptomatic heart failure - New York Heart Association (NYHA) grade II-IV",
+      "threshold": "NYHA grade II-IV"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Mean resting corrected QT interval (QTc) \\>= 470 msec obtained from 3 electrocardiograms (ECGs) using the screening clinic ECG machine-derived QTc value",
+      "threshold": "QTc >= 470 msec"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participants may not have a second, clinically active, cancer.",
+      "threshold": null
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Creatinine =\\< 1.5 x institutional upper limit of normal (within 4 weeks before registration)",
+      "threshold": "creatinine <= 1.5 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Total bilirubin =\\< 1.5 x upper limit of normal (ULN) if no liver metastases or =\\< 3 times ULN in the presence of documented Gilbert's syndrome (unconjugated hyperbilirubinemia) or liver metastases (within 4 weeks before registration)",
+      "threshold": "bilirubin <= 1.5 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Aspartate aminotransferase (AST) (serum glutamic-oxaloacetic transaminase \\[SGOT\\])/alanine aminotransferase (ALT) (serum glutamate pyruvate transaminase \\[SGPT\\]) =\\< 3 x institutional upper limit of normal; for patients with known hepatic metastases AST and/or ALT =\\< 5 x ULN (within 4 weeks before registration)",
+      "threshold": "AST/ALT <= 3 x ULN (<= 5 x ULN with hepatic mets)"
+    }
+  ]
+}

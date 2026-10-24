@@ -1,0 +1,13 @@
+{
+  "nct_id": "NCT05914766",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "language",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Able to complete study procedures English or with the assistance of an interpreter",
+      "threshold": null
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "nct_id": "NCT06150664",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age 18 years or older",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status 0-1",
+      "threshold": "ECOG 0-1"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Adequate renal function defined as creatinine clearance \u2265 30mL/min by Cockcroft-Gault equation",
+      "threshold": "CrCl \u2265 30 mL/min"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Adequate hepatic function defined as serum total bilirubin \u2264 1.5 \u00d7 ULN, AST/ALT \u2264 2.5 \u00d7 ULN (or \u2264 5 \u00d7 ULN in patients with liver metastases)",
+      "threshold": "bilirubin \u2264 1.5 \u00d7 ULN; AST/ALT \u2264 2.5 \u00d7 ULN (\u2264 5 \u00d7 ULN with liver metastases)"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Patient is a pregnant or lactating WOCBP",
+      "threshold": null
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Patients with evidence of active hepatitis B virus (HBV), hepatitis C virus (HCV) or human immunodeficiency virus (HIV) infection.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "History of primary malignancy other than the malignancy under study will be excluded, except for malignancies with a negligible risk of metastasis or death (e.g., 5-year OS rate >90%).",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Symptomatic or uncontrolled central nervous system and brain metastasis or active leptomeningeal disease.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Congestive heart failure (> New York Heart Association Class II), active coronary artery disease, unevaluated new onset angina within 3 months or unstable angina (angina symptoms at rest) or clinically significant cardiac arrhythmias",
+      "threshold": "NYHA > Class II"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "QTc interval (using Fridericia correction calculation) > 480 msec",
+      "threshold": "QTc > 480 msec"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "nct_id": "NCT07755436",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Infection of active hepatitis B, active hepatitis C, or HIV.",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Symptomatic Central nervous system and/or meninges metastasis.",
+      "threshold": null
+    },
+    {
+      "category": "diabetes",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "History of uncontrolled diabetes mellitus or diabetic neuropathy within 3 months before the first dose of study treatment.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Patients with more than one cancer.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "History of severe cardiovascular diseases.",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "The score of Eastern Cooperative Oncology Group (ECOG) performance status of 0 or 1.",
+      "threshold": "ECOG 0 or 1"
+    }
+  ]
+}

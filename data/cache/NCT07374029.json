@@ -1,0 +1,104 @@
+{
+  "nct_id": "NCT07374029",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ECOG performance status \u2264 2 (Appendix A)",
+      "threshold": "ECOG \u2264 2"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "total bilirubin\u2264 2.0 mg/dL",
+      "threshold": "bilirubin \u2264 2.0 mg/dL"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "AST/ALT \u2264 3 \u00d7 institutional upper limit of normal",
+      "threshold": "AST/ALT \u2264 3 \u00d7 ULN"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "creatinine \u2264 2.0 mg/dl",
+      "threshold": "creatinine \u2264 2.0 mg/dL"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Should a woman become pregnant or suspect she is pregnant while participating in this study, she should inform her treating physician immediately.",
+      "threshold": null
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "patients who have active human immunodeficiency virus (HIV)",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Patients must not have active significant cardiac disease characterized by symptomatic congestive heart failure, unstable angina pectoris, clinically significant cardiac arrhythmia.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Patients must not be pregnant.",
+      "threshold": null
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Bilirubin \u2264 2.0 mg/dL",
+      "threshold": "bilirubin \u2264 2.0 mg/dL"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Creatinine \u2264 2.0 mg/dL",
+      "threshold": "creatinine \u2264 2.0 mg/dL"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "AST/ALT \u2264 3.0 x ULN",
+      "threshold": "AST/ALT \u2264 3.0 x ULN"
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Known human immunodeficiency virus (HIV)",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Female subjects who are pregnant, breast-feeding or female patients of reproductive potential who are not employing an effective method of birth control from starting treatment",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "significant cardiac disease characterized by significant arrhythmia, ischemic coronary disease or congestive heart failure",
+      "threshold": null
+    }
+  ]
+}

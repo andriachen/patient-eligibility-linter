@@ -1,0 +1,83 @@
+{
+  "nct_id": "NCT05983432",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Participants with history of severe heart disease, such as symptomatic congestive heart failure (CHF) \u2265 Grade 2 (CTCAE 5.0), New York Heart Association (NYHA) \u2265 Grade 2 heart failure, history of transmural myocardial infarction, unstable angina pectoris etc;",
+      "threshold": "CHF \u2265 Grade 2; NYHA \u2265 Grade 2"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Subjects with prolonged QT interval (QTc \\>470 msec), complete left bundle branch block, Grade 3 atrioventricular block",
+      "threshold": "QTc > 470 msec"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Other malignant tumors were diagnosed within 5 years prior to the first administration with the following exceptions: basal cell carcinoma of the skin, squamous cell carcinoma of the skin and/or carcinoma in situ after radical resection",
+      "threshold": "within 5 years"
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Known Human immunodeficiency virus antibody (HIVAb) positive, active tuberculosis, active Hepatitis B virus infection (HBV-DNA copy number\\> the lower limit of detection) or active Hepatitis C virus infection (HCV antibody positive and HCV-RNA \\> the lower limit of detection)",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participants with primary tumors in the central nervous system (CNS) and active or untreated CNS metastases and/or carcinomatous meningitis should be excluded.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Participants who are pregnant or breastfeeding",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Has an Eastern Cooperative Oncology Group performance status (ECOG PS) 0 to 1",
+      "threshold": "ECOG PS > 1"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Renal function: Creatinine clearance \u226550 mL/min (According to the Cockcroft and Gault equation)",
+      "threshold": "CrCl < 50 mL/min"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Total bilirubin\uff08TBIL\u22641.5 ULN, AST and ALT without liver metastasis \u22642.5 ULN, AST and ALT with liver metastasis \u22645.0 ULN",
+      "threshold": "TBIL > 1.5 ULN; AST/ALT > 2.5 ULN (or > 5.0 ULN with liver metastasis)"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Has no serious cardiac dysfunction, left ventricular ejection fraction \u226550%",
+      "threshold": "LVEF < 50%"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Participants treated with more than two systemic chemotherapies prior to randomization.",
+      "threshold": "> 2 systemic chemotherapies"
+    }
+  ]
+}

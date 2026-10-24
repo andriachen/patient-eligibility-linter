@@ -1,0 +1,27 @@
+{
+  "nct_id": "NCT02947971",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Health participants over the age of 18 but less than 85 years of age",
+      "threshold": "age < 85"
+    },
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Participants over 85 years of age",
+      "threshold": "age <= 85"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participants who are pregnant. In case of women of child bearing age, we will ask them if they are pregnant and if unsure; ask them to take a pregnancy test.",
+      "threshold": null
+    }
+  ]
+}

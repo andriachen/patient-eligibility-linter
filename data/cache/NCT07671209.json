@@ -1,0 +1,20 @@
+{
+  "nct_id": "NCT07671209",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "language",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Ability to complete surveys in English, Spanish, or with assistance of an interpreter.",
+      "threshold": null
+    },
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Individuals who are not yet adults (infants, children, teenagers).",
+      "threshold": "age < 18"
+    }
+  ]
+}

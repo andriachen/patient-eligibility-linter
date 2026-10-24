@@ -1,0 +1,83 @@
+{
+  "nct_id": "NCT06569147",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "ECOG performance status \u22642 or Karnofsky \u226560%",
+      "threshold": "ECOG \u22642 or Karnofsky \u226560%"
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Creatinine: Calculated clearance \u226530 mL/min using Cockcault-Groft equation",
+      "threshold": "CrCl \u226530 mL/min"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Direct bilirubin \u22641.5 \u00d7 institutional upper limit of normal (ULN) AST(SGOT)/ALT(SGPT) \u22643 \u00d7 institutional ULN",
+      "threshold": "Direct bilirubin \u22641.5 \u00d7 ULN; AST/ALT \u22643 \u00d7 ULN"
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Participants seropositive for the human immunodeficiency virus (HIV).",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "History of acute coronary syndrome or uncontrolled ventricular arrhythmias within 3 months prior to screening.",
+      "threshold": "within 3 months"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Evidence of LV systolic dysfunction as defined by LVEF is \\< 30% by echocardiogram at Screening per site cardiology interpretation.",
+      "threshold": "LVEF < 30%"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "QT corrected by Fridericia (QTcF) is \\> 550 msec on Screening ECG unless they have a PPM/ICD implanted.",
+      "threshold": "QTcF > 550 msec"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "NYHA class IV symptoms or participants with acute decompensation of congestive heart failure.",
+      "threshold": "NYHA class IV"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Women who are pregnant, breastfeeding, or planning to become pregnant while enrolled in this study or 4 months following discontinuation of elranatamab, whichever is longer.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participants with an active malignancy (including lymphoma) with the following exceptions: adequately treated basal cell carcinoma, squamous cell carcinoma, or in situ cervical cancer; adequately treated stage I cancer from which the patient is currently in remission and has been for over 2 years; low-risk prostate cancer with a Gleason score \\< 7 and prostate specific antigen \\< 10ng/mL; other localized, indolent and/or low risk cancer may be permitted",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "",
+      "threshold": null
+    }
+  ]
+}

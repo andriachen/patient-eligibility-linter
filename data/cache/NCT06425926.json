@@ -1,0 +1,76 @@
+{
+  "nct_id": "NCT06425926",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ECOG performance status 0-1",
+      "threshold": "ECOG 0-1"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "including acceptable cardiac, renal, and hepatic functions",
+      "threshold": null
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "including acceptable cardiac, renal, and hepatic functions",
+      "threshold": null
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "including acceptable cardiac, renal, and hepatic functions",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Non pregnant participants; female participants of child bearing potential with non-sterile partners agree to use an effective form of contraception",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Has known leptomeningeal disease, spinal cord compression, or brain metastases, except participants with the following:",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Has known structural cardiac disease",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Has known serious arrythmia, serious dysrhythmia, history of long QT syndrome, or clinically relevant cardiac conduction abnormalities",
+      "threshold": null
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "human immunodeficiency virus (HIV)",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ECOG performance status 0-1",
+      "threshold": "ECOG > 1"
+    }
+  ]
+}

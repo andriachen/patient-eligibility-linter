@@ -1,0 +1,20 @@
+{
+  "nct_id": "NCT05553782",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status 0 or 1.",
+      "threshold": "ECOG 0 or 1"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant women are excluded from this study because of the possible increased dose of radiation from imaging associated with the device placement and the potential risk to the pregnancy of the surgery/device placement.",
+      "threshold": null
+    }
+  ]
+}

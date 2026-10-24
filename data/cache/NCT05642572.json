@@ -1,0 +1,90 @@
+{
+  "nct_id": "NCT05642572",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Participants with known human immunodeficiency virus (HIV) infection must be on effective anti-retroviral therapy at randomization and have undetectable viral load within 6 months prior to sub-study randomization",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Participants with symptomatic CNS metastasis (brain metastases or leptomeningeal disease) must be neurologically stable and have a stable or decreasing corticosteroid requirement for at least 5 days before sub-study randomization",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Participants' most recent Zubrod performance status must be 0-1 and be documented within 28 days prior to sub-study randomization",
+      "threshold": "Zubrod 0-1"
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Participants must have a urinalysis performed 28 days prior to sub-study randomization. Participant must have a urinary protein =\\< 1+ on dipstick or routine urinalysis (UA).",
+      "threshold": "urinary protein <= 1+ on dipstick"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Participants must have an electrocardiogram (ECG) performed, with a Fridericia's Correction Formula (QTcF) =\\< 470 msec, within 28 days prior to sub-study randomization.",
+      "threshold": "QTcF <= 470 msec"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "To be eligible for this trial, participants must be class 2B or better",
+      "threshold": "NYHA class 2B or better"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Total bilirubin =\\< 1.5 x institutional upper limit of normal (ULN) unless history of Gilbert's disease (within 28 days prior to sub-study randomization).",
+      "threshold": "total bilirubin <= 1.5 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Aspartate aminotransferase (AST) and alanine aminotransferase (ALT) =\\< 2.5 x institutional ULN.",
+      "threshold": "AST/ALT <= 2.5 x ULN"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Participants must have a serum creatinine =\\< the IULN OR calculated creatinine clearance \\>= 50 mL/min using the following Cockcroft-Gault Formula.",
+      "threshold": "creatinine <= ULN or CrCl >= 50 mL/min"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participants must not have a prior or concurrent malignancy whose natural history or treatment (in the opinion of the treating physician) has the potential to interfere with the safety or efficacy assessment of the investigational regimen",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Participants must not be pregnant or breastfeeding (nursing includes breast milk fed to an infant by any means, including from the breast, milk expressed by hand, or pumped).",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participants must not have uncontrolled blood pressure and hypertension within 28 days prior to sub-study randomization",
+      "threshold": null
+    }
+  ]
+}

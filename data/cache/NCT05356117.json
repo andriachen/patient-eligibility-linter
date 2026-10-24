@@ -1,0 +1,55 @@
+{
+  "nct_id": "NCT05356117",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Over the age of 18 years; children under the age of 18 will be excluded due to rarity of disease.",
+      "threshold": null
+    },
+    {
+      "category": "language",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Speak English or Spanish.",
+      "threshold": null
+    },
+    {
+      "category": "smoking",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Does not smoke (no smoking during previous 12 months).",
+      "threshold": "no smoking during previous 12 months"
+    },
+    {
+      "category": "diabetes",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Patients should not have any uncontrolled illness including ongoing or active infection, uncontrolled diabetes, hypertension or thyroid disease.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Patients with other active malignancies are ineligible for this study.",
+      "threshold": null
+    },
+    {
+      "category": "smoking",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Currently smokes.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Patients who are pregnant due to the unknown effects of exercise on the developing fetus.",
+      "threshold": null
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "nct_id": "NCT06875310",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Brain metastases must be asymptomatic and not in need of immediate local therapy. Any untreated brain metastases must be \u2264 20 mm in diameter.",
+      "threshold": "untreated brain metastases \u2264 20 mm in diameter"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Uncontrolled or significant cardiovascular conditions within 6 months prior to enrollment that are ongoing or with risk of recurrence.",
+      "threshold": "within 6 months prior to enrollment"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "electrocardiogram (ECG) abnormalities",
+      "threshold": null
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "nct_id": "NCT06106945",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Participants must be at least 18 years of age or the legal age of consent in the jurisdiction",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group performance status of \u2264 2 in module 1, or 0 or 1 in modules 2 and 3;",
+      "threshold": "ECOG \u2264 2 (module 1); 0 or 1 (modules 2 and 3)"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Participants exhibiting clinical signs of central nervous system involvement of MM;",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Participants with a history of prior malignancy other than MM within 3 years prior to first dose of study intervention;",
+      "threshold": "within 3 years"
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Participants who have a history of immunodeficiency disease;",
+      "threshold": null
+    }
+  ]
+}

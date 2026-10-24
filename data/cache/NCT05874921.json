@@ -1,0 +1,13 @@
+{
+  "nct_id": "NCT05874921",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnancy or lactation.",
+      "threshold": null
+    }
+  ]
+}

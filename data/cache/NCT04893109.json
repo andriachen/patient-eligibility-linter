@@ -1,0 +1,90 @@
+{
+  "nct_id": "NCT04893109",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "ECOG Performance Status 0 or 1",
+      "threshold": "ECOG 0 or 1"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Patients with active liver disease, for example due to hepatitis B virus, hepatitis C virus, autoimmune hepatic disorder, or sclerosing cholangitis",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Patients with a history of previous invasive breast cancer.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Individuals with a history of a different malignancy are ineligible except for the following circumstances:",
+      "threshold": "disease-free for at least 5 years"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "active cardiac disease, prior myocardial infarction (asymptomatic changes on EKG suggestive of old MI is not an exclusion), history of CHF, current use of any therapy specifically for CHF",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant women",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Nursing women",
+      "threshold": null
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "renal failure requiring dialysis",
+      "threshold": null
+    },
+    {
+      "category": "language",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Must be able to read and understand English in order to participate in the quality of life surveys. If patient does not read and understand English, the patient is still eligible, but cannot participate in the quality of life surveys.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Left ventricular ejection fraction (LVEF) \u2265 50%",
+      "threshold": "LVEF \u2265 50%"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Total bilirubin \u2264 1.2mg/dL",
+      "threshold": "bilirubin \u2264 1.2 mg/dL"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "AST and ALT \u2264 1.5x Institutional ULN",
+      "threshold": "AST/ALT \u2264 1.5x ULN"
+    }
+  ]
+}

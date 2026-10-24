@@ -1,0 +1,20 @@
+{
+  "nct_id": "NCT06090539",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Participants must not have an Eastern Cooperative Oncology Group (ECOG) performance status \u2265 2.",
+      "threshold": "ECOG \u2265 2"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participants must not have known or suspected central nervous system involvement.",
+      "threshold": null
+    }
+  ]
+}

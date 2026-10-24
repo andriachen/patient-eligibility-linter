@@ -1,0 +1,55 @@
+{
+  "nct_id": "NCT06989112",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "\u2265 18 years of age at the time of screening. Other age restrictions may apply as per local regulations.",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ECOG 0-1.",
+      "threshold": "ECOG 0-1"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Left ventricular ejection fraction \u2265 50% within 28 days before randomization.",
+      "threshold": "LVEF \u2265 50%"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "History of myocardial infarction or unstable angina within 6 months before randomization, or symptomatic congestive heart failure (NYHA Class II to IV), clinically significant arrhythmia, uncontrolled hypertension, cardiomyopathy of any etiology or history of myocarditis.",
+      "threshold": "MI or unstable angina within 6 months; NYHA Class II to IV"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Spinal cord compression or clinically active central nervous system metastases.",
+      "threshold": null
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "HIV infection that is not well controlled.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Active or ongoing serious chronic gastrointestinal conditions associated with diarrhea, primary immunodeficiency, or non-infectious skin disease requiring systemic treatment.",
+      "threshold": null
+    }
+  ]
+}

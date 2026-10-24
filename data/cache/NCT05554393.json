@@ -1,0 +1,76 @@
+{
+  "nct_id": "NCT05554393",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status =\\< 3",
+      "threshold": "ECOG <= 3"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Total bilirubin =\\< 2 x institutional upper limit of normal (ULN) (must be done within 10 days of enrollment)",
+      "threshold": "bilirubin <= 2 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Aspartate aminotransferase (AST) (serum glutamate pyruvate transaminase \\[SGPT\\]) and/or alanine aminotransferase (ALT) (serum glutamic-oxaloacetic transaminase \\[SGOT\\]) =\\< 3 \u00d7 institutional ULN (must be done within 10 days of enrollment)",
+      "threshold": "AST/ALT <= 3 x ULN"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Cardiac ejection fraction \\>= 50% (echocardiography or MUGA) (if clinically indicated must be done within 14 days of enrollment)",
+      "threshold": "LVEF >= 50%"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Calculated creatinine clearance \\>= 30 mL/min; Clearance to be calculated using Cockcroft formula (must be done within 10 days of enrollment)",
+      "threshold": "CrCl >= 30 mL/min"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Patients with known history or current symptoms of cardiac disease, or history of treatment with cardiotoxic agents, should have a clinical risk assessment of cardiac function using the New York Heart Association Functional Classification. To be eligible for this trial, patients should be class 2B or better",
+      "threshold": "NYHA class 2B or better"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant women are excluded from this study because venetoclax, cytarabine and azacitidine have the potential for teratogenic or abortifacient effects.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Because there is an unknown but potential risk for adverse events in nursing infants secondary to treatment of the mother with venetoclax, cytarabine and azacitidine breastfeeding should be discontinued if the mother is treated with venetoclax, cytarabine and azacitidine.",
+      "threshold": null
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Patients with known human immunodeficiency virus (HIV) infection who are on effective anti-retroviral therapy and have undetectable viral load within 6 months of enrollment are eligible for this trial",
+      "threshold": "undetectable viral load within 6 months on ART"
+    },
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age 18-59 years at time of induction therapy",
+      "threshold": "age <= 59"
+    }
+  ]
+}

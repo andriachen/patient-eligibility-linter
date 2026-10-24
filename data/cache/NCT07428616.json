@@ -1,0 +1,20 @@
+{
+  "nct_id": "NCT07428616",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Karnofsky performance status (KPS) \u2265 60%.",
+      "threshold": "KPS \u2265 60%"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Cardiovascular disorders, including uncontrolled hypertension,",
+      "threshold": null
+    }
+  ]
+}

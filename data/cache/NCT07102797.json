@@ -1,0 +1,20 @@
+{
+  "nct_id": "NCT07102797",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "diabetes",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Insulin dynamics: Type 1 diabetes, Type 2 diabetes, Congenital Hyperinsulinism",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pre-menarchal at time of baseline visit",
+      "threshold": null
+    }
+  ]
+}

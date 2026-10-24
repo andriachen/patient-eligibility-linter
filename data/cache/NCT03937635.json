@@ -1,0 +1,83 @@
+{
+  "nct_id": "NCT03937635",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Calculated creatinine clearance \\>= 30 mL/min (within 28 days prior to randomization).",
+      "threshold": "CrCl >= 30 mL/min"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Bilirubin =\\< 1.5 mg/dL (within 28 days prior to randomization).",
+      "threshold": "bilirubin <= 1.5 mg/dL"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Serum glutamate pyruvate transaminase (SGPT) (alanine aminotransferase \\[ALT\\]) and serum glutamic oxaloacetic transaminase (SGOT) (aspartate aminotransferase \\[AST\\]) =\\< 2.5 times the upper limit of normal (within 28 days prior to randomization).",
+      "threshold": "ALT/AST <= 2.5 x ULN"
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Patient must have an Eastern Cooperative Oncology Group (ECOG) performance status 0, 1, or 2.",
+      "threshold": "ECOG 0-2"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Patients should not have New York Heart Association classification III or IV heart failure at baseline.",
+      "threshold": "NYHA III or IV"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "uncontrolled cardiac arrhythmia",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Patients with a history of prior malignancy are eligible provided they were treated with curative intent and have been free of disease for the time period considered appropriate for cure of the specific cancer. For most diseases this time frame is 5 years.",
+      "threshold": "free of disease for 5 years"
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Human immunodeficiency virus (HIV)+ patients with undetectable HIV viral loads tested within 6 months are eligible.",
+      "threshold": "undetectable viral load within 6 months"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Women must not be pregnant due to potential harm to the fetus from daratumumab and lenalidomide.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Women must also agree to not breastfeed during this same time period.",
+      "threshold": null
+    },
+    {
+      "category": "diabetes",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Patients must not have known chronic obstructive pulmonary disease (COPD)",
+      "threshold": null
+    }
+  ]
+}

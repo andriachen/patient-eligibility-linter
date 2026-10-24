@@ -1,0 +1,41 @@
+{
+  "nct_id": "NCT05216432",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Patient has ECOG performance status of 0-1",
+      "threshold": "ECOG 0-1"
+    },
+    {
+      "category": "diabetes",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Type 1 or Type 2 diabetes requiring antihyperglycemic medication, or fasting plasma glucose \u2265140 mg/dL and glycosylated hemoglobin (HbA1c) \u22657.0%.",
+      "threshold": "HbA1c \u22657.0%"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Mean resting corrected QT interval (QTc) \u0003>460 msec",
+      "threshold": "QTc >460 msec"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "For triple combination arm with ribociclib: Mean QTcF \u2265450 msec",
+      "threshold": "QTcF \u2265450 msec"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "CNS metastases or primary CNS tumor that is associated with progressive neurologic symptoms",
+      "threshold": null
+    }
+  ]
+}

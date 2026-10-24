@@ -1,0 +1,20 @@
+{
+  "nct_id": "NCT07226349",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Participants must have a stable Eastern Cooperative Oncology Group (ECOG) Performance Status of 0 or 1.",
+      "threshold": "ECOG 0 or 1"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participants with active leptomeningeal disease or uncontrolled, untreated brain metastasis.",
+      "threshold": null
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "nct_id": "NCT06507930",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "language",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Non-English language allowed but interpreter services must be present at each meeting and will be coordinated by scheduling team",
+      "threshold": null
+    }
+  ]
+}

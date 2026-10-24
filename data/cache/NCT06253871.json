@@ -1,0 +1,62 @@
+{
+  "nct_id": "NCT06253871",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age \u2265 18 years",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group (ECOG) performance score 0-1",
+      "threshold": "ECOG 0-1"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Have left ventricular ejection fraction (LVEF) \u2265 50%",
+      "threshold": "LVEF \u2265 50%"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Clinically significant cardiac disease",
+      "threshold": null
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Infection with human immunodeficiency virus (HIV)-1 or HIV-2. Exception: Participants with well-controlled HIV (e.g., CD4 \\>350/mm3 and undetectable viral load) are eligible",
+      "threshold": null
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Current active liver disease including hepatitis A, hepatitis B , or hepatitis C",
+      "threshold": null
+    },
+    {
+      "category": "diabetes",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Uncontrolled diabetes",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participants requiring immediate local therapy for brain metastases",
+      "threshold": null
+    }
+  ]
+}

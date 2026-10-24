@@ -1,0 +1,13 @@
+{
+  "nct_id": "NCT04368702",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ECOG performance status \u22642 (Karnofsky \u226560%, see Appendix A)",
+      "threshold": "ECOG \u2264 2"
+    }
+  ]
+}

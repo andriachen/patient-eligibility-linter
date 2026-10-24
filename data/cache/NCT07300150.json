@@ -1,0 +1,90 @@
+{
+  "nct_id": "NCT07300150",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Active brain metastasis or carcinomatous meningitis.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "History of any other malignancy within the past 2 years, except:",
+      "threshold": "within 2 years"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Significant cardiovascular disease within 6 months of starting study therapy",
+      "threshold": "within 6 months"
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Known HIV infection with a CD4+ T-cell count \\<200 cells/mcL and/or a detectable viral load per parameters of assay and/or on an anti-retroviral regimen containing a strong or moderate CYP3A4/5 inhibitor or inducer and/or on a new anti-retroviral regimen for less than 28 days prior to the initiation of study treatment",
+      "threshold": "CD4+ T-cell count <200 cells/mcL"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Known history of drug-induced liver injury; primary biliary cirrhosis; or ongoing extrahepatic obstruction caused by stones, cirrhosis of the liver, or portal hypertension",
+      "threshold": null
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Participants with laboratory values indicating inadequate hematology, hepatic, or renal function",
+      "threshold": null
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Participants with laboratory values indicating inadequate hematology, hepatic, or renal function",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Clinically significant abnormalities in rhythm, conduction, or morphology of resting ECG",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Baseline QT interval corrected for heart rate using Fridericia's formula (QTcF) \\>=470 msec",
+      "threshold": "QTcF >= 470 msec"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Female participants of childbearing age with a positive urine or serum test within 7 days of study start or confirmation from Ob/Gyn that any positive bHCG test is not representative of an ongoing pregnancy",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Women who are lactating/breast feeding or who plan to breastfeed while on study through 28 days after receiving the last dose of study drug",
+      "threshold": null
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Active HBV infection. Participants with resolved infection or who are on Stable antiviral therapy are eligible",
+      "threshold": null
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "nct_id": "NCT05920356",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group (ECOG) \u2264 1",
+      "threshold": "ECOG \u2264 1"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Symptomatic (treated or untreated) brain metastases",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Myocardial infarction within 6 months of randomization, unstable arrhythmias, or unstable angina",
+      "threshold": "MI within 6 months"
+    }
+  ]
+}

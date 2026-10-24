@@ -1,0 +1,34 @@
+{
+  "nct_id": "NCT02984761",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Karnofsky performance status greater than or equal to 70",
+      "threshold": "Karnofsky >= 70"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Prior history of invasive state I-III malignancy treated with surgery, radiation therapy, chemotherapy, immunotherapy, or targeted therapy in the past 2 years, excluding prostate cancer, low-risk papillary thyroid cancer (less than or equal to 1 cm), follicular lymphoma, or chronic lymphocytic leukemia.",
+      "threshold": "within 2 years"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Prior history of IV malignancy, excluding follicular lymphoma, chronic lymphocytic leukemia, or hormone sensitive prostate cancer confined to the pelvis.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Positive Pregnancy test (for women <61 years of age or without prior hysterectomy)",
+      "threshold": null
+    }
+  ]
+}

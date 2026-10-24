@@ -1,0 +1,27 @@
+{
+  "nct_id": "NCT07458347",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group Performance Status (ECOG PS) of 0 or 1.",
+      "threshold": "ECOG PS 0 or 1"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Central nervous system (CNS) tumors or untreated or unstable metastases.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant, breastfeeding, or expecting to conceive or father children within the projected duration of the trial.",
+      "threshold": null
+    }
+  ]
+}

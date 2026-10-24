@@ -1,0 +1,20 @@
+{
+  "nct_id": "NCT04641247",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participant is pregnant or is expecting to conceive children while receiving study drug or for up to 180 days after the last dose of study drug.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participant is breastfeeding or is expecting to breastfeed within 30 days of receiving the final dose of study drug",
+      "threshold": "within 30 days of final dose"
+    }
+  ]
+}

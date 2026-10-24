@@ -1,0 +1,76 @@
+{
+  "nct_id": "NCT06239220",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Have a performance status of 0 or 1 on the ECOG Performance Scale (see Appendix A).",
+      "threshold": "ECOG 0 or 1"
+    },
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Be \u226518 years of age on the day of signing informed consent.",
+      "threshold": "age >= 18"
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Serum creatinine \u22641.5x ULN or creatinine clearance \u226560 mL/min/1.73 m2 for participants with creatinine levels above 1.5x ULN",
+      "threshold": "creatinine \u22641.5x ULN or CrCl \u226560 mL/min/1.73 m2"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Total bilirubin \u2264 upper limit of normal (ULN)",
+      "threshold": "bilirubin \u2264 ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "AST(SGOT)/ALT(SGPT) \u22642.5x institutional ULN (or \u22641.5x institutional ULN if concomitant with alkaline phosphatase \\>2.5x institutional ULN) or \u22645x ULN for those with liver metastases",
+      "threshold": "AST/ALT \u22642.5x ULN (\u22645x ULN with liver metastases)"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Subjects who are pregnant, or breastfeeding, or expecting to conceive or father children within the projected duration of the trial",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participant has known active central nervous system (CNS) metastases and/or carcinomatous meningitis.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Has a known additional malignancy that is progressing or requires active treatment.",
+      "threshold": null
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Patients with HIV are eligible if their plasma HIV viral load is undetectable at baseline on antiretroviral therapy.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "evidence of symptomatic congestive heart failure, unstable angina pectoris, stroke, or ventricular arrhythmia within 6 months of enrollment.",
+      "threshold": "within 6 months"
+    }
+  ]
+}

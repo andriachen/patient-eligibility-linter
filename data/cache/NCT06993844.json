@@ -1,0 +1,34 @@
+{
+  "nct_id": "NCT06993844",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "An ECOG performance status score of 0 or 1.",
+      "threshold": "ECOG 0 or 1"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Has history (within \u22642 years before screening) of a solid tumor or hematological malignancy that is histologically distinct from the cancers being studied.",
+      "threshold": "within 2 years"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Has symptomatic brain or spinal metastases or a known or suspected history of untreated or uncontrolled central nervous system (CNS) involvement.",
+      "threshold": null
+    },
+    {
+      "category": "diabetes",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Has an established diagnosis of diabetes mellitus type 1 or has uncontrolled diabetes mellitus type 2.",
+      "threshold": null
+    }
+  ]
+}

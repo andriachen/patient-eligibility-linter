@@ -1,0 +1,90 @@
+{
+  "nct_id": "NCT06488378",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age \u226518 years.",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ECOG performance \u2264 2.",
+      "threshold": "ECOG \u2264 2"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Creatinine clearance \u2265 51 mL/min (using Cockcroft-Gault equation)",
+      "threshold": "CrCl \u2265 51 mL/min"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "total bilirubin \u2264 1.5x institutional upper limit of normal (ULN)",
+      "threshold": "bilirubin \u2264 1.5x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "AST(SGOT)/ALT(SGPT) \u2264 2.5x \u00d7 institutional ULN or \u22645 \u00d7 institutional ULN for participants with documented liver metastases",
+      "threshold": "AST/ALT \u2264 2.5x ULN (\u22645x ULN with liver metastases)"
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "HIV-infected participants must have well-controlled HIV on ART, defined as:",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Patients with a history of treated central nervous system (CNS) metastases are eligible, provided they meet all of the following criteria:",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Female participants must be postmenopausal or must have a negative serum pregnancy test performed during screening.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Participants with a prior or concurrent malignancy whose natural history or treatment does not have the potential to interfere with the safety or efficacy assessment of the investigational regimen are eligible for this trial.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Participants with a QTcF of >470msec on screening ECG",
+      "threshold": "QTcF > 470 msec"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "symptomatic congestive heart failure, unstable angina pectoris, cardiac arrhythmia",
+      "threshold": null
+    },
+    {
+      "category": "smoking",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participants receiving any medications or substances that are strong or moderate inhibitors or inducers of CYP450 enzyme(s) are ineligible.",
+      "threshold": null
+    }
+  ]
+}

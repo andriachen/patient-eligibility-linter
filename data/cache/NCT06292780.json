@@ -1,0 +1,20 @@
+{
+  "nct_id": "NCT06292780",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group (ECOG) performance score \u22642 at screening",
+      "threshold": "ECOG \u22642"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Myocardial infarction within the past 6 months prior to the first screening visit",
+      "threshold": "within 6 months"
+    }
+  ]
+}

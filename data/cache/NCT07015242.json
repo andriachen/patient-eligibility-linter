@@ -1,0 +1,41 @@
+{
+  "nct_id": "NCT07015242",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Participant must be 18 years or older at the time of signing the informed consent form (ICF).",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status of 0, 1, or 2.",
+      "threshold": "ECOG 0-2"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "History of another primary malignancy that has not been in remission for \u22652 years.",
+      "threshold": "not in remission for >=2 years"
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "History of or active human immunodeficiency virus (HIV).",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Individuals of childbearing potential (IOCBP) must have a negative highly sensitive pregnancy test within 24 hours prior to the start of study intervention.",
+      "threshold": null
+    }
+  ]
+}

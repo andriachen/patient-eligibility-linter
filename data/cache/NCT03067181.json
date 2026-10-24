@@ -1,0 +1,90 @@
+{
+  "nct_id": "NCT03067181",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Standard risk 1: Patients must be \\< 11 years of age at enrollment",
+      "threshold": "age < 11"
+    },
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Standard risk 2: Patients must be \\>= 11 and \\< 25 years of age at enrollment",
+      "threshold": "age >= 11 and < 25"
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Patients must have a performance status corresponding to Eastern Cooperative Oncology Group (ECOG) scores of 0, 1, 2 or 3",
+      "threshold": "ECOG 0-3"
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Creatinine clearance or radioisotope glomerular filtration rate (GFR) \\>= 70 mL/min/1.73 m\\^2 (within 7 days prior to enrollment) OR",
+      "threshold": "CrCl or GFR >= 70 mL/min/1.73 m^2"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Total bilirubin =\\< 2 x upper limit of normal (ULN) for age (within 7 days prior to enrollment)",
+      "threshold": "bilirubin <= 2 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Aspartate aminotransferase (AST) and alanine aminotransferase (ALT) \\< 3 x upper limit of normal (ULN) (within 7 days prior to enrollment)",
+      "threshold": "AST/ALT < 3 x ULN"
+    },
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "\\>= 11 and \\< 25 years old at enrollment",
+      "threshold": "age >= 11 and < 25"
+    },
+    {
+      "category": "language",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Able to fluently speak and read English",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Primary central nervous system (CNS) germ cell tumor",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Patients must have had no prior radiation therapy with the exception of CNS irradiation of brain metastases",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Female patients who are pregnant since fetal toxicities and teratogenic effects have been noted for several of the study drugs; a pregnancy test is required for female patients of childbearing potential; (this criteria applies ONLY to patients who will receive chemotherapy \\[SR1 and SR2 patients\\])",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Lactating females who plan to breastfeed their infants; (this criteria applies ONLY to patients who will receive chemotherapy \\[SR1 and SR2 patients\\])",
+      "threshold": null
+    }
+  ]
+}

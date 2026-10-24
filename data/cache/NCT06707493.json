@@ -1,0 +1,118 @@
+{
+  "nct_id": "NCT06707493",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Between the ages of 18 and 75 years",
+      "threshold": "age <= 75"
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ECOG performance status \u2264 2",
+      "threshold": "ECOG \u2264 2"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Calculated creatinine clearance \u2265 40 mL/min (Cockcroft-Gault formula)",
+      "threshold": "CrCl \u2265 40 mL/min"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Direct bilirubin \\< 2.0 mg/dL",
+      "threshold": "direct bilirubin < 2.0 mg/dL"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "AST (SGOT), ALT (SGPT) and Alkaline phosphatase \\< 3x institutional upper limit of normal (ULN)",
+      "threshold": "AST/ALT/ALP < 3x ULN"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "LVEF must be equal to or greater than 40%, as measured by MUGA scan or echocardiogram",
+      "threshold": "LVEF >= 40%"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Female patients of childbearing potential must have a negative pregnancy test",
+      "threshold": null
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Known diagnosis of active hepatitis B or hepatitis C",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "History of other malignancy(ies) unless",
+      "threshold": "disease-free for at least 5 years"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Current or history of congestive heart failure New York Heart Association (NHYA) class 3 or 4, or any history of documented diastolic or systolic dysfunction (LVEF \\< 40%, as measured by MUGA scan or echocardiogram)",
+      "threshold": "NYHA class 3 or 4; LVEF < 40%"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Current or history of ventricular or life-threatening arrhythmias or diagnosis of long-QT syndrome",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "QTc interval (i.e., Friderica's correction \\[QTcF\\]) \u2265 450 ms or other factors that increase the risk of QT prolongation or arrhythmic events (e.g., heart failure, hypokalemia, family history of long QT interval syndrome) at screening",
+      "threshold": "QTcF >= 450 ms"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "No presence of congestive heart failure, defined by New York Heart Association (NHYA) criteria as class 3 or 4",
+      "threshold": "NYHA class 3 or 4"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Calculated creatinine clearance \u2265 40 mL/min (Cockcroft-Gault formula)",
+      "threshold": "CrCl \u2265 40 mL/min"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Direct bilirubin level \\< 2.0 mg/dL",
+      "threshold": "direct bilirubin < 2.0 mg/dL"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "AST (SGOT), ALT (SGPT) and Alkaline phosphatase \\< 3x institutional upper limit of normal (ULN)",
+      "threshold": "AST/ALT/ALP < 3x ULN"
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "nct_id": "NCT05774899",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age 18 years or older",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status 0 or 1",
+      "threshold": "ECOG 0 or 1"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Serum creatinine \u22641.5x ULN or serum creatinine clearance (CrCl) \u226550 mL/min (estimated by Cockcroft-Gault formula)",
+      "threshold": "creatinine \u22641.5x ULN or CrCl \u226550 mL/min"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Serum aspartate aminotransferase (AST) and alanine aminotransferase (ALT) \u22643x ULN Total serum bilirubin \u22641.5x ULN (patients with Gilbert's syndrome with a total bilirubin \u22642.0 times ULN and direct bilirubin within normal limits are permitted).",
+      "threshold": "AST/ALT \u22643x ULN; bilirubin \u22641.5x ULN"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Participants with treated brain or CNS metastases are eligible if follow-up brain imaging after CNS-directed therapy shows no convincing evidence of progression and patients are neurologically stable with no new neurological deficits.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Female subjects of childbearing potential should have a negative serum pregnancy test within 7 days before start of study treatment.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Participants with a prior or concurrent malignancy whose natural history or treatment does not have the potential to interfere with the safety or efficacy assessment of the investigational regimen are eligible for this trial.",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Participant has untreated or clinically symptomatic CNS metastases and/or carcinomatous meningitis",
+      "threshold": null
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "such as known human immunodeficiency virus positivity",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "ventricular arrhythmia of pathological origin (including, but not limited to, ventricular tachycardia and ventricular fibrillation), or sudden cardiac arrest",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant or lactating women.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Corrected QTcF >450 msec for males and >470 msec for females in screening",
+      "threshold": "QTcF >450 msec male; >470 msec female"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "nct_id": "NCT06510309",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age \u226518 years",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ECOG performance status \u22641",
+      "threshold": "ECOG \u2264 1"
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "HIV-positive patients on combination antiretroviral therapy are eligible if their HIV is under adequate control with an antiretroviral regimen that has been stable for \\> 4 weeks, as long as the CD4 count is \\>300.",
+      "threshold": "CD4 > 300"
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Patients with uncontrolled hepatitis B or C or HIV infection are ineligible defined as patients with positive serologies and a detectable viral load by PCR.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant women or participants unwilling to adhere to institutional guidelines for highly effective contraception for 12 months after the last dose of rituximab are excluded from this study",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "breastfeeding should be discontinued.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Uncontrolled intercurrent illness including, but not limited to, ongoing or active infection, symptomatic congestive heart failure, unstable angina pectoris, cardiac arrhythmia, or psychiatric illness/social situations that would limit compliance with study requirements",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Patients who had prior systemic therapy including rituximab",
+      "threshold": null
+    }
+  ]
+}

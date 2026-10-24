@@ -1,0 +1,41 @@
+{
+  "nct_id": "NCT07128355",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ECOG performance status \u2264 1",
+      "threshold": "ECOG \u2264 1"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Creatinine Clearance \u2265 40 mL/min if calculated using Cockcroft-Gault formula",
+      "threshold": "CrCl \u2265 40 mL/min"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Participant is pregnant, breastfeeding, expecting to conceive, or father children within the projected duration of the trial, starting with the consent visit through 120 days for woman and 120 days for men, after the last dose of study treatment.",
+      "threshold": null
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Known history of testing positive for human immunodeficiency virus (HIV) or known acquired immunodeficiency syndrome (AIDS).",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Uncontrolled brain metastases.",
+      "threshold": null
+    }
+  ]
+}

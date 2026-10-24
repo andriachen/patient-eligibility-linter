@@ -1,0 +1,69 @@
+{
+  "nct_id": "NCT04928677",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Patients must not be pregnant or breast-feeding",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Patients must have Karnofsky Performance Score (for patients \\> 16 years of age) or Lansky Performance Score (for patients \u2264 16 years of age) \u2265 50% assessed within 2 weeks of study enrollment.",
+      "threshold": "Karnofsky/Lansky \u2265 50%"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "GFR \u2265 50 mL/min/1.73 m\\^2 as measured using urine creatinine clearance, serum cystatin c, radioisotope GFR, or serum creatinine as measured by the Schwartz equation (Refer to Schwartz, et al. J Am Soc Neph, 2009)",
+      "threshold": "GFR \u2265 50 mL/min/1.73 m^2"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Total Bilirubin (sum of conjugated + unconjugated) \u2264 3 times institutional upper limit of normal (ULN) for age",
+      "threshold": "Total bilirubin \u2264 3 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Aspartate aminotransferase (AST) \u2264 5 times institutional ULN for age",
+      "threshold": "AST \u2264 5 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Alanine Aminotransferase (ALT) \u2264 5 times institutional ULN for age",
+      "threshold": "ALT \u2264 5 x ULN"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Patients with a baseline QTc \\> 480. (as measured using Bazett formula; Refer to Bazett, Heart, 1920).",
+      "threshold": "QTc > 480"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Patients with documented CNS tumor, CNS metastasis, CNS ischemia and/or infarction, whether symptomatic or discovered incidentally without clinical symptoms, will be excluded from study participation.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "males or females of reproductive potential may not participate unless they have agreed to use an effective contraceptive method",
+      "threshold": null
+    }
+  ]
+}

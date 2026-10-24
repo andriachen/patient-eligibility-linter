@@ -1,0 +1,13 @@
+{
+  "nct_id": "NCT03492151",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Women with known pregnancy at time of procedure",
+      "threshold": null
+    }
+  ]
+}

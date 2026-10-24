@@ -1,0 +1,20 @@
+{
+  "nct_id": "NCT06428019",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status \\<= 2.",
+      "threshold": "ECOG <= 2"
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Creatinine clearance (CrCl) \\>= 30 mL/min using the Cockcroft-Gault formula are eligible for inclusion.",
+      "threshold": "CrCl >= 30 mL/min"
+    }
+  ]
+}

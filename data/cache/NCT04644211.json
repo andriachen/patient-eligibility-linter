@@ -1,0 +1,97 @@
+{
+  "nct_id": "NCT04644211",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Patients with essential thrombocythemia must be very low (no history of thrombosis, age \\<60, and no JAK2 mutation), low (no history of thrombosis, age \\<60, presence of JAK2 mutation), or intermediate risk (no history of thrombosis, age \\>60, no JAK2 mutation) by IPSET criteria.",
+      "threshold": "age < 60"
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ECOG performance status \u22642 (Karnofsky \u226560%)",
+      "threshold": "ECOG \u2264 2"
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "creatinine \u2264 institutional ULN OR glomerular filtration rate (GFR) \u226560 mL/min/1.73 m2 unless data exists supporting safe use at lower kidney function values, no lower than 30 mL/min/1.73 m2",
+      "threshold": "GFR \u226560 mL/min/1.73 m2"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "total bilirubin \u2264 institutional upper limit of normal (ULN)",
+      "threshold": "bilirubin \u2264 ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "AST(SGOT)/ALT(SGPT) \u22643 \u00d7 institutional ULN",
+      "threshold": "AST/ALT \u2264 3 \u00d7 ULN"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Participants with a prior or concurrent malignancy not receiving treatment for concurrent cancer diagnosis and/or prior concurrent malignancy within 5 years except for basal cell carcinoma or squamous cell carcinoma of the skin.",
+      "threshold": "within 5 years"
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "For participants with evidence of chronic human immunodeficiency virus (HIV) infection, they must be negative for HBV DNA, HCV RNA, or hepatitis B surface antigen (BsAg) on suppressive therapy, if indicated.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Participants with known history or current symptoms of cardiac disease, or history of treatment with cardiotoxic agents, should have a clinical risk assessment of cardiac function using the New York Heart Association Functional Classification. To be eligible for this trial, participants should be class 2B or better.",
+      "threshold": "NYHA class 2B or better"
+    },
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Essential thrombocythemia patients who are high risk by IPSET-R criteria (age \\> 60 with JAK2 V617F mutation and/or history of thrombosis).1 Polycythemia vera patients who are high risk by NCCN guidelines (age \\> 60 and/or history of thrombosis).",
+      "threshold": "age > 60"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participants with inadequate liver or renal function at screening as evidenced by lab values not meeting criteria",
+      "threshold": null
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participants with inadequate liver or renal function at screening as evidenced by lab values not meeting criteria",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant women are excluded from this study because ruxolitinib is a Class C agent with the potential for teratogenic or abortifacient effects.",
+      "threshold": null
+    },
+    {
+      "category": "diabetes",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participants with uncontrolled intercurrent illness.",
+      "threshold": null
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "nct_id": "NCT06311214",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group performance status of 0-2 based on most recent assessment (Karnofsky \u2265 50%)",
+      "threshold": "ECOG 0-2 (Karnofsky \u2265 50%)"
+    },
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age \u2265 18 years. Because no dosing or adverse event (AE) data are currently available on the use of the Cancer Therapy Evaluation Program (CTEP) investigational new drug (IND) agents to be used in the study in patients \\< 18 years of age, children are excluded from this study",
+      "threshold": null
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Creatinine \u2264 institutional ULN OR glomerular filtration rate \u2265 60 mL/min/1.73 m^2 for patients with creatinine levels above institutional normal unless data exists supporting safe use at lower kidney function values, no lower than 30 mL/min/1.73 m^2",
+      "threshold": "creatinine \u2264 institutional ULN or GFR \u2265 60 mL/min/1.73 m^2"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Total bilirubin \u2264 1.5 institutional upper limit of normal (ULN). Documented Gilbert syndrome is allowed if total bilirubin is \u2264 3 \u00d7 ULN",
+      "threshold": "total bilirubin \u2264 1.5 \u00d7 ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Aspartate transaminase (serum glutamic-oxaloacetic transaminase \\[SGOT\\])/alanine transaminase (serum glutamate pyruvate transaminase \\[SGPT\\]) \u2264 2.5 \u00d7 institutional ULN.",
+      "threshold": "AST/ALT \u2264 2.5 \u00d7 ULN"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Patients with a prior or concurrent malignancy whose natural history or treatment does not have the potential to interfere with the safety or efficacy assessment of the investigational agents are eligible for this study",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Patients with known history or current symptoms of cardiac disease, or history of treatment with cardiotoxic agents, should have a clinical risk assessment of cardiac function using the New York Heart Association Functional Classification. To be eligible for this study, patients should be class 2B or better",
+      "threshold": "NYHA class 2B or better"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Women of childbearing potential must not be known to be pregnant. Pregnancy testing is not required",
+      "threshold": null
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Human immunodeficiency virus-infected patients on effective anti-retroviral therapy with undetectable viral load within 6 months are eligible for this study",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "LVEF \u226550% within 28 days before enrollment",
+      "threshold": "LVEF \u226550%"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Clinically significant cardiovascular condition including: (1) history of congestive heart failure (New York Health Association class \\> 2), (2) any history of unstable angina, (3) myocardial infraction within the past 12 months, or (4) any history of supraventricular arrhythmia or ventricular arrhythmia requiring treatment or intervention within the past 12 months",
+      "threshold": "NYHA class > 2; MI within 12 months"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Patients with new or progressive brain metastases (active brain metastases) or leptomeningeal disease.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant women are excluded from the study because the study drugs are investigational or approved agents with the potential for teratogenic or abortifacient effects.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "When the corrected QT interval (QTc) by Fridericia's formula is \\< 120 ms, \\> 450 ms in males and \\> 470 ms in females.",
+      "threshold": "QTc > 450 ms male, > 470 ms female"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Patients with histologically documented advanced colorectal cancer, urothelial cancer, head and neck cancer",
+      "threshold": null
+    },
+    {
+      "category": "diabetes",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "History of uncontrolled diabetes mellitus within 3 months before the first dose of study treatment. Uncontrolled diabetes mellitus is defined as hemoglobin A1c \u2265 8% or hemoglobin A1c between 7 and \\< 8% with associated diabetes symptoms (polyuria or polydipsia) that are not otherwise explained",
+      "threshold": "HbA1c \u2265 8%"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Patients with uncontrolled intercurrent illness including, but not limited to, ongoing or active infection, symptomatic congestive heart failure, unstable angina pectoris, cardiac arrhythmia",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "breastfeeding should be discontinued if the mother is treated with any of the study drug",
+      "threshold": null
+    }
+  ]
+}

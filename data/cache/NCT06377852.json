@@ -1,0 +1,41 @@
+{
+  "nct_id": "NCT06377852",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Aged 60 years or older",
+      "threshold": "age >= 60"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Baseline QTc \u2264 480 ms (only for ribociclib patients)",
+      "threshold": "QTc <= 480 ms"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Current use of drugs that have known potential to prolong the QT interval (e.g., antiarrhythmic drugs), for patients on ribociclib.",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Rapidly progressive brain metastases.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Prior or concurrent malignancies that are undergoing active treatment.",
+      "threshold": null
+    }
+  ]
+}

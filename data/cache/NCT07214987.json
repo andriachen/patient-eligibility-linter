@@ -1,0 +1,55 @@
+{
+  "nct_id": "NCT07214987",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age \u226518 years. Because no dosing or adverse event data are currently available on the use of toripalimab in combination with cisplatin and docetaxel in participants \\<18 years of age, children are excluded from this study, but will be eligible for future pediatric trials.",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ECOG performance status \u2264 1",
+      "threshold": "ECOG \u2264 1"
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "creatinine \u2264 2 x institutional ULN OR glomerular filtration rate (GFR) \u2265 45 mL/min/1.73 m2",
+      "threshold": "creatinine \u2264 2 x ULN or GFR \u2265 45 mL/min/1.73 m2"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "total bilirubin \u2264 2 institutional upper limit of normal (ULN) AST(SGOT)/ALT(SGPT) \u2264 2 \u00d7 institutional ULN",
+      "threshold": "bilirubin \u2264 2 x ULN; AST/ALT \u2264 2 x ULN"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Presence of a second malignancy that is considered active by the investigator.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant women are excluded from this study",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "breastfeeding should be discontinued if the mother is treated with toripalimab",
+      "threshold": null
+    }
+  ]
+}

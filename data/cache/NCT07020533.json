@@ -1,0 +1,90 @@
+{
+  "nct_id": "NCT07020533",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "DONORS: Age: 18 - 75.",
+      "threshold": "age <= 75"
+    },
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "RECIPIENTS: Age: 18 - 75.",
+      "threshold": "age <= 75"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "DONORS: Females only: Pregnant or breastfeeding.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "RECIPIENTS: Females only: Pregnant or breastfeeding.",
+      "threshold": null
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "RECIPIENTS: Total bilirubin \u2264 1.5 X upper limit of normal (ULN) (unless has Gilbert's disease) (to be performed within 45 days prior to day 1 of protocol therapy).",
+      "threshold": "total bilirubin <= 1.5 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "RECIPIENTS: Aspartate aminotransferase (AST) =\\< 2.5 x ULN (to be performed within 45 days prior to day 1 of protocol therapy).",
+      "threshold": "AST <= 2.5 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "RECIPIENTS: Alanine aminotransferase (ALT) =\\< 2.5 x ULN (to be performed within 45 days prior to day 1 of protocol therapy).",
+      "threshold": "ALT <= 2.5 x ULN"
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "RECIPIENTS: Estimated creatinine clearance acceptable per institutional guidelines (to be performed within 45 days prior to day 1 of protocol therapy).",
+      "threshold": "creatinine clearance acceptable per institutional guidelines"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "RECIPIENTS: Left ventricular ejection fraction (LVEF) \u2265 50%.",
+      "threshold": "LVEF >= 50%"
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "RECIPIENTS: Seronegative for HIV antigen (Ag)/antibody (Ab) combination (combo), hepatitis c virus (HCV)\\*, active hepatitis b virus (HBV) (surface antigen negative) and syphilis (RPR) within 2 months of registration and no history of disseminated cutaneous human papillomavirus (HPV) related disease.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "RECIPIENTS: Women of childbearing potential (WOCBP): negative urine or serum pregnancy test. If the urine test is positive or cannot be confirmed as negative, a serum pregnancy test will be required (to be performed within 45 days prior to day 1 of protocol therapy).",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Other hematologic malignancies judged appropriate by the clinical principal investigators (PIs), including chronic lymphocytic leukemia, myeloproliferative disorders and myelofibrosis. Patients with multiple myeloma and those with non-malignant disease such as aplastic anemia are excluded\\*\\*.",
+      "threshold": null
+    }
+  ]
+}

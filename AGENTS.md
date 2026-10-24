@@ -56,11 +56,15 @@ MA county FIPS 25001–25027 (odd only), 14 counties — see README.
   `filter.overallStatus=RECRUITING`, `pageSize=200`,
   `fields=NCTId,BriefTitle,Phase,Condition,LeadSponsorName,EligibilityCriteria,`
   `MinimumAge,MaximumAge,LocationFacility,LocationCity,LocationState,LocationZip,`
-  `ReferencePMID`. Page via `nextPageToken` until gone. Save `data/raw/ctgov/page_{n}.json`.
-- **PLACES:** SODA URL — TODO paste from the kit. Map measure names → `measure_key`.
-- **EJ:** download the block-group **zip** from the MassGIS/EJ portal into `data/raw/ej/`
-  (the live query caps at 100 rows). Roll up `MUNICIPALITY → county`, population-weight
-  `LIMENGHHPCT` and `PCT_MINORITY`.
+  `LocationStatus,ReferencePMID`. Page via `nextPageToken`. Save `data/raw/ctgov/page_{n}.json`.
+  Per-site RECRUITING filtering happens in build_trials (see change log).
+- **PLACES:** `https://data.cdc.gov/resource/swc5-untb.json?stateabbr=MA&datavaluetypeid=CrdPrv`
+  (crude prevalence, county level). Map measureid → `measure_key`.
+- **EJ:** live from MassGIS ArcGIS FeatureServer (no manual download):
+  `https://arcgisserver.digital.mass.gov/arcgisserver/rest/services/AGOL/EJ2020/FeatureServer/0/query`
+  Page 2000 rows at a time. Every BG in the layer is EJ-designated. Fields:
+  `MUNICIPALITY, TOTAL_POP, LIMENGHHPCT, PCT_MINORITY`. `--ej-local` forces the
+  `data/raw/ej/` file fallback.
 
 ## 6. Current state (update me!)
 
@@ -68,28 +72,38 @@ MA county FIPS 25001–25027 (odd only), 14 counties — see README.
 |-----------|--------|-------|
 | Phase 0 scaffold | done | folders, .gitignore, README contracts, .env.example |
 | README contracts | done | updated to authoritative contracts |
-| P1 fetch_trials.py | done | 6 pages, 1170 studies; resumable, `--probe` to inspect |
+| P1 fetch_trials.py | done | 6 pages, 1170 studies; requests LocationStatus; `--force` re-fetch, `--probe` to inspect |
 | P1 build_crosswalk.py | done | 351 munis from Census cousub file; overrides for villages/typos |
-| P1 build_trials.py | done | 1170 trials, 1877 MA sites, 0 unmatched cities |
-| P1 build_county.py | done (PLACES) / blocked (EJ) | PLACES 70 rows; EJ needs the zip |
-| trials.csv | done | 1170 records, all contract cols |
-| trial_sites.csv | done | 1877 MA sites |
+| P1 build_trials.py | done | filters to RECRUITING MA sites; 1011 trials, 1537 sites, 0 unmatched |
+| P1 build_county.py | done | PLACES 70 rows; EJ fetched live from MassGIS ArcGIS (2604 BGs) |
+| trials.csv | done | 1011 records (scoped to trials w/ a recruiting MA site) |
+| trial_sites.csv | done | 1537 recruiting MA sites |
 | ma_town_county.csv | done | 351 municipalities, 14 counties |
 | county_metrics.csv | done | 70 rows = 14 counties x 5 measures (crude prevalence, 2023) |
-| county_ej.csv | **blocked** | empty until EJ block-group zip is in data/raw/ej/ |
-| P2 extract | todo | other owner |
+| county_ej.csv | done | 14 counties, 2604 EJ block groups, pop-weighted limEng/minority |
+| P2 prompts/llm/logic | done | Anthropic tool-use, claude-haiku-5-5, 20 unit tests green |
+| P2 extract.py | done | cached batch + CLI; sample run clean |
+| P2 lint.py | done | lint_criteria reuses engine; mock fallback w/o key |
+| P2 sample (10 trials) | done | 0 substring failures; hand-check clean after prompt tighten |
+| exclusions.csv (full run) | done | 4304 rows, 926/1011 trials, 0 contract violations |
 | P3 app | todo | other owner |
 | P4 eval/docs | todo | other owner |
 
-### P1 numbers (actual, from the run)
-- trials: **1170**
-- MA sites: **1877** (across 10 counties; Suffolk 1502, Worcester 98, Middlesex 94, Essex 84, Norfolk 48, Hampden 37, Plymouth 6, Bristol 3, Barnstable 3, Berkshire 2)
+### P1 numbers (actual, after per-site RECRUITING filter)
+- trials: **1011** (each has >=1 actively recruiting MA site; Option A scoping)
+- MA sites: **1537** (recruiting only; across 10 counties; Suffolk 1241, Worcester 75,
+  Essex 71, Middlesex 71, Norfolk 43, Hampden 24, Plymouth 6, Bristol 3, Barnstable 2,
+  Berkshire 1)
 - unmatched cities: **0**
-- trials w/ phase: 1047 · w/ max_age: 209 · w/ reference_pmids: 229 (all optional fields)
+- note: before the fix these were 1170 trials / 1877 sites — those counted MA sites
+  whose per-site status was NOT_YET_RECRUITING / WITHDRAWN / TERMINATED / COMPLETED.
 
 ### Data notes
 - `eligibility_text` contains embedded newlines, so `wc -l` over-counts trials.csv.
-  Always count records with a CSV parser (1170 records, not 43k lines).
+  Always count records with a CSV parser (1011 records, not ~40k lines).
+- `overallStatus=RECRUITING` is TRIAL-level, not SITE-level. build_trials filters each
+  MA location on `loc["status"] == "RECRUITING"`; fetch_trials must request
+  `LocationStatus` (re-fetch with `--force` if old pages lack it).
 - PLACES: dataset `swc5-untb`, crude prevalence (`CrdPrv`), year 2023.
   measure_key→measureid: diabetes→DIABETES, obesity→OBESITY, smoking→CSMOKING,
   mental_distress→MHLTH, checkup→CHECKUP.
@@ -110,14 +124,48 @@ python -m pipeline.ingest.build_county       # -> county_metrics.csv, county_ej.
 
 - 2026-10-24: README data contracts replaced the Phase-0 placeholder contracts
   with the authoritative ones from the team plan. No column has changed since.
+- 2026-10-24: **P1 per-site RECRUITING filter fix.** `filter.overallStatus=RECRUITING`
+  is trial-level, so non-recruiting MA sites were being kept. fetch_trials now requests
+  `LocationStatus` (+ `--force` to re-fetch); build_trials skips MA sites that aren't
+  `RECRUITING` and scopes trials.csv to trials with >=1 recruiting MA site (Option A).
+  trials 1170→1011, MA sites 1877→1537. No contract columns changed (6-col sites kept;
+  status used only for filtering). Spec: `.kiro/specs/p1-per-site-recruiting-filter/`.
+- 2026-10-24: **EJ unblocked.** build_county now fetches the MassGIS 2020 EJ layer
+  live from its ArcGIS FeatureServer (2604 block groups, paged) instead of needing a
+  manual zip. county_ej.csv populated for all 14 counties. `--ej-local` keeps the
+  file fallback. Pop field is `TOTAL_POP` (not `POPULATION`). **P1 fully complete.**
+- 2026-10-24: **P2 engine built + sample-validated.** Anthropic tool-use extractor,
+  model `claude-haiku-5-5` (default; `P2_MODEL` overrides). SDK 2.3.0 dropped the
+  `temperature` kwarg and Haiku 5.5 rejects it — determinism comes from forced
+  tool_choice + enum schema (verified stable across repeat calls). Retries only on
+  transient status (429/5xx), fail-fast on 4xx. `normalize()` strips CT.gov
+  backslash escapes (`\[ \> \^` etc.) so verbatim quotes match escaped source text.
+  Dedupe = one row per (nct_id, category), absolute beats conditional, applied only
+  when writing exclusions.csv / in lint (cache stays lossless). Sample (10 trials):
+  0 substring failures; a prompt-tightening pass ("do not force categories;
+  precision > recall") removed false positives (smoking=IBD/hypertension, fabricated
+  age). Cache is prompt-version-sensitive — **clear data/cache/ if prompts.py changes.**
+- 2026-10-24: **P2 full run complete.** All 1011 trials extracted (cached).
+  exclusions.csv = 4304 rows across 926/1011 trials; 0 invalid categories, 0 empty
+  quotes, 0 dup (nct,category) pairs. Two run-time fixes: (a) model sometimes returns
+  `exclusions` as a JSON *string* — `_parse` now json.loads it (was erroring 9 trials);
+  (b) records whose source_text can't be verified are DROPPED when writing
+  exclusions.csv (26 unverifiable raw records excluded — empties + encoding junk +
+  rare paraphrase), so every CSV row has an auditable quote. `normalize` also decodes
+  HTML entities (&lt;/&gt;). Top categories: performance_status 59.5%, pregnancy
+  53.3%, prior_malignancy 51.5%, brain_mets 45.9%, cardiac 45.5%; language 10.5%
+  (the EJ equity angle).
+- 2026-10-24: **Age-unit bug fix in build_trials.** `_age_number` dropped the unit,
+  so "6 Months" became 6 (read as 6 years). Now normalizes ALL units to YEARS
+  (months/weeks/days/hours/minutes, singular + plural): "6 Months"→0.5, "29 Days"→0.08,
+  "1 Year"→1. ~28 min_age + 3 max_age values corrected; 18 sub-year trials in the
+  1011 set now carry fractional ages. Unknown units emit "" rather than a wrong number.
+  No re-fetch needed (raw pages unchanged); rebuilt trials.csv only. Matters for the
+  P2 `age` category.
 
 ## 9. Open questions / blockers
 
-- **EJ zip (blocker for county_ej.csv):** download the EJ block-group file from the
-  MassGIS/EJ portal, unzip into `data/raw/ej/`, then rerun
-  `python -m pipeline.ingest.build_county`. If the column names differ from
-  `MUNICIPALITY / POPULATION / LIMENGHHPCT / PCT_MINORITY`, pass
-  `--ej-muni/--ej-pop/--ej-limeng/--ej-minority`.
-- **PLACES URL:** currently using the default CDC SODA endpoint for `swc5-untb`.
-  If the team's kit provides a different URL, pass `--places-url`.
+- **P1: none.** All six CSVs are populated. (EJ no longer needs a manual download.)
+- **PLACES URL:** using the default CDC SODA endpoint for `swc5-untb`. If the team's
+  kit provides a different URL, pass `--places-url`.
 - Field paths for the trials API were confirmed live via `fetch_trials --probe`.

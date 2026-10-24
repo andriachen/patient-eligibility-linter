@@ -1,0 +1,41 @@
+{
+  "nct_id": "NCT07359820",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Patient has ECOG performance status of 0-1.",
+      "threshold": "ECOG 0-1"
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Patient has active infection, including human immunodeficiency virus (HIV), hepatitis B virus (HBV), and/or hepatitis C virus (HCV) (defined in protocol).",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "QT interval corrected using Fridericia's formula (QTcF) \\> 480 msec or history of prolonged QT syndrome, Torsades de pointes or familial history of prolonged QT syndrome.",
+      "threshold": "QTcF > 480 msec"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Clinically significant, uncontrolled cardiovascular disease.",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "CNS metastases or primary CNS tumor that is associated with progressive neurologic symptoms.",
+      "threshold": null
+    }
+  ]
+}

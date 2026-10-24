@@ -1,0 +1,20 @@
+{
+  "nct_id": "NCT07412041",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "bmi",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Patients who are morbidly obese (BMI\\>40 kg/m2) or Anorexic (BMI\\<17 kg/m2).",
+      "threshold": "BMI > 40 or BMI < 17 kg/m2"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Patients who are pregnant, or plan to become pregnant during study duration will be excluded due to the unknown nature of exercise on developing fetuses.",
+      "threshold": null
+    }
+  ]
+}

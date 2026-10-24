@@ -1,0 +1,55 @@
+{
+  "nct_id": "NCT04256317",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Has known human immunodeficiency virus (HIV) infection.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Has a history of other malignancies prior to study entry, with the exception of adequately treated in situ carcinoma of the breast or cervix uteri; localized basal cell carcinoma or squamous cell carcinoma of the skin; previous malignancy confined and surgically resected or adequately treated and controlled with other modalities; and any early stage malignancy for which no definitive therapy is required.",
+      "threshold": null
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Has known human immunodeficiency virus (HIV) infection.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Has a history of other malignancies prior to study entry with the exception of adequately treated in situ carcinoma of the breast or cervix uteri; localized basal cell carcinoma or squamous cell carcinoma of the skin; previous malignancy confined and surgically resected (or adequately treated and controlled with other modalities); and any early stage malignancy for which no definitive therapy is required.",
+      "threshold": null
+    },
+    {
+      "category": "smoking",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Consumes grapefruit, grapefruit products, Seville oranges (including marmalade containing Seville oranges) or starfruit \u22647 days prior to C1D1.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Has a cardiovascular disability status of New York Heart Association Class >2.",
+      "threshold": "NYHA Class > 2"
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status of 0 to 1.",
+      "threshold": "ECOG 0 to 1"
+    }
+  ]
+}

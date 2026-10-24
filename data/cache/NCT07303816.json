@@ -1,0 +1,48 @@
+{
+  "nct_id": "NCT07303816",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "age \\> 18 years with no contraindication to statin therapy and able to provide informed consent",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ECOG performance status 0-2",
+      "threshold": "ECOG 0-2"
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Known hepatitis C or HIV disease, or intent to use certain oncologic agents",
+      "threshold": null
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Known ALT, AST, or creatine kinase (CK) levels \\> 3 x ULN; eGFR \\< 30 ml/min/1.73m2, or Child Pugh Class B or C liver disease",
+      "threshold": "ALT/AST > 3 x ULN"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Known ALT, AST, or creatine kinase (CK) levels \\> 3 x ULN; eGFR \\< 30 ml/min/1.73m2, or Child Pugh Class B or C liver disease",
+      "threshold": "eGFR < 30 ml/min/1.73m2"
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "an ECOG Performance Status \\> 3",
+      "threshold": "ECOG > 3"
+    }
+  ]
+}

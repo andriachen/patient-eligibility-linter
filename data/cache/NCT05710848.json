@@ -1,0 +1,27 @@
+{
+  "nct_id": "NCT05710848",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Have Eastern Cooperative Oncology Group (ECOG) Performance Status of 0, 1, or 2;",
+      "threshold": "ECOG 0, 1, or 2"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "symptomatic congestive heart failure, unstable angina pectoris, cardiac arrhythmia, or psychiatric illness/social situations that would limit compliance with study requirements.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Are a woman of childbearing potential regardless of contraceptive use;",
+      "threshold": null
+    }
+  ]
+}

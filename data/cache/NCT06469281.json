@@ -1,0 +1,41 @@
+{
+  "nct_id": "NCT06469281",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status \u2264 1",
+      "threshold": "ECOG \u2264 1"
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Inadequate cardiovascular, renal and hepatic function, as described in the protocol",
+      "threshold": null
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Inadequate cardiovascular, renal and hepatic function, as described in the protocol",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Inadequate cardiovascular, renal and hepatic function, as described in the protocol",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Known history or presence of clinically relevant central nervous system (CNS) pathology, as described in the protocol",
+      "threshold": null
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "nct_id": "NCT06176261",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Age \u2265 18 years.",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "ECOG Performance Status 0-2",
+      "threshold": "ECOG > 2"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Left ventricular ejection fraction (LVEF) \u2265 50% by echocardiogram (ECHO) or multigated acquisition (MUGA) scan.",
+      "threshold": "LVEF < 50%"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Total bilirubin \u2264 1.5 institutional ULN if no liver metastases; or \u2264 3 x ULN in the presence of documented Gilbert's syndrome (unconjugated hyperbilirubinemia) or liver metastases at baseline.",
+      "threshold": "bilirubin > 1.5 x ULN (no liver metastases)"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "AST(SGOT)/ALT(SGPT) \u2264 2.5 \u00d7 institutional ULN OR \u2264 5.0 x institutional ULN for patients with documented liver metastases",
+      "threshold": "AST/ALT > 2.5 x ULN (> 5.0 x ULN with liver metastases)"
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Serum creatinine \u2264 1.5 mg/dL (or glomerular filtration rate \u2265 30 ml/min as determined by the Cockcroft-Gault equation)",
+      "threshold": "creatinine > 1.5 mg/dL or GFR < 30 ml/min"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Female subjects of childbearing potential must have a negative serum or urine pregnancy test within 14 days of initiating protocol therapy.",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Cohorts A and B: Presence of newly diagnosed brain metastases or brain metastases progressing after prior local and/or systemic therapy.",
+      "threshold": null
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Participants with a history of chronic viral conditions such as HIV, Hepatitis B/C, should not be systemically excluded but have thoughtful consideration of inclusion, unless safety is a concern.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "myocardial infarction within the previous six months",
+      "threshold": "within 6 months"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "uncontrolled cardiac arrhythmia",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "active ischemic heart disease",
+      "threshold": null
+    },
+    {
+      "category": "diabetes",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Note that if a patient has controlled diabetes mellitus, but is unable to monitor blood glucose at home, they will be excluded from the trial.",
+      "threshold": null
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "chronic liver or renal disease",
+      "threshold": null
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "chronic liver or renal disease",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "A history of malignancy other than breast cancer, except (a) adequately resected non-melanoma skin cancer, (b) curatively treated in situ disease, or (c) other solid tumors curatively treated, with no evidence of disease for \u2265 3 years.",
+      "threshold": "within 3 years"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant or lactating women are excluded from participation due to potential teratogenic effects of study drug.",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "CNS complications for whom urgent neurosurgical intervention is indicated (i.e., resection, shunt placement)",
+      "threshold": null
+    }
+  ]
+}
