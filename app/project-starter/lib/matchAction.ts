@@ -13,6 +13,7 @@ export type MatchCard = {
   phase: string;
   lead_sponsor: string;
   nearby: boolean;
+  notScreened: boolean; // #4: no criteria extracted — we couldn't check it
   site: MatchCardSite | null;
   hits: { category: string; label: string; severity: "hard" | "soft"; source_text: string; threshold: string | null }[];
   ctUrl: string;
@@ -22,14 +23,22 @@ export type MatchResponse = {
   worthReachingOut: MatchCard[];
   askAboutThis: MatchCard[];
   likelyNotAFit: MatchCard[];
+  // `shown` = how many cards returned per bucket; `counts` = true totals (#2).
   counts: { worth: number; ask: number; notFit: number; total: number };
+  shown: { worth: number; ask: number; notFit: number };
   source: "mock" | "processed";
 };
 
-const LIMIT = 40; // cap cards per bucket so the demo stays snappy
+const LIMIT = 50; // cap cards per bucket so the payload stays small
+
+// #16: "PHASE2;PHASE3" -> "Phase 2/3"; "NA" -> "" (hidden).
+function prettyPhase(raw: string): string {
+  const parts = raw.split(";").map((p) => p.trim()).filter((p) => p && p !== "NA");
+  const nums = parts.map((p) => p.replace(/^PHASE/i, "").replace(/_/g, " ").trim());
+  return nums.length ? `Phase ${nums.join("/")}` : "";
+}
 
 function toCard(m: MatchedTrial, patientCounty?: string): MatchCard {
-  // prefer a site in the patient's county, else the first MA site
   const site =
     (patientCounty && m.trial.sites.find((s) => s.county === patientCounty)) ||
     m.trial.sites[0] ||
@@ -37,9 +46,10 @@ function toCard(m: MatchedTrial, patientCounty?: string): MatchCard {
   return {
     nct_id: m.trial.nct_id,
     title: m.trial.title,
-    phase: m.trial.phase,
+    phase: prettyPhase(m.trial.phase),
     lead_sponsor: m.trial.lead_sponsor,
     nearby: m.nearby,
+    notScreened: m.notScreened,
     site: site ? { facility: site.facility, city: site.city, county: site.county } : null,
     hits: m.hits.map((h) => ({
       category: h.category,
@@ -60,6 +70,11 @@ export async function runMatch(patient: PatientVector): Promise<MatchResponse> {
     askAboutThis: trim(result.askAboutThis),
     likelyNotAFit: trim(result.likelyNotAFit),
     counts: result.counts,
+    shown: {
+      worth: Math.min(result.worthReachingOut.length, LIMIT),
+      ask: Math.min(result.askAboutThis.length, LIMIT),
+      notFit: Math.min(result.likelyNotAFit.length, LIMIT),
+    },
     source: result.source,
   };
 }
