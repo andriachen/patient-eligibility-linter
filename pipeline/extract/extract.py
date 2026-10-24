@@ -19,7 +19,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 from . import llm
-from .logic import dedupe, is_valid, validate_records
+from .logic import dedupe, drop_noise, is_valid, validate_records
 
 ROOT = Path(__file__).resolve().parents[2]
 CACHE_DIR = ROOT / "data" / "cache"
@@ -134,6 +134,7 @@ def write_exclusions(results: list[dict]) -> None:
         # Only keep records whose source_text verifies against this trial's text,
         # so every exclusions.csv row has an auditable quote. Then dedupe.
         valid = [rec for rec in r["records"] if is_valid(rec.get("source_text", ""), r["text"])]
+        valid = drop_noise(valid)
         dropped += len(r["records"]) - len(valid)
         for rec in dedupe(valid):
             rows.append(

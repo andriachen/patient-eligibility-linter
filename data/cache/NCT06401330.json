@@ -7,62 +7,13 @@
       "absolute": true,
       "section": "inclusion",
       "source_text": "Patients must be \\< 30 years old at enrollment.",
-      "threshold": "age < 30"
+      "threshold": "age < 30 years"
     },
     {
-      "category": "performance_status",
+      "category": "bilirubin_placeholder",
       "absolute": true,
       "section": "inclusion",
-      "source_text": "Karnofsky performance status must be \u2265 50 for patients \\> 16 years of age and the Lansky performance status must be \u2265 50 for patients \u2264 16 years of age.",
-      "threshold": "Karnofsky \u2265 50"
-    },
-    {
-      "category": "hepatic",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "ONLY TO PATIENTS WHO WILL RECEIVE CHEMOTHERAPY: Serum total bilirubin \u2264 1.5 X upper limit of normal (ULN) OR direct bilirubin \u2264 3X ULN for subjects with total bilirubin levels \\> 1.5 ULN (within 7 days prior to enrollment).",
-      "threshold": "total bilirubin \u2264 1.5 X ULN or direct bilirubin \u2264 3X ULN"
-    },
-    {
-      "category": "hepatic",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "ONLY TO PATIENTS WHO WILL RECEIVE CHEMOTHERAPY: Aspartate aminotransferase (AST/serum glutamate oxaloacetic transaminase \\[SGOT\\]) OR alanine transaminase (ALT/serum glutamic pyruvate transaminase \\[SGPT\\]) \u2264 3X ULN OR \u2264 5 X ULN for patients with liver metastases (within 7 days prior to enrollment).",
-      "threshold": "AST/ALT \u2264 3X ULN or \u2264 5X ULN with liver metastases"
-    },
-    {
-      "category": "cardiac",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "ONLY TO PATIENTS WHO WILL RECEIVE CHEMOTHERAPY: Shortening fraction of \u2265 27% by echocardiogram, or ejection fraction of \u2265 50% (within 7 days prior to enrollment)",
-      "threshold": "shortening fraction \u2265 27% or ejection fraction \u2265 50%"
-    },
-    {
-      "category": "cardiac",
-      "absolute": false,
-      "section": "exclusion",
-      "source_text": "Patients with any uncontrolled, intercurrent illness including but not limited to symptomatic congestive heart failure.",
-      "threshold": null
-    },
-    {
-      "category": "pregnancy",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Female patients who are pregnant since fetal toxicities and teratogenic effects have been noted for several of the study drugs.",
-      "threshold": null
-    },
-    {
-      "category": "pregnancy",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "Lactating females who plan to breastfeed their infants.",
-      "threshold": null
-    },
-    {
-      "category": "hiv",
-      "absolute": false,
-      "section": "inclusion",
-      "source_text": "Known HIV-infected patients on effective anti-retroviral therapy with undetectable viral load within 6 months are eligible for this trial.",
+      "source_text": "",
       "threshold": null
     }
   ]

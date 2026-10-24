@@ -4,7 +4,7 @@
   "exclusions": [
     {
       "category": "age",
-      "absolute": false,
+      "absolute": true,
       "section": "inclusion",
       "source_text": "Male or female participants 18 years of age or older at the time of signing informed consent",
       "threshold": null

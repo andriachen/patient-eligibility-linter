@@ -3,24 +3,10 @@
   "model": "claude-haiku-5-5",
   "exclusions": [
     {
-      "category": "age",
-      "absolute": true,
-      "section": "inclusion",
-      "source_text": "18 years or older",
-      "threshold": null
-    },
-    {
       "category": "pregnancy",
       "absolute": true,
       "section": "exclusion",
       "source_text": "pregnancy or breastfeeding",
-      "threshold": null
-    },
-    {
-      "category": "prior_malignancy",
-      "absolute": true,
-      "section": "exclusion",
-      "source_text": "history of blood malignancy or current solid-tumor malignancy",
       "threshold": null
     },
     {

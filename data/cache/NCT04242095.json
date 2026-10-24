@@ -1,5 +1,13 @@
 {
   "nct_id": "NCT04242095",
   "model": "claude-haiku-5-5",
-  "exclusions": []
+  "exclusions": [
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Has not previously been treated with CTLA-4, PD-1 or PD-L1 inhibitors",
+      "threshold": null
+    }
+  ]
 }

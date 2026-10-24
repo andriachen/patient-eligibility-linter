@@ -7,7 +7,7 @@
       "absolute": false,
       "section": "exclusion",
       "source_text": "Clinically significant or uncontrolled cardiac disease within 6 months before the first dose of study drug.",
-      "threshold": "within 6 months before first dose"
+      "threshold": null
     },
     {
       "category": "brain_mets",

@@ -22,6 +22,13 @@
       "section": "exclusion",
       "source_text": "Females who are pregnant or breastfeeding.",
       "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Part 2A3: Advanced/metastatic NSCLC with KRAS non-G12C or BRAF mutations or alterations and active CNS metastatic disease",
+      "threshold": null
     }
   ]
 }

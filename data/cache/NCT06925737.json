@@ -3,10 +3,10 @@
   "model": "claude-haiku-5-5",
   "exclusions": [
     {
-      "category": "pregnancy",
-      "absolute": true,
+      "category": "cardiac",
+      "absolute": false,
       "section": "exclusion",
-      "source_text": "Has clinically severe pulmonary compromise resulting from intercurrent pulmonary illnesses",
+      "source_text": "Has uncontrolled or significant cardiovascular disease",
       "threshold": null
     }
   ]
