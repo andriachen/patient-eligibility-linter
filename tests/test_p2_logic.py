@@ -174,6 +174,30 @@ def test_age_child_exclusion_boilerplate_dropped():
     assert not is_bare_adult_floor("patients must be < 30 years old at enrollment")
 
 
+def test_age_cap_with_child_boilerplate_is_kept():
+    from pipeline.extract.logic import is_bare_adult_floor
+
+    # real 70 cap must survive even though child-exclusion boilerplate follows
+    assert not is_bare_adult_floor("Age 18 to 70 years; children are excluded")
+    assert not is_bare_adult_floor("Patients 21 to 65 years of age")
+
+
+def test_keyword_guard_holes_fixed():
+    from pipeline.extract.logic import quote_matches_category
+
+    # previously wrongly DROPPED -> now kept
+    assert quote_matches_category("renal", "Estimated glomerular filtration rate >= 45")
+    assert quote_matches_category("renal", "creatinine clearance >= 60 mL/min")
+    assert quote_matches_category("performance_status", "Eastern Cooperative Oncology Group 0-1")
+    assert quote_matches_category("performance_status", "Eastern Oncology Group Status 0 to 1")
+    # previously wrongly PASSED -> now dropped
+    assert not quote_matches_category("brain_mets", "Evidence of metastatic disease")
+    assert not quote_matches_category("hepatic", "History of breast cancer")  # 'ast' in breast
+    # real short-keyword hits still work (whole-word)
+    assert quote_matches_category("hepatic", "AST/ALT > 3x ULN")
+    assert quote_matches_category("cardiac", "recent MI within 6 months")
+
+
 def test_suggest_covers_all_13_categories():
     from pipeline.extract.suggest import suggest_for_category
     from pipeline.extract.prompts import CATEGORIES

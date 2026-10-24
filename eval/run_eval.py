@@ -133,11 +133,45 @@ def evaluate(only: set[str] | None = None) -> dict:
     FN = sum(fn.values())
     micro = prf(TP, FP, FN)
 
+    # Per-trial (tp, fp, fn) totals, for a bootstrap CI on overall micro F1.
+    # Sort trial ids so the list order (and thus the seeded bootstrap) is stable.
+    per_trial = []
+    for nct in sorted(labeled):
+        g, p = gold[nct], pred[nct]
+        per_trial.append((len(g & p), len(p - g), len(g - p)))
+    ci_lo, ci_hi = _bootstrap_f1_ci(per_trial, prf)
+
     return {
         "n_trials": len(labeled),
         "rows": rows,
         "micro": {"tp": TP, "fp": FP, "fn": FN, "precision": micro[0], "recall": micro[1], "f1": micro[2]},
+        "f1_ci": (ci_lo, ci_hi),
     }
+
+
+def _bootstrap_f1_ci(per_trial, prf, n_boot: int = 2000, seed: int = 0) -> tuple[float, float]:
+    """95% bootstrap CI on overall micro F1 by resampling trials with replacement."""
+    import random
+
+    if not per_trial:
+        return (float("nan"), float("nan"))
+    rng = random.Random(seed)
+    n = len(per_trial)
+    f1s = []
+    for _ in range(n_boot):
+        bt = bfp = bfn = 0
+        for _ in range(n):
+            t, fp_, fn_ = per_trial[rng.randrange(n)]
+            bt += t
+            bfp += fp_
+            bfn += fn_
+        _, _, f1 = prf(bt, bfp, bfn)
+        if f1 == f1:  # not NaN
+            f1s.append(f1)
+    if not f1s:
+        return (float("nan"), float("nan"))
+    f1s.sort()
+    return (f1s[int(0.025 * len(f1s))], f1s[int(0.975 * len(f1s))])
 
 
 def _fmt(x: float) -> str:
@@ -172,31 +206,52 @@ def write_results(res: dict, subsets: list[tuple[str, dict]]) -> None:
             f"{_fmt(r['f1'])} | {r['tp']} | {r['fp']} | {r['fn']} | {r['support']} |"
         )
     m = res["micro"]
+    lo, hi = res["f1_ci"]
     lines += [
         f"| **overall (micro)** | **{_fmt(m['precision'])}** | **{_fmt(m['recall'])}** "
         f"| **{_fmt(m['f1'])}** | {m['tp']} | {m['fp']} | {m['fn']} | "
         f"{m['tp'] + m['fn']} |",
         "",
+        f"Overall micro F1 **{_fmt(m['f1'])}**, bootstrap 95% CI "
+        f"[{_fmt(lo)}, {_fmt(hi)}] (2000 resamples over {res['n_trials']} trials).",
+        "",
         "## By subset (overall micro)",
         "",
-        "| subset | trials | precision | recall | F1 | TP | FP | FN |",
-        "|--------|--------|-----------|--------|----|----|----|----|",
+        "| subset | trials | precision | recall | F1 | F1 95% CI | TP | FP | FN |",
+        "|--------|--------|-----------|--------|----|-----------|----|----|----|",
     ]
     for name, s in subsets:
         sm = s["micro"]
+        slo, shi = s["f1_ci"]
         lines.append(
             f"| {name} | {s['n_trials']} | {_fmt(sm['precision'])} | {_fmt(sm['recall'])} "
-            f"| {_fmt(sm['f1'])} | {sm['tp']} | {sm['fp']} | {sm['fn']} |"
+            f"| {_fmt(sm['f1'])} | [{_fmt(slo)}, {_fmt(shi)}] | {sm['tp']} | {sm['fp']} | {sm['fn']} |"
         )
     lines += [
         "",
         "Quote the held-out row as the headline accuracy: the extraction prompt was tuned "
-        "while looking at errors on the original 32, so their scores are optimistic.",
+        "while looking at errors on the original set, so those scores are optimistic. "
+        "The held-out interval is wide because it is only 10 trials.",
         "",
         "- **Precision** = of the categories the extractor flagged, how many the human agreed with.",
         "- **Recall** = of the categories the human labeled, how many the extractor caught.",
         "- `-` means no instances (no gold positives and no predictions for that category).",
         "- Gold labels are human-made, independent of the extractor model (`claude-haiku-5-5`).",
+        "",
+        "## Known weak spot (not yet fixed)",
+        "",
+        "`prior_malignancy` has the lowest recall and accounts for most of the misses "
+        "(the model simply never emits the category on those trials). Fixing it needs a "
+        "**prompt change**, deliberately not done here: tuning against the held-out errors "
+        "would spend the held-out set. If pursued, label a fresh 10 held-out trials first "
+        "and quote the new held-out number, not the current one.",
+        "",
+        "## Reproduce",
+        "",
+        "```bash",
+        "python eval/run_eval.py   # regenerates this file from exclusions.csv + gold_labels.csv",
+        "```",
+        "The bootstrap CI uses a fixed seed (0), so these numbers are stable across runs.",
     ]
     RESULTS.write_text("\n".join(lines) + "\n")
 

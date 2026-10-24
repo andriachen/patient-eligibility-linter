@@ -89,7 +89,7 @@ MA county FIPS 25001–25027 (odd only), 14 counties — see README.
 | exclusions.csv (full run) | done | **v2 prompt, all 1011 uniform**; 3792 rows; 0 contract violations |
 | P2 suggest.py | done | template, 13 cats, FDA/ASCO-cited; 5 gap cats say "no guidance" w/ empty source; wired into lint.py |
 | P3 app | done (frontend) | Next.js at `app/project-starter` (NOT Streamlit); Landscape/Map read real CSVs, Linter still uses `mockLint.ts`; deploys on Vercel |
-| P4 eval | done | run_eval.py: micro F1 **0.93** (P 0.96 / R 0.91), CI [0.90,0.97]; results.md |
+| P4 eval | done | run_eval.py (42-trial gold, subsets + real bootstrap CI); all-42 F1 **0.94** [0.91,0.97], held-out **0.95** [0.89,0.99]; reproducible |
 | P4 docs | todo | sources.md / pitch.md / submission.md |
 | accounts/ | done | separate Next.js 16 app (not Streamlit): email login + branching profile wizard, saved to Supabase `profiles`; see accounts/README.md |
 

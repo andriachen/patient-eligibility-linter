@@ -2,5 +2,76 @@
   "nct_id": "NCT07711483",
   "model": "claude-haiku-5-5",
   "prompt_version": "v2-2026-10-24",
-  "exclusions": []
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Adult patients \u2265 18 years",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "ECOG performance status 0-2",
+      "threshold": "ECOG > 2"
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Estimated creatinine clearance of \u226530 mL/min, calculated using the Cockcroft and Gault equation (if male: \\[140 - Age\\] x Mass \\[kg\\] / \\[72 x creatinine g/dL\\]; multiply by 0.85 if female)",
+      "threshold": "CrCl < 30 mL/min"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Serum Aspartate Aminotransferase (AST) and Alanine Aminotransferase (ALT) \u2264 3 times the ULN",
+      "threshold": "AST/ALT > 3x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Total Bilirubin \u22641.5 x ULN, unless directly attributable to Gilbert-Meulengracht syndrome and \u22643.0 mg/dL",
+      "threshold": "bilirubin > 1.5x ULN"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "History of prior malignancy that could affect compliance with the protocol or interpretation of results, except for the following: Non-melanoma skin cancers, in situ malignancies, prostate cancer followed with watchful waiting, indolent lymphoma, any previously treated malignancy felt at low risk for recurrence.",
+      "threshold": null
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "HIV infection with positive viral titer by PCR. HIV with negative viral titer by PCR is not an exclusion as long as CD4 count is \u2265200 and patient is taking combination antiretroviral therapy.",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Patients with primary CNS lymphoma are not eligible.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Breastfeeding or pregnant: Pregnant women are excluded from this study because glofitamab, gemcitabine, oxaliplatin, fludarabine, and cyclophosphamide are agents with the potential for teratogenic or abortifacient effects.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Current life-threatening illness, medical condition, or organ system dysfunction which, in the Investigator's opinion, could compromise the subject's safety or put the study at risk",
+      "threshold": null
+    }
+  ]
 }

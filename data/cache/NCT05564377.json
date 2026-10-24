@@ -8,7 +8,7 @@
       "absolute": true,
       "section": "inclusion",
       "source_text": "Patient must have an Eastern Cooperative Oncology Group (ECOG) performance status between 0-2 OR patient must have Lansky performance status of \\>= 50% or Karnofsky performance status of \\>= 50%",
-      "threshold": "ECOG 0-2 OR Lansky/Karnofsky >= 50%"
+      "threshold": "ECOG 0-2 or Lansky/Karnofsky >= 50%"
     }
   ]
 }

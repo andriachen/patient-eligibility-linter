@@ -77,15 +77,20 @@ def is_bare_adult_floor(source_text: str) -> bool:
     text = normalize(source_text)
     if not text:
         return False
-    # Child-exclusion boilerplate: "because no data in patients < 18 ... children
-    # are excluded". The "< 18" looks like an upper cap but isn't a cohort limit.
-    if _AGE_CHILD_BOILERPLATE.search(text) or _AGE_CHILD_EXCLUDED.search(text):
-        return True
-    # If the quote signals any upper/range bound, it is a real restriction — keep.
-    if _AGE_UPPER_HINT.search(text):
-        return False
     nums = [int(n) for n in _AGE_NUM.findall(text) if n.isdigit()]
     age_nums = [n for n in nums if 0 < n <= 120]
+    # If ANY age above 18 appears, there is a real cap/minimum here — keep it,
+    # even if child-exclusion boilerplate is also present ("18 to 70; children
+    # excluded" must keep the 70 cap).
+    if any(n > 18 for n in age_nums):
+        return False
+    # Child-exclusion boilerplate with no adult-range number: "because no data in
+    # patients < 18 ... children are excluded". Not a cohort age restriction.
+    if _AGE_CHILD_BOILERPLATE.search(text) or _AGE_CHILD_EXCLUDED.search(text):
+        return True
+    # Any other upper/range bound signals a real restriction — keep.
+    if _AGE_UPPER_HINT.search(text):
+        return False
     if not age_nums:
         return False
     # Bare floor only when the only plausible age cutoff present is <= 18.
@@ -95,37 +100,58 @@ def is_bare_adult_floor(source_text: str) -> bool:
 # Each category's quote must contain at least one of these (normalized, casefolded)
 # keywords, mirroring the prompt's per-category triggers. A quote that lacks them
 # is about something else and the model mis-filed it. Conservative on purpose.
+#
+# Short/ambiguous keywords (ast, alt, mi, ef, gfr, cns, aids, cd4) are matched as
+# WHOLE WORDS so they don't fire inside other words (ast in "breast", mi in
+# "seminoma"). Listed in _WHOLE_WORD_KEYWORDS below.
 _CATEGORY_KEYWORDS: dict[str, tuple[str, ...]] = {
     "diabetes": ("diabet", "hba1c", "a1c", "glycemic", "glycaemic", "glucose", "insulin"),
     "bmi": ("bmi", "body mass", "kg/m", "body weight", "weight >", "weight <", "lbs", "kg)"),
     "smoking": ("smok", "tobacco", "nicotine", "cigarette", "vap"),
-    "renal": ("kidney", "renal", "creatinine", "crcl", "egfr", "gfr", "dialysis", "nephr"),
+    "renal": ("kidney", "renal", "creatinine", "clearance", "crcl", "egfr", "gfr",
+              "glomerular", "dialysis", "nephr"),
     "hepatic": ("liver", "hepat", "bilirubin", "ast", "alt", "sgot", "sgpt", "inr",
-                "cirrhosis", "child-pugh", "transaminase"),
-    "cardiac": ("cardiac", "heart", "nyha", "myocardial", "mi ", "lvef", "ef ",
+                "cirrhosis", "child-pugh", "transaminase", "aminotransferase"),
+    "cardiac": ("cardiac", "heart", "nyha", "myocardial", "mi", "lvef", "ef",
                 "ejection fraction", "qtc", "qt interval", "arrhythmi", "chf",
                 "congestive", "cardiovascular", "angina", "stroke"),
     "hiv": ("hiv", "human immunodeficiency", "aids", "cd4", "antiretroviral",
             "anti-retroviral"),
-    "brain_mets": ("cns", "central nervous", "brain", "leptomening", "metasta",
+    # brain_mets must be CNS/brain-specific; plain "metasta" let through any
+    # metastatic-disease sentence, so it's intentionally NOT here.
+    "brain_mets": ("cns", "central nervous", "brain", "leptomening",
                    "intracranial", "cerebral"),
     "prior_malignancy": ("malignan", "cancer", "carcinoma", "tumor", "tumour",
                          "neoplasm"),
     "performance_status": ("ecog", "karnofsky", "lansky", "performance status",
-                           "performance score"),
+                           "performance score", "eastern cooperative", "eastern oncology"),
     "language": ("english", "spanish", "language", "speak", "read", "fluent",
                  "interpreter", "literacy"),
     "pregnancy": ("pregnan", "breastfeed", "breast-feed", "lactat", "nursing"),
     # age uses the numeric logic above, not a keyword list
 }
 
+# Keywords that must match as whole words (regex \b...\b), to avoid substring
+# false hits like "ast" in "breast" or "mi" in "seminoma".
+_WHOLE_WORD_KEYWORDS = frozenset({"ast", "alt", "mi", "ef", "gfr", "cns", "aids",
+                                  "cd4", "a1c", "bmi", "chf", "hiv", "inr"})
+_WORD_RE_CACHE: dict[str, re.Pattern] = {}
+
+
+def _keyword_in(keyword: str, text: str) -> bool:
+    if keyword in _WHOLE_WORD_KEYWORDS:
+        pat = _WORD_RE_CACHE.get(keyword)
+        if pat is None:
+            pat = re.compile(rf"\b{re.escape(keyword)}\b")
+            _WORD_RE_CACHE[keyword] = pat
+        return pat.search(text) is not None
+    return keyword in text
+
 
 def quote_matches_category(category: str, source_text: str) -> bool:
     """True if the quote contains a keyword consistent with its category.
 
-    Age is exempt (handled numerically). HIV additionally requires that it isn't
-    only about hepatitis B/C — but since hepatitis quotes lack an hiv keyword,
-    the keyword check already rejects them.
+    Age is exempt (handled numerically). Short keywords are matched whole-word.
     """
     if category == "age":
         return True  # numeric logic handles age
@@ -133,7 +159,7 @@ def quote_matches_category(category: str, source_text: str) -> bool:
     if not keys:
         return True  # unknown category handled elsewhere
     text = normalize(source_text)
-    return any(k in text for k in keys)
+    return any(_keyword_in(k, text) for k in keys)
 
 
 def drop_noise(records: list[dict]) -> list[dict]:
