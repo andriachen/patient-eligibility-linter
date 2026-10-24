@@ -6,10 +6,7 @@ import { useEffect, useId, useState } from "react";
 
 import { ThresholdLogo } from "@/components/ThresholdLogo";
 import { controlTransition, focusRing } from "@/components/styles";
-import { glassButtonClass } from "@/components/ui/GlassButton";
 import { LiquidGlassPanel } from "@/components/ui/LiquidGlassPanel";
-import { ACCOUNTS_URL, LOGIN_URL } from "@/lib/accounts";
-import { useAccountSession } from "@/lib/useAccountSession";
 
 export const NAV_LINKS = [
   { href: "/", label: "Home" },
@@ -27,23 +24,6 @@ const linkClass =
   `rounded-full px-4 py-2 text-sm font-medium text-ink/70 hover:bg-white/55 hover:text-ink ${focusRing} ${controlTransition} ` +
   "aria-[current=page]:bg-white/75 aria-[current=page]:font-semibold aria-[current=page]:text-ink " +
   "aria-[current=page]:shadow-[inset_0_1px_2px_rgb(23_36_71/0.08),inset_0_0_0_1px_rgb(23_36_71/0.06),0_1px_0_rgb(255_255_255/0.9)]";
-
-/** Log in or Account, based on the accounts app's session cookie. */
-function AccountAction({ className = "", onNavigate }: { className?: string; onNavigate?: () => void }) {
-  const signedIn = useAccountSession();
-  const cls = glassButtonClass("primary", "sm", `min-w-[5.5rem] ${className}`);
-
-  if (signedIn === null) {
-    // Same footprint while the cookie is read, so the header never shifts.
-    return <span aria-hidden className={`${cls} pointer-events-none opacity-0`}>Log in</span>;
-  }
-  // Separate app (accounts/), so a plain <a>, not <Link>.
-  return (
-    <a href={signedIn ? ACCOUNTS_URL : LOGIN_URL} onClick={onNavigate} className={cls}>
-      {signedIn ? "Account" : "Log in"}
-    </a>
-  );
-}
 
 /** The one header used on every route. Lives in the root layout, so it never remounts. */
 export function AppHeader() {
@@ -86,7 +66,6 @@ export function AppHeader() {
               {label}
             </Link>
           ))}
-          <AccountAction className="ml-2" />
         </nav>
 
         <button
@@ -121,9 +100,6 @@ export function AppHeader() {
                 </Link>
               </li>
             ))}
-            <li className="mt-1.5">
-              <AccountAction className="min-h-11 w-full" onNavigate={() => setOpen(false)} />
-            </li>
           </ul>
         </nav>
       </LiquidGlassPanel>

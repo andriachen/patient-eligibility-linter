@@ -22,7 +22,7 @@ const Q: { key: keyof PatientVector; label: string; options: Opt[] }[] = [
     { value: "positive_controlled", label: "Positive, controlled on treatment" },
     { value: "positive_uncontrolled", label: "Positive, not controlled" },
   ]},
-  // ECOG 0, 1, 2 and 3+, in the accounts wizard's words (the Map's funnel uses ECOG 2 too).
+  // ECOG 0, 1, 2 and 3+, in plain-English wording (the Map's funnel uses ECOG 2 too).
   { key: "performance_status", label: "Your usual day", options: [
     { value: "unknown", label: "Prefer not to say" },
     { value: "fully_active", label: "Fully active, same as before I got sick" },
@@ -91,7 +91,7 @@ const MA_COUNTIES = [
   "Hampshire", "Middlesex", "Nantucket", "Norfolk", "Plymouth", "Suffolk", "Worcester",
 ];
 
-// Fixed cancer-type vocabulary — matches tag_trials.py / the accounts wizard, so the
+// Fixed cancer-type vocabulary — matches tag_trials.py, so the
 // patient's choice is a deterministic set test against each trial's tagged types.
 const CANCER_TYPE_OPTIONS = [
   { value: "breast", label: "Breast" },

@@ -1,8 +1,7 @@
 # Threshold web app
 
 Next.js 15 app for Landscape, Map (with "Who gets turned away"), Linter, Find trials and
-one page per trial (`/trial/NCT…`). It is served at `/` on Vercel; the accounts app at
-`/account` lives in `../../accounts`.
+one page per trial (`/trial/NCT…`). It is served at `/` on Vercel.
 
 ```bash
 npm install

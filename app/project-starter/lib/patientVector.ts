@@ -61,13 +61,13 @@ export type PatientVector = {
   language?: "english_ok" | "english_limited" | "unknown";
   pregnancy?: "no" | "yes" | "unknown";
   county?: string;
-  /** One of the fixed cancer-type codes below (a dropdown, same list as the accounts
-   *  wizard). Empty/undefined = don't filter by cancer type. */
+  /** One of the fixed cancer-type codes below (a dropdown).
+   *  Empty/undefined = don't filter by cancer type. */
   cancer_type?: string;
 };
 
 // Cancer matching uses the LLM-tagged `trial.cancer_types` (fixed vocabulary from
-// tag_trials.py / the accounts wizard) — NOT keyword guessing. The patient picks a
+// tag_trials.py) — NOT keyword guessing. The patient picks a
 // type from the same fixed list (a dropdown), so matching is a deterministic set test.
 //
 // Patient-facing types: breast, lung, colorectal, prostate, blood, skin, pancreatic,

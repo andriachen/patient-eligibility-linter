@@ -4,15 +4,9 @@
     "web": {
       "root": "app/project-starter",
       "framework": "nextjs"
-    },
-    "accounts": {
-      "root": "accounts",
-      "framework": "nextjs"
     }
   },
   "rewrites": [
-    { "source": "/account", "destination": { "service": "accounts" } },
-    { "source": "/account/(.*)", "destination": { "service": "accounts" } },
     { "source": "/(.*)", "destination": { "service": "web" } }
   ]
 }
