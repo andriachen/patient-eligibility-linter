@@ -1,5 +1,6 @@
 import { type CountyRecord, loadCounties } from "./loadCounties";
 import { allEligibilityTexts } from "./loadTrialDetails";
+import { loadTrialsIndex } from "./loadTrialsIndex";
 import { mockLintCriteria } from "./mockLint";
 import { loadLandscapeStats } from "./loadStats";
 
@@ -12,6 +13,8 @@ export type LintContext = {
   population: Record<string, { measure: string; source: string; counties: { county: string; pct: number }[] }>;
   /** flagHistogram[n] = how many trials the same keyword rules flag in n categories. */
   flagHistogram: number[];
+  /** modelHistogram[n] = how many trials the model's extraction (exclusions.csv) restricts in n categories. */
+  modelHistogram: number[];
   source: "mock" | "processed";
 };
 
@@ -47,16 +50,23 @@ export function loadLintContext(): LintContext {
         .slice(0, 5),
     };
   }
-  // Run the Linter's own rules over every trial so a draft is compared like for like.
+  // Compare a draft like for like: keyword flags against the same rules run on every
+  // trial, model flags against the model's extraction of every trial.
   const flagHistogram: number[] = [];
   for (const text of allEligibilityTexts()) {
     const n = mockLintCriteria(text).flags.length;
     flagHistogram[n] = (flagHistogram[n] ?? 0) + 1;
   }
+  const modelHistogram: number[] = [];
+  for (const trial of loadTrialsIndex().trials) {
+    const n = new Set(trial.exclusions.map((e) => e.category)).size;
+    modelHistogram[n] = (modelHistogram[n] ?? 0) + 1;
+  }
 
   return {
     totalTrials: stats.totalTrials,
     flagHistogram: Array.from(flagHistogram, (v) => v ?? 0),
+    modelHistogram: Array.from(modelHistogram, (v) => v ?? 0),
     trialPctByCategory: Object.fromEntries(stats.categories.map((c) => [c.category, c.pctExcluded])),
     population,
     source: stats.source === "processed" && source === "processed" ? "processed" : "mock",

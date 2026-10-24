@@ -1,7 +1,6 @@
-// Rule-based linter for the Linter tab. It runs in the browser with no API key: each
-// line of the pasted criteria is checked against keyword rules for the 13 README
-// categories. The model-based extractor (pipeline/extract) built the Landscape data
-// offline; this is the fast, explainable stand-in for live demos.
+// Rule-based linter: each line of the pasted criteria is checked against keyword rules
+// for the 13 README categories. It runs in the browser with no API key. The Linter uses
+// it when Claude isn't available (app/api/lint), or when the user picks it.
 
 export type LintFlag = {
   category: string;
@@ -19,7 +18,7 @@ export type LintResult = {
 
 // Copied from pipeline/extract/suggest.py (keep in sync). An empty source means no
 // FDA or ASCO-Friends guidance covers the category, so none is cited.
-const SUGGESTIONS: Record<string, [string, string]> = {
+export const SUGGESTIONS: Record<string, [string, string]> = {
   brain_mets: [
     "Allow patients with treated/stable or asymptomatic CNS metastases rather than excluding all brain metastases; define activity and stability criteria.",
     "FDA 2020 (Brain Metastases); ASCO-Friends 2017",
@@ -257,12 +256,15 @@ function guessSection(line: string): "inclusion" | "exclusion" {
 
 const BULLET = /^\s*(?:[-*•·◦▪]|\d{1,2}[.)]|[a-z][.)])\s+/i;
 
-/** Lines of criteria, split further on ";" and between sentences. */
-function clauses(text: string): { text: string; section: "inclusion" | "exclusion" | null }[] {
-  const out: { text: string; section: "inclusion" | "exclusion" | null }[] = [];
+type Clause = { text: string; section: "inclusion" | "exclusion" | null; line: number; lineText: string };
+
+/** Lines of criteria, split further on ";" and between sentences. Each clause keeps its line. */
+function clauses(text: string): Clause[] {
+  const out: Clause[] = [];
   let section: "inclusion" | "exclusion" | null = null;
   // Also break before a header in the middle of a pasted paragraph.
-  for (const rawLine of text.split(/\r\n?|\n|(?=\b(?:INCLUSION|EXCLUSION|Inclusion|Exclusion) (?:CRITERIA|Criteria|criteria)\s*:)/)) {
+  const lines = text.split(/\r\n?|\n|(?=\b(?:INCLUSION|EXCLUSION|Inclusion|Exclusion) (?:CRITERIA|Criteria|criteria)\s*:)/);
+  for (const [index, rawLine] of lines.entries()) {
     let line = rawLine.replace(BULLET, "").trim();
     if (!line) continue;
     const header = sectionHeader(line);
@@ -274,7 +276,7 @@ function clauses(text: string): { text: string; section: "inclusion" | "exclusio
     // (?<=\S) keeps the bullet split fast on long runs of spaces.
     for (const part of line.split(/;\s*|(?<=\.)\s+(?=[A-Z(])|(?<=\S)\s+[*•]\s+(?=\S)/)) {
       const clause = part.replace(BULLET, "").trim();
-      if (clause.length > 2) out.push({ text: clause, section });
+      if (clause.length > 2) out.push({ text: clause, section, line: index, lineText: line });
     }
   }
   return out;
@@ -282,19 +284,31 @@ function clauses(text: string): { text: string; section: "inclusion" | "exclusio
 
 const quote = (text: string) => (text.length > 280 ? `${text.slice(0, 277)}...` : text);
 
-/** Flag restrictive criteria, one flag per category (an absolute restriction wins over a conditional one). */
+/**
+ * Flag restrictive criteria, one flag per category. Within a line, a carve-out in a
+ * later sentence ("Known HIV infection. People on effective ART are eligible.") makes
+ * the whole line conditional; across lines an absolute restriction wins.
+ */
 export function mockLintCriteria(text: string): LintResult {
-  const byCategory = new Map<string, LintFlag>();
+  // One candidate per (line, category).
+  const perLine = new Map<string, LintFlag>();
   for (const clause of clauses(text)) {
     for (const rule of RULES) {
       const threshold = rule.match(clause.text);
       if (threshold === null) continue;
       const conditional = rule.category === "hiv" ? HIV_CONDITIONAL : CONDITIONAL;
       const absolute = ALWAYS.test(clause.text) || !conditional.test(clause.text);
-      const existing = byCategory.get(rule.category);
-      if (existing && (existing.absolute || !absolute)) continue;
+      const key = `${clause.line}:${rule.category}`;
+      const existing = perLine.get(key);
+      if (existing) {
+        if (existing.absolute !== absolute) {
+          existing.absolute = false;
+          existing.source_text = quote(clause.lineText);
+        }
+        continue;
+      }
       const [suggestion, suggestion_source] = SUGGESTIONS[rule.category];
-      byCategory.set(rule.category, {
+      perLine.set(key, {
         category: rule.category,
         threshold,
         absolute,
@@ -304,6 +318,12 @@ export function mockLintCriteria(text: string): LintResult {
         suggestion_source,
       });
     }
+  }
+  const byCategory = new Map<string, LintFlag>();
+  for (const flag of perLine.values()) {
+    const existing = byCategory.get(flag.category);
+    if (existing && (existing.absolute || !flag.absolute)) continue;
+    byCategory.set(flag.category, flag);
   }
   return { flags: [...byCategory.values()] };
 }
