@@ -139,14 +139,19 @@ def report(results: list[dict]) -> int:
 
 def write_exclusions(results: list[dict]) -> None:
     rows: list[dict] = []
-    dropped = 0
+    # Track WHY records are dropped, separately — the two causes are very different:
+    #   - unverifiable: source_text didn't match the trial text (model paraphrase /
+    #     empty quote / garble). These are quote-quality failures.
+    #   - guard: a VALID quote the deterministic guard removed as a known model
+    #     error (bare adult-age floor, or quote lacking its category's keyword).
+    dropped_unverifiable = 0
+    dropped_guard = 0
     for r in results:
-        # Only keep records whose source_text verifies against this trial's text,
-        # so every exclusions.csv row has an auditable quote. Then dedupe.
-        valid = [rec for rec in r["records"] if is_valid(rec.get("source_text", ""), r["text"])]
-        valid = drop_noise(valid)
-        dropped += len(r["records"]) - len(valid)
-        for rec in dedupe(valid):
+        verified = [rec for rec in r["records"] if is_valid(rec.get("source_text", ""), r["text"])]
+        dropped_unverifiable += len(r["records"]) - len(verified)
+        kept = drop_noise(verified)
+        dropped_guard += len(verified) - len(kept)
+        for rec in dedupe(kept):
             rows.append(
                 {
                     "nct_id": r["nct_id"],
@@ -164,8 +169,11 @@ def write_exclusions(results: list[dict]) -> None:
         w.writeheader()
         w.writerows(rows)
     print(
-        f"exclusions.csv: {len(rows)} rows -> {EXCLUSIONS_OUT} "
-        f"(dropped {dropped} unverifiable-quote records)"
+        f"exclusions.csv: {len(rows)} rows -> {EXCLUSIONS_OUT}\n"
+        f"  dropped {dropped_unverifiable} unverifiable-quote records "
+        f"(model paraphrase / empty / garble)\n"
+        f"  dropped {dropped_guard} guard records "
+        f"(bare adult-age floor or category-keyword mismatch — intended)"
     )
 
 
