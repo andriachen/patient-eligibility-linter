@@ -26,6 +26,14 @@ ROOT = Path(__file__).resolve().parents[1]
 GOLD = ROOT / "eval" / "gold_labels.csv"
 EXCLUSIONS = ROOT / "data" / "processed" / "exclusions.csv"
 RESULTS = ROOT / "eval" / "results.md"
+META = ROOT / "eval" / "gold_ids_meta.csv"
+
+# subsets of the gold set, by pick_method in gold_ids_meta.csv
+SUBSETS = [
+    ("random sample (original 30)", lambda m: m.startswith("random")),
+    ("targeted (picked for a category)", lambda m: m.startswith("targeted")),
+    ("held-out (prompt never tuned on these)", lambda m: m == "holdout"),
+]
 
 # the 13 fixed categories (plus the sentinel "none" used by gold labeling)
 CATEGORIES = [
@@ -59,12 +67,20 @@ def _load_pairs(path: Path, category_col: str = "category") -> dict[str, set[str
     return out
 
 
-def evaluate() -> dict:
+def _pick_methods() -> dict[str, str]:
+    """Return {nct_id: pick_method} from gold_ids_meta.csv."""
+    with META.open(newline="") as fh:
+        return {row["nct_id"]: row["pick_method"] for row in csv.DictReader(fh)}
+
+
+def evaluate(only: set[str] | None = None) -> dict:
     gold = _load_pairs(GOLD)
     pred_all = _load_pairs(EXCLUSIONS)
 
-    # scope strictly to labeled trials
+    # scope strictly to labeled trials (optionally narrowed to a subset)
     labeled = set(gold.keys())
+    if only is not None:
+        labeled &= only
     # trials in gold but never extracted still count (their pred set is empty)
     pred = {nct: pred_all.get(nct, set()) for nct in labeled}
 
@@ -128,7 +144,18 @@ def _fmt(x: float) -> str:
     return "-" if x != x else f"{x:.2f}"  # NaN -> "-"
 
 
-def write_results(res: dict) -> None:
+def evaluate_subsets() -> list[tuple[str, dict]]:
+    methods = _pick_methods()
+    out = []
+    for name, match in SUBSETS:
+        ids = {nct for nct, m in methods.items() if match(m)}
+        res = evaluate(only=ids)
+        if res["n_trials"]:
+            out.append((name, res))
+    return out
+
+
+def write_results(res: dict, subsets: list[tuple[str, dict]]) -> None:
     lines = [
         "# Evaluation Results (P4, Phase 2)",
         "",
@@ -150,6 +177,22 @@ def write_results(res: dict) -> None:
         f"| **{_fmt(m['f1'])}** | {m['tp']} | {m['fp']} | {m['fn']} | "
         f"{m['tp'] + m['fn']} |",
         "",
+        "## By subset (overall micro)",
+        "",
+        "| subset | trials | precision | recall | F1 | TP | FP | FN |",
+        "|--------|--------|-----------|--------|----|----|----|----|",
+    ]
+    for name, s in subsets:
+        sm = s["micro"]
+        lines.append(
+            f"| {name} | {s['n_trials']} | {_fmt(sm['precision'])} | {_fmt(sm['recall'])} "
+            f"| {_fmt(sm['f1'])} | {sm['tp']} | {sm['fp']} | {sm['fn']} |"
+        )
+    lines += [
+        "",
+        "Quote the held-out row as the headline accuracy: the extraction prompt was tuned "
+        "while looking at errors on the original 32, so their scores are optimistic.",
+        "",
         "- **Precision** = of the categories the extractor flagged, how many the human agreed with.",
         "- **Recall** = of the categories the human labeled, how many the extractor caught.",
         "- `-` means no instances (no gold positives and no predictions for that category).",
@@ -160,7 +203,8 @@ def write_results(res: dict) -> None:
 
 def main() -> None:
     res = evaluate()
-    write_results(res)
+    subsets = evaluate_subsets()
+    write_results(res, subsets)
     # console summary
     print(f"Evaluated {res['n_trials']} gold-labeled trials.\n")
     print(f"{'category':20s} {'prec':>6s} {'rec':>6s} {'f1':>6s} {'sup':>4s}")
@@ -174,6 +218,13 @@ def main() -> None:
         f"\n{'OVERALL (micro)':20s} {_fmt(m['precision']):>6s} {_fmt(m['recall']):>6s} "
         f"{_fmt(m['f1']):>6s}   (TP={m['tp']} FP={m['fp']} FN={m['fn']})"
     )
+    print()
+    for name, s in subsets:
+        sm = s["micro"]
+        print(
+            f"{name:42s} n={s['n_trials']:<3d} prec {_fmt(sm['precision'])}  "
+            f"rec {_fmt(sm['recall'])}  f1 {_fmt(sm['f1'])}"
+        )
     print(f"\n-> wrote {RESULTS.relative_to(ROOT)}")
 
 

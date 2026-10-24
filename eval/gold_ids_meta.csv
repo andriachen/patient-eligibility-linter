@@ -31,3 +31,13 @@ NCT01790152,observational,heme,nci_coop,random,Children's Oncology Group,Effects
 NCT04242095,observational,other,nci_coop,random,Alliance for Clinical Trials in Oncology,Collection of Research Data and Samples From Patients Treated With Immunotherapy to Study Its Side Effects,2026
 NCT06265272,observational,gi,academic,targeted:bmi,Massachusetts General Hospital,Value of [68Ga]Ga-PSMA-11 PET/MRI in the Assessment of Liver Cirrhosis,2026
 NCT03535545,phase1,lung,academic,targeted:bmi,Massachusetts General Hospital,"Preliminary Evaluation of [68Ga]CBP8 in Healthy Individuals, Lung Cancer, and Idiopathic Pulmonary Fibrosis Patients",2026
+NCT06040541,phase1,lung,industry,holdout,"Revolution Medicines, Inc.",Study of RMC-9805 in Participants With KRAS G12D-Mutant Solid Tumors,2026
+NCT06424327,observational,lung,academic,holdout,Memorial Sloan Kettering Cancer Center,A Registry for People With Lung Cancer,2026
+NCT02610426,observational,breast,nci_coop,holdout,National Cancer Institute (NCI),Whole Exome Sequencing in Finding Causative Variants in Germline DNA Samples From Patients With Congestive Heart Failure Receiving Therapy for Breast Cancer,2026
+NCT06589804,phase3,head_neck,nci_coop,holdout,National Cancer Institute (NCI),"Testing the Addition of Anti-Cancer Drug, Cetuximab, to Standard of Care Treatment (Pembrolizumab) for Returning or Spreading Head and Neck Cancer After Previous Treatment",2026
+NCT06580314,phase3,gyn,nci_coop,holdout,NRG Oncology,"Testing Olaparib for One or Two Years, With or Without Bevacizumab, to Treat Ovarian Cancer",2026
+NCT03394365,phase3,heme,industry,holdout,Pierre Fabre Medicament,A Phase 3 Study of Tabelecleucel for Participants With Epstein-Barr Virus-Associated Post-Transplant Lymphoproliferative Disease After Failure With Rituximab or Rituximab and Chemotherapy,2026
+NCT06422806,phase3,sarcoma,nci_coop,holdout,National Cancer Institute (NCI),Measuring if Immunotherapy Plus Chemotherapy is Better Than Chemotherapy Alone for Patients With Aggressive Poorly Differentiated Sarcomas,2026
+NCT04024761,phase1,heme,academic,holdout,Dana-Farber Cancer Institute,A Phase 1 Trial of CIML NK Cell Infusion for Myeloid Disease Relapse After Hematopoietic Cell Transplantation,2026
+NCT06986174,phase2,heme,academic,holdout,"Shayna Sarosiek, MD",A Phase 2 Study to Evaluate the Safety and Efficacy of Pacritinib in Relapsed or Refractory Waldenström Macroglobulinemia,2026
+NCT06712355,phase3,lung,industry,holdout,BioNTech SE,"Safety and Efficacy of BNT327, an Investigational Therapy in Combination With Chemotherapy for Patients With Untreated Small-cell Lung Cancer",2026

@@ -1,0 +1,99 @@
+{
+  "totalTrials": 1011,
+  "defaultCategory": "hiv",
+  "headline": "37.5% of recruiting MA cancer trials restrict people with HIV, despite FDA guidance to include them",
+  "headlineNote": "18.4% exclude outright; the rest set conditions (e.g. CD4 count, viral load). Sources: ClinicalTrials.gov; FDA 2020 guidance on HIV, HBV and HCV in cancer trials.",
+  "categories": [
+    {
+      "category": "diabetes",
+      "label": "Diabetes",
+      "pctExcluded": 7.5,
+      "trialCount": 76,
+      "pctAbsolute": 2.2
+    },
+    {
+      "category": "bmi",
+      "label": "BMI",
+      "pctExcluded": 3.3,
+      "trialCount": 33,
+      "pctAbsolute": 2.9
+    },
+    {
+      "category": "smoking",
+      "label": "Smoking",
+      "pctExcluded": 5.3,
+      "trialCount": 54,
+      "pctAbsolute": 2.6
+    },
+    {
+      "category": "age",
+      "label": "Age",
+      "pctExcluded": 19.2,
+      "trialCount": 194,
+      "pctAbsolute": 17.4
+    },
+    {
+      "category": "renal",
+      "label": "Renal",
+      "pctExcluded": 33.1,
+      "trialCount": 335,
+      "pctAbsolute": 19.1
+    },
+    {
+      "category": "hepatic",
+      "label": "Hepatic",
+      "pctExcluded": 33.3,
+      "trialCount": 337,
+      "pctAbsolute": 19.2
+    },
+    {
+      "category": "cardiac",
+      "label": "Cardiac",
+      "pctExcluded": 45.6,
+      "trialCount": 461,
+      "pctAbsolute": 22.7
+    },
+    {
+      "category": "hiv",
+      "label": "HIV",
+      "pctExcluded": 37.5,
+      "trialCount": 379,
+      "pctAbsolute": 18.4
+    },
+    {
+      "category": "brain_mets",
+      "label": "Brain metastases",
+      "pctExcluded": 45.8,
+      "trialCount": 463,
+      "pctAbsolute": 21.5
+    },
+    {
+      "category": "prior_malignancy",
+      "label": "Prior malignancy",
+      "pctExcluded": 51.5,
+      "trialCount": 521,
+      "pctAbsolute": 18.1
+    },
+    {
+      "category": "performance_status",
+      "label": "Performance status",
+      "pctExcluded": 59.5,
+      "trialCount": 602,
+      "pctAbsolute": 49.4
+    },
+    {
+      "category": "language",
+      "label": "Language",
+      "pctExcluded": 10.5,
+      "trialCount": 106,
+      "pctAbsolute": 8.8
+    },
+    {
+      "category": "pregnancy",
+      "label": "Pregnancy",
+      "pctExcluded": 53.1,
+      "trialCount": 537,
+      "pctAbsolute": 43.3
+    }
+  ]
+}
