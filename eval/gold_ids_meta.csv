@@ -1,0 +1,33 @@
+nct_id,phase,cancer_type,sponsor_type,pick_method,lead_sponsor,title,seed
+NCT06292780,phase2,other,industry,random,Regeneron Pharmaceuticals,A Trial to Learn if Linvoseltamab is Safe and Works in Adults With Relapsed or Refractory Systemic Light Chain Amyloidosis (AL Amyloidosis),2026
+NCT03452774,observational,breast,industry,random,"Massive Bio, Inc.",SYNERGY-AI: Artificial Intelligence Based Precision Oncology Clinical Trial Matching and Registry,2026
+NCT06982521,phase3,breast,industry,random,"Relay Therapeutics, Inc.",Phase 3 Study of RLY-2608 + Fulvestrant vs Capivasertib + Fulvestrant as Treatment for Locally Advanced or Metastatic PIK3CA-mutant HR+/HER2- Breast Cancer,2026
+NCT04410796,phase2,lung,academic,random,Memorial Sloan Kettering Cancer Center,Osimertinib Alone or With Chemotherapy for EGFR-Mutant Lung Cancers,2026
+NCT06791057,phase4_na,lung,academic,random,Massachusetts General Hospital,Multi-site Trial of a Brief Behavioral Intervention for Dyspnea in Patients With Advanced Lung Cancer,2026
+NCT02000089,phase3,gi,academic,random,Johns Hopkins University,The Cancer of the Pancreas Screening-5 CAPS5)Study,2026
+NCT03749980,observational,gu,academic,random,"Joshua Mann, MPH",MyVHL: Patient Natural History Study,2026
+NCT06472128,phase4_na,heme,academic,random,Massachusetts General Hospital,Novel Digital Application for Patients With Acute Leukemia,2026
+NCT06691217,phase2,other,academic,random,Massachusetts General Hospital,Effects of IL-1 Beta Inhibition on Vascular Inflammation in TET2 Clonal Hematopoiesis,2026
+NCT07349537,phase1,lung,industry,random,"Revolution Medicines, Inc.",Study of RMC-5127 in Patients With Advanced KRAS G12V-Mutant Solid Tumors,2026
+NCT04636710,phase4_na,breast,academic,random,Dana-Farber Cancer Institute,Refining Local-Regional Therapy for IBC,2026
+NCT06541990,phase4_na,gi,academic,random,Massachusetts General Hospital,Psychoeducational Intervention for Patients With Hepatocellular Carcinoma,2026
+NCT07137416,phase1,breast,nci_coop,random,National Cancer Institute (NCI),Testing the Safety of the Combination of Anti-Cancer Drugs CX-5461 (Pidnarulex) and Trastuzumab Deruxtecan (T-DXd) for Human Epidermal Growth Factor Receptor 2 (HER2)-Positive Solid Tumors and Breast Cancer,2026
+NCT05786924,phase2,lung,academic,random,Institut de Recherches Internationales Servier,Phase 1/2 Trial of S241656 in Selected RAS/MAPK Mutation- Positive Malignancies,2026
+NCT03067181,phase3,gu,nci_coop,random,Children's Oncology Group,"Active Surveillance, Bleomycin, Etoposide, Carboplatin or Cisplatin in Treating Pediatric and Adult Patients With Germ Cell Tumors",2026
+NCT06849713,phase2,heme,academic,random,Massachusetts General Hospital,"Zanubrutinib, Obinutuzumab, Sonrotoclax (BOSon) or BGB-16673, Obinutuzumab, Sonrotoclax (DOSon) in TN CLL/SLL",2026
+NCT05463796,observational,supportive,academic,random,Dana-Farber Cancer Institute,"InAdvance: Surveillance, Prevention, and Interception in a Population at Risk for Cancer",2026
+NCT05410977,observational,gi,academic,random,Mayo Clinic,Collecting Blood and Stool Samples to Detect Colorectal Cancer or Advanced Neoplasia in Lynch Syndrome Patients,2026
+NCT03526835,phase2,lung,industry,random,Merus B.V.,A Study of Bispecific Antibody MCLA-158 in Patients With Advanced Solid Tumors,2026
+NCT06925737,phase3,gu,industry,random,Merck Sharp & Dohme LLC,A Clinical Study of Ifinatamab Deruxtecan (I-DXd) in People With Metastatic Prostate Cancer (MK-2400-001),2026
+NCT07023627,phase2,gyn,industry,random,Incyte Corporation,A Study of INCB123667 in Participants With Platinum-Resistant Ovarian Cancer With Cyclin E1 Overexpression,2026
+NCT06950034,phase1,heme,industry,random,"Solu Therapeutics, Inc",A Phase 1 Study of STX-0712 in Patients With Advanced Hematological Malignancies (CMML and AML),2026
+NCT07128303,phase1,solid_multi,industry,random,Gilead Sciences,Study of GS-5319 Given Alone or in Combination in Adults With Solid Tumors,2026
+NCT06428019,phase3,heme,industry,random,AbbVie,A Study to Evaluate the Risk of Tumor Lysis Syndrome (TLS) in Adult Participants Receiving Oral Venetoclax in Combination With Intravenously Infused Obinutuzumab or Oral Acalabrutinib for Previously Untreated Chronic Lymphocytic Leukemia (CLL),2026
+NCT05951179,phase2,gu,industry,random,Protara Therapeutics,Safety and Efficacy Study of Intravesical Instillation of TARA-002 in Adults With High-grade Non-muscle Invasive Bladder Cancer,2026
+NCT07226349,phase1,solid_multi,industry,random,BeOne Medicines,A Study of BG-75098 Alone and in Combination With Other Agents in Adults With Advanced Solid Tumors,2026
+NCT06401330,phase3,gu,nci_coop,random,Children's Oncology Group,A Study Using Risk Factors to Determine Treatment for Children With Favorable Histology Wilms Tumors (FHWT),2026
+NCT05687110,phase1,other,nci_coop,random,National Cancer Institute (NCI),Studying the Safety and Determining the Optimal Dose of Novobiocin in Patients With Tumors That Have Alterations in DNA Repair Genes,2026
+NCT01790152,observational,heme,nci_coop,random,Children's Oncology Group,Effects of Dexrazoxane Hydrochloride on Biomarkers Associated With Cardiomyopathy and Heart Failure After Cancer Treatment,2026
+NCT04242095,observational,other,nci_coop,random,Alliance for Clinical Trials in Oncology,Collection of Research Data and Samples From Patients Treated With Immunotherapy to Study Its Side Effects,2026
+NCT06265272,observational,gi,academic,targeted:bmi,Massachusetts General Hospital,Value of [68Ga]Ga-PSMA-11 PET/MRI in the Assessment of Liver Cirrhosis,2026
+NCT03535545,phase1,lung,academic,targeted:bmi,Massachusetts General Hospital,"Preliminary Evaluation of [68Ga]CBP8 in Healthy Individuals, Lung Cancer, and Idiopathic Pulmonary Fibrosis Patients",2026

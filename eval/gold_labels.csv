@@ -1,1 +1,6 @@
-nct_id,category,text,label
+nct_id,category,threshold,source_text
+NCT07349537,performance_status,ECOG 0-1,Eastern Cooperative Oncology Group (ECOG) performance status of 0 or 1.
+NCT07349537,renal,,"Adequate organ function (bone marrow, liver, kidney, coagulation)."
+NCT07349537,hepatic,,"Adequate organ function (bone marrow, liver, kidney, coagulation)."
+NCT07226349,performance_status,ECOG 0-1,Participants must have a stable Eastern Cooperative Oncology Group (ECOG) Performance Status of 0 or 1.
+NCT07226349,NCT________,brain_mets,,"Participants with active leptomeningeal disease or uncontrolled, untreated brain metastasis."
