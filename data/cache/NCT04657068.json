@@ -1,0 +1,90 @@
+{
+  "nct_id": "NCT04657068",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Performance status of 0-1 on the ECOG Scale",
+      "threshold": "ECOG 0-1"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Women who are pregnant, breast feeding, or who plan to become pregnant while in the study or within 7 months after the last administration of study treatment",
+      "threshold": null
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "one or more opportunistic HIV/AIDs-related infections within the past 12 months",
+      "threshold": "within 12 months"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Symptomatic or uncontrolled brain metastases, spinal cord compression, or leptomeningeal disease requiring concurrent treatment",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Moderate or severe cardiovascular disease",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Documented major electrocardiogram (ECG) abnormalities which are clinically significant",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Performance status of 0-1 on the ECOG scale",
+      "threshold": "ECOG 0-1"
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Performance status of 0-1 on the Eastern Cooperative Oncology Group (ECOG) scale",
+      "threshold": "ECOG 0-1"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "malignancy prior to the one currently being treated that is not in remission",
+      "threshold": null
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Acceptable hematologic, renal, hepatic, and coagulation functions independent of transfusions and granulocyte colony-stimulating factor",
+      "threshold": null
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Acceptable hematologic, renal, hepatic, and coagulation functions independent of transfusions and granulocyte colony-stimulating factor",
+      "threshold": null
+    },
+    {
+      "category": "smoking",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Parts B5 and B6: Weight loss \\>10% in the previous 8 weeks.",
+      "threshold": null
+    }
+  ]
+}

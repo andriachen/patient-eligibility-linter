@@ -1,0 +1,48 @@
+{
+  "nct_id": "NCT06959706",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Males or females 18 years or older.",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group Performance Status 0-1.",
+      "threshold": "ECOG 0-1"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Active second malignancy or history of another malignancy within the last 2 years, with the exception of:",
+      "threshold": "within 2 years"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Known symptomatic brain metastases.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Significant cardiovascular disease within 6 months prior to starting study drug.",
+      "threshold": "within 6 months"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant or a breastfeeding postpartum female.",
+      "threshold": null
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "nct_id": "NCT06609473",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "bmi",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "body mass index \u2265 85th percentile",
+      "threshold": "BMI \u2265 85th percentile"
+    },
+    {
+      "category": "diabetes",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "impaired glucose metabolism \\[fasting glucose \u2265100 mg/dL, hemoglobin A1c \u22655.7%\\]",
+      "threshold": "fasting glucose \u2265100 mg/dL or HbA1c \u22655.7%"
+    },
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Child is \u226418 years of age at time of enrollment, or over 18 years of age but under medical guardianship;",
+      "threshold": "age <= 18"
+    }
+  ]
+}

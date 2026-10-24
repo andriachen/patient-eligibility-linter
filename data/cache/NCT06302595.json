@@ -1,0 +1,20 @@
+{
+  "nct_id": "NCT06302595",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "No recent or ongoing active ischemic heart disease.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Recent or ongoing active ischemic heart disease such as recent or ongoing angina.",
+      "threshold": null
+    }
+  ]
+}

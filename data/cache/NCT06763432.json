@@ -1,0 +1,13 @@
+{
+  "nct_id": "NCT06763432",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Individuals with a personal history of colorectal cancer",
+      "threshold": null
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "nct_id": "NCT07059884",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age 18-64 years",
+      "threshold": "age <= 64"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Patients cannot have metastatic cancer",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Patients cannot be pregnant, because this study involves remotely delivered exercise, and cannot be breast-feeding as patients must be receiving cytotoxic chemotherapy, during which breast-feeding is contraindicated",
+      "threshold": null
+    },
+    {
+      "category": "language",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Eligibility is restricted to individuals who can comprehend and read English",
+      "threshold": null
+    },
+    {
+      "category": "smoking",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "",
+      "threshold": null
+    }
+  ]
+}

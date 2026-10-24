@@ -1,0 +1,118 @@
+{
+  "nct_id": "NCT06234423",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Male or female patients, \u226518 years of age at the time of obtaining informed consent.",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status of 0 or 1 and life expectancy of \u226512 weeks.",
+      "threshold": "ECOG 0 or 1"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Creatinine clearance (CrCl) \u226545 mL/min as calculated by the Cockcroft-Gault method.",
+      "threshold": "CrCl \u226545 mL/min"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Serum total bilirubin \u2264 1.5 x the upper limit of normal (ULN).",
+      "threshold": "bilirubin \u2264 1.5 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Aspartate aminotransferase (AST) \u22642.5 x ULN; alanine aminotransferase (ALT) \u2264 2.5 x ULN.",
+      "threshold": "AST/ALT \u2264 2.5 x ULN"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Left ventricular ejection fraction (LVEF) \u226550% as per echocardiography (ECHO) or multi-gated acquisition scan (MUGA).",
+      "threshold": "LVEF \u226550%"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Q wave to T wave (QT) interval corrected for heart rate (QTc) \u2264480 ms (Fridericia's formula).",
+      "threshold": "QTc \u2264480 ms"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Women of child-bearing potential (WOCBP), defined as a sexually mature woman who has not undergone surgical sterilization or who has not been naturally postmenopausal for at least 12 consecutive months must agree to use a highly effective contraceptive method",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Active or progressing brain metastases or evidence of leptomeningeal disease.",
+      "threshold": null
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Patients with acute or chronic pancreatitis and/or liver cirrhosis except well compensated cirrhosis (Child-Pugh class A).",
+      "threshold": "except Child-Pugh class A"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Hepatic insufficiency manifesting as clinical jaundice, hepatic encephalopathy, and/or variceal bleed within 60 days prior to study entry.",
+      "threshold": "within 60 days"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "History of liver transplant.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Significant cardiac disease, such as recent (within 6 months prior to first dose of the study drug) myocardial infarction or acute coronary syndromes (including unstable angina pectoris), congestive heart failure (New York Heart Association class III or IV), uncontrolled hypertension, uncontrolled cardiac arrhythmias, severe aortic stenosis.",
+      "threshold": "MI within 6 months; NYHA III or IV"
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Acute and/or clinically significant bacterial, fungal, or viral infection including hepatitis B (HBV), hepatitis C (HCV), known human immunodeficiency virus (HIV).",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant or breast-feeding females.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Prior history of malignancy other than inclusion diagnosis within 3 years prior to first dose of the study drug.",
+      "threshold": "within 3 years"
+    }
+  ]
+}

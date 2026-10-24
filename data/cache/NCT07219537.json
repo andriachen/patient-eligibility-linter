@@ -1,0 +1,20 @@
+{
+  "nct_id": "NCT07219537",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Who are over 75 years of age or older",
+      "threshold": "age >= 75"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Who are pregnant",
+      "threshold": null
+    }
+  ]
+}

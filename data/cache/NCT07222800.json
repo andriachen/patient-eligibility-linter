@@ -1,0 +1,27 @@
+{
+  "nct_id": "NCT07222800",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group performance status (ECOG) 0-1",
+      "threshold": "ECOG 0-1"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participants with known active symptomatic CNS lesions, including leptomeningeal metastasis, brainstem, meningeal, or spinal cord metastases or compression",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Clinically significant cardiovascular disease, or other comorbidities, within 6 months prior to first dose",
+      "threshold": "within 6 months"
+    }
+  ]
+}

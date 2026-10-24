@@ -1,0 +1,13 @@
+{
+  "nct_id": "NCT04516447",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Subjects with active (uncontrolled, metastatic) second malignancies or requiring therapy.",
+      "threshold": null
+    }
+  ]
+}

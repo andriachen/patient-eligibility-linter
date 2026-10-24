@@ -1,0 +1,20 @@
+{
+  "nct_id": "NCT07326566",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Recurrent multifocal disease, metastatic, leptomeningeal, or extracranial GBM, or gliomatosis cerebri.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Significant other uncontrolled health conditions or other malignancies.",
+      "threshold": null
+    }
+  ]
+}

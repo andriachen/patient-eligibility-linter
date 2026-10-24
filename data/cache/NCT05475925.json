@@ -1,0 +1,48 @@
+{
+  "nct_id": "NCT05475925",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "\u226518 years of age.",
+      "threshold": null
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Infection with human immunodeficiency virus (HIV) type 1 or 2 (HIV-1 or HIV-2).",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Active or suspected malignant central nervous system involvement.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Active known second malignancy.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "History of clinically significant cardiac disease or congestive heart failure greater than New York Heart Association (NYHA) Class II.",
+      "threshold": "NYHA > Class II"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Female subjects of childbearing potential (postmenarcheal, has an intact uterus and at least one ovary, and is \\<1 year postmenopausal) must agree to use a highly effective method of contraception from enrollment through at least 12 months after last dose of DR-01.",
+      "threshold": null
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "nct_id": "NCT05080673",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Participants greater than or equal to 45 and less than 70 years of age at the time of colonoscopy.",
+      "threshold": "age < 70"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Previous malignancies unless the patient has been disease-free for 5 or more years prior to randomization and is deemed by the physician to be at low risk for recurrence.",
+      "threshold": "disease-free for 5 or more years"
+    }
+  ]
+}

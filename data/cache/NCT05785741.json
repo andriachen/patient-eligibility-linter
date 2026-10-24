@@ -1,0 +1,90 @@
+{
+  "nct_id": "NCT05785741",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Male or female adults (defined as \u2265 18 years of age or acceptable age according to local regulations at the time of voluntarily signing of informed consent).",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Has an Eastern Cooperative Oncology Group (ECOG) performance status (PS) of 0-1.",
+      "threshold": "ECOG 0-1"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Has LVEF \u2265 50% by either echocardiography (ECHO) or multiple-gated acquisition (MUGA) within 28 days before enrollment.",
+      "threshold": "LVEF \u2265 50%"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Male and female subjects of reproductive/childbearing potential must agree to use adequate contraceptive methods (e.g., double barrier or intrauterine contraceptive) during the study and for at least 4 months and 7 months after the last dose of study drug, respectively.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Has multiple primary malignancies within 5 years before enrollment, except adequately resected non-melanoma skin cancer (e.g., resected basal or squamous cell skin cancer), curatively treated in-situ disease (e.g., carcinoma in situ of the cervix or breast), other solid tumors curatively treated (e.g., \\< T1 urothelial carcinoma), or contralateral breast cancer.",
+      "threshold": "within 5 years"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Has a medical history of symptomatic congestive heart failure (CHF) (New York Heart Association \\[NYHA\\] classes II-IV) or serious cardiac arrhythmia requiring treatment.",
+      "threshold": "NYHA class II-IV"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Has a medical history of myocardial infarction or unstable angina or cerebrovascular accident including transient ischemic attack (TIA) within 6 months before first dose.",
+      "threshold": "within 6 months"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Has an average of Fredericia's formula-QT corrected interval (QTcF) prolongation to \\> 470 millisecond (ms) based on a 12-lead electrocardiogram (ECG) in triplicate.",
+      "threshold": "QTcF > 470 ms"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Has any clinically important abnormalities in rhythm, conduction or morphology of resting electrocardiogram (ECG), e.g., complete left bundle branch block, third-degree heart block, second-degree heart block, or PR interval \\> 250 milliseconds (ms).",
+      "threshold": "PR interval > 250 ms"
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Know human immunodeficiency virus (HIV) infection.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Is a lactating mother (women who are willing to temporarily interrupt breastfeeding will also be excluded), or pregnant as confirmed by serum pregnancy tests performed within 7 days prior to Cycle 1 Day 1.",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Has clinically active central nervous system (CNS) metastases, defined as untreated, or symptomatic, or requiring therapy with glucocorticoids or anticonvulsants to control associated symptoms.",
+      "threshold": null
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "nct_id": "NCT06427954",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group (ECOG) Performance Status (PS) = 0-2 (i.e., fully active to at least ambulatory and up and about more than 50% of waking hours).",
+      "threshold": "ECOG PS 0-2"
+    },
+    {
+      "category": "language",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Sufficient English proficiency to utilize THRIVE in English (Note: patients can complete outcome measures in Spanish if preferred).",
+      "threshold": null
+    }
+  ]
+}

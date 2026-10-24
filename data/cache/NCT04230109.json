@@ -1,0 +1,55 @@
+{
+  "nct_id": "NCT04230109",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ECOG performance status = 0, 1 (Karnofsky \u226560%, see Appendix A)",
+      "threshold": "ECOG > 1"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participants currently receiving systemic therapy for any malignancy or having received systemic therapy for a malignancy in the preceding 3 years.",
+      "threshold": "within 3 years"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "History of angina pectoris, symptomatic pericarditis, coronary artery bypass graft (CABG) or myocardial infarction within 6 months prior to study entry.",
+      "threshold": "within 6 months"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "known cardiomyopathy (LVEF \\< 50%; new LVEF assessment is not specifically required for this trial)",
+      "threshold": "LVEF < 50%"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "QTcF \\>470 screening ECG",
+      "threshold": "QTcF > 470 ms"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant or breast-feeding women are excluded from this study because the safety of study medications is not established.",
+      "threshold": null
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "HIV-infected patients on effective anti-retroviral therapy with undetectable viral load within 6 months prior to enrollment are eligible for this trial.",
+      "threshold": null
+    }
+  ]
+}

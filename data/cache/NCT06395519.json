@@ -1,0 +1,76 @@
+{
+  "nct_id": "NCT06395519",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Males and females of age \u2265 18 years at the time of signing the informed consent document.",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ECOG performance status 0-1.",
+      "threshold": "ECOG 0-1"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Symptomatic untreated or progressing brain metastases. Stable, treated brain metastases are allowed if no evidence of radiologic or clinical progression or increasing corticosteroid use for at least 4 weeks.",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Known symptomatic and radiologically progressing or leptomeningeal disease (LMD).",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Resting ECG with QT interval calculated using the Fridericia's formula (QTcF) \\>470 msec on 2 or more timepoints within a 24-hour period, or history or family history of congenital long QT syndrome, or taking concomitant medications that are known to prolong the QT/QTc interval, or history of additional risk factors for torsades de pointes (Tdp).",
+      "threshold": "QTcF > 470 msec"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "History of myocardial infarction or unstable angina within 6 months prior to enrollment, or clinically significant cardiac disease, such as ventricular arrhythmia requiring therapy, uncontrolled hypertension, clinically significant uncontrolled arrhythmias, or any history of symptomatic congestive heart failure.",
+      "threshold": "MI within 6 months"
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Known active or chronic infection (viral, bacterial, or fungal), including tuberculosis, hepatitis B, hepatitis C, or AIDS-related illness. Controlled infections, including HIV and \"cured\" hepatitis C (no active fever, no evidence of systemic inflammatory response syndrome) that are stable with undetectable viral load on antiviral treatment are not exclusionary.",
+      "threshold": null
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Acute or chronic uncontrolled renal disease, pancreatitis, or liver disease (with exception of patients with Gilbert's Syndrome, asymptomatic gallstones, liver metastases, or stable chronic liver disease per Investigator assessment).",
+      "threshold": null
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Acute or chronic uncontrolled renal disease, pancreatitis, or liver disease (with exception of patients with Gilbert's Syndrome, asymptomatic gallstones, liver metastases, or stable chronic liver disease per Investigator assessment).",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Known other previous/current malignancy requiring treatment within \u22642 years except for limited disease treated with curative intent, such as carcinoma in situ, squamous or basal cell skin carcinoma, or superficial bladder carcinoma and not requiring ongoing chemotherapy.",
+      "threshold": "within 2 years"
+    }
+  ]
+}

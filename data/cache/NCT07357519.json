@@ -1,0 +1,62 @@
+{
+  "nct_id": "NCT07357519",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group (ECOG) Performance Score (PS): 0 - 2",
+      "threshold": "ECOG 0-2"
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Lansky PS \u2265 50.",
+      "threshold": "Lansky PS >= 50"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Pregnancy Women of Child-Bearing Potential (WOCBP) must have a negative serum pregnancy test result at screening",
+      "threshold": null
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Known to be human immunodeficiency virus (HIV) positive",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Clinically relevant cardiovascular disease",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "A female participant who is pregnant or breastfeeding",
+      "threshold": null
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Known active liver disease from any cause, Hepatitis A Virus",
+      "threshold": null
+    },
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age: a. First Cohort in Phase 1: \u2265 18 years-of-age at the time of signature of the main study ICF.",
+      "threshold": "age >= 18 (first cohort)"
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "nct_id": "NCT04628767",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Patients must be \\>= 18 years of age",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Patients must not be pregnant or breast-feeding due to the potential harm to an unborn fetus and possible risk for adverse events in nursing infants with the treatment regimens being used.",
+      "threshold": null
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Human immunodeficiency virus (HIV)-infected patients on effective anti-retroviral therapy with undetectable viral load within 6 months prior to registration/randomization are eligible for this trial",
+      "threshold": "undetectable viral load within 6 months"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Patients with known history or current symptoms of cardiac disease, or history of treatment with cardiotoxic agents, should have a clinical risk assessment of cardiac function using the New York Heart Association Functional Classification. To be eligible for this trial, patients should be class 2B or better",
+      "threshold": "NYHA class 2B or better"
+    },
+    {
+      "category": "bmi",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Patient must have a body weight of \\> 30 kg",
+      "threshold": "body weight > 30 kg"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Patient must have creatinine clearance \\> 15 ml/min as estimated by Cockcroft-Gault formula or glomerular filtration rate (GFR) \\> 15 ml/min/1.73m\\^2 within 28 days prior to registration/randomization",
+      "threshold": "CrCl > 15 ml/min or GFR > 15 ml/min/1.73m^2"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Total bilirubin =\\< 1.2 mg/dL (or \u2264 2 mg/dL for patients with Gilbert's disease)",
+      "threshold": "bilirubin <= 1.2 mg/dL"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Aspartate aminotransferase (AST) (serum glutamic-oxaloacetic transaminase \\[SGOT\\]) and alanine aminotransferase (ALT) (serum glutamate pyruvate transaminase \\[SGPT\\]) =\\< 2 x institutional ULN (obtained =\\< 14 days prior to registration/randomization)",
+      "threshold": "AST/ALT <= 2 x ULN"
+    },
+    {
+      "category": "performance_status",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "ECOG performance status 2",
+      "threshold": "ECOG 2 (cisplatin-ineligible cohort criterion)"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Patient must not have another active (or within two years) second malignancy other than resected non-melanoma skin cancers, resected in situ breast, cervical or other in situ carcinoma, and either clinically insignificant per the investigator (e.g. =\\< Gleason 3+4) on active surveillance (or watchful waiting) or previously treated prostate cancer with no rising prostate specific antigen (PSA) and no plan to treat",
+      "threshold": "within two years"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Patients must have no evidence of metastatic disease or clinically enlarged regional lymph nodes (\\>= 1.5 cm short axis) on imaging required within 28 days prior to registration",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "symptomatic congestive heart failure (CHF), myocardial infarction (MI) or unstable angina pectoris, significant uncontrolled cardiac arrhythmia",
+      "threshold": null
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "clinically relevant liver cirrhosis",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Also, the patient must have left ventricular ejection fraction (LVEF) \\>= 50% by (either multigated acquisition scan \\[MUGA\\] or 2-D echocardiogram) obtained within obtained within 28 days prior to randomization",
+      "threshold": "LVEF >= 50%"
+    }
+  ]
+}

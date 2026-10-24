@@ -1,0 +1,83 @@
+{
+  "nct_id": "NCT07215910",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status \u2264 2 (or Karnofsky performance status \\[KPS\\] \u2265 60%)",
+      "threshold": "ECOG \u2264 2 (or KPS \u2265 60%)"
+    },
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age \u2265 12 years",
+      "threshold": "age \u2265 12"
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Creatinine \u2264 2.0 x ULN or calculated (calc.) creatinine clearance \\> 40 mL/min",
+      "threshold": "creatinine \u2264 2.0 x ULN or CrCl > 40 mL/min"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Total bilirubin \u2264 1.5 x upper limit of normal (ULN)",
+      "threshold": "total bilirubin \u2264 1.5 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Aspartate aminotransferase (AST)(serum glutamic oxaloacetic transaminase \\[SGOT\\])/alanine aminotransferase (ALT)(serum glutamic pyruvic transaminase \\[SGPT\\]) \u2264 2.5 x ULN",
+      "threshold": "AST/ALT \u2264 2.5 x ULN"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "No evidence of spinal or leptomeningeal disease",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Not pregnant and not nursing, because this study involves agents whose genotoxic, mutagenic, and teratogenic effects on the developing fetus and newborn are unknown",
+      "threshold": null
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Patients with known HIV infection on effective anti-retroviral therapy with undetectable viral load within 6 months prior to registration are eligible for this trial",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "No significant active cardiac disease within 6 months prior to registration, including New York Heart Association Functional Classification class III or IV congestive heart failure, myocardial infarction, unstable angina, and/or stroke. To be eligible for this trial, patients should be class 2B or better",
+      "threshold": "NYHA class III or IV excluded; class 2B or better"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Patients with a prior or concurrent malignancy whose natural history or treatment does not have the potential to interfere with the safety or efficacy assessment of the investigational regimen are eligible for this trial",
+      "threshold": null
+    },
+    {
+      "category": "smoking",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "No concurrent use of strong and moderate CYP1A2 inhibitors, moderate CYP1A2 inducers, or CYP3A substrates where a minimal concentration change can reduce efficacy. Patients should be transferred to other medications prior to registration",
+      "threshold": null
+    }
+  ]
+}

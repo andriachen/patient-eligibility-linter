@@ -1,0 +1,90 @@
+{
+  "nct_id": "NCT04803201",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Not pregnant and not nursing, because this study involves an investigational agent whose genotoxic, mutagenic and teratogenic effects on the developing fetus and newborn are unknown.",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status =\\< 2",
+      "threshold": "ECOG <= 2"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Calculated creatinine clearance \\>= 30 mL/min by Cockcroft-Gault formula",
+      "threshold": "CrCl >= 30 mL/min"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Total bilirubin =\\< 2.0 x ULN",
+      "threshold": "bilirubin <= 2.0 x ULN"
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "No active viral infection with human immunodeficiency virus (HIV), hepatitis B, or hepatitis C.",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Patients with known central nervous system involvement are excluded",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "No concurrent malignancy requiring active therapy within the last 3 years with the exception of basal cell carcinoma limited to the skin, squamous cell carcinoma limited to the skin, carcinoma in situ of the cervix, breast or localized prostate cancer.",
+      "threshold": "within 3 years"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Patients must have documented left ventricular ejection fraction of \\>= 45%",
+      "threshold": "LVEF >= 45%"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "No significant active cardiac disease within the previous 6 months including:",
+      "threshold": "within 6 months"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "New York Heart Association (NYHA) class III or IV congestive heart failure",
+      "threshold": "NYHA class III or IV"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Myocardial infarction",
+      "threshold": null
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Aspartate aminotransferase (AST)/serum glutamic-oxaloacetic transaminase (SGOT) or alanine aminotransferase (ALT)/serum glutamate pyruvate transaminase (SGPT) =\\< 3.0 x upper limit of normal (ULN)",
+      "threshold": "AST/ALT <= 3.0 x ULN"
+    }
+  ]
+}

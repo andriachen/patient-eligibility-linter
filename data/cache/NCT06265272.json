@@ -1,0 +1,27 @@
+{
+  "nct_id": "NCT06265272",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnancy",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Breast feeding.",
+      "threshold": null
+    },
+    {
+      "category": "bmi",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Inability to fit in the scanner: weight \\> 300 lbs or BMI \\> 33",
+      "threshold": "weight > 300 lbs or BMI > 33"
+    }
+  ]
+}

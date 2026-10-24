@@ -1,0 +1,90 @@
+{
+  "nct_id": "NCT02343042",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age greater than or equal to (\u2265) 18 years at the time of informed consent.",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group (ECOG) Performance Status of \u2264 2.",
+      "threshold": "ECOG \u2264 2"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Total bilirubin \\< 2\\* upper limit of normal (ULN) (except patients with Gilbert's syndrome \\[hereditary indirect hyperbilirubinemia\\] who must have a total bilirubin of \u2264 3\\* ULN) and both aspartate aminotransferase (AST) and alanine aminotransferase (ALT) \\< 2.5\\* ULN",
+      "threshold": "Total bilirubin < 2x ULN; AST and ALT < 2.5x ULN"
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "estimated creatinine clearance (CrCl) calculated using the formula of Cockroft and Gault (1976).",
+      "threshold": "CrCl \u2265 20 to > 60 mL/min depending on arm"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Symptomatic ischemia, or",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Congestive heart failure (CHF) of New York Heart Association (NYHA) Class \u2265 3, or",
+      "threshold": "NYHA Class \u2265 3"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Myocardial infarction (MI) within 3 months prior to C1D1",
+      "threshold": "within 3 months"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Ejection fraction (EF) \\< 50% at Screening (Arms 1-11 only, screening echocardiogram not required for Arm 12, SMd)",
+      "threshold": "EF < 50%"
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Known human immunodeficiency virus (HIV) infection or HIV seropositivity.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Currently pregnant or breastfeeding.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Active concomitant malignancies or history of another malignancy within 3 years prior to C1D1 except for adequately treated early-stage basal cell or squamous cell carcinoma of skin, adequately treated carcinoma in situ of breast or cervix, or organ confined prostate cancer.",
+      "threshold": "within 3 years"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "History of chronic hepatitis B with detectable viral load.",
+      "threshold": null
+    }
+  ]
+}

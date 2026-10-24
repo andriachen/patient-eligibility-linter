@@ -1,0 +1,20 @@
+{
+  "nct_id": "NCT06040125",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "language",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Speak English.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Patients receiving treatment for other active malignancies (except basal cell carcinoma).",
+      "threshold": null
+    }
+  ]
+}

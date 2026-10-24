@@ -1,0 +1,27 @@
+{
+  "nct_id": "NCT01521741",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnancy at the time of accrual and/or cardiac implants (contraindications for BIS)",
+      "threshold": null
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Medical conditions that cause fluid retention or swelling (e.g. axillary cancer recurrence, renal insufficiency, congestive heart failure).",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Medical conditions that cause fluid retention or swelling (e.g. axillary cancer recurrence, renal insufficiency, congestive heart failure).",
+      "threshold": null
+    }
+  ]
+}

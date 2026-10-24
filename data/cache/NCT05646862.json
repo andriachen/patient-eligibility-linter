@@ -1,0 +1,69 @@
+{
+  "nct_id": "NCT05646862",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group (ECOG) Performance Status of 0, 1, or 2",
+      "threshold": "ECOG 0, 1, or 2"
+    },
+    {
+      "category": "diabetes",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Type 2 diabetes requiring ongoing systemic treatment at the time of study entry; or any history of Type 1 diabetes",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Any history of leptomeningeal disease or carcinomatous meningitis",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Known and untreated, or active central nervous system (CNS) metastases. Participants with a history of treated CNS metastases are eligible if they meet specific certain criteria",
+      "threshold": null
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Clinically significant and active liver disease, including severe liver impairment, viral or other hepatitis, current alcohol abuse, or cirrhosis",
+      "threshold": null
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participants with known human immunodeficiency virus infection that meet specific criteria",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "History of other malignancy within 5 years prior to screening, except for cancers with very low risk of recurrence",
+      "threshold": "within 5 years"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant, lactating, or breastfeeding, or intending to become pregnant during the study or at least 60 days after the final dose of study treatment",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant, lactating, or breastfeeding, or intending to become pregnant during the substudy or within 2 weeks after the final dose of inavolisib and within 2 years after the final dose of fulvestrant, whichever is longer",
+      "threshold": null
+    }
+  ]
+}

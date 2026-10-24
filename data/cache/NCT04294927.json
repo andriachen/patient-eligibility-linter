@@ -1,0 +1,41 @@
+{
+  "nct_id": "NCT04294927",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "BRCA1: 25-40 years",
+      "threshold": "age 25-40 years (BRCA1)"
+    },
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "BRCA2: 25-45 years",
+      "threshold": "age 25-45 years (BRCA2)"
+    },
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "RAD51C, RAD51D, BRIP1: 25-50 years",
+      "threshold": "age 25-50 years (RAD51C, RAD51D, BRIP1)"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "A personal history of ovarian, fallopian tube or peritoneal cancer",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Current diagnosis or treatment for malignant disease",
+      "threshold": null
+    }
+  ]
+}

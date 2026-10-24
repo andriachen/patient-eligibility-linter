@@ -68,11 +68,46 @@ def resolve_county(city: str, xwalk: dict[str, tuple[str, str]]) -> tuple[str, s
     return None
 
 
+# ClinicalTrials.gov age units -> years. Covers singular/plural forms seen in the
+# data (Years/Year, Months/Month, Days/Day, Minutes). Everything is normalized to
+# YEARS so the age column has a consistent unit; sub-year ages become fractions.
+_AGE_UNIT_TO_YEARS = {
+    "year": 1.0,
+    "years": 1.0,
+    "month": 1.0 / 12,
+    "months": 1.0 / 12,
+    "week": 1.0 / 52,
+    "weeks": 1.0 / 52,
+    "day": 1.0 / 365,
+    "days": 1.0 / 365,
+    "hour": 1.0 / (365 * 24),
+    "hours": 1.0 / (365 * 24),
+    "minute": 1.0 / (365 * 24 * 60),
+    "minutes": 1.0 / (365 * 24 * 60),
+}
+
+
 def _age_number(age_str: str | None) -> str:
-    """'18 Years' -> '18'; None -> ''."""
-    if not age_str:
+    """Normalize a ClinicalTrials.gov age to YEARS as a string.
+
+    '18 Years' -> '18', '6 Months' -> '0.5', '29 Days' -> '0.08', None/'' -> ''.
+    Whole years render without a decimal; sub-year values round to 2 places.
+    """
+    if not age_str or not age_str.strip():
         return ""
-    return age_str.split()[0]
+    parts = age_str.split()
+    try:
+        value = float(parts[0])
+    except ValueError:
+        return ""
+    unit = parts[1].lower() if len(parts) > 1 else "years"
+    factor = _AGE_UNIT_TO_YEARS.get(unit)
+    if factor is None:
+        return ""  # unknown unit — safer to emit nothing than a wrong number
+    years = value * factor
+    if years == int(years):
+        return str(int(years))
+    return str(round(years, 2))
 
 
 def iter_studies():
@@ -129,6 +164,11 @@ def build() -> tuple[list[dict], list[dict], set[str]]:
         for loc in locations:
             if (loc.get("state") or "").strip() != "Massachusetts":
                 continue
+            # overallStatus=RECRUITING is trial-level; individual MA sites can be
+            # NOT_YET_RECRUITING / WITHDRAWN / TERMINATED / COMPLETED. Keep only
+            # sites that are themselves actively recruiting.
+            if (loc.get("status") or "").strip().upper() != "RECRUITING":
+                continue
             city = (loc.get("city") or "").strip()
             resolved = resolve_county(city, xwalk)
             if resolved is None:
@@ -146,6 +186,11 @@ def build() -> tuple[list[dict], list[dict], set[str]]:
                     "county_fips": fips,
                 }
             )
+
+    # Option A: scope trials.csv to trials that have at least one recruiting MA
+    # site, so trials and sites share the same set of NCT ids.
+    ma_trial_ids = {s["nct_id"] for s in sites}
+    trials = [t for t in trials if t["nct_id"] in ma_trial_ids]
 
     return trials, sites, unmatched
 

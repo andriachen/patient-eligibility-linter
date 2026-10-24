@@ -1,0 +1,41 @@
+{
+  "nct_id": "NCT04839614",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Younger than 18 years old",
+      "threshold": null
+    },
+    {
+      "category": "bmi",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "BMI \\< 35",
+      "threshold": "BMI < 35"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant participants will be excluded from this study.",
+      "threshold": null
+    },
+    {
+      "category": "smoking",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "This includes active smokers, prior bariatric surgery, active substance abuse, recent suicide attempt, bulimia nervosa, large abdominal hernias, or poorly controlled psychiatric illness",
+      "threshold": null
+    },
+    {
+      "category": "language",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "include inability to read an English informed consent form, and unwillingness to provide informed consent.",
+      "threshold": null
+    }
+  ]
+}

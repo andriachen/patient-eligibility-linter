@@ -1,0 +1,55 @@
+{
+  "nct_id": "NCT02332668",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Between 6 months and \\<18 years of age on day of signing informed consent is documented.",
+      "threshold": "age < 18 years"
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Lansky Play Scale \u226550 for participants from 6 months up to and including 16 years of age; or Karnofsky score \u226550 for participants \\>16 years of age",
+      "threshold": "Lansky/Karnofsky score \u226550"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Pregnant or breastfeeding, or expecting to conceive or father children within the projected duration of the trial through 120 days after the last dose of study medication",
+      "threshold": null
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Human immunodeficiency virus (HIV)",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Known active central nervous system (CNS) metastases and/or carcinomatous meningitis",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Known additional malignancy that is progressing or requires active treatment with the exception of basal cell carcinoma of the skin, squamous cell carcinoma of the skin or carcinoma in situ (eg, breast carcinoma, cervical carcinoma in situ) with potentially curative therapy, or in situ cervical cancer",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Tumor(s) involving the brain stem",
+      "threshold": null
+    }
+  ]
+}

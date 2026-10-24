@@ -1,0 +1,69 @@
+{
+  "nct_id": "NCT06854653",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Adult patient \u226518 years of age at the time of signing the informed consent.",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Has an ECOG PS of 0 to 2.",
+      "threshold": "ECOG PS 0 to 2"
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Patients with Human Immunodeficiency virus (HIV) must be on established and stable effective anti-retroviral therapy for at least 4 weeks and have an HIV viral load of less than 400 copies/mL.",
+      "threshold": "HIV viral load < 400 copies/mL"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Female patients are eligible to participate if they are not pregnant, not breastfeeding, and at least one of the following conditions applies:",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Patients with known central nervous system involvement.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Significant cardiovascular disease.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Medical history of another malignant tumor within the past 5 years.",
+      "threshold": "within 5 years"
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Patients with active viral (any etiology) hepatitis are excluded.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "A WOCBP must have a negative serum pregnancy within 72 hours of the first dose of study treatment.",
+      "threshold": null
+    }
+  ]
+}

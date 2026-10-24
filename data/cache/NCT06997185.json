@@ -1,0 +1,13 @@
+{
+  "nct_id": "NCT06997185",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "language",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Adults fluent in English",
+      "threshold": null
+    }
+  ]
+}

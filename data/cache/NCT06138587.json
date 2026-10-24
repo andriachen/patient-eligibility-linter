@@ -1,0 +1,97 @@
+{
+  "nct_id": "NCT06138587",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Serum creatinine \\</= 2.0mg/dL",
+      "threshold": "creatinine <= 2.0 mg/dL"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "LVEF \\>40%.",
+      "threshold": "LVEF > 40%"
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ECOG performance status \\<= 2 (Karnofsky \\>= 60%, see Appendix C).",
+      "threshold": "ECOG <= 2"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Negative pregnancy test for women of childbearing age",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant women are excluded from this study because of the unknown teratogenic risk of CIML NK cells and IL-2",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "breastfeeding should be discontinued if the mother is treated on this study.",
+      "threshold": null
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "HIV-positive patients are excluded due to the potential for interaction between antiretroviral therapy as well as the risk for lethal infection in the context of marrow-suppressive therapy.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Individuals with a history of a different malignancy are ineligible except for the following circumstances: 1. History of other malignancy and have had complete remission of disease for at least 2 years;",
+      "threshold": "complete remission for at least 2 years"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Extramedullary leukemia involving sanctuary sites not readily accessible to immune surveillance, such as CNS or testis.",
+      "threshold": null
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Patients with active and uncontrolled Hepatitis B or C are ineligible due to the high risk of treatment-related hepatotoxicity after cellular therapy.",
+      "threshold": null
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Total bilirubin: \u22641.5 x institutional upper limit of normal (ULN) (except Gilbert's or disease related hemolysis, then \\< 3 x ULN)",
+      "threshold": "bilirubin <= 1.5 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "AST(SGOT)/ALT(SGPT): \u22643 x institutional ULN",
+      "threshold": "AST/ALT <= 3 x ULN"
+    },
+    {
+      "category": "diabetes",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Systemic steroid use of \\>10mg/day of prednisone equivalent is an exclusion criteria unless there is a plan for dose to be tapered below this limit within 4 weeks prior to NK cell infusion.",
+      "threshold": null
+    }
+  ]
+}

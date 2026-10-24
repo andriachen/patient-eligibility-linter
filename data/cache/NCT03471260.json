@@ -1,0 +1,62 @@
+{
+  "nct_id": "NCT03471260",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age \\> 18 years.",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ECOG performance status of \\< 2.",
+      "threshold": "ECOG < 2"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Adequate renal function including creatinine clearance \\> 30 ml/min based on the Cockcroft-Gault equation.",
+      "threshold": "CrCl > 30 ml/min"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Adequate hepatic function (direct bilirubin \\< 2 x ULN, ALT and/or AST \\< 3x ULN) unless deemed to be related to underlying leukemia.",
+      "threshold": "direct bilirubin < 2 x ULN; ALT and/or AST < 3x ULN"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "QTc interval using Fridericia's formula (QTcF) \\> 450 msec. Bundle branch block and prolonged QTc interval are permitted after discussion with the PI.",
+      "threshold": "QTcF > 450 msec"
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Known active hepatitis B (HBV) or Hepatitis C (HCV) infection or known HIV infection.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Nursing women, women of childbearing potential (WOCBP) with positive urine pregnancy test, or women of childbearing potential who are not willing to maintain adequate contraception a. Appropriate highly effective method(s) of contraception include oral or injectable hormonal birth control, IUD, and double barrier methods (for example a condom in combination with a spermicide).",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Patients with a concurrent active malignancy under treatment.",
+      "threshold": null
+    }
+  ]
+}

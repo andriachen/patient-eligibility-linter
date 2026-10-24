@@ -1,0 +1,20 @@
+{
+  "nct_id": "NCT07548476",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant women",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Patients with uncontrolled medical conditions that would preclude them from participating in moderate-to-vigorous intensity exercise in a virtual setting.",
+      "threshold": null
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "nct_id": "NCT03151629",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Males 21 years of age and above",
+      "threshold": "minimum age 21"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "No previous diagnosis of a second, non-prostate malignancy that requires additional systemic therapy except cancer in situ of bladder and basal cell cancer of skin",
+      "threshold": null
+    }
+  ]
+}

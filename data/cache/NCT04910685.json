@@ -1,0 +1,34 @@
+{
+  "nct_id": "NCT04910685",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Participant must have an Eastern Cooperative Oncology Group Performance Status (ECOG PS) of 0 to 2.",
+      "threshold": "ECOG PS 0 to 2"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participant has clinically significant, uncontrolled, cardiovascular disease",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Participant has a QT interval corrected using Fridericia's formula (QTcF) \\> \\> 470 milliseconds (msec) (for females) or \\> 450 msec (for males).",
+      "threshold": "QTcF > 470 msec (female) or > 450 msec (male)"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participant has a history of a primary malignancy that has been diagnosed or required therapy within 3 years.",
+      "threshold": "within 3 years"
+    }
+  ]
+}

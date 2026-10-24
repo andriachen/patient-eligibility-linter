@@ -1,0 +1,34 @@
+{
+  "nct_id": "NCT05303519",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Patient must be \u2265 18 years of age at the time of signing the informed consent form (ICF).",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participants with other malignancies must have received curative treatment and been disease-free for at least 3 years.",
+      "threshold": "disease-free for at least 3 years"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Evidence of diffuse leptomeningeal disease.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "History of significant cardiac disease within 12 months prior to randomization (if applicable) or first dose of study drug (if randomization does not apply).",
+      "threshold": "within 12 months"
+    }
+  ]
+}

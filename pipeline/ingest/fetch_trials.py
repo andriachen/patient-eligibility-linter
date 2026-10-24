@@ -34,6 +34,7 @@ FIELDS = [
     "LocationCity",
     "LocationState",
     "LocationZip",
+    "LocationStatus",
     "ReferencePMID",
 ]
 
@@ -77,15 +78,20 @@ def probe() -> None:
     print(list(study.get("protocolSection", {}).keys()))
 
 
-def fetch_all() -> int:
-    """Fetch every page, writing data/raw/ctgov/page_{n}.json. Returns study count."""
+def fetch_all(force: bool = False) -> int:
+    """Fetch every page, writing data/raw/ctgov/page_{n}.json. Returns study count.
+
+    When force is True, existing pages are re-fetched and overwritten instead of
+    being skipped (needed when the requested fields change, e.g. adding
+    LocationStatus — the old pages on disk don't have it).
+    """
     RAW_DIR.mkdir(parents=True, exist_ok=True)
     page = 1
     token: str | None = None
     total = 0
     while True:
         out_path = RAW_DIR / f"page_{page}.json"
-        if out_path.exists():
+        if out_path.exists() and not force:
             # Resume: read token from the existing page so we can continue.
             existing = json.loads(out_path.read_text())
             count = len(existing.get("studies", []))
@@ -123,11 +129,16 @@ def main() -> None:
         action="store_true",
         help="Print the structure of a single study and exit.",
     )
+    parser.add_argument(
+        "--force",
+        action="store_true",
+        help="Re-fetch and overwrite existing pages (ignore the resume skip).",
+    )
     args = parser.parse_args()
     if args.probe:
         probe()
     else:
-        fetch_all()
+        fetch_all(force=args.force)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,20 @@
+{
+  "nct_id": "NCT07081646",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ECOG performance status of 0 to 2",
+      "threshold": "ECOG 0 to 2"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "NYHA class III or IV",
+      "threshold": "NYHA class III or IV"
+    }
+  ]
+}

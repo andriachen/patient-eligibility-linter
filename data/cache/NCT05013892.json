@@ -1,0 +1,41 @@
+{
+  "nct_id": "NCT05013892",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Karnofsky Performance Status \u2265 70",
+      "threshold": "KPS >= 70"
+    },
+    {
+      "category": "language",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Fluency in English, able to complete questionnaires and neurocognitive testing",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Negative pregnancy test for premenopausal women",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Leptomeningeal disease (by any one or more of clinical assessment, radiographic assessment, or cerebrospinal fluid study)",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant or unwilling to use appropriate contraception to prevent pregnancy during the time of radiation therapy",
+      "threshold": null
+    }
+  ]
+}

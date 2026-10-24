@@ -1,0 +1,20 @@
+{
+  "nct_id": "NCT02000089",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Poor performance status",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnancy.",
+      "threshold": null
+    }
+  ]
+}

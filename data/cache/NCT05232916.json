@@ -1,0 +1,27 @@
+{
+  "nct_id": "NCT05232916",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ECOG 0-2",
+      "threshold": "ECOG 0-2"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Other malignancies except adequately treated in situ carcinoma of the cervix or basal cell or squamous cell carcinoma of the skin",
+      "threshold": null
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Known HIV infection with a detectable viral load within 6 months of the anticipated start of treatment.",
+      "threshold": "detectable viral load within 6 months"
+    }
+  ]
+}

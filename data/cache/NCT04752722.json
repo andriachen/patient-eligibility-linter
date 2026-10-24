@@ -1,0 +1,76 @@
+{
+  "nct_id": "NCT04752722",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Performance Status: Eastern Cooperative Oncology Group 0, 1, and 2.",
+      "threshold": "ECOG 0-2"
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Adequate renal function with creatinine clearance >30 mL/min",
+      "threshold": "CrCl > 30 mL/min"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Total bilirubin must be \u22641.5 x the upper limit of normal (ULN).",
+      "threshold": "bilirubin <= 1.5 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Aspartate aminotransferase (AST), alanine aminotransferase (ALT) and alkaline phosphatase \u22642.5 x ULN.",
+      "threshold": "AST/ALT <= 2.5 x ULN"
+    },
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Male or non-pregnant, non-lactating female, 18 years or older.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Women of childbearing potential must have a negative pregnancy test at Screening.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Active malignancies (i.e., progressing or requiring treatment change in the last 24 months).",
+      "threshold": "within 24 months"
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Known human immunodeficiency virus, Hepatitis B, or Hepatitis C infection.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Significant cardiovascular risk (e.g., coronary stenting within 8 weeks, myocardial infarction within 6 months).",
+      "threshold": "MI within 6 months; stenting within 8 weeks"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Male or non-pregnant, non-lactating female, 18 years or older.",
+      "threshold": null
+    }
+  ]
+}

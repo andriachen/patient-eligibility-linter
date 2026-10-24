@@ -1,0 +1,62 @@
+{
+  "nct_id": "NCT05879926",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "The patient must have an ECOG performance status of less than or equal to 2 (or Karnofsky greater than or equal to 60%).",
+      "threshold": "ECOG <= 2"
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "HIV-infected patients on effective anti-retroviral therapy with undetectable viral load within 6 months are eligible for this trial.",
+      "threshold": null
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Renal function of GFR (glomular filtration rate) less than 30 mL/min/1.73m2.",
+      "threshold": "GFR < 30 mL/min/1.73m2"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Total bilirubin greater than ULN (upper limit of normal) for the lab or greater than 1.5 x ULN for patients who have a bilirubin elevation due to Gilbert's disease or similar syndrome involving slow conjugation of bilirubin;",
+      "threshold": "Total bilirubin > ULN (or > 1.5 x ULN in Gilbert's)"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "AST(aspartate aminotransferase)(SGOT)/ALT (alanine transminase)(SGPT): greater than 3 \u00d7 institutional ULN;",
+      "threshold": "AST/ALT > 3 x ULN"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Patients with known history or current symptoms of cardiac disease, or history of treatment with cardiotoxic agents, should have a clinical risk assessment of cardiac function using the New York Heart Association Functional Classification. To be eligible for this trial, patients should be class 2B or better.",
+      "threshold": "NYHA class 2B or better"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "History of ipsilateral or contralateral invasive breast cancer. (Patients with synchronous and/or previous DCIS or LCIS are eligible.)",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnancy or lactation at the time of pre-entry.",
+      "threshold": null
+    }
+  ]
+}

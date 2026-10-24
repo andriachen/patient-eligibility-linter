@@ -1,0 +1,41 @@
+{
+  "nct_id": "NCT03959085",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Patients must be \\> 365 days and \\< 25 years of age",
+      "threshold": "age < 25 years"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Direct bilirubin \\< 2.0 mg/dL (34 micromoles/L)",
+      "threshold": "direct bilirubin < 2.0 mg/dL"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Alanine aminotransferase (ALT) \u2264 10x upper limit of normal (ULN). For the purposes of this study, the ULN for ALT is defined as 45 U/L",
+      "threshold": "ALT <= 10x ULN (45 U/L)"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Female patients who are pregnant, since fetal toxicities and teratogenic effects have been noted for several of the study drugs.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Lactating women who plan to breastfeed their infants while on study and for 2 months after the last dose of inotuzumab ozogamicin.",
+      "threshold": null
+    }
+  ]
+}

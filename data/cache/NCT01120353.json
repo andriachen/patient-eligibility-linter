@@ -1,0 +1,20 @@
+{
+  "nct_id": "NCT01120353",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "language",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "English- or Spanish-speaking and living in the U.S. or Canada at the time of diagnosis.",
+      "threshold": null
+    },
+    {
+      "category": "language",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Non-English speaking or residence outside the US or Canada.",
+      "threshold": null
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "nct_id": "NCT04752137",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant or nursing patients",
+      "threshold": null
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Patients in renal failure who are not cleared for ICG administration by their primary physician or oncologist",
+      "threshold": null
+    }
+  ]
+}

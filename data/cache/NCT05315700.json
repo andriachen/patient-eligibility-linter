@@ -1,0 +1,41 @@
+{
+  "nct_id": "NCT05315700",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "CNS involvement, which is either previously treated and controlled, or untreated and asymptomatic",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ECOG performance status of 0 or 1",
+      "threshold": "ECOG 0 or 1"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Leptomeningeal disease and spinal cord compression",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "History of class III or IV congestive heart failure or severe non-ischemic cardiomyopathy, unstable or poorly controlled angina, myocardial infarction, or ventricular arrhythmia within the previous 6 months",
+      "threshold": "within previous 6 months"
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Known, symptomatic human immunodeficiency virus (HIV) infection",
+      "threshold": null
+    }
+  ]
+}

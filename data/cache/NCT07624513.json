@@ -1,0 +1,76 @@
+{
+  "nct_id": "NCT07624513",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Age 18 - 75 years.",
+      "threshold": "age <= 75"
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Calculated creatinine clearance \u226530 mL/min (See Appendix B)",
+      "threshold": "CrCl < 30 mL/min"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Total Bilirubin \u2264 2 X upper limit of normal (ULN) (except patients with Gilbert Syndrome, who can have total bilirubin < 3.0 mg/dL)",
+      "threshold": "bilirubin > 2 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Aspartate aminotransferase (AST) (SGOT) and alanine aminotransferase (ALT) (SGPT) \u2264 3.0 x ULN",
+      "threshold": "AST/ALT > 3.0 x ULN"
+    },
+    {
+      "category": "performance_status",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status \u22642 (see Appendix A)",
+      "threshold": "ECOG > 2"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Central nervous system (CNS) involvement of MM",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Prior history of malignancies, other than MM, will be excluded unless the participant has been free of the disease for \u2265 3 years, except for the following non-invasive malignancies: basal or squamous cell skin carcinoma, carcinoma in situ of the cervix, carcinoma in situ of the breast, incidental histological findings of prostate cancer (T1a or T1b using the TNM clinical staging system), or prostate cancer that is curative",
+      "threshold": "within 3 years"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Concurrent uncontrolled cardiovascular conditions (uncontrolled hypertension \\[HTN\\], uncontrolled arrhythmias, congestive heart failure \\[CHF\\], unstable angina, grade 3 thromboembolic event or myocardial infarction in the past 6 months)",
+      "threshold": "MI within 6 months"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant or breast feeding female or female who intends to become pregnant during the study",
+      "threshold": null
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Seropositive for human immunodeficiency virus (HIV-1)",
+      "threshold": null
+    }
+  ]
+}

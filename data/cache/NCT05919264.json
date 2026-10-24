@@ -1,0 +1,34 @@
+{
+  "nct_id": "NCT05919264",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status of 0 or 1.",
+      "threshold": "ECOG 0 or 1"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Has known meningeal carcinomatosis, leptomeningeal carcinomatosis, spinal cord compression, or symptomatic or unstable brain metastases.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant, lactating, or planning to become pregnant.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Unstable/inadequate cardiac function.",
+      "threshold": null
+    }
+  ]
+}

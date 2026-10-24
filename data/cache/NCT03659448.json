@@ -1,0 +1,48 @@
+{
+  "nct_id": "NCT03659448",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Other malignancies, either currently active or diagnosed in the last 5 years, except for adequately treated in situ carcinoma of the cervix and basal or squamous cell skin carcinoma;",
+      "threshold": "within 5 years"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Aspartate AminoTransferase, Alanine AminoTransferase, Gamma Glutamyl Transferase) or Alkaline Phosphatase levels above 5 times the ULN or;",
+      "threshold": "> 5 times ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Total bilirubin above 2 times the ULN or;",
+      "threshold": "> 2 times ULN"
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Serum creatinine above 1.5 times the ULN or;",
+      "threshold": "> 1.5 times ULN"
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Known positive test for human immunodeficiency virus (HIV), hepatitis B surface antigen (HBsAG) or hepatitis C virus (HCV) antibody or patients with untreated serious infections;",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Women of child-bearing potential will be included provided that they have a negative urine pregnancy test at the day of the injection and agree to practice adequate contraception for 30 days prior to administration of investigational product, and 30 days after completion of injection.",
+      "threshold": null
+    }
+  ]
+}

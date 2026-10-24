@@ -1,0 +1,20 @@
+{
+  "nct_id": "NCT04613596",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Phase 2: Active brain metastases",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Patients with known central nervous system (CNS) lesions must not have any of the following:",
+      "threshold": null
+    }
+  ]
+}

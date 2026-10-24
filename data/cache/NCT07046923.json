@@ -1,0 +1,41 @@
+{
+  "nct_id": "NCT07046923",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status of greater than or equal to (\u2264) 1.",
+      "threshold": "ECOG \u2264 1"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Individual with known or suspected history of uncontrolled central nervous system (CNS) metastases.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Significant cardiovascular disease.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Prolongation of QT interval corrected for heart rate using Fridericia's formula (QTcF) > 470 milliseconds (ms)",
+      "threshold": "QTcF > 470 ms"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Individuals who are pregnant, breastfeeding, or plan to breastfeed during the trial or within 30 days of the last dose of trial intervention.",
+      "threshold": null
+    }
+  ]
+}

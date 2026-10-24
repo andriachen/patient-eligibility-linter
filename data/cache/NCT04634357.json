@@ -1,0 +1,48 @@
+{
+  "nct_id": "NCT04634357",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age \u2265 1 year and \u2264 21 years.",
+      "threshold": "age <= 21"
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Lansky or Karnofsky Performance Scale \u2265 70.",
+      "threshold": "Karnofsky < 70"
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Subjects with Human Immunodeficiency Virus (HIV), hepatitis B, or hepatitis C are eligible provided their infection is being treated and the viral load is controlled.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant or lactating women.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Any known active malignancy (other than HB, HCN-NOS, or HCC).",
+      "threshold": null
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Child-Pugh score of A6 or better.",
+      "threshold": "Child-Pugh A6 or better"
+    }
+  ]
+}

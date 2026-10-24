@@ -1,0 +1,27 @@
+{
+  "nct_id": "NCT05410977",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Patients at least 18 years of age",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Patient has known cancer (stage I-IV) within 5 years prior to current sample collection (not including basal cell or squamous cell skin cancers; if patient has not been seen or if information is not available, the patient is eligible)",
+      "threshold": "within 5 years"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Patient has received chemotherapy class drugs for the treatment of cancer in the 5 years prior to current sample collection",
+      "threshold": "within 5 years"
+    }
+  ]
+}

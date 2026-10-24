@@ -1,0 +1,118 @@
+{
+  "nct_id": "NCT02977780",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Karnofsky performance status \u226560",
+      "threshold": "KPS \u226560"
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Creatinine \u2264 institutional upper limit of normal OR",
+      "threshold": "creatinine \u2264 institutional ULN unless CrCl \u2265 60 mL/min/1.73 m2"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Total bilirubin within normal institutional limits (except for participant's with Gilbert's disease)",
+      "threshold": "total bilirubin within institutional ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "AST(SGOT)/ALT(SGPT) \u2264 2.5 \u00d7 institutional upper limit of normal",
+      "threshold": "AST/ALT \u2264 2.5 \u00d7 ULN"
+    },
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age \u2265 18 years.",
+      "threshold": "age \u2265 18"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Tumors primarily localized in the infratentorial compartment will be excluded.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "History of a different malignancy, unless (a) have been disease-free for at least 2 years and are deemed by the investigator to be at low risk for recurrence of that malignancy, and/or (b) malignancy was cervical cancer in situ, superficial bladder cancer or basal cell or squamous cell carcinoma of the skin, and malignancy has been treated.",
+      "threshold": "disease-free for at least 2 years unless exceptions"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Active uncontrolled cardiac disease, including cardiomyopathy, congestive heart failure (New York Heart Association functional classification of \u22652), unstable angina, myocardial infarction within 12 months of enrollment, or ventricular arrhythmia.",
+      "threshold": "NYHA \u22652; MI within 12 months"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "--QTc interval \\> 450 ms for men or \\> 470 ms for women.",
+      "threshold": "QTc > 450 ms men; > 470 ms women"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Persistent or history of clinically meaningful ventricular arrhythmias or atrial fibrillation.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Unstable pectoris or myocardial infarction \u2264 3 months prior to starting study treatment.",
+      "threshold": "MI within 3 months"
+    },
+    {
+      "category": "diabetes",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Uncontrolled diabetes mellitus, or subjects with either of the following:",
+      "threshold": null
+    },
+    {
+      "category": "diabetes",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "HbA1c \u2265 8%",
+      "threshold": "HbA1c \u2265 8%"
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Known active Hepatitis B (e.g., HBsAg reactive) or Hepatitis C (e.g., HCV RNS \\[qualitative\\] is detected).",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant or breastfeeding.",
+      "threshold": null
+    },
+    {
+      "category": "smoking",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Current use of warfarin sodium or any other coumadin-derivative anticoagulant.",
+      "threshold": null
+    }
+  ]
+}

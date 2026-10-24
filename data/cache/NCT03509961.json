@@ -1,0 +1,27 @@
+{
+  "nct_id": "NCT03509961",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant or lactating females are ineligible as many of the medications used in this protocol could be harmful to unborn children and infants.",
+      "threshold": null
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Patients with HIV or uncontrolled fungal, bacterial or viral infections are excluded.",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Patients with active CNS leukemia or any other active site of extramedullary disease at the time of enrollment are not permitted.",
+      "threshold": null
+    }
+  ]
+}

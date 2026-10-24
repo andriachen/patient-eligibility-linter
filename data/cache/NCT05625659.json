@@ -1,0 +1,41 @@
+{
+  "nct_id": "NCT05625659",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Women must not be pregnant or breast-feeding.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Women currently undergoing treatment for breast cancer, or planning surgery for a high-risk lesion (ADH, ALH, LCIS, papilloma, radial scar).",
+      "threshold": null
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Women with known or suspected renal impairment.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Women who are pregnant, breast feeding, or planning to become pregnant from screening until 30 days after the last administration of Omnipaque (iohexol).",
+      "threshold": null
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "History of renal disease, including dialysis, kidney transplant, single kidney, renal cancer, and renal surgery",
+      "threshold": null
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "nct_id": "NCT05009992",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age 2 to 39 years",
+      "threshold": "age 2 to 39 years"
+    },
+    {
+      "category": "bmi",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Participant body weight must be above the minimum necessary for the participant to receive ONC201 (at least 10 kilograms (kg))",
+      "threshold": "weight >= 10 kg"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Creatinine clearance or radioisotope glomerular filtration rate (GFR) \\>= 70 mL/min/1.73 m\\^2 OR",
+      "threshold": "CrCl or GFR >= 70 mL/min/1.73 m^2"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Bilirubin (sum of conjugated + unconjugated) =\\< 1.5 x upper limit of normal (ULN) for age AND",
+      "threshold": "bilirubin <= 1.5 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Serum glutamate pyruvate transaminase (SGPT)(alanine aminotransferase (ALT)) =\\< 3 x ULN AND",
+      "threshold": "ALT <= 3 x ULN"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "QTC \\< 470 msec.",
+      "threshold": "QTc < 470 msec"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "No history of congestive heart failure or family history of long QT syndrome.",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Karnofsky \\>= 50 for participants \\> 16 years of age and Lansky \\>= 50 for participants =\\< 16 years of age.",
+      "threshold": "Karnofsky >= 50"
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Karnofsky \\>/= 70 for Participants \\> 16 years of age and Lansky \\>/= 70 for participants \\</= 16 years of age.",
+      "threshold": "Karnofsky >= 70"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ALT \\<= 5 x ULN",
+      "threshold": "ALT <= 5 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "AST \\<= 5 x ULN.",
+      "threshold": "AST <= 5 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Total bilirubin \\<= 3 x upper limit of normal (ULN); in presence of Gilbert's syndrome, total bilirubin \\</= 6 x ULN or direct bilirubin \\<= 3 x ULN",
+      "threshold": "total bilirubin <= 3 x ULN"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Shortening fraction of \\>= 27%.",
+      "threshold": "shortening fraction >= 27%"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Known additional malignancy that is progressing or requires active treatment within 3 years of start of study drug.",
+      "threshold": "within 3 years"
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Participants with a known disorder that affects their immune system, such as human immunodeficiency virus (HIV) or hepatitis B or C, or an auto-immune disorder requiring systemic cytotoxic or immunosuppressive therapy.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Female participants of childbearing potential must not be pregnant or breast-feeding.",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Evidence of disseminated disease, including diffuse leptomeningeal disease or evidence of CSF dissemination, with the exception of Cohort 5.",
+      "threshold": null
+    },
+    {
+      "category": "smoking",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Active illicit drug use or diagnosis of alcoholism.",
+      "threshold": null
+    }
+  ]
+}

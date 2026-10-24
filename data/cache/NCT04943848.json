@@ -1,0 +1,13 @@
+{
+  "nct_id": "NCT04943848",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Performance score: Karnofsky \\>50% of subjects \\>16 years of age and Lansky \\> or = 50 for subjects \\< or = 16 years of age.",
+      "threshold": "Karnofsky > 50% (age >16); Lansky >= 50 (age <= 16)"
+    }
+  ]
+}

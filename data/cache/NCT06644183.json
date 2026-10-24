@@ -1,0 +1,69 @@
+{
+  "nct_id": "NCT06644183",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status of \u2264 2.",
+      "threshold": "ECOG \u2264 2"
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Creatinine clearance \u2265 60 mL/min\\*\\*",
+      "threshold": "CrCl \u2265 60 mL/min"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Total bilirubin \u2264 1.5 \u00d7institutional upper limit of normal (ULN)\\*",
+      "threshold": "bilirubin \u2264 1.5 \u00d7 ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "AST(SGOT)/ALT(SGPT) \u22643.0 \u00d7 institutional ULN",
+      "threshold": "AST/ALT \u2264 3.0 \u00d7 ULN"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Pregnant women are excluded from this study because venetoclax has the potential to cause embryo-fetal harm",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Patients with a history of other primary malignancy are excluded when they require therapy that will interfere with the investigational treatments.",
+      "threshold": null
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Known Human immunodeficiency virus (HIV) infection which is treated with agents that can interfere with venetoclax due to potential drug-drug interactions or increased risk of myelotoxicity.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "History or presence of cardiovascular disease, which in the Investigator's opinion may impact the clinical trial participation. Patients with a QTcF \\> 470 msec at screening.",
+      "threshold": "QTcF > 470 msec"
+    },
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age \u226518 years, at the time of signing the IRB approved informed consent.",
+      "threshold": "age \u2265 18"
+    }
+  ]
+}

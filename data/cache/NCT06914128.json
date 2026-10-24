@@ -1,0 +1,55 @@
+{
+  "nct_id": "NCT06914128",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Participant must be \u2265 18 years old of age, or the legal age of consent in the jurisdiction of the country in which the study takes place, at the time of signing the informed consent.",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group (ECOG) performance status of 0 or 1.",
+      "threshold": "ECOG 0 or 1"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Previous additional cancer other than the one evaluated in this study within the past 2 years except for basal or squamous cell carcinoma of the skin, carcinoma in situ of the cervix, superficial bladder tumors, localized prostate cancer or other tumors that in the opinion of the investigator, are considered cured or not immediately life-threatening, and will not interfere with the scientific goals of this study.",
+      "threshold": "within 2 years"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "A marked prolongation of QT/QTc interval at screening (e.g., repeated demonstration of a QTc interval \\>450 ms).",
+      "threshold": "QTc > 450 ms"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "History of congestive heart failure Class \\>II according to the New York Heart Association Functional Classification.",
+      "threshold": "NYHA class > II"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Myocardial infarction less than 6 months before the start of study intervention.",
+      "threshold": "MI within 6 months"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Serious cardiac arrhythmias requiring treatment or any clinically important abnormalities in rhythm, conduction or morphology on resting ECG with the exception of atrial fibrillation which is well-controlled and requires only digoxin or beta blockers.",
+      "threshold": null
+    }
+  ]
+}

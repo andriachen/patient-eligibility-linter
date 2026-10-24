@@ -1,0 +1,97 @@
+{
+  "nct_id": "NCT05726370",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age \u226518 years",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ECOG performance status 0 or 1 (Karnofsky \u226570%, see Appendix A)",
+      "threshold": "ECOG 0 or 1; Karnofsky >=70%"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "creatinine \u2264 institutional ULN OR",
+      "threshold": "creatinine <= institutional ULN"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "glomerular filtration rate (GFR) \u226550 mL/min/1.73 m2 unless data exists supporting safe use at lower kidney function values, no lower than 30 mL/min/1.73 m2.",
+      "threshold": "GFR >= 50 mL/min/1.73 m2"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "total bilirubin \u2264 institutional upper limit of normal (ULN)",
+      "threshold": "total bilirubin <= ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "AST(SGOT)/ALT(SGPT) \u22643 \u00d7 institutional ULN",
+      "threshold": "AST/ALT <= 3 x ULN"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Participants with known history or current symptoms of cardiac disease, or history of treatment with cardiotoxic agents, should have a clinical risk assessment of cardiac function using the New York Heart Association Functional Classification. To be eligible for this trial, participants should be class 2B or better.",
+      "threshold": "NYHA class 2B or better"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Female participants: A female participant is eligible to participate if she is not pregnant (see Appendix B), not breastfeeding, and at least one of the following conditions applies:",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Those with known brain metastases should be excluded from this clinical trial, because of the poor prognosis and because they often develop progressive neurologic dysfunction that would confound the evaluation of neurologic and other adverse events.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Has a known additional malignancy that is progressing or has required active treatment within the past 2 years.",
+      "threshold": "within 2 years"
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Has a known history of human immunodeficiency virus (HIV) infection.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "A WOCBP who has a positive urine pregnancy test within 72 hours prior to study registration",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant women are excluded from this study because pembrolizumab and chemotherapy agents have the potential for teratogenic or abortifacient effects.",
+      "threshold": null
+    }
+  ]
+}

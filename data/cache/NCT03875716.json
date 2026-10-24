@@ -1,0 +1,76 @@
+{
+  "nct_id": "NCT03875716",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age 18 or older years.",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ECOG performance status 0-1 (Karnofsky \u226570%, see Appendix A)",
+      "threshold": "ECOG 0-1"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "total bilirubin within normal institutional limits",
+      "threshold": "within normal institutional limits"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "AST(SGOT)/ALT(SGPT) \u22642.5 \u00d7 institutional upper limit of normal",
+      "threshold": "\u22642.5 \u00d7 ULN"
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "creatinine clearance \u226560 mL/min/1.73 m2 for participants with creatinine levels above institutional normal.",
+      "threshold": "CrCl \u226560 mL/min/1.73 m2"
+    },
+    {
+      "category": "smoking",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Patients with \u226420 pack-years of cumulative cigarette smoking.",
+      "threshold": "\u226420 pack-years"
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Prior history of head and neck cancer within 5 years.",
+      "threshold": "within 5 years"
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Note: that HIV positive patients will be eligible.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant women are excluded from this study because of the teratogenic risks of radiation exposure to the developing fetus.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "breastfeeding should be discontinued if the mother is enrolled in the study.",
+      "threshold": null
+    }
+  ]
+}

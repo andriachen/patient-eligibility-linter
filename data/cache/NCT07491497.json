@@ -1,0 +1,13 @@
+{
+  "nct_id": "NCT07491497",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "For participants with central nervous system (CNS) metastases or spinal cord compression, they must not be associated with progressive neurological symptoms or require increasing doses of corticosteroids to control the CNS disease",
+      "threshold": null
+    }
+  ]
+}

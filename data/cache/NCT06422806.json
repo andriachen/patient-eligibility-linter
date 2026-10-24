@@ -1,0 +1,90 @@
+{
+  "nct_id": "NCT06422806",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Patient must be \\>= 18 years of age",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Patient must not be pregnant or breast-feeding due to the potential harm to an unborn fetus and possible risk for adverse events in nursing infants with the treatment regimens being used.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Patient must have a left ventricular ejection fraction (LVEF) \\> 50% by either MUGA scan or echocardiogram obtained within 28 days prior to randomization",
+      "threshold": "LVEF > 50%"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Total bilirubin \\< 1.2 mg/dL (must be obtained \u2264 7 days prior to protocol randomization)",
+      "threshold": "Total bilirubin < 1.2 mg/dL"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Aspartate aminotransferase (AST) (serum glutamic oxaloacetic transaminase \\[SGOT\\]) and alanine aminotransferase (ALT) (serum glutamic pyruvic transaminase \\[SGPT\\]) \u2264 3.0 \u00d7 institutional upper limit of normal (ULN) (must be obtained \u2264 7 days prior to protocol randomization)",
+      "threshold": "AST/ALT \u2264 3.0 \u00d7 ULN"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Creatinine clearance \u2265 30 mL/min according to the Cockcroft-Gault formula (must be obtained \u2264 7 days prior to protocol randomization)",
+      "threshold": "CrCl \u2265 30 mL/min"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Patients with new or progressive brain metastases (active brain metastases) or leptomeningeal disease are eligible if the treating physician determines that immediate CNS specific treatment is not required and is unlikely to be required during the first cycle of therapy",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Patients with a prior or concurrent malignancy whose natural history or treatment does not have the potential to interfere with the safety or efficacy assessment of the investigational regimen are eligible for this trial",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Patients with known history or current symptoms of cardiac disease, or history of treatment with cardiotoxic agents, should have a clinical risk assessment of cardiac function using the New York Heart Association Functional Classification. To be eligible for this trial, patients should be class 2B or better",
+      "threshold": "NYHA class 2B or better"
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Patient must have an Eastern Cooperative Oncology Group (ECOG) performance status 0-1",
+      "threshold": "ECOG 0-1"
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Human immunodeficiency virus (HIV)-infected patients on effective anti-retroviral therapy with undetectable viral load within 6 months of randomization are eligible for this trial",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Contraception measures must continue for 6 months after the last dose of doxorubicin for patients of child bearing potential",
+      "threshold": null
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "nct_id": "NCT05946213",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age \\>= 18",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group (ECOG) Performance Status of 0-2",
+      "threshold": "ECOG 0-2"
+    }
+  ]
+}

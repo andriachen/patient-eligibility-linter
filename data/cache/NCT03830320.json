@@ -1,0 +1,41 @@
+{
+  "nct_id": "NCT03830320",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Subjects less than 18 years of age;",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant or breastfeeding (a negative STAT quantitative serum hCG pregnancy test is required for females having child-bearing potential before the subject can participate);",
+      "threshold": null
+    },
+    {
+      "category": "bmi",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Body weight over the weight limit for the moving table (\\> 300 lbs for the MRI table and \\>441 lbs for the CT table);",
+      "threshold": "weight > 300 lbs (MRI table) or > 441 lbs (CT table)"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Myocardial infarction within the last 3 months;",
+      "threshold": "within 3 months"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Heart rate persistently \\>120 bpm or persistently \\< 50 bpm;",
+      "threshold": "HR > 120 bpm or < 50 bpm"
+    }
+  ]
+}

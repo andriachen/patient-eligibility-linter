@@ -1,0 +1,55 @@
+{
+  "nct_id": "NCT07224776",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Estimated glomerular filtration rate (eGFR) \\< 45 ml/min/1.73m2",
+      "threshold": "eGFR < 45 ml/min/1.73m2"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Acute kidney injury defined as serum creatinine at least 1.5 times above the most proximal serum creatinine prior to VSPIs initiation",
+      "threshold": "serum creatinine >= 1.5 times most proximal pre-VSPI value"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "alanine aminotransferase and/or aspartate aminotransferase \\>2 times the upper limit of the normal at screening",
+      "threshold": "ALT and/or AST > 2 times ULN"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "History of congestive heart failure (New York Heart Association Class II-IV)",
+      "threshold": "NYHA Class II-IV"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "History of clinically significant cerebrovascular disease (transient ischemic attack or stroke) and/or coronary artery disease (hospitalization for myocardial infarction or unstable angina, new onset of angina with positive functional tests, coronary angiogram revealing stenosis, or a coronary revascularization procedure) within 6 months prior to screening.",
+      "threshold": "within 6 months prior to screening"
+    },
+    {
+      "category": "bmi",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Body weight \\<50 kg at screening",
+      "threshold": "body weight < 50 kg"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant or breastfeeding",
+      "threshold": null
+    }
+  ]
+}

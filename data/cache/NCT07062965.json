@@ -1,0 +1,27 @@
+{
+  "nct_id": "NCT07062965",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group (ECOG) Performance Status (PS) 0 or 1.",
+      "threshold": "ECOG PS 0 or 1"
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Renal impairment, hepatic dysfunction, or hematologic abnormalities.",
+      "threshold": null
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Renal impairment, hepatic dysfunction, or hematologic abnormalities.",
+      "threshold": null
+    }
+  ]
+}

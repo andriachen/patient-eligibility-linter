@@ -1,0 +1,41 @@
+{
+  "nct_id": "NCT03216525",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Man or woman between the ages of 18 and 85.",
+      "threshold": "age <= 85"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Pregnant (identified by a positive serum pregnancy test administered after the initial screening process and before the commencement of study activities) or lactating, or not postmenopausal (no menses for at least 1 year) and of childbearing potential and not using an accepted method of birth control",
+      "threshold": null
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Patients with severe hepatic impairment.",
+      "threshold": "severe"
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Patients with end-stage renal disease.",
+      "threshold": "end-stage"
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Patients with heart failure.",
+      "threshold": null
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "nct_id": "NCT06886516",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "brain_mets",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "No known brain metastases.",
+      "threshold": null
+    },
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age \u226518 years.",
+      "threshold": null
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ECOG performance status \u22642",
+      "threshold": "ECOG <= 2"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Total bilirubin \u2264 institutional upper limit of normal (ULN)",
+      "threshold": "bilirubin <= ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "AST(SGOT)/ALT(SGPT) \u22643 \u00d7 institutional ULN",
+      "threshold": "AST/ALT <= 3 x ULN"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Glomerular filtration rate (GFR) \u226525 mL/min/1.73/m2",
+      "threshold": "GFR >= 25 mL/min/1.73m2"
+    },
+    {
+      "category": "hiv",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Human immunodeficiency virus (HIV)-infected participants on effective anti-retroviral therapy with undetectable viral load within 6 months are eligible for this trial.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Active malignancy defined as histologically confirmed diagnosis within last 6 months or received any cancer directed therapy within the last 6 months.",
+      "threshold": "within 6 months"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant women are excluded from this study because apixaban has the potential for teratogenic or abortifacient effects.",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Presence of known or prior brain metastasis, given the increased risk of life-threatening intracranial hemorrhage with anticoagulant use.",
+      "threshold": null
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Severe renal disease (CKD Stage IV or higher)",
+      "threshold": "CKD stage IV or higher"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "or liver disease (Child Pugh B/C)",
+      "threshold": "Child Pugh B/C"
+    },
+    {
+      "category": "smoking",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participants receiving any medications or substances that are inhibitors or inducers of CYP3A/P-gp are ineligible.",
+      "threshold": null
+    }
+  ]
+}

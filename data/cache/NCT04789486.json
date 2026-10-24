@@ -1,0 +1,62 @@
+{
+  "nct_id": "NCT04789486",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ECOG performance status \u22642 (Karnofsky \u226560%, see Appendix A).",
+      "threshold": "ECOG \u22642"
+    },
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age 18 years or older.",
+      "threshold": "age >= 18"
+    },
+    {
+      "category": "renal",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "Creatinine clearance \u226560 mL/min/1.73 m2 for participants with creatinine levels above institutional normal.",
+      "threshold": "CrCl \u226560 mL/min/1.73 m2"
+    },
+    {
+      "category": "hepatic",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "AST(SGOT)/ALT(SGPT) \u22642.5 \u00d7 institutional upper limit of normal",
+      "threshold": "AST/ALT \u22642.5 \u00d7 ULN"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant women are excluded from this study because AGuIX is contrast agent with the potential for teratogenic or abortifacient effects.",
+      "threshold": null
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Known HIV-positive participants on combination antiretroviral therapy are ineligible because of the potential for pharmacokinetic interactions with AGuIX.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "symptomatic congestive heart failure, unstable angina pectoris, cardiac arrhythmia, or psychiatric illness/social situations that would limit compliance with study requirements.",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "breastfeeding should be discontinued if the mother is treated with AGuIX.",
+      "threshold": null
+    }
+  ]
+}

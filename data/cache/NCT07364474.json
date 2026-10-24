@@ -1,0 +1,55 @@
+{
+  "nct_id": "NCT07364474",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "language",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "in a language understood by the subject",
+      "threshold": null
+    },
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age \\> 18 years at date of informed consent signature having the ability to comply with the protocol.",
+      "threshold": "age > 18"
+    },
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Eastern Cooperative Oncology Group (ECOG) Performance Status of 0 or 1",
+      "threshold": "ECOG 0 or 1"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Glomerular filtration rate (GFR) \\>30 ml/min",
+      "threshold": "GFR > 30 ml/min"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Alanine aminotransferase (ALT) / Aspartate aminotransferase (AST) \\< 5 x ULN",
+      "threshold": "ALT/AST < 5 x ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Total bilirubin \\<3 mg/dL",
+      "threshold": "bilirubin < 3 mg/dL"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant or lactating",
+      "threshold": null
+    }
+  ]
+}

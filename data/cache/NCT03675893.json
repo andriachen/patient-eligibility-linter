@@ -1,0 +1,146 @@
+{
+  "nct_id": "NCT03675893",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "performance_status",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "ECOG performance status of 0 or 1",
+      "threshold": "ECOG 0 or 1"
+    },
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age \u2265 18 years",
+      "threshold": null
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Creatinine \u2264 1.5 \u00d7 institutional ULN, OR",
+      "threshold": "creatinine \u2264 1.5 \u00d7 institutional ULN"
+    },
+    {
+      "category": "renal",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Creatinine clearance \u2265 60 mL/min/1.73 m2 for participants with creatinine levels above institutional normal.",
+      "threshold": "CrCl \u2265 60 mL/min/1.73 m2"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Total bilirubin \u2264 1.5 \u00d7 institutional upper limit of normal (ULN).",
+      "threshold": "total bilirubin \u2264 1.5 \u00d7 ULN"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "AST(SGOT)/ALT(SGPT) \u2264 3\u00d7 institutional ULN",
+      "threshold": "AST/ALT \u2264 3\u00d7 ULN"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": false,
+      "section": "inclusion",
+      "source_text": "A negative serum pregnancy test is required for study entry from women of childbearing potential.",
+      "threshold": null
+    },
+    {
+      "category": "diabetes",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "For Cohorts 6 and 7, participants must have HbA1c \u22646.4% and fasting plasma glucose (FPG) \u2264140 mg/dL.",
+      "threshold": "HbA1c \u22646.4%; FPG \u2264140 mg/dL"
+    },
+    {
+      "category": "hepatic",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Participants who have impairment of gastrointestinal (GI) function or GI disease that may significantly alter the absorption of the study drugs",
+      "threshold": null
+    },
+    {
+      "category": "brain_mets",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Participants with known brain metastases should be excluded from this clinical trial because of their poor prognosis and because they often develop progressive neurologic dysfunction that would confound the evaluation of neurologic and other adverse events.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Uncontrolled intercurrent illness including, but not limited to, ongoing or active infection, symptomatic congestive heart failure, unstable angina pectoris, cardiac arrhythmia, or psychiatric illness/social situations that would limit compliance with study requirements.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Use of known QT-prolonging drugs during screening or expected requirement for use during study therapy.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "acute coronary syndromes (i.e. myocardial infarction or angina), coronary angioplasty, or stenting within 6 months prior to study enrollment.",
+      "threshold": "within 6 months"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Pregnant women are excluded from this study",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "breastfeeding must be discontinued if the mother is treated on trial.",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Individuals with a history of a different malignancy are ineligible with the following exceptions: individuals who have been treated and are disease-free for a minimum of 5 years prior to study enrollment, or individuals who are deemed by the treating investigator to be at low risk for disease recurrence.",
+      "threshold": "disease-free for 5 years"
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Known HIV-positive participants are ineligible because of the increased risk of lethal infections when treated with marrow-suppressive therapy.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Participants with a history of uncontrolled hypertension despite optimal medical management, defined as systolic blood pressure \\> 150 mmHg or diastolic blood pressure \\> 90 mmHg.",
+      "threshold": "SBP > 150 mmHg or DBP > 90 mmHg"
+    },
+    {
+      "category": "cardiac",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Inability to determine the corrected QT interval using Fridericia's formula (QTcF) on the ECG (i.e., unreadable or not interpretable) or QTcF\\>480 msec (determined by mean of triplicate ECGs at screening).",
+      "threshold": "QTcF > 480 msec"
+    },
+    {
+      "category": "diabetes",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "For Cohorts 6 and 7, participants with type 1 diabetes or uncontrolled type 2 diabetes.",
+      "threshold": null
+    }
+  ]
+}

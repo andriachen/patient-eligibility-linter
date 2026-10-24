@@ -1,0 +1,34 @@
+{
+  "nct_id": "NCT04794322",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Age less than 30 years",
+      "threshold": null
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Currently pregnant",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Prior history of known ovarian or endometrial cancer",
+      "threshold": null
+    },
+    {
+      "category": "prior_malignancy",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Treatment less than 1 year (excluding hormonal therapy) for cancer that spread beyond its origin",
+      "threshold": "treatment within 1 year"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "nct_id": "NCT05621291",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "Age \\>=1 year and \\<= 25 years old at the time of CD19 CART infusion",
+      "threshold": "age <= 25"
+    },
+    {
+      "category": "brain_mets",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Active and/or residual central nervous system (CNS) disease that requires ongoing therapy or monitoring.",
+      "threshold": null
+    }
+  ]
+}

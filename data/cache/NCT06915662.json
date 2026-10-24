@@ -1,0 +1,27 @@
+{
+  "nct_id": "NCT06915662",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "language",
+      "absolute": true,
+      "section": "inclusion",
+      "source_text": "English-speaking",
+      "threshold": null
+    },
+    {
+      "category": "age",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Patients under 22 years old",
+      "threshold": "minimum age 22 (age < 22 excluded)"
+    },
+    {
+      "category": "pregnancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Patients who are pregnant and/or breastfeeding",
+      "threshold": null
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "nct_id": "NCT07441694",
+  "model": "claude-haiku-5-5",
+  "exclusions": [
+    {
+      "category": "prior_malignancy",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Malignancy within the last 3 years prior to enrollment.",
+      "threshold": "within 3 years"
+    },
+    {
+      "category": "hiv",
+      "absolute": true,
+      "section": "exclusion",
+      "source_text": "Acute or chronic HBV, Active HCV or known HIV or tuberculosis infection.",
+      "threshold": null
+    },
+    {
+      "category": "cardiac",
+      "absolute": false,
+      "section": "exclusion",
+      "source_text": "Clinically significant or uncontrolled cardiac disease.",
+      "threshold": null
+    }
+  ]
+}
