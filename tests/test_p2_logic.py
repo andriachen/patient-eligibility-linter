@@ -174,6 +174,34 @@ def test_age_child_exclusion_boilerplate_dropped():
     assert not is_bare_adult_floor("patients must be < 30 years old at enrollment")
 
 
+def test_suggest_covers_all_13_categories():
+    from pipeline.extract.suggest import suggest_for_category
+    from pipeline.extract.prompts import CATEGORIES
+
+    for cat in CATEGORIES:
+        sugg, src = suggest_for_category(cat)
+        assert sugg and isinstance(sugg, str)  # every category has a suggestion
+
+
+def test_suggest_gap_categories_have_no_fabricated_source():
+    from pipeline.extract.suggest import suggest_for_category
+
+    # These have NO formal FDA/ASCO guidance (per docs/sources.md) -> empty source
+    for cat in ("diabetes", "bmi", "smoking", "language", "pregnancy"):
+        sugg, src = suggest_for_category(cat)
+        assert src == "", f"{cat} must not cite a source"
+        assert "no specific" in sugg.lower()
+
+
+def test_suggest_guided_categories_cite_a_source():
+    from pipeline.extract.suggest import suggest_for_category
+
+    for cat in ("hiv", "brain_mets", "renal", "hepatic", "cardiac",
+                "prior_malignancy", "age", "performance_status"):
+        _, src = suggest_for_category(cat)
+        assert ("FDA" in src) or ("ASCO" in src), f"{cat} should cite guidance"
+
+
 def test_tool_schema_enum_matches_categories():
     enum = EXTRACT_TOOL["input_schema"]["properties"]["exclusions"]["items"][
         "properties"
