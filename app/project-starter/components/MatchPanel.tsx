@@ -87,10 +87,12 @@ type Tab = "worth" | "ask" | "notfit";
 
 export function MatchPanel() {
   const [vec, setVec] = useState<Record<string, string>>({});
+  const [cancerType, setCancerType] = useState("");
   const [age, setAge] = useState("");
   const [county, setCounty] = useState("");
   const [result, setResult] = useState<MatchResponse | null>(null);
   const [tab, setTab] = useState<Tab>("worth");
+  const [ageError, setAgeError] = useState("");
   const [pending, startTransition] = useTransition();
 
   function set(key: string, value: string) {
@@ -99,8 +101,18 @@ export function MatchPanel() {
 
   function search() {
     const patient: PatientVector = { ...(vec as PatientVector) };
-    if (age.trim() && !Number.isNaN(Number(age))) patient.age = Number(age);
+    // #15: validate age is a plausible human age.
+    if (age.trim()) {
+      const n = Number(age);
+      if (Number.isNaN(n) || n < 0 || n > 120) {
+        setAgeError("Enter an age between 0 and 120.");
+        return;
+      }
+      patient.age = n;
+    }
+    setAgeError("");
     if (county) patient.county = county;
+    if (cancerType.trim()) patient.cancer_type = cancerType.trim();
     startTransition(async () => {
       const r = await runMatch(patient);
       setResult(r);
@@ -118,6 +130,9 @@ export function MatchPanel() {
 
   const cards =
     result && (tab === "worth" ? result.worthReachingOut : tab === "ask" ? result.askAboutThis : result.likelyNotAFit);
+  const totalForTab = result
+    ? tab === "worth" ? result.counts.worth : tab === "ask" ? result.counts.ask : result.counts.notFit
+    : 0;
 
   return (
     <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)]">
@@ -133,13 +148,24 @@ export function MatchPanel() {
         </p>
 
         <div className="mt-4 grid gap-3">
+          <GlassField label="Cancer type" hint="e.g. breast, lung, lymphoma. We only show trials for your cancer.">
+            <GlassInput
+              placeholder="e.g. breast"
+              value={cancerType}
+              onChange={(e) => setCancerType(e.target.value)}
+            />
+          </GlassField>
           <div className="grid grid-cols-2 gap-3">
             <GlassField label="Age">
               <GlassInput
                 inputMode="numeric"
                 placeholder="e.g. 58"
                 value={age}
-                onChange={(e) => setAge(e.target.value)}
+                onChange={(e) => {
+                  setAge(e.target.value);
+                  if (ageError) setAgeError("");
+                }}
+                aria-invalid={ageError ? true : undefined}
               />
             </GlassField>
             <GlassField label="Your county">
@@ -151,6 +177,9 @@ export function MatchPanel() {
               </GlassSelect>
             </GlassField>
           </div>
+          {ageError ? (
+            <p role="alert" className="text-xs font-medium text-rose-deep">{ageError}</p>
+          ) : null}
 
           {Q.map((q) => (
             <GlassField key={q.key as string} label={q.label}>
@@ -197,14 +226,26 @@ export function MatchPanel() {
               </p>
             </div>
           </div>
+        ) : result.source === "mock" ? (
+          <p className="glass-inset mt-4 grid min-h-40 place-items-center px-6 text-center text-sm text-ink-soft">
+            Trial data isn&apos;t loaded. Try again shortly.
+          </p>
         ) : (
           <div {...tabPanelProps("match-results", tab)} className="mt-4 focus:outline-none">
             {cards && cards.length > 0 ? (
-              <ul className="space-y-3">
-                {cards.map((c) => (
-                  <MatchResultCard key={c.nct_id} card={c} bucket={tab} />
-                ))}
-              </ul>
+              <>
+                <p className="mb-3 text-xs text-ink-faint">
+                  {totalForTab > cards.length
+                    ? `Showing ${cards.length} of ${totalForTab.toLocaleString()}`
+                    : `${totalForTab.toLocaleString()} trial${totalForTab === 1 ? "" : "s"}`}
+                  {" · we checked 13 common barriers, not full eligibility"}
+                </p>
+                <ul className="space-y-3">
+                  {cards.map((c) => (
+                    <MatchResultCard key={c.nct_id} card={c} bucket={tab} />
+                  ))}
+                </ul>
+              </>
             ) : (
               <p className="glass-inset grid min-h-40 place-items-center px-6 text-center text-sm text-ink-soft">
                 No trials in this group for your answers.
@@ -222,6 +263,7 @@ function MatchResultCard({ card, bucket }: { card: MatchCard; bucket: Tab }) {
     <li className="glass-inset p-4">
       <div className="flex flex-wrap items-center gap-2">
         {card.nearby ? <GlassBadge tone="cobalt">Nearby</GlassBadge> : null}
+        {card.notScreened ? <GlassBadge tone="neutral">Not screened</GlassBadge> : null}
         {card.phase ? <GlassBadge tone="neutral">{card.phase.replace(/;/g, ", ")}</GlassBadge> : null}
       </div>
       <p className="mt-2 font-semibold leading-snug text-ink">{card.title}</p>
@@ -248,6 +290,13 @@ function MatchResultCard({ card, bucket }: { card: MatchCard; bucket: Tab }) {
             </li>
           ))}
         </ul>
+      ) : null}
+
+      {/* #4: be honest when we couldn't extract this trial's criteria */}
+      {card.notScreened ? (
+        <p className="mt-2 text-xs text-ink-faint">
+          We couldn&apos;t read this trial&apos;s criteria automatically — check the listing yourself.
+        </p>
       ) : null}
 
       {/* CTA */}

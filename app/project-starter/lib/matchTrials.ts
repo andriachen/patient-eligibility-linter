@@ -44,10 +44,21 @@ export function matchTrials(patient: PatientVector): MatchResult {
     groups[matched.bucket].push(matched);
   }
 
+  // #2: deterministic, meaningful order — nearby first, then screened-and-clear
+  // ahead of not-screened, then fewer barriers, then by phase (later phases first,
+  // closer to patients), then nct_id as a stable tiebreak (never raw file order).
+  const phaseRank = (p: string) => {
+    const m = p.match(/(\d)/g);
+    return m ? Math.max(...m.map(Number)) : 0;
+  };
   const sortBucket = (arr: MatchedTrial[]) =>
     arr.sort((a, b) => {
-      if (a.nearby !== b.nearby) return a.nearby ? -1 : 1; // nearby first
-      return a.hits.length - b.hits.length; // fewer barriers first
+      if (a.nearby !== b.nearby) return a.nearby ? -1 : 1;
+      if (a.notScreened !== b.notScreened) return a.notScreened ? 1 : -1;
+      if (a.hits.length !== b.hits.length) return a.hits.length - b.hits.length;
+      const pr = phaseRank(b.trial.phase) - phaseRank(a.trial.phase);
+      if (pr !== 0) return pr;
+      return a.trial.nct_id.localeCompare(b.trial.nct_id);
     });
 
   sortBucket(groups.worth_reaching_out);
